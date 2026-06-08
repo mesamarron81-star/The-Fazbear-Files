@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE FAZBEAR FILES || Archivos Recuperados</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAS0lEQVRYhe3UMQoAMAjFUL2/p/OiIEJqgjPkLwR9HyIgIiIiIvJPYwYAYNuOGQCAbevMAADYdmYGAN8NAADb95kBANi2zwwAwLZ9ZgAAe38jBxER4S+JAAAAAElFTkSuQmCC">
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loading-screen">
+  <div class="loading-text">INICIALIZANDO SISTEMA...</div>
+  <div class="loading-bar">
+    <div class="loading-bar-fill"></div>
+  </div>
+  <div class="loading-system">[FAZBEAR ENTERTAINMENT ARCHIVE SYSTEM v3.1]</div>
+</div>
+
+<!-- CRT OVERLAY -->
+<div id="crt-overlay"></div>
+
+<!-- VHS NOISE -->
+<div id="vhs-overlay"></div>
+
+<!-- VHS DISTORTION -->
+<div id="vhs-distortion"></div>
+
+<!-- GOLDEN FREDDY EASTER EGG -->
+<div id="golden-egg" class="golden-appear">
+  <div style="text-align:center;">
+    <div style="font-size:60px;color:#E6B800;font-family:'Press Start 2P',monospace;text-shadow:0 0 40px rgba(230,184,0,0.8);">?</div>
+    <div style="font-size:14px;color:#E6B800;font-family:'Press Start 2P',monospace;margin-top:20px;text-shadow:0 0 20px rgba(230,184,0,0.5);">GOLDEN FREDDY</div>
+    <div style="font-size:10px;color:#666;font-family:'Share Tech Mono',monospace;margin-top:10px;">IT'S ME</div>
+  </div>
+</div>
+
+<!-- STATIC POPUP -->
+<div id="static-popup">
+  <div class="static-text">ERROR</div>
+  <div style="font-size:12px;color:#FF2222;font-family:'Press Start 2P',monospace;margin-top:20px;letter-spacing:3px;">CORRUPTED DATA</div>
+</div>
+
+<!-- NOTIFICATION -->
+<div id="notification" class="notification"></div>
+
+<!-- MAIN HEADER -->
+<header id="main-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="header-title glitch-text">THE FAZBEAR FILES</div>
+      <div class="header-subtitle">Archivos Recuperados de Fazbear Entertainment</div>
+      <div class="last-recovery" id="last-recovery">Última recuperación: [CARGANDO...]</div>
+    </div>
+    <div class="header-right">
+      <div class="header-status">
+        <span class="recording"></span> REC
+        <span style="color:#444;margin-left:10px;">●</span>
+        <span style="color:#444;margin-left:5px;">ARCHIVE</span>
+      </div>
+      <div class="header-case">CASE FILE #1987</div>
+      <div class="header-classified">◆ CLASSIFIED ◆</div>
+      <div class="header-restricted">SECURITY LEVEL: RESTRICTED</div>
+    </div>
+  </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav id="main-nav">
+  <ul>
+    <li><a href="#home" class="active" data-page="home">INICIO</a></li>
+    <li><a href="#characters" data-page="characters">ANIMATRÓNICOS</a></li>
+    <li><a href="#games" data-page="games">JUEGOS</a></li>
+    <li><a href="#books" data-page="books">LIBROS</a></li>
+    <li><a href="#series" data-page="series">SERIES</a></li>
+    <li><a href="#history" data-page="history">HISTORIA</a></li>
+    <li><a href="#music" data-page="music">CANCIONES</a></li>
+    <li><a href="#blog" data-page="blog">BLOG</a></li>
+    <li><a href="#admin" data-page="admin">ADMIN</a></li>
+  </ul>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="container">
+
+  <!-- ============ HOME ============ -->
+  <section id="page-home" class="page active">
+    <div class="hero">
+      <h1>ARCHIVOS RECUPERADOS</h1>
+      <p>Has accedido a un sistema restringido de archivos perteneciente a Fazbear Entertainment. 
+      Los siguientes documentos fueron recuperados desde servidores olvidados y contienen información 
+      clasificada sobre incidentes ocurridos en las diversas instalaciones de la compañía.</p>
+      <div class="security-badge">ARCHIVO CENTRAL — NIVEL 3</div>
+    </div>
+
+    <div class="section-title-wrapper">
+      <div class="section-title">PANEL DE MONITOREO</div>
+      <div class="section-sub">SISTEMA CENTRAL — FAZBEAR ENTERTAINMENT ARCHIVE v3.1</div>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="dashboard-grid">
+      <div class="dashboard-card">
+        <div class="card-header">
+          <span>ANIMATRÓNICOS REGISTRADOS</span>
+          <span class="card-badge">DATABASE</span>
+        </div>
+        <p style="font-size:24px;color:#00FF66;font-family:'Orbitron',monospace;margin-bottom:10px;" id="stat-characters">--</p>
+        <p>Entidades animatrónicas documentadas en los archivos de Fazbear Entertainment. Cada entrada incluye historial de comportamiento, nivel de amenaza y apariciones.</p>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="card-header">
+          <span>JUEGOS DOCUMENTADOS</span>
+          <span class="card-badge">ARCHIVE</span>
+        </div>
+        <p style="font-size:24px;color:#00FF66;font-family:'Orbitron',monospace;margin-bottom:10px;" id="stat-games">--</p>
+        <p>Entregas de la franquicia documentadas cronológicamente. Incluye títulos principales, spin-offs y contenido descargable.</p>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="card-header">
+          <span>INCIDENTES REGISTRADOS</span>
+          <span class="card-badge">CLASSIFIED</span>
+        </div>
+        <p style="font-size:24px;color:#E6B800;font-family:'Orbitron',monospace;margin-bottom:10px;" id="stat-incidents">--</p>
+        <p>Eventos documentados que la compañía ha intentado suprimir. Incluye desapariciones, incidentes con animatrónicos y cierres de instalaciones.</p>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="card-header">
+          <span>ARCHIVOS RECUPERADOS</span>
+          <span class="card-badge">RESTRICTED</span>
+        </div>
+        <p style="font-size:24px;color:#FF2222;font-family:'Orbitron',monospace;margin-bottom:10px;" id="stat-archives">--</p>
+        <p>Documentos internos, reportes de seguridad y registros de investigación recuperados de servidores corporativos dados de baja.</p>
+      </div>
+    </div>
+
+    <div class="section-title-wrapper" style="margin-top:40px;">
+      <div class="section-title">CRONOLOGÍA DE INCIDENTES</div>
+      <div class="section-sub">LÍNEA TEMPORAL DE EVENTOS DOCUMENTADOS</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="timeline" id="timeline-home"></div>
+
+    <div class="section-title-wrapper" style="margin-top:40px;">
+      <div class="section-title">ARCHIVOS RECUPERADOS RECIENTEMENTE</div>
+      <div class="section-sub">ÚLTIMAS ENTRADAS DEL SISTEMA</div>
+      <div class="section-divider"></div>
+    </div>
+    <div id="recent-stories" class="terminal"></div>
+  </section>
+
+  <!-- ============ CHARACTERS ============ -->
+  <section id="page-characters" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">BASE DE DATOS DE ANIMATRÓNICOS</div>
+      <div class="section-sub">REGISTRO DE ENTIDADES — FAZBEAR ENTERTAINMENT</div>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="search-box">
+      <span class="search-icon">></span>
+      <input type="text" id="character-search" placeholder="BUSCAR EN ARCHIVOS...">
+    </div>
+
+    <div class="filter-tags" id="character-filters">
+      <button class="filter-tag active" data-filter="all">TODOS</button>
+      <button class="filter-tag" data-filter="Original">ORIGINALES</button>
+      <button class="filter-tag" data-filter="Toy">TOY</button>
+      <button class="filter-tag" data-filter="Shadow">SHADOW</button>
+      <button class="filter-tag" data-filter="Phantom">PHANTOM</button>
+      <button class="filter-tag" data-filter="Nightmare">NIGHTMARE</button>
+      <button class="filter-tag" data-filter="Funtime">FUNTIME</button>
+      <button class="filter-tag" data-filter="Salvaged">SALVAGED</button>
+      <button class="filter-tag" data-filter="Rockstar">ROCKSTAR</button>
+      <button class="filter-tag" data-filter="Glamrock">GLAMROCK</button>
+      <button class="filter-tag" data-filter="Human">HUMANOS</button>
+    </div>
+
+    <div class="characters-grid" id="characters-grid"></div>
+  </section>
+
+  <!-- ============ GAMES ============ -->
+  <section id="page-games" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">SALA DE JUEGOS — ARCHIVO</div>
+      <div class="section-sub">DOCUMENTACIÓN DE ENTREGAS DE LA FRANQUICIA</div>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="search-box">
+      <span class="search-icon">></span>
+      <input type="text" id="games-search" placeholder="BUSCAR JUEGOS...">
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;" id="games-grid"></div>
+  </section>
+
+  <!-- ============ BOOKS ============ -->
+  <section id="page-books" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">BIBLIOTECA — ARCHIVOS LITERARIOS</div>
+      <div class="section-sub">COLECCIÓN DE DOCUMENTOS PUBLICADOS</div>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="search-box">
+      <span class="search-icon">></span>
+      <input type="text" id="books-search" placeholder="BUSCAR LIBROS...">
+    </div>
+
+    <div class="bookshelf" id="books-grid"></div>
+  </section>
+
+  <!-- ============ SERIES ============ -->
+  <section id="page-series" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">VIDEOTECA — SERIES RECUPERADAS</div>
+      <div class="section-sub">COLECCIÓN DE CINTAS VHS — FAZBEAR ENTERTAINMENT</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="vhs-grid" id="series-grid"></div>
+  </section>
+
+  <!-- ============ HISTORY ============ -->
+  <section id="page-history" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">ARCHIVO HISTÓRICO</div>
+      <div class="section-sub">CRONOLOGÍA DE INCIDENTES — DOCUMENTACIÓN COMPLETA</div>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="timeline">LÍNEA TEMPORAL</button>
+      <button class="tab-btn" data-tab="incidents">INCIDENTES</button>
+      <button class="tab-btn" data-tab="documents">DOCUMENTOS</button>
+    </div>
+
+    <div class="tab-content active" id="tab-timeline">
+      <div class="timeline" id="timeline-full"></div>
+    </div>
+
+    <div class="tab-content" id="tab-incidents">
+      <div class="dashboard-grid" id="incidents-grid">
+        <div class="dashboard-card">
+          <div class="card-header"><span>INCIDENTE DE LOS NIÑOS DESAPARECIDOS</span><span class="card-badge">CLASSIFIED</span></div>
+          <p>Entre 1985 y 1987, cinco niños desaparecieron en Freddy Fazbear's Pizza. Sus cuerpos nunca fueron encontrados, pero se cree que fueron escondidos dentro de los trajes de los animatrónicos. Este incidente llevó al cierre temporal de la ubicación original.</p>
+        </div>
+        <div class="dashboard-card">
+          <div class="card-header"><span>LA MORDIDA DEL '83</span><span class="card-badge">INCIDENT</span></div>
+          <p>En 1983, un niño pequeño (el hijo menor de William Afton) fue introducido en la boca de Fredbear durante una fiesta de cumpleaños. El mecanismo de mordida se activó, causando la muerte del niño. Este evento llevó al cierre de Fredbear's Family Diner.</p>
+        </div>
+        <div class="dashboard-card">
+          <div class="card-header"><span>LA MORDIDA DEL '87</span><span class="card-badge">INCIDENT</span></div>
+          <p>En 1987, un animatrónic mordió a un empleado no identificado, causando la pérdida de su lóbulo frontal. Este incidente llevó a la política de que los animatrónicos no pudieran moverse durante el día, y resultó en el cierre de la segunda ubicación de Freddy Fazbear's Pizza.</p>
+        </div>
+        <div class="dashboard-card">
+          <div class="card-header"><span>INCENDIO DE FAZBEAR'S FRIGHT</span><span class="card-badge">ARCHIVED</span></div>
+          <p>En 2023, la atracción de terror Fazbear's Fright, que había recuperado varios artefactos de las antiguas pizzerías, fue destruida por un incendio de origen desconocido. Se cree que Springtrap sobrevivió al incendio.</p>
+        </div>
+        <div class="dashboard-card">
+          <div class="card-header"><span>INCENDIO DE PIZZERIA SIMULATOR</span><span class="card-badge">CLASSIFIED</span></div>
+          <p>En una instalación falsa de Freddy Fazbear's Pizza operada por Michael Afton, se produjo un incendio masivo que destruyó a varios animatrónicos poseídos, incluyendo a Scrap Baby, Molten Freddy y Scraptrap. Henry Emily también pereció en el incendio.</p>
+        </div>
+        <div class="dashboard-card">
+          <div class="card-header"><span>PIZZAPLEX — INCIDENTES</span><span class="card-badge">RESTRICTED</span></div>
+          <p>El Megaplex de Freddy Fazbear, abierto en la década de 2020, ha experimentado múltiples incidentes de seguridad. Desaparecieron niños dentro de las instalaciones y se reportaron comportamientos anómalos en los animatrónicos Glamrock.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-documents">
+      <div class="document" style="margin-bottom:20px;">
+        <div class="doc-stamp restricted">RESTRICTED</div>
+        <div class="doc-header">INFORME INTERNO: COMPORTAMIENTO ANIMATRÓNICO</div>
+        <div class="doc-meta">
+          <div><span>REF:</span> FAZ-INT-001-87</div>
+          <div><span>FECHA:</span> 08/11/1987</div>
+          <div><span>CLASIFICACIÓN:</span> RESTRINGIDO</div>
+          <div><span>DESTINATARIO:</span> SÓLO PERSONAL AUTORIZADO</div>
+        </div>
+        <div class="doc-body">
+          <p>Se ha observado que los animatrónicos de la ubicación de Freddy Fazbear's Pizza presentan comportamientos erráticos durante los turnos nocturnos. Específicamente, se ha reportado que Bonnie, Chica y Foxy se desplazan de sus posiciones iniciales sin causa aparente.</p>
+          <p>Freddy Fazbear permanece mayormente estático durante la noche, pero se vuelve significativamente más activo a medida que avanza la madrugada. Se recomienda a los guardias de seguridad mantener las puertas cerradas y monitorear constantemente los niveles de energía.</p>
+          <p>NOTA: Se ha reportado la aparición de una figura dorada no identificada en las cámaras de seguridad. Personal no autorizado no debe mencionar este avistamiento.</p>
+        </div>
+      </div>
+
+      <div class="document">
+        <div class="doc-stamp confidential">CONFIDENTIAL</div>
+        <div class="doc-header">NOTAS DE INVESTIGACIÓN: WILLIAM AFTON</div>
+        <div class="doc-meta">
+          <div><span>REF:</span> FAZ-PERS-002</div>
+          <div><span>FECHA:</span> 20/06/1985</div>
+          <div><span>CLASIFICACIÓN:</span> CONFIDENCIAL</div>
+        </div>
+        <div class="doc-body">
+          <p>El empleado William Afton ha sido vinculado a múltiples incidentes de seguridad en varias ubicaciones de Fazbear Entertainment. Su paradero actual es desconocido. Se cree que podría estar utilizando los trajes de los animatrónicos para acceder a áreas restringidas.</p>
+          <p>Se recomienda que cualquier avistamiento de una figura morada dentro de las instalaciones sea reportado inmediatamente a la gerencia. NO intentar confrontar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MUSIC ============ -->
+  <section id="page-music" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">REPRODUCTOR DE CINTAS</div>
+      <div class="section-sub">ARCHIVO DE AUDIO — FAZBEAR ENTERTAINMENT</div>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="cassette-player">
+      <div class="tape-label">CINTA #001</div>
+      <div class="tape-reel" id="tape-reel"></div>
+      <div class="audio-visualizer" id="audio-visualizer">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="tape-controls">
+        <button class="tape-btn" id="play-btn">▶</button>
+        <button class="tape-btn" id="stop-btn">■</button>
+        <button class="tape-btn" id="volume-btn">♫</button>
+      </div>
+      <div class="tape-info" id="tape-info">STATUS: DETENIDO</div>
+    </div>
+
+    <div class="terminal" style="margin-top:30px;">
+      <div class="terminal-header">
+        <span>LISTA DE REPRODUCCIÓN — ARCHIVO AUDIO</span>
+        <span>8 CINTAS RECUPERADAS</span>
+      </div>
+      <div id="music-list"></div>
+    </div>
+  </section>
+
+  <!-- ============ BLOG ============ -->
+  <section id="page-blog" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">TERMINAL DE INVESTIGACIÓN</div>
+      <div class="section-sub">REGISTRO DE OPERACIONES — FAZBEAR FILES</div>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="terminal">
+      <div class="terminal-header">
+        <span>FAZBEAR INVESTIGATION TERMINAL v2.4</span>
+        <span>CONNECTED — SECURE CHANNEL</span>
+      </div>
+      <div id="blog-entries"></div>
+      <div style="margin-top:20px;padding-top:20px;border-top:1px solid #1C1C1C;">
+        <span style="color:#00FF66;">root@fazbear:~$</span>
+        <span class="cursor-blink"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ADMIN ============ -->
+  <section id="page-admin" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">PANEL DE ADMINISTRACIÓN</div>
+      <div class="section-sub">INTRANET CORPORATIVA — FAZBEAR ENTERTAINMENT</div>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="admin-panel">
+      <div class="admin-header">
+        <h3>FAZBEAR ADMIN SYSTEM v1.4</h3>
+        <span class="admin-status">● CONECTADO — SESIÓN ACTIVA</span>
+      </div>
+      <div class="admin-grid">
+        <div class="admin-sidebar">
+          <ul>
+            <li><a href="#" class="active" data-admin="dashboard">DASHBOARD</a></li>
+            <li><a href="#" data-admin="characters">ANIMATRÓNICOS</a></li>
+            <li><a href="#" data-admin="games">JUEGOS</a></li>
+            <li><a href="#" data-admin="reports">REPORTES</a></li>
+            <li><a href="#" data-admin="logs">REGISTROS</a></li>
+            <li><a href="#" data-admin="settings">CONFIGURACIÓN</a></li>
+          </ul>
+        </div>
+        <div class="admin-main" id="admin-main">
+          <div id="admin-dashboard">
+            <div class="admin-field">
+              <label>ESTADO DEL SISTEMA</label>
+              <div style="color:#00FF66;font-size:12px;">● TODOS LOS SISTEMAS OPERATIVOS</div>
+            </div>
+            <div class="admin-field">
+              <label>ÚLTIMA SINCRONIZACIÓN</label>
+              <div style="color:#888;font-size:11px;" id="admin-sync">[CARGANDO...]</div>
+            </div>
+            <div class="admin-field">
+              <label>ARCHIVOS RECUPERADOS</label>
+              <div style="color:#00FF66;font-size:16px;font-family:'Orbitron',monospace;">1,987</div>
+            </div>
+            <div class="admin-field">
+              <label>ALERTAS DE SEGURIDAD</label>
+              <div style="color:#FF2222;font-size:12px;font-family:'Press Start 2P',monospace;font-size:9px;">3 ALERTAS CRÍTICAS</div>
+            </div>
+            <button class="admin-btn" onclick="triggerStatic()">EJECUTAR DIAGNÓSTICO</button>
+          </div>
+
+          <div id="admin-characters" style="display:none;">
+            <div class="admin-field">
+              <label>GESTIÓN DE ANIMATRÓNICOS</label>
+              <div style="color:#888;font-size:11px;margin-bottom:15px;">Panel de administración de entradas en la base de datos.</div>
+            </div>
+            <div class="admin-field">
+              <label>FILTRAR POR ESTADO</label>
+              <select>
+                <option>TODOS</option>
+                <option>ACTIVO</option>
+                <option>DESTRUIDO</option>
+                <option>DESCONOCIDO</option>
+                <option>POSEÍDO</option>
+              </select>
+            </div>
+            <button class="admin-btn">GENERAR REPORTE</button>
+          </div>
+
+          <div id="admin-games" style="display:none;">
+            <div class="admin-field">
+              <label>REGISTRO DE TÍTULOS</label>
+              <div style="color:#888;font-size:11px;margin-bottom:15px;">Base de datos de entregas de la franquicia.</div>
+            </div>
+            <div class="admin-field">
+              <label>NUEVA ENTRADA</label>
+              <input type="text" placeholder="TÍTULO DEL JUEGO..." disabled>
+            </div>
+            <button class="admin-btn" disabled>AÑADIR ENTRADA</button>
+          </div>
+
+          <div id="admin-reports" style="display:none;">
+            <div class="admin-field">
+              <label>GENERAR REPORTE DE INCIDENTES</label>
+              <div style="color:#888;font-size:11px;margin-bottom:15px;">Seleccione el tipo de reporte a generar.</div>
+            </div>
+            <div class="admin-field">
+              <label>TIPO DE REPORTE</label>
+              <select>
+                <option>INCIDENTES DE SEGURIDAD</option>
+                <option>COMPORTAMIENTO ANIMATRÓNICO</option>
+                <option>REGISTRO DE PERSONAL</option>
+                <option>INVENTARIO DE INSTALACIONES</option>
+              </select>
+            </div>
+            <button class="admin-btn">GENERAR</button>
+          </div>
+
+          <div id="admin-logs" style="display:none;">
+            <div class="admin-field">
+              <label>REGISTROS DEL SISTEMA</label>
+              <div style="color:#888;font-size:11px;font-family:'IBM Plex Mono',monospace;line-height:1.8;">
+                <div>[12:00:01] SISTEMA INICIADO CORRECTAMENTE</div>
+                <div>[12:00:05] CONECTANDO CON BASE DE DATOS...</div>
+                <div>[12:00:07] CONEXIÓN ESTABLECIDA</div>
+                <div>[12:00:10] CARGANDO ARCHIVOS RECUPERADOS...</div>
+                <div>[12:00:15] 1,987 ARCHIVOS CARGADOS</div>
+                <div style="color:#FF2222;">[12:01:03] ADVERTENCIA: ACCESO NO AUTORIZADO DETECTADO</div>
+                <div style="color:#FF2222;">[12:01:05] PROTOCOLO DE SEGURIDAD ACTIVADO</div>
+                <div>[12:02:00] SISTEMA ESTABLE</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="admin-settings" style="display:none;">
+            <div class="admin-field">
+              <label>CONFIGURACIÓN DEL SISTEMA</label>
+            </div>
+            <div class="admin-field">
+              <label>SONIDO AMBIENTAL</label>
+              <select id="sound-toggle">
+                <option value="off">DESACTIVADO</option>
+                <option value="on">ACTIVADO</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label>EFECTOS VHS</label>
+              <select id="vhs-toggle">
+                <option value="on">ACTIVADO</option>
+                <option value="off">DESACTIVADO</option>
+              </select>
+            </div>
+            <div class="admin-field">
+              <label>INTERVALO DE SINCRONIZACIÓN</label>
+              <select>
+                <option>CADA 30 MINUTOS</option>
+                <option>CADA 1 HORA</option>
+                <option>CADA 6 HORAS</option>
+              </select>
+            </div>
+            <button class="admin-btn">GUARDAR CONFIGURACIÓN</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer id="main-footer">
+  <div class="footer-inner">
+    <p>THE FAZBEAR FILES — ARCHIVOS RECUPERADOS DE FAZBEAR ENTERTAINMENT</p>
+    <p>ESTE SISTEMA CONTIENE MATERIAL CLASIFICADO. ACCESO NO AUTORIZADO PROHIBIDO.</p>
+    <p class="footer-warning">◇ FAZBEAR ENTERTAINMENT — TODOS LOS DERECHOS RESERVADOS ◇</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content" id="modal-content">
+    <button class="modal-close" id="modal-close">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="data/characters.js"></script>
+<script src="data/games.js"></script>
+<script src="data/books.js"></script>
+<script src="data/timeline.js"></script>
+<script src="data/stories.js"></script>
+<script src="data/images.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
