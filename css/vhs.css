@@ -1,0 +1,237 @@
+/* ============================================
+   FAZBEAR SECURITY — VHS DISTORTION EFFECTS
+   Tracking, tape damage, color bleed, timestamp
+   ============================================ */
+
+/* === VHS OVERLAY CONTAINER === */
+.vhs-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99985;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* === TRACKING LINES === */
+.vhs-tracking {
+  position: absolute;
+  left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 10%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.06) 90%,
+    transparent 100%
+  );
+  animation: vhsTracking 12s linear infinite;
+  z-index: 1;
+}
+
+.vhs-tracking:nth-child(2) {
+  height: 5px;
+  animation-duration: 8s;
+  animation-delay: -3s;
+  opacity: 0.7;
+}
+
+.vhs-tracking:nth-child(3) {
+  height: 2px;
+  animation-duration: 15s;
+  animation-delay: -7s;
+  opacity: 0.5;
+}
+
+@keyframes vhsTracking {
+  0% { top: -5px; }
+  100% { top: calc(100% + 5px); }
+}
+
+/* === COLOR BLEED / DESALINEACION === */
+.vhs-color-bleed {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  mix-blend-mode: screen;
+  opacity: 0;
+  animation: colorBleed 20s ease-in-out infinite;
+}
+
+@keyframes colorBleed {
+  0%, 100% { opacity: 0; }
+  45% { opacity: 0; }
+  47% {
+    opacity: 0.3;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.05) 0%,
+      transparent 30%,
+      rgba(0, 0, 255, 0.05) 70%,
+      transparent 100%
+    );
+  }
+  50% {
+    opacity: 0.5;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 255, 255, 0.08) 0%,
+      transparent 40%,
+      rgba(255, 0, 255, 0.05) 80%,
+      transparent 100%
+    );
+  }
+  53% { opacity: 0; }
+}
+
+/* === VHS TIMESTAMP === */
+.vhs-timestamp {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 99988;
+  font-family: var(--font-terminal);
+  font-size: 18px;
+  color: var(--static-white);
+  text-shadow:
+    2px 2px 0 rgba(0, 0, 0, 0.8),
+    -1px 0 rgba(255, 0, 0, 0.3),
+    1px 0 rgba(0, 255, 255, 0.3);
+  letter-spacing: 2px;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.vhs-timestamp .rec-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--warning-red);
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+  animation: recBlink 1s steps(1) infinite;
+  box-shadow: 0 0 6px var(--warning-red), 0 0 12px var(--warning-red-glow);
+}
+
+@keyframes recBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* === VHS PLAY INDICATOR === */
+.vhs-play-indicator {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  z-index: 99988;
+  font-family: var(--font-terminal);
+  font-size: 14px;
+  color: var(--static-white);
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* === TAPE DAMAGE LINES === */
+.tape-damage {
+  position: absolute;
+  left: 0; right: 0;
+  height: 100%;
+  top: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  animation: tapeDamage 30s ease-in-out infinite;
+}
+
+@keyframes tapeDamage {
+  0%, 100% { opacity: 0; }
+  20% { opacity: 0; }
+  21% {
+    opacity: 1;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 3px,
+      rgba(255, 255, 255, 0.03) 3px,
+      rgba(255, 255, 255, 0.03) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+  }
+  24% { opacity: 0; }
+  60% { opacity: 0; }
+  61% {
+    opacity: 0.8;
+    background: linear-gradient(
+      0deg,
+      transparent 45%,
+      rgba(255, 255, 255, 0.08) 46%,
+      rgba(255, 255, 255, 0.15) 47%,
+      rgba(255, 255, 255, 0.08) 48%,
+      transparent 49%
+    );
+  }
+  63% { opacity: 0; }
+}
+
+/* === STATIC BURST === */
+.static-burst {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99995;
+  pointer-events: none;
+  opacity: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: screen;
+}
+
+.static-burst.active {
+  animation: staticBurst 0.5s steps(4) forwards;
+}
+
+@keyframes staticBurst {
+  0% { opacity: 0.8; }
+  25% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+  75% { opacity: 0.3; }
+  100% { opacity: 0; }
+}
+
+/* === SIGNAL LOSS === */
+.signal-loss {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99996;
+  pointer-events: none;
+  display: none;
+  background: var(--bg-void);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signal-loss.active {
+  display: flex;
+}
+
+.signal-loss__text {
+  font-family: var(--font-arcade);
+  font-size: 14px;
+  color: var(--static-white);
+  letter-spacing: 4px;
+  animation: signalText 0.5s steps(2) infinite;
+}
+
+@keyframes signalText {
+  0% { opacity: 0.8; }
+  50% { opacity: 0.3; }
+}

@@ -1,0 +1,263 @@
+/* ═══════════════════════════════════════════════
+   INDUSTRIAL METAL PANELS
+   CONTROL SURFACE EMULATION
+   ═══════════════════════════════════════════════ */
+
+/* ── Base Panel ── */
+.metal-panel {
+    position: relative;
+    background: linear-gradient(
+        135deg,
+        var(--metal-dark) 0%,
+        var(--bg-panel) 30%,
+        var(--metal-dark) 60%,
+        var(--bg-panel-surface) 100%
+    );
+    border: var(--border-width) solid var(--metal-mid);
+    box-shadow: 
+        inset 0 1px 0 rgba(255,255,255,0.03),
+        inset 0 -1px 0 rgba(0,0,0,0.5),
+        0 2px 8px rgba(0,0,0,0.8),
+        0 0 1px rgba(0,0,0,1);
+    overflow: hidden;
+}
+
+/* ── Panel with Screws ── */
+.metal-panel.screwed::before,
+.metal-panel.screwed::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 35% 35%,
+        var(--metal-highlight) 0%,
+        var(--metal-mid) 30%,
+        var(--metal-dark) 70%,
+        #111 100%
+    );
+    box-shadow: 
+        inset 0 1px 1px rgba(255,255,255,0.1),
+        0 1px 2px rgba(0,0,0,0.8);
+    z-index: 10;
+}
+
+.metal-panel.screwed::before {
+    top: 6px;
+    left: 6px;
+}
+
+.metal-panel.screwed::after {
+    top: 6px;
+    right: 6px;
+}
+
+/* ── Bottom Screws (via extra elements) ── */
+.screw {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 35% 35%,
+        var(--metal-highlight) 0%,
+        var(--metal-mid) 30%,
+        var(--metal-dark) 70%,
+        #111 100%
+    );
+    box-shadow: 
+        inset 0 1px 1px rgba(255,255,255,0.1),
+        0 1px 2px rgba(0,0,0,0.8);
+    z-index: 10;
+}
+
+.screw::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 1px;
+    background: var(--metal-dark);
+    transform: translate(-50%, -50%) rotate(30deg);
+}
+
+.screw::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 6px;
+    background: var(--metal-dark);
+    transform: translate(-50%, -50%) rotate(30deg);
+}
+
+/* ── Rusted Panel ── */
+.metal-panel.rusted {
+    background: linear-gradient(
+        135deg,
+        var(--metal-dark) 0%,
+        var(--bg-panel) 20%,
+        var(--rust-dark) 40%,
+        var(--bg-panel) 60%,
+        var(--metal-dark) 80%,
+        var(--rust-dark) 100%
+    );
+    border-color: var(--rust-dark);
+}
+
+/* ── Panel Scratches ── */
+.scratched::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(73deg, transparent 30%, rgba(255,255,255,0.01) 30.5%, transparent 31%),
+        linear-gradient(125deg, transparent 55%, rgba(255,255,255,0.015) 55.5%, transparent 56%),
+        linear-gradient(95deg, transparent 70%, rgba(255,255,255,0.01) 70.3%, transparent 70.6%),
+        linear-gradient(160deg, transparent 20%, rgba(255,255,255,0.02) 20.2%, transparent 20.5%);
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* ── Industrial Label ── */
+.industrial-label {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--metal-mid);
+    border: 1px solid var(--metal-edge);
+    font-family: var(--font-industrial);
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* ── LED Indicator ── */
+.led {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--led-off);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.5);
+    transition: all 0.3s;
+}
+
+.led.green {
+    background: var(--led-green);
+    box-shadow: 
+        0 0 3px var(--led-green),
+        0 0 8px rgba(0, 255, 0, 0.3),
+        inset 0 -1px 1px rgba(0,0,0,0.3);
+}
+
+.led.red {
+    background: var(--led-red);
+    box-shadow: 
+        0 0 3px var(--led-red),
+        0 0 8px rgba(255, 0, 0, 0.3),
+        inset 0 -1px 1px rgba(0,0,0,0.3);
+    animation: led-pulse-red 1.5s ease-in-out infinite;
+}
+
+.led.amber {
+    background: var(--led-amber);
+    box-shadow: 
+        0 0 3px var(--led-amber),
+        0 0 8px rgba(255, 170, 0, 0.3),
+        inset 0 -1px 1px rgba(0,0,0,0.3);
+}
+
+.led.off {
+    background: var(--led-off);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.5);
+}
+
+/* ── Rivet ── */
+.rivet {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, var(--metal-light), var(--metal-dark));
+    box-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+
+/* ── Panel Divider ── */
+.panel-divider {
+    width: 100%;
+    height: var(--panel-gap);
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.8) 0%,
+        var(--metal-dark) 50%,
+        rgba(0,0,0,0.8) 100%
+    );
+    box-shadow: 
+        0 -1px 0 var(--metal-mid),
+        0 1px 0 var(--metal-mid);
+}
+
+/* ── Vertical Divider ── */
+.panel-divider-v {
+    width: var(--panel-gap);
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.8) 0%,
+        var(--metal-dark) 50%,
+        rgba(0,0,0,0.8) 100%
+    );
+    box-shadow: 
+        -1px 0 0 var(--metal-mid),
+        1px 0 0 var(--metal-mid);
+}
+
+/* ── Warning Stripes ── */
+.warning-stripes {
+    background: repeating-linear-gradient(
+        -45deg,
+        #1a1a00 0px,
+        #1a1a00 10px,
+        #0a0a00 10px,
+        #0a0a00 20px
+    );
+    border: 1px solid var(--metal-mid);
+}
+
+@keyframes led-pulse-red {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* ── Sticker / Tape ── */
+.tape-label {
+    display: inline-block;
+    padding: 3px 10px;
+    background: #c9b97e;
+    color: #2a2a2a;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    font-weight: bold;
+    transform: rotate(-1deg);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    border: 1px solid #a89860;
+    position: relative;
+}
+
+.tape-label::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.1) 45%, transparent 50%);
+}
