@@ -242,12 +242,79 @@ function renderRecentStories() {
 // =============================================
 // CHARACTERS
 // =============================================
+function getThreatPercent(level) {
+  switch((level || '').toLowerCase()) {
+    case 'critical': return 95;
+    case 'high': return 75;
+    case 'medium': return 50;
+    case 'low': return 25;
+    default: return 10;
+  }
+}
+
+function getThreatColor(level) {
+  switch((level || '').toLowerCase()) {
+    case 'critical': return '#FF2222';
+    case 'high': return '#FF6600';
+    case 'medium': return '#E6B800';
+    case 'low': return '#00FF66';
+    default: return '#555';
+  }
+}
+
+function extractMainGame(firstApp) {
+  if (!firstApp) return 'Desconocido';
+  const m = firstApp.match(/^([^(]+)/);
+  return m ? m[1].trim() : firstApp;
+}
+
+function getCharVariants(char) {
+  if (!char || !char.name) return [];
+  const baseName = char.name.split(' ')[0].toLowerCase();
+  return characters.filter(c =>
+    c.id !== char.id &&
+    c.name.toLowerCase().includes(baseName) &&
+    c.category !== char.category
+  ).slice(0, 5);
+}
+
+const GAME_ORDER = [
+  'FNaF 1', 'FNaF 2', 'FNaF 3', 'FNaF 4', 'Sister Location',
+  'FFPS', 'UCN', 'Help Wanted', 'Security Breach', 'AR',
+  'HW2', 'Books', 'Other'
+];
+
+function getCharGame(char) {
+  const app = (char.firstAppearance || '').toLowerCase();
+  if (app.includes('sister location') || app.includes('circus')) return 'Sister Location';
+  if (app.includes('pizzeria simulator') || app.includes('ffps')) return 'FFPS';
+  if (app.includes('ultimate custom night') || app.includes('ucn')) return 'UCN';
+  if (app.includes('help wanted 2') || app.includes('hw2')) return 'HW2';
+  if (app.includes('help wanted') || app.includes('vr')) return 'Help Wanted';
+  if (app.includes('security breach') || app.includes('ruin')) return 'Security Breach';
+  if (app.includes('ar') || app.includes('special delivery')) return 'AR';
+  if (app.includes('fnaf 4') || app.includes('four') || app.includes('nightmare')) return 'FNaF 4';
+  if (app.includes('fnaf 3') || app.includes('three') || app.includes('fazbear')) return 'FNaF 3';
+  if (app.includes('fnaf 2') || app.includes('two')) return 'FNaF 2';
+  if (app.includes('fnaf 1') || app.includes('one') || app.includes('2014')) return 'FNaF 1';
+  if (app.includes('book') || app.includes('novela') || app.includes('fazbear frights') || app.includes('tales')) return 'Books';
+  return 'Other';
+}
+
 function renderCharacters(filter = state.currentFilter, search = state.characterSearch) {
   const grid = $('#characters-grid');
   let filtered = [...characters];
 
   if (filter !== 'all') {
-    filtered = filtered.filter(c => c.category === filter);
+    if (filter.startsWith('game:')) {
+      const gameName = filter.replace('game:', '');
+      filtered = filtered.filter(c => getCharGame(c) === gameName);
+    } else {
+      filtered = filtered.filter(c => {
+        const cat = (c.category || '').toLowerCase();
+        return cat === filter.toLowerCase();
+      });
+    }
   }
 
   if (search) {
@@ -255,16 +322,48 @@ function renderCharacters(filter = state.currentFilter, search = state.character
     filtered = filtered.filter(c =>
       c.name.toLowerCase().includes(s) ||
       c.alias.toLowerCase().includes(s) ||
-      c.description.toLowerCase().includes(s)
+      (c.description || '').toLowerCase().includes(s) ||
+      (c.firstAppearance || '').toLowerCase().includes(s)
     );
   }
 
-  grid.innerHTML = filtered.map(char => {
-    const imgUrl = getImageUrl('characters', char.id);
-    return `
+  const useGameGroups = filter === 'all' || filter.startsWith('game:');
+
+  if (useGameGroups && !search) {
+    const groups = {};
+    filtered.forEach(char => {
+      const game = getCharGame(char);
+      if (!groups[game]) groups[game] = [];
+      groups[game].push(char);
+    });
+
+    let html = '';
+    GAME_ORDER.forEach(game => {
+      if (!groups[game] || groups[game].length === 0) return;
+      html += `<div class="game-group">
+        <div class="game-group-header">
+          <span class="game-group-title">${game}</span>
+          <span class="game-group-count">${groups[game].length}</span>
+        </div>
+        <div class="game-group-grid">
+          ${groups[game].map(char => renderCharCard(char)).join('')}
+        </div>
+      </div>`;
+    });
+    grid.innerHTML = html;
+  } else {
+    grid.innerHTML = `<div class="game-group-grid full-width">${filtered.map(char => renderCharCard(char)).join('')}</div>`;
+  }
+}
+
+function renderCharCard(char) {
+  const imgUrl = getImageUrl('characters', char.id);
+  const threatPct = getThreatPercent(char.threatLevel);
+  const threatColor = getThreatColor(char.threatLevel);
+  return `
     <div class="character-card" onclick="showCharacterModal('${char.id}')">
       <div class="char-image">
-        ${imgUrl ? `<img src="${imgUrl}" alt="${char.name}" class="char-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy">` : ''}
+        ${imgUrl ? `<img src="${imgUrl}" alt="${char.name}" class="char-img" onerror="this.style.display='none';this.parentNode.querySelector('.char-img-fallback').style.display='flex'" loading="lazy">` : ''}
         <div class="char-img-fallback" style="display:${imgUrl ? 'none' : 'flex'}">
           <div class="char-fallback-letter">${char.name.charAt(0)}</div>
         </div>
@@ -272,21 +371,27 @@ function renderCharacters(filter = state.currentFilter, search = state.character
       </div>
       <div class="char-classified">ANIMATRONIC</div>
       <div class="char-threat ${getThreatClass(char.threatLevel)}">${char.threatLevel.toUpperCase()}</div>
+      <div class="char-card-tags">
+        <span class="char-card-game">${extractMainGame(char.firstAppearance)}</span>
+        <span class="char-card-cat">${(char.category || '').toUpperCase()}</span>
+      </div>
       <div class="char-info">
         <div class="char-name">${char.name}</div>
         <div class="char-alias">${char.alias}</div>
         <div class="char-meta">
-          <span class="status-${char.status.toLowerCase()}">${char.status.toUpperCase()}</span>
-          <span>${char.category.toUpperCase()}</span>
+          <span class="status-${(char.status || 'unknown').toLowerCase()}">${(char.status || 'UNKNOWN').toUpperCase()}</span>
         </div>
-        <div class="char-desc">${char.description}</div>
+        <div class="char-desc">${(char.description || '').slice(0, 120)}${(char.description || '').length > 120 ? '...' : ''}</div>
+        <div class="char-threat-bar">
+          <div class="threat-fill" style="width:${threatPct}%;background:${threatColor};"></div>
+        </div>
       </div>
     </div>
-  `}).join('');
+  `;
 }
 
 function getThreatClass(level) {
-  switch(level.toLowerCase()) {
+  switch((level || '').toLowerCase()) {
     case 'low': return 'low';
     case 'medium': return 'medium';
     case 'high': return 'high';
@@ -312,6 +417,15 @@ function initCharacterFilters() {
       renderCharacters(state.currentFilter, state.characterSearch);
     });
   });
+
+  // Also filter by game/category if present
+  const gameFilter = $('#character-game-filter');
+  if (gameFilter) {
+    gameFilter.addEventListener('change', (e) => {
+      state.currentFilter = e.target.value;
+      renderCharacters(state.currentFilter, state.characterSearch);
+    });
+  }
 }
 
 // =============================================
@@ -670,67 +784,186 @@ window.showCharacterModal = (id) => {
 
   window._currentGallery = getImageGallery('characters', id);
   const imgUrl = getImageUrl('characters', id);
+  const threatPct = getThreatPercent(char.threatLevel);
+  const threatColor = getThreatColor(char.threatLevel);
+  const variants = getCharVariants(char);
+  const isClassified = ['golden-freddy','springtrap','the-puppet','the-mimic','glitchtrap','burntrap'].includes(char.id);
+  const isTopSecret = ['golden-freddy','glitchtrap'].includes(char.id);
 
   const body = $('#modal-body');
   body.innerHTML = `
-    ${imgUrl ? `
-    <div class="modal-image-section">
-      <div class="modal-image-wrapper">
-        <img src="${imgUrl}" alt="${char.name}" class="modal-img" onerror="this.style.display='none'">
-        <div class="modal-image-overlay"></div>
-      </div>
-      ${window._currentGallery.length > 1 ? `
-      <div class="modal-gallery" id="modal-gallery">
-        <div class="gallery-thumbs">
-          ${window._currentGallery.map((u, i) => `
-            <img src="${u}" class="gallery-thumb ${i === 0 ? 'active' : ''}" 
-                 onclick="showGalleryImage(${i})" loading="lazy"
-                 onerror="this.style.display='none'">
-          `).join('')}
+    <div class="expediente ${isTopSecret ? 'top-secret' : isClassified ? 'classified' : ''}">
+      <!-- HEADER: Giant image + title -->
+      <div class="exp-header">
+        ${imgUrl ? `
+        <div class="exp-image-section">
+          <div class="exp-image-wrapper">
+            <img src="${imgUrl}" alt="${char.name}" class="exp-img" onerror="this.style.display='none'">
+            <div class="vhs-scanlines-overlay"></div>
+            <div class="exp-image-corner tl"></div><div class="exp-image-corner tr"></div>
+            <div class="exp-image-corner bl"></div><div class="exp-image-corner br"></div>
+          </div>
+          ${window._currentGallery.length > 1 ? `
+          <div class="exp-gallery">
+            <div class="gallery-thumbs">
+              ${window._currentGallery.map((u, i) => `
+                <img src="${u}" class="gallery-thumb ${i === 0 ? 'active' : ''}" 
+                     onclick="showGalleryImage(${i})" loading="lazy"
+                     onerror="this.style.display='none'">
+              `).join('')}
+            </div>
+            <div class="gallery-nav">
+              <button class="gallery-btn" onclick="galleryNav(-1)">◀ ANTERIOR</button>
+              <span class="gallery-counter" id="gallery-counter">1 / ${window._currentGallery.length}</span>
+              <button class="gallery-btn" onclick="galleryNav(1)">SIGUIENTE ▶</button>
+            </div>
+          </div>` : ''}
+        </div>` : `
+        <div class="exp-image-section exp-no-img">
+          <div class="exp-fallback-letter">${char.name.charAt(0)}</div>
+          <div class="vhs-scanlines-overlay"></div>
+        </div>`}
+        <div class="exp-title-section">
+          <div class="exp-stamps">
+            <span class="exp-stamp ${(char.threatLevel || '').toLowerCase()}">${(char.threatLevel || 'UNKNOWN').toUpperCase()}</span>
+            <span class="exp-stamp status-${(char.status || 'unknown').toLowerCase()}">${(char.status || 'UNKNOWN').toUpperCase()}</span>
+            ${isTopSecret ? '<span class="exp-stamp top-secret">TOP SECRET</span>' : isClassified ? '<span class="exp-stamp classified">CLASSIFIED</span>' : ''}
+          </div>
+          <h1 class="exp-name">${char.name}</h1>
+          <div class="exp-alias">${char.alias || ''}</div>
+          <div class="exp-badges">
+            <span class="exp-badge">${(char.category || '').toUpperCase()}</span>
+            <span class="exp-badge game-badge">${extractMainGame(char.firstAppearance)}</span>
+          </div>
+          <div class="exp-threat-section">
+            <div class="threat-label-exp">NIVEL DE AMENAZA</div>
+            <div class="threat-bar-exp">
+              <div class="threat-fill-exp" style="width:${threatPct}%;background:${threatColor};"></div>
+            </div>
+            <div class="threat-value-exp" style="color:${threatColor};">${(char.threatLevel || 'UNKNOWN').toUpperCase()}</div>
+          </div>
         </div>
-        <div class="gallery-nav">
-          <button class="gallery-btn" onclick="galleryNav(-1)">◀</button>
-          <span class="gallery-counter" id="gallery-counter">1 / ${window._currentGallery.length}</span>
-          <button class="gallery-btn" onclick="galleryNav(1)">▶</button>
+      </div>
+
+      <!-- INFO GRID -->
+      <div class="exp-section">
+        <div class="section-header"><span>■</span> INFORMACIÓN GENERAL</div>
+        <div class="exp-info-grid">
+          <div class="exp-info-item">
+            <span class="exp-info-label">NOMBRE COMPLETO</span>
+            <span class="exp-info-value">${char.name}</span>
+          </div>
+          <div class="exp-info-item">
+            <span class="exp-info-label">ALIAS</span>
+            <span class="exp-info-value">${char.alias || 'N/A'}</span>
+          </div>
+          <div class="exp-info-item">
+            <span class="exp-info-label">PRIMERA APARICIÓN</span>
+            <span class="exp-info-value">${char.firstAppearance || 'N/A'}</span>
+          </div>
+          <div class="exp-info-item">
+            <span class="exp-info-label">ESTADO</span>
+            <span class="exp-info-value status-${(char.status || 'unknown').toLowerCase()}">${char.status || 'UNKNOWN'}</span>
+          </div>
+          <div class="exp-info-item">
+            <span class="exp-info-label">CLASIFICACIÓN</span>
+            <span class="exp-info-value">${char.category || 'N/A'}</span>
+          </div>
+          <div class="exp-info-item">
+            <span class="exp-info-label">PROCEDENCIA</span>
+            <span class="exp-info-value">${char.origin || 'N/A'}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESCRIPTION -->
+      <div class="exp-section">
+        <div class="section-header"><span>■</span> DESCRIPCIÓN GENERAL</div>
+        <p class="exp-text">${char.description || ''}</p>
+      </div>
+
+      <!-- HISTORY -->
+      <div class="exp-section">
+        <div class="section-header"><span>■</span> HISTORIAL COMPLETO</div>
+        <div class="exp-text history-text">${char.history || 'Sin datos disponibles.'}</div>
+      </div>
+
+      <!-- BEHAVIOR -->
+      <div class="exp-section">
+        <div class="section-header"><span>■</span> COMPORTAMIENTO Y MECÁNICAS</div>
+        <div class="exp-text">${char.behavior || 'Sin datos disponibles.'}</div>
+      </div>
+
+      <!-- GAME APPEARANCES -->
+      <div class="exp-section">
+        <div class="section-header"><span>■</span> JUEGOS DONDE APARECE</div>
+        <div class="exp-gamelist">
+          ${(char.appearances || []).map(a => `
+            <div class="exp-game-chip">
+              <span class="exp-game-icon">◆</span>
+              <span>${a}</span>
+            </div>
+          `).join('')}
+          ${(!char.appearances || char.appearances.length === 0) ? '<div class="exp-text dim">Sin registros.</div>' : ''}
+        </div>
+      </div>
+
+      <!-- RELATIONSHIPS -->
+      <div class="exp-section">
+        <div class="section-header"><span>■</span> RELACIONES</div>
+        <div class="exp-relations">
+          ${(char.relationships || []).map(r => {
+            const relChar = characters.find(c => c.name.toLowerCase() === r.name.toLowerCase());
+            const relImg = relChar ? getImageUrl('characters', relChar.id) : '';
+            return `
+            <div class="exp-relation-item" onclick="showCharacterModal('${relChar ? relChar.id : ''})" style="${relChar ? 'cursor:pointer;' : ''}">
+              ${relImg ? `<img src="${relImg}" class="relation-img" onerror="this.style.display='none'" loading="lazy">` : `<div class="relation-img relation-fallback">${r.name.charAt(0)}</div>`}
+              <div class="relation-info">
+                <span class="relation-name">${r.name}</span>
+                <span class="relation-desc">${r.relation || ''}</span>
+              </div>
+            </div>
+          `}).join('')}
+          ${(!char.relationships || char.relationships.length === 0) ? '<div class="exp-text dim">Sin relaciones registradas.</div>' : ''}
+        </div>
+      </div>
+
+      <!-- VARIANTS -->
+      ${variants.length > 0 ? `
+      <div class="exp-section">
+        <div class="section-header"><span>■</span> VARIANTES</div>
+        <div class="exp-variants">
+          ${variants.map(v => {
+            const vImg = getImageUrl('characters', v.id);
+            return `
+            <div class="exp-variant-item" onclick="showCharacterModal('${v.id}')">
+              ${vImg ? `<img src="${vImg}" class="variant-img" onerror="this.style.display='none'" loading="lazy">` : `<div class="variant-img variant-fallback">${v.name.charAt(0)}</div>`}
+              <span class="variant-name">${v.name}</span>
+              <span class="variant-cat">${v.category || ''}</span>
+            </div>
+          `}).join('')}
         </div>
       </div>` : ''}
-    </div>` : ''}
 
-    <div class="doc-stamp restricted" style="position:relative;top:auto;right:auto;transform:none;display:inline-block;margin-bottom:15px;">${char.status.toUpperCase()}</div>
-    <div class="doc-header">${char.name}</div>
-    <div class="doc-meta">
-      <div><span>ALIAS:</span> ${char.alias}</div>
-      <div><span>PRIMERA APARICIÓN:</span> ${char.firstAppearance}</div>
-      <div><span>ESTADO:</span> ${char.status}</div>
-      <div><span>NIVEL DE AMENAZA:</span> <span style="color:${char.threatLevel === 'Critical' ? '#FF2222' : char.threatLevel === 'High' ? '#FF6600' : '#E6B800'}">${char.threatLevel.toUpperCase()}</span></div>
-      <div><span>PROCEDENCIA:</span> ${char.origin}</div>
-      <div><span>CATEGORÍA:</span> ${char.category}</div>
-    </div>
-    <div class="doc-body">
-      <p>${char.description}</p>
-      <p>${char.history}</p>
-      <p><strong style="color:#00FF66;">COMPORTAMIENTO:</strong> ${char.behavior}</p>
-
-      <div style="margin:15px 0;padding:10px;border:1px solid #1C1C1C;">
-        <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#00FF66;margin-bottom:10px;">APARICIONES</div>
-        <div style="display:flex;flex-wrap:wrap;gap:5px;">
-          ${char.appearances.map(a => `<span style="font-size:9px;color:#888;border:1px solid #242424;padding:2px 6px;">${a}</span>`).join('')}
+      <!-- TRIVIA -->
+      ${(char.trivia || []).length > 0 ? `
+      <div class="exp-section">
+        <div class="section-header"><span>■</span> DATOS DE ARCHIVO / CURIOSIDADES</div>
+        <div class="exp-trivia">
+          ${char.trivia.map(t => `
+            <div class="exp-trivia-item">
+              <span class="trivia-bullet">▸</span>
+              <span>${t}</span>
+            </div>
+          `).join('')}
         </div>
-      </div>
+      </div>` : ''}
 
-      <div style="margin:15px 0;padding:10px;border:1px solid #1C1C1C;">
-        <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#00FF66;margin-bottom:10px;">RELACIONES</div>
-        ${char.relationships.map(r => `<div style="font-size:11px;color:#888;margin-bottom:3px;"><span style="color:#E6B800;">${r.name}</span> — ${r.relation}</div>`).join('')}
+      <!-- FOOTER -->
+      <div class="exp-footer">
+        <div class="exp-footer-line">FAZBEAR ENTERTAINMENT · DOCUMENTACIÓN INTERNA</div>
+        <div class="exp-footer-line">SOLO PARA PERSONAL AUTORIZADO · ${isTopSecret ? 'ACCESO DENEGADO' : isClassified ? 'ACCESO RESTRINGIDO' : 'DIFUSIÓN LIMITADA'}</div>
       </div>
-
-      ${char.trivia.length > 0 ? `
-        <div style="margin:15px 0;padding:10px;border:1px solid #1C1C1C;">
-          <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#00FF66;margin-bottom:10px;">DATOS DE ARCHIVO</div>
-          <ul style="list-style:none;">
-            ${char.trivia.map(t => `<li style="font-size:11px;color:#888;margin-bottom:5px;">> ${t}</li>`).join('')}
-          </ul>
-        </div>
-      ` : ''}
     </div>
   `;
 
