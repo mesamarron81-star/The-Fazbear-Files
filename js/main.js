@@ -707,71 +707,192 @@ window.showCharacterModal = (id) => {
   window._currentGallery = getImageGallery('characters', id);
   const imgUrl = getImageUrl('characters', id);
 
+  const related = characters.filter(c =>
+    c.id !== char.id &&
+    (c.category === char.category || c.firstAppearance === char.firstAppearance)
+  ).slice(0, 6);
+
+  const threatColor = char.threatLevel === 'Critical' ? '#FF2222' : char.threatLevel === 'High' ? '#FF6600' : '#E6B800';
+  const threatPct = getThreatPercent(char.threatLevel);
+
   const body = $('#modal-body');
   body.innerHTML = `
-    ${imgUrl ? `
-    <div class="modal-image-section">
-      <div class="modal-image-wrapper">
-        <img src="${imgUrl}" alt="${char.name}" class="modal-img" onerror="this.style.display='none'">
-        <div class="modal-image-overlay"></div>
-      </div>
-      ${window._currentGallery.length > 1 ? `
-      <div class="modal-gallery" id="modal-gallery">
-        <div class="gallery-thumbs">
-          ${window._currentGallery.map((u, i) => `
-            <img src="${u}" class="gallery-thumb ${i === 0 ? 'active' : ''}" 
-                 onclick="showGalleryImage(${i})" loading="lazy"
-                 onerror="this.style.display='none'">
-          `).join('')}
+    <div class="char-modal">
+
+      <div class="char-modal__hero">
+        <div class="char-modal__hero-left">
+          <div class="char-modal__img-frame">
+            ${imgUrl ? `<img src="${imgUrl}" alt="${char.name}" class="char-modal__img" onerror="this.parentElement.innerHTML='<div class=\\'char-modal__img-fallback\\'>${char.name.charAt(0)}</div>'">` : `<div class="char-modal__img-fallback">${char.name.charAt(0)}</div>`}
+            <div class="char-modal__scanlines"></div>
+            <div class="char-modal__corners"></div>
+          </div>
+          ${window._currentGallery.length > 1 ? `
+            <div class="char-modal__gallery">
+              <div class="char-modal__thumbs" id="char-thumbs">
+                ${window._currentGallery.map((url, i) => `
+                  <div class="char-modal__thumb ${i === 0 ? 'active' : ''}" data-idx="${i}" onclick="window._switchCharImg(this, ${i})">
+                    <img src="${url}" alt="Thumb ${i+1}">
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
         </div>
-        <div class="gallery-nav">
-          <button class="gallery-btn" onclick="galleryNav(-1)">◀</button>
-          <span class="gallery-counter" id="gallery-counter">1 / ${window._currentGallery.length}</span>
-          <button class="gallery-btn" onclick="galleryNav(1)">▶</button>
-        </div>
-      </div>` : ''}
-    </div>` : ''}
 
-    <div class="doc-stamp restricted" style="position:relative;top:auto;right:auto;transform:none;display:inline-block;margin-bottom:15px;">${char.status.toUpperCase()}</div>
-    <div class="doc-header">${char.name}</div>
-    <div class="doc-meta">
-      <div><span>ALIAS:</span> ${char.alias}</div>
-      <div><span>PRIMERA APARICIÓN:</span> ${char.firstAppearance}</div>
-      <div><span>ESTADO:</span> ${char.status}</div>
-      <div><span>NIVEL DE AMENAZA:</span> <span style="color:${char.threatLevel === 'Critical' ? '#FF2222' : char.threatLevel === 'High' ? '#FF6600' : '#E6B800'}">${char.threatLevel.toUpperCase()}</span></div>
-      <div><span>PROCEDENCIA:</span> ${char.origin}</div>
-      <div><span>CATEGORÍA:</span> ${char.category}</div>
-    </div>
-    <div class="doc-body">
-      <p>${char.description}</p>
-      <p>${char.history}</p>
-      <p><strong style="color:#00FF66;">COMPORTAMIENTO:</strong> ${char.behavior}</p>
+        <div class="char-modal__hero-right">
+          <div class="char-modal__tags">
+            <span class="char-modal__tag char-modal__tag--status">${char.status.toUpperCase()}</span>
+            <span class="char-modal__tag char-modal__tag--category">${char.category.toUpperCase()}</span>
+            <span class="char-modal__tag char-modal__tag--threat" style="color:${threatColor};border-color:${threatColor};">${char.threatLevel.toUpperCase()}</span>
+          </div>
 
-      <div style="margin:15px 0;padding:10px;border:1px solid #1C1C1C;">
-        <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#00FF66;margin-bottom:10px;">APARICIONES</div>
-        <div style="display:flex;flex-wrap:wrap;gap:5px;">
-          ${char.appearances.map(a => `<span style="font-size:9px;color:#888;border:1px solid #242424;padding:2px 6px;">${a}</span>`).join('')}
+          <h2 class="char-modal__title">${char.name}</h2>
+          <div class="char-modal__subtitle">${char.alias}</div>
+
+          <div class="char-modal__info-grid">
+            <div class="char-modal__info-item">
+              <div class="char-modal__info-label">PRIMERA APARICION</div>
+              <div class="char-modal__info-value">${char.firstAppearance}</div>
+            </div>
+            <div class="char-modal__info-item">
+              <div class="char-modal__info-label">PROCEDENCIA</div>
+              <div class="char-modal__info-value">${char.origin}</div>
+            </div>
+            <div class="char-modal__info-item">
+              <div class="char-modal__info-label">CATEGORIA</div>
+              <div class="char-modal__info-value">${char.category}</div>
+            </div>
+            <div class="char-modal__info-item">
+              <div class="char-modal__info-label">NIVEL DE AMENAZA</div>
+              <div class="char-modal__info-value" style="color:${threatColor};">
+                <div class="char-modal__threat-bar">
+                  <div class="char-modal__threat-fill" style="width:${threatPct}%;background:${threatColor};"></div>
+                </div>
+                ${char.threatLevel.toUpperCase()}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div style="margin:15px 0;padding:10px;border:1px solid #1C1C1C;">
-        <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#00FF66;margin-bottom:10px;">RELACIONES</div>
-        ${char.relationships.map(r => `<div style="font-size:11px;color:#888;margin-bottom:3px;"><span style="color:#E6B800;">${r.name}</span> — ${r.relation}</div>`).join('')}
+      <div class="char-modal__section">
+        <div class="char-modal__section-title">
+          <span class="char-modal__section-icon">&#9679;</span> INFORMACION GENERAL
+        </div>
+        <div class="char-modal__section-content">
+          <p>${char.description}</p>
+        </div>
       </div>
 
-      ${char.trivia.length > 0 ? `
-        <div style="margin:15px 0;padding:10px;border:1px solid #1C1C1C;">
-          <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#00FF66;margin-bottom:10px;">DATOS DE ARCHIVO</div>
-          <ul style="list-style:none;">
-            ${char.trivia.map(t => `<li style="font-size:11px;color:#888;margin-bottom:5px;">> ${t}</li>`).join('')}
-          </ul>
+      <div class="char-modal__section">
+        <div class="char-modal__section-title">
+          <span class="char-modal__section-icon">&#9679;</span> HISTORIA
+        </div>
+        <div class="char-modal__section-content">
+          <p>${char.history}</p>
+        </div>
+      </div>
+
+      <div class="char-modal__section">
+        <div class="char-modal__section-title">
+          <span class="char-modal__section-icon">&#9679;</span> COMPORTAMIENTO
+        </div>
+        <div class="char-modal__section-content">
+          <p>${char.behavior}</p>
+        </div>
+      </div>
+
+      <div class="char-modal__section">
+        <div class="char-modal__section-title">
+          <span class="char-modal__section-icon">&#9679;</span> APARICIONES
+        </div>
+        <div class="char-modal__tags-row">
+          ${char.appearances.map(a => `<span class="char-modal__appear-tag">${a}</span>`).join('')}
+        </div>
+      </div>
+
+      ${char.relationships.length > 0 ? `
+        <div class="char-modal__section">
+          <div class="char-modal__section-title">
+            <span class="char-modal__section-icon">&#9679;</span> PERSONAJES RELACIONADOS
+          </div>
+          <div class="char-modal__related-grid">
+            ${char.relationships.map(r => {
+              const relChar = characters.find(c => c.name.toLowerCase() === r.name.toLowerCase());
+              const relImg = relChar ? getImageUrl('characters', relChar.id) : '';
+              const relId = relChar ? relChar.id : '';
+              return `
+                <div class="char-modal__related-card" ${relId ? `onclick="window.showCharacterModal('${relId}')"` : ''}>
+                  <div class="char-modal__related-img">
+                    ${relImg ? `<img src="${relImg}" alt="${r.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+                    <div class="char-modal__related-fallback" style="${relImg ? 'display:none' : ''}">${r.name.charAt(0)}</div>
+                  </div>
+                  <div class="char-modal__related-name">${r.name}</div>
+                  <div class="char-modal__related-relation">${r.relation}</div>
+                </div>
+              `;
+            }).join('')}
+          </div>
         </div>
       ` : ''}
+
+      ${related.length > 0 ? `
+        <div class="char-modal__section">
+          <div class="char-modal__section-title">
+            <span class="char-modal__section-icon">&#9679;</span> OTROS DE LA MISMA CATEGORIA
+          </div>
+          <div class="char-modal__related-grid">
+            ${related.map(c => {
+              const rImg = getImageUrl('characters', c.id);
+              return `
+                <div class="char-modal__related-card" onclick="window.showCharacterModal('${c.id}')">
+                  <div class="char-modal__related-img">
+                    ${rImg ? `<img src="${rImg}" alt="${c.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+                    <div class="char-modal__related-fallback" style="${rImg ? 'display:none' : ''}">${c.name.charAt(0)}</div>
+                  </div>
+                  <div class="char-modal__related-name">${c.name}</div>
+                  <div class="char-modal__related-relation">${c.category}</div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${char.trivia.length > 0 ? `
+        <div class="char-modal__section">
+          <div class="char-modal__section-title">
+            <span class="char-modal__section-icon">&#9679;</span> DATOS DE ARCHIVO
+          </div>
+          <div class="char-modal__section-content">
+            <ul class="char-modal__trivia-list">
+              ${char.trivia.map(t => `<li>${t}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+      ` : ''}
+
+      <div class="char-modal__footer">
+        <span>ARCHIVO CENTRAL — FAZBEAR ENTERTAINMENT</span>
+        <span>CASO #${id.toUpperCase().replace(/-/g, '')}</span>
+      </div>
     </div>
   `;
 
   state.galleryIndex = 0;
   $('#modal').classList.add('active');
+};
+
+window._switchCharImg = (el, idx) => {
+  const g = window._currentGallery;
+  if (!g || !g[idx]) return;
+  state.galleryIndex = idx;
+  const wrapper = document.querySelector('.char-modal__img-frame');
+  if (wrapper) {
+    const img = wrapper.querySelector('img');
+    if (img) img.src = g[idx];
+  }
+  document.querySelectorAll('.char-modal__thumb').forEach((t, i) => t.classList.toggle('active', i === idx));
 };
 
 window.showGalleryImage = (index) => {
