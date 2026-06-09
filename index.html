@@ -9,7 +9,6 @@
 </head>
 <body>
 
-<!-- LOADING SCREEN -->
 <div id="loading-screen">
   <div class="loading-text">INICIALIZANDO SISTEMA...</div>
   <div class="loading-bar">
@@ -18,16 +17,12 @@
   <div class="loading-system">[FAZBEAR ENTERTAINMENT ARCHIVE SYSTEM v3.1]</div>
 </div>
 
-<!-- CRT OVERLAY -->
 <div id="crt-overlay"></div>
 
-<!-- VHS NOISE -->
 <div id="vhs-overlay"></div>
 
-<!-- VHS DISTORTION -->
 <div id="vhs-distortion"></div>
 
-<!-- GOLDEN FREDDY EASTER EGG -->
 <div id="golden-egg" class="golden-appear">
   <div style="text-align:center;">
     <div style="font-size:60px;color:#E6B800;font-family:'Press Start 2P',monospace;text-shadow:0 0 40px rgba(230,184,0,0.8);">?</div>
@@ -36,16 +31,13 @@
   </div>
 </div>
 
-<!-- STATIC POPUP -->
 <div id="static-popup">
   <div class="static-text">ERROR</div>
   <div style="font-size:12px;color:#FF2222;font-family:'Press Start 2P',monospace;margin-top:20px;letter-spacing:3px;">CORRUPTED DATA</div>
 </div>
 
-<!-- NOTIFICATION -->
 <div id="notification" class="notification"></div>
 
-<!-- MAIN HEADER -->
 <header class="site-header">
   <div class="header-status">
     <div class="hs-left">
@@ -78,16 +70,21 @@
       <a href="#music" class="nav-link" data-page="music">MUSICA</a>
     </nav>
     <div class="header-right">
-      <div class="header-case">CASE #1987</div>
-      <div class="header-classified">&#x25C6; CLASSIFIED &#x25C6;</div>
+      <div class="header-case">CASE FILE #1987</div>
+      <div class="header-classified">◆ CLASSIFIED ◆</div>
+      <div class="header-restricted">SECURITY LEVEL: RESTRICTED</div>
+      <div class="header-status">
+        <span class="recording"></span> REC
+        <span style="color:#444;margin-left:10px;">●</span>
+        <span style="color:#444;margin-left:5px;">ARCHIVE</span>
+      </div>
+      <div class="header-names">sebas y marco</div>
     </div>
   </div>
 </header>
 
-<!-- MAIN CONTENT -->
 <main class="container">
 
-  <!-- ============ HOME ============ -->
   <section id="page-home" class="page active">
     <div class="crowbar-database">
       <header class="cdb-header">
@@ -131,7 +128,7 @@
               <span class="db-card-pulse"></span>
             </div>
             <h3 class="db-card-title">PERSONAJES</h3>
-            <p class="db-card-desc">Animatronicos, humanos y entidades. Cada uno con su historia y nivel de amenaza.</p>
+            <p class="db-card-desc">Animatronicos, humanos y entidades. Cada uno con su historia y nivel de threat.</p>
             <div class="db-card-bottom">
               <span class="db-card-count">213</span>
               <span class="db-card-btn">[ ACCEDER &rarr; ]</span>
@@ -149,7 +146,7 @@
               <span class="db-card-pulse"></span>
             </div>
             <h3 class="db-card-title">LIBROS</h3>
-            <p class="db-card-desc">Novelas, guias y colecciones de relatos. The Silver Eyes, Fazbear Frights y mas.</p>
+            <p class="db-card-desc">Novelas, guias y colecciones de relatos. The Silver Eyes, Fazbear Fprints y mas.</p>
             <div class="db-card-bottom">
               <span class="db-card-count">19</span>
               <span class="db-card-btn">[ ACCEDER &rarr; ]</span>
@@ -220,7 +217,6 @@
       </footer>
     </div>
 
-    <!-- VHS SECURITY CAMERA SECTION -->
     <section class="classified-intro vhs-section">
       <div class="classified-border vhs-border" role="button" tabindex="0">
         <div class="classified-corner classified-corner-tl"></div>
@@ -263,7 +259,6 @@
       </div>
     </section>
 
-    <!-- MONITOR SECTION -->
     <section class="home-monitor">
       <div class="hm-panel">
         <div class="hm-titlebar">
@@ -318,7 +313,6 @@
     <div class="timeline-horizontal" id="timeline-horizontal"></div>
   </section>
 
-  <!-- ============ CHARACTERS ============ -->
   <section id="page-characters" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">BASE DE DATOS DE ANIMATRÓNICOS</div>
@@ -328,7 +322,7 @@
 
     <div class="search-box">
       <span class="search-icon">></span>
-      <input type="text" id="character-search" placeholder="BUSCAR EN ARCHIVOS...">
+      <input type="search" id="character-search" placeholder="BUSCAR ANIMATRÓNICOS..." aria-label="Buscar animatrónicos" autocomplete="off">
     </div>
 
     <div class="filter-tags" id="character-filters">
@@ -350,7 +344,6 @@
     <div class="characters-grid" id="characters-grid"></div>
   </section>
 
-  <!-- ============ GAMES ============ -->
   <section id="page-games" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">SALA DE JUEGOS — ARCHIVO</div>
@@ -366,7 +359,6 @@
     <div class="games-grid" id="games-grid"></div>
   </section>
 
-  <!-- ============ BOOKS ============ -->
   <section id="page-books" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">BIBLIOTECA — ARCHIVOS LITERARIOS</div>
@@ -382,7 +374,6 @@
     <div class="games-grid" id="books-grid"></div>
   </section>
 
-  <!-- ============ SERIES ============ -->
   <section id="page-series" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">VIDEOTECA — SERIES RECUPERADAS</div>
@@ -392,7 +383,6 @@
     <div class="vhs-grid" id="series-grid"></div>
   </section>
 
-  <!-- ============ HISTORY ============ -->
   <section id="page-history" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">ARCHIVO HISTÓRICO</div>
@@ -452,7 +442,7 @@
         <div class="doc-body">
           <p>Se ha observado que los animatrónicos de la ubicación de Freddy Fazbear's Pizza presentan comportamientos erráticos durante los turnos nocturnos. Específicamente, se ha reportado que Bonnie, Chica y Foxy se desplazan de sus posiciones iniciales sin causa aparente.</p>
           <p>Freddy Fazbear permanece mayormente estático durante la noche, pero se vuelve significativamente más activo a medida que avanza la madrugada. Se recomienda a los guardias de seguridad mantener las puertas cerradas y monitorear constantemente los niveles de energía.</p>
-          <p>NOTA: Se ha reportado la aparición de una figura dorada no identificada en las cámaras de seguridad. Personal no autorizado no debe mencionar este avistamiento.</p>
+          <p>NOTE: Se ha reportado la aparición de una figura dorada no identificada en las cámaras de seguridad. Personal no autorizado no debe mencionar este avistamiento.</p>
         </div>
       </div>
 
@@ -472,7 +462,6 @@
     </div>
   </section>
 
-  <!-- ============ MUSIC ============ -->
   <section id="page-music" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">REPRODUCTOR DE CINTAS</div>
@@ -517,7 +506,6 @@
     </div>
   </section>
 
-  <!-- ============ BLOG ============ -->
   <section id="page-blog" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">TERMINAL DE INVESTIGACIÓN</div>
@@ -538,7 +526,6 @@
     </div>
   </section>
 
-  <!-- ============ ADMIN ============ -->
   <section id="page-admin" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">PANEL DE ADMINISTRACIÓN</div>
@@ -578,7 +565,7 @@
             </div>
             <div class="admin-field">
               <label>ALERTAS DE SEGURIDAD</label>
-              <div style="color:#FF2222;font-size:12px;font-family:'Press Start 2P',monospace;font-size:9px;">3 ALERTAS CRÍTICAS</div>
+              <div style="color:#FF2222;font-family:'Press Start 2P',monospace;font-size:9px;">3 ALERTAS CRÍTICAS</div>
             </div>
             <button class="admin-btn" onclick="triggerStatic()">EJECUTAR DIAGNÓSTICO</button>
           </div>
@@ -637,42 +624,8 @@
                 <div>[12:00:01] SISTEMA INICIADO CORRECTAMENTE</div>
                 <div>[12:00:05] CONECTANDO CON BASE DE DATOS...</div>
                 <div>[12:00:07] CONEXIÓN ESTABLECIDA</div>
-                <div>[12:00:10] CARGANDO ARCHIVOS RECUPERADOS...</div>
-                <div>[12:00:15] 1,987 ARCHIVOS CARGADOS</div>
-                <div style="color:#FF2222;">[12:01:03] ADVERTENCIA: ACCESO NO AUTORIZADO DETECTADO</div>
-                <div style="color:#FF2222;">[12:01:05] PROTOCOLO DE SEGURIDAD ACTIVADO</div>
-                <div>[12:02:00] SISTEMA ESTABLE</div>
               </div>
             </div>
-          </div>
-
-          <div id="admin-settings" style="display:none;">
-            <div class="admin-field">
-              <label>CONFIGURACIÓN DEL SISTEMA</label>
-            </div>
-            <div class="admin-field">
-              <label>SONIDO AMBIENTAL</label>
-              <select id="sound-toggle">
-                <option value="off">DESACTIVADO</option>
-                <option value="on">ACTIVADO</option>
-              </select>
-            </div>  
-            <div class="admin-field">
-              <label>EFECTOS VHS</label>
-              <select id="vhs-toggle">
-                <option value="on">ACTIVADO</option>
-                <option value="off">DESACTIVADO</option>
-              </select>
-            </div>
-            <div class="admin-field">
-              <label>INTERVALO DE SINCRONIZACIÓN</label>
-              <select>
-                <option>CADA 30 MINUTOS</option>
-                <option>CADA 1 HORA</option>
-                <option>CADA 6 HORAS</option>
-              </select>
-            </div>
-            <button class="admin-btn">GUARDAR CONFIGURACIÓN</button>
           </div>
         </div>
       </div>
@@ -705,6 +658,5 @@
 <script src="data/stories.js"></script>
 <script src="data/images.js"></script>
 <script src="js/main.js"></script>
-
 </body>
 </html>
