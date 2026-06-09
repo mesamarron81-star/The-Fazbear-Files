@@ -59,6 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initMusicPlayer();
   initSoundToggle();
   initVhsToggle();
+  initHeaderStatus();
+  initVHSTimestamp();
+  initDatabaseCards();
 
   // Load page data
   loadPage('home');
@@ -85,8 +88,11 @@ function initLoadingScreen() {
 function initDate() {
   const now = new Date();
   const opts = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-  $('#last-recovery').textContent = `Última recuperación: ${now.toLocaleDateString('es-ES', opts)}`;
-  $('#admin-sync').textContent = now.toLocaleDateString('es-ES', opts);
+  const formatted = now.toLocaleDateString('es-ES', opts);
+  const el1 = $('#last-recovery');
+  if (el1) el1.textContent = `Última recuperación: ${formatted}`;
+  const el2 = $('#admin-sync');
+  if (el2) el2.textContent = formatted;
 }
 
 // =============================================
@@ -187,17 +193,41 @@ function triggerDistortion() {
 // HOME
 // =============================================
 function renderHome() {
-  // Stats
-  $('#stat-characters').textContent = String(characters.length).padStart(3, '0');
-  $('#stat-games').textContent = String(games.length).padStart(2, '0');
-  $('#stat-incidents').textContent = '06';
-  $('#stat-archives').textContent = String(stories.length + 50).padStart(3, '0');
-
   // Timeline
-  renderTimelineHome();
+  renderTimelineHorizontal();
+}
 
-  // Recent stories
-  renderRecentStories();
+function renderTimelineHorizontal() {
+  const container = $('#timeline-horizontal');
+  if (!container) return;
+
+  const sorted = [...games].sort((a, b) => {
+    const ay = parseInt(a.year) || 0;
+    const by = parseInt(b.year) || 0;
+    return ay - by;
+  });
+
+  container.innerHTML = `
+    <div class="tl-track">
+      <div class="tl-line"></div>
+      ${sorted.map(game => {
+        const imgUrl = getImageUrl('games', game.id);
+        return `
+        <div class="tl-item" data-game="${game.id}" onclick="handleGameClick(this, '${game.id}')">
+          <div class="tl-cover">
+            ${imgUrl ? `<img src="${imgUrl}" alt="${game.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+            <div class="tl-cover-fallback" style="display:${imgUrl ? 'none' : 'flex'}">${game.title.charAt(0)}</div>
+          </div>
+          <div class="tl-dot-wrap">
+            <div class="tl-dot"></div>
+          </div>
+          <div class="tl-year">${game.year}</div>
+          <div class="tl-title">${game.title}</div>
+        </div>
+        `;
+      }).join('')}
+    </div>
+  `;
 }
 
 function renderTimelineHome() {
@@ -1491,6 +1521,74 @@ function showNotification(message) {
   state.notificationTimer = setTimeout(() => {
     el.classList.remove('show');
   }, 8000);
+}
+
+// =============================================
+// HEADER STATUS BAR
+// =============================================
+function initHeaderStatus() {
+  // Generate session ID
+  const sessionId = '0x' + Math.random().toString(16).substr(2, 4).toUpperCase() + '-' + 
+                    Math.random().toString(16).substr(2, 4).toUpperCase();
+  const sessionEl = $('#hs-session-id');
+  if (sessionEl) sessionEl.textContent = sessionId;
+
+  // Update clock
+  function updateClock() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    const s = String(now.getSeconds()).padStart(2, '0');
+    const clockEl = $('#hs-clock');
+    if (clockEl) clockEl.textContent = `${h}:${m}:${s}`;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // Random sync percentage
+  const syncEl = $('#hs-sync');
+  if (syncEl) {
+    setInterval(() => {
+      const sync = Math.floor(Math.random() * 5 + 95);
+      syncEl.textContent = sync + '%';
+    }, 3000);
+  }
+}
+
+// =============================================
+// VHS TIMESTAMP
+// =============================================
+function initVHSTimestamp() {
+  const timestampEl = $('#vhs-timestamp');
+  if (!timestampEl) return;
+
+  function updateTimestamp() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    const s = String(now.getSeconds()).padStart(2, '0');
+    const ms = String(Math.floor(Math.random() * 99)).padStart(2, '0');
+    timestampEl.textContent = `${h}:${m}:${s}:${ms}`;
+  }
+  updateTimestamp();
+  setInterval(updateTimestamp, 100);
+}
+
+// =============================================
+// DATABASE CARDS NAVIGATION
+// =============================================
+function initDatabaseCards() {
+  $$('.db-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const page = card.dataset.page;
+      if (page) {
+        navigateTo(page);
+        // Scroll to top of content
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
 }
 
 // =============================================

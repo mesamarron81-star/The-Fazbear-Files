@@ -9,7 +9,6 @@
 </head>
 <body>
 
-<!-- LOADING SCREEN -->
 <div id="loading-screen">
   <div class="loading-text">INICIALIZANDO SISTEMA...</div>
   <div class="loading-bar">
@@ -18,16 +17,12 @@
   <div class="loading-system">[FAZBEAR ENTERTAINMENT ARCHIVE SYSTEM v3.1]</div>
 </div>
 
-<!-- CRT OVERLAY -->
 <div id="crt-overlay"></div>
 
-<!-- VHS NOISE -->
 <div id="vhs-overlay"></div>
 
-<!-- VHS DISTORTION -->
 <div id="vhs-distortion"></div>
 
-<!-- GOLDEN FREDDY EASTER EGG -->
 <div id="golden-egg" class="golden-appear">
   <div style="text-align:center;">
     <div style="font-size:60px;color:#E6B800;font-family:'Press Start 2P',monospace;text-shadow:0 0 40px rgba(230,184,0,0.8);">?</div>
@@ -36,125 +31,288 @@
   </div>
 </div>
 
-<!-- STATIC POPUP -->
 <div id="static-popup">
   <div class="static-text">ERROR</div>
   <div style="font-size:12px;color:#FF2222;font-family:'Press Start 2P',monospace;margin-top:20px;letter-spacing:3px;">CORRUPTED DATA</div>
 </div>
 
-<!-- NOTIFICATION -->
 <div id="notification" class="notification"></div>
 
-<!-- MAIN HEADER -->
-<header id="main-header">
-  <div class="header-inner">
-    <div class="header-left">
-      <div class="header-title glitch-text">THE FAZBEAR FILES</div>
-      <div class="header-subtitle">Archivos Recuperados de Fazbear Entertainment</div>
-      <div class="last-recovery" id="last-recovery">Última recuperación: [CARGANDO...]</div>
+<header class="site-header">
+  <div class="header-status">
+    <div class="hs-left">
+      <span class="hs-pill hs-pill-ok"><span class="hs-led"></span>ONLINE</span>
+      <span class="hs-item"><span class="hs-k">SESSION</span><span class="hs-v" id="hs-session-id">0x0000-0000</span></span>
+      <span class="hs-sep">&middot;</span>
+      <span class="hs-item"><span class="hs-k">T+</span><span class="hs-v" id="hs-clock">00:00:00</span></span>
+      <span class="hs-sep">&middot;</span>
+      <span class="hs-item"><span class="hs-k">SYNC</span><span class="hs-v" id="hs-sync">98%</span></span>
+      <span class="hs-sep">&middot;</span>
+      <span class="hs-item"><span class="hs-k">CAM</span><span class="hs-v">ACTIVE</span></span>
     </div>
+    <div class="hs-right">
+      <span class="hs-item"><span class="hs-k">BUILD</span><span class="hs-v">v3.1</span></span>
+      <span class="hs-sep">&middot;</span>
+      <span class="hs-pill hs-pill-warn"><span class="hs-led hs-led-warn"></span>SECURE</span>
+    </div>
+  </div>
+  <div class="header-inner">
+    <a href="#home" class="logo" data-page="home">
+      <span class="logo-icon">&#x258C;</span>THE FAZBEAR FILES<span class="logo-icon">&#x2590;</span>
+    </a>
+    <nav class="nav-menu" id="main-nav">
+      <a href="#home" class="nav-link active" data-page="home">INICIO</a>
+      <a href="#characters" class="nav-link" data-page="characters">PERSONAJES</a>
+      <a href="#games" class="nav-link" data-page="games">JUEGOS</a>
+      <a href="#books" class="nav-link" data-page="books">LIBROS</a>
+      <a href="#series" class="nav-link" data-page="series">SERIES</a>
+      <a href="#history" class="nav-link" data-page="history">HISTORIA</a>
+      <a href="#music" class="nav-link" data-page="music">MUSICA</a>
+    </nav>
     <div class="header-right">
+      <div class="header-case">CASE FILE #1987</div>
+      <div class="header-classified">◆ CLASSIFIED ◆</div>
+      <div class="header-restricted">SECURITY LEVEL: RESTRICTED</div>
       <div class="header-status">
         <span class="recording"></span> REC
         <span style="color:#444;margin-left:10px;">●</span>
         <span style="color:#444;margin-left:5px;">ARCHIVE</span>
       </div>
-      <div class="header-case">CASE FILE #1987</div>
-      <div class="header-classified">◆ CLASSIFIED ◆</div>
-      <div class="header-restricted">SECURITY LEVEL: RESTRICTED</div>
       <div class="header-names">sebas y marco</div>
     </div>
   </div>
 </header>
 
-<!-- NAVIGATION -->
-<nav id="main-nav">
-  <ul>
-    <li><a href="#home" class="active" data-page="home">INICIO</a></li>
-    <li><a href="#characters" data-page="characters">ANIMATRÓNICOS</a></li>
-    <li><a href="#games" data-page="games">JUEGOS</a></li>
-    <li><a href="#books" data-page="books">LIBROS</a></li>
-    <li><a href="#series" data-page="series">SERIES</a></li>
-    <li><a href="#history" data-page="history">HISTORIA</a></li>
-    <li><a href="#music" data-page="music">CANCIONES</a></li>
-    <li><a href="#blog" data-page="blog">BLOG</a></li>
-    <li><a href="#admin" data-page="admin">ADMIN</a></li>
-  </ul>
-</nav>
-
-<!-- MAIN CONTENT -->
 <main class="container">
 
-  <!-- ============ HOME ============ -->
   <section id="page-home" class="page active">
-    <div class="hero">
-      <h1>ARCHIVOS RECUPERADOS</h1>
-      <p>Has accedido a un sistema restringido de archivos perteneciente a Fazbear Entertainment. 
-      Los siguientes documentos fueron recuperados desde servidores olvidados y contienen información 
-      clasificada sobre incidentes ocurridos en las diversas instalaciones de la compañía.</p>
-      <div class="security-badge">ARCHIVO CENTRAL — NIVEL 3</div>
+    <div class="crowbar-database">
+      <header class="cdb-header">
+        <div class="cdb-header-left">
+          <h2 class="cdb-title cdb-title-glitch"><span class="cdb-bracket">&#x258C;</span> <span class="cdb-title-text" data-text="THE FAZBEAR FILES">THE FAZBEAR FILES</span> <span class="cdb-bracket">&#x2590;</span></h2>
+          <p class="cdb-subtitle">ARCHIVO CENTRAL &middot; FAZBEAR ENTERTAINMENT</p>
+        </div>
+        <div class="cdb-header-right">
+          <div class="cdb-status">
+            <span class="cdb-status-dot"></span>
+            <span>6 CATEGORIAS ACTIVAS</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="database-grid">
+        <a href="#games" class="db-card db-card-1" data-page="games">
+          <div class="db-card-bg" style="background-image:url('https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/0/0f/FNaF1.jpg')"></div>
+          <div class="db-card-grid"></div>
+          <div class="db-card-content">
+            <div class="db-card-top">
+              <span class="db-card-id">CAT-001</span>
+              <span class="db-card-pulse"></span>
+            </div>
+            <h3 class="db-card-title">JUEGOS</h3>
+            <p class="db-card-desc">Todas las entregas de la franquicia. Desde FNaF 1 hasta Secret of the Mimic.</p>
+            <div class="db-card-bottom">
+              <span class="db-card-count">12</span>
+              <span class="db-card-btn">[ ACCEDER &rarr; ]</span>
+            </div>
+          </div>
+          <div class="db-card-glitch"></div>
+        </a>
+
+        <a href="#characters" class="db-card db-card-2" data-page="characters">
+          <div class="db-card-bg" style="background-image:url('https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/a/a2/FreddyFazbear.png')"></div>
+          <div class="db-card-grid"></div>
+          <div class="db-card-content">
+            <div class="db-card-top">
+              <span class="db-card-id">CAT-002</span>
+              <span class="db-card-pulse"></span>
+            </div>
+            <h3 class="db-card-title">PERSONAJES</h3>
+            <p class="db-card-desc">Animatronicos, humanos y entidades. Cada uno con su historia y nivel de threat.</p>
+            <div class="db-card-bottom">
+              <span class="db-card-count">213</span>
+              <span class="db-card-btn">[ ACCEDER &rarr; ]</span>
+            </div>
+          </div>
+          <div class="db-card-glitch"></div>
+        </a>
+
+        <a href="#books" class="db-card db-card-3" data-page="books">
+          <div class="db-card-bg" style="background-image:url('https://covers.openlibrary.org/b/id/8075533-L.jpg')"></div>
+          <div class="db-card-grid"></div>
+          <div class="db-card-content">
+            <div class="db-card-top">
+              <span class="db-card-id">CAT-003</span>
+              <span class="db-card-pulse"></span>
+            </div>
+            <h3 class="db-card-title">LIBROS</h3>
+            <p class="db-card-desc">Novelas, guias y colecciones de relatos. The Silver Eyes, Fazbear Fprints y mas.</p>
+            <div class="db-card-bottom">
+              <span class="db-card-count">19</span>
+              <span class="db-card-btn">[ ACCEDER &rarr; ]</span>
+            </div>
+          </div>
+          <div class="db-card-glitch"></div>
+        </a>
+
+        <a href="#series" class="db-card db-card-4" data-page="series">
+          <div class="db-card-bg" style="background-image:url('https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/6d/PortadaFNAFTheSilverEyes.jpg')"></div>
+          <div class="db-card-grid"></div>
+          <div class="db-card-content">
+            <div class="db-card-top">
+              <span class="db-card-id">CAT-004</span>
+              <span class="db-card-pulse"></span>
+            </div>
+            <h3 class="db-card-title">SERIES</h3>
+            <p class="db-card-desc">Producciones audiovisuales. FNAF en la pantalla, animaciones y mas.</p>
+            <div class="db-card-bottom">
+              <span class="db-card-count">8</span>
+              <span class="db-card-btn">[ ACCEDER &rarr; ]</span>
+            </div>
+          </div>
+          <div class="db-card-glitch"></div>
+        </a>
+
+        <a href="#history" class="db-card db-card-5" data-page="history">
+          <div class="db-card-bg" style="background-image:url('https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4f/UTLR.png')"></div>
+          <div class="db-card-grid"></div>
+          <div class="db-card-content">
+            <div class="db-card-top">
+              <span class="db-card-id">CAT-005</span>
+              <span class="db-card-pulse"></span>
+            </div>
+            <h3 class="db-card-title">HISTORIA</h3>
+            <p class="db-card-desc">Linea temporal de incidentes. Mordidas, incendios, desapariciones y mas.</p>
+            <div class="db-card-bottom">
+              <span class="db-card-count">6</span>
+              <span class="db-card-btn">[ ACCEDER &rarr; ]</span>
+            </div>
+          </div>
+          <div class="db-card-glitch"></div>
+        </a>
+
+        <a href="#music" class="db-card db-card-6" data-page="music">
+          <div class="db-card-bg" style="background-image:url('https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/e/e0/Sister_Location_Summer_Summer_Cutscene.png')"></div>
+          <div class="db-card-grid"></div>
+          <div class="db-card-content">
+            <div class="db-card-top">
+              <span class="db-card-id">CAT-006</span>
+              <span class="db-card-pulse"></span>
+            </div>
+            <h3 class="db-card-title">MUSICA</h3>
+            <p class="db-card-desc">Canciones de la franquicia. Themes, fan songs y bandas sonoras oficiales.</p>
+            <div class="db-card-bottom">
+              <span class="db-card-count">15</span>
+              <span class="db-card-btn">[ ACCEDER &rarr; ]</span>
+            </div>
+          </div>
+          <div class="db-card-glitch"></div>
+        </a>
+      </div>
+
+      <footer class="cdb-footer">
+        <span class="cdb-footer-line"></span>
+        <span class="cdb-footer-text">FAZBEAR ENTERTAINMENT &middot; ARCHIVO NO OFICIAL &middot; USO BAJO PROPIA RESPONSABILIDAD</span>
+        <span class="cdb-footer-line"></span>
+      </footer>
     </div>
 
-    <div class="section-title-wrapper">
-      <div class="section-title">PANEL DE MONITOREO</div>
-      <div class="section-sub">SISTEMA CENTRAL — FAZBEAR ENTERTAINMENT ARCHIVE v3.1</div>
-      <div class="section-divider"></div>
-    </div>
-
-    <div class="dashboard-grid">
-      <div class="dashboard-card">
-        <div class="card-header">
-          <span>ANIMATRÓNICOS REGISTRADOS</span>
-          <span class="card-badge">DATABASE</span>
+    <section class="classified-intro vhs-section">
+      <div class="classified-border vhs-border" role="button" tabindex="0">
+        <div class="classified-corner classified-corner-tl"></div>
+        <div class="classified-corner classified-corner-tr"></div>
+        <div class="classified-corner classified-corner-bl"></div>
+        <div class="classified-corner classified-corner-br"></div>
+        <div class="classified-header vhs-header">
+          <span class="classified-warn-icon">&#x26A0;</span>
+          <span>SISTEMA DE SEGURIDAD &mdash; MONITOREO EN VIVO &middot; NIVEL DE AMENAZA: ROJO</span>
+          <span class="classified-warn-icon">&#x26A0;</span>
         </div>
-        <p style="font-size:24px;color:#00FF66;font-family:'Orbitron',monospace;margin-bottom:10px;" id="stat-characters">--</p>
-        <p>Entidades animatrónicas documentadas en los archivos de Fazbear Entertainment. Cada entrada incluye historial de comportamiento, nivel de amenaza y apariciones.</p>
-      </div>
-
-      <div class="dashboard-card">
-        <div class="card-header">
-          <span>JUEGOS DOCUMENTADOS</span>
-          <span class="card-badge">ARCHIVE</span>
+        <div class="vhs-frame">
+          <div class="vhs-frame-inner">
+            <div class="vhs-img" style="background-image:url('https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4f/UTLR.png')"></div>
+            <div class="vhs-tracking"></div>
+            <div class="vhs-scanlines"></div>
+            <div class="vhs-tint"></div>
+            <div class="vhs-grain"></div>
+            <div class="vhs-bars"></div>
+            <div class="vhs-corner-label vhs-corner-label-tl">REC <span class="vhs-rec-dot">&#x25CF;</span></div>
+            <div class="vhs-corner-label vhs-corner-label-tr"><span id="vhs-timestamp">00:00:00:00</span></div>
+            <div class="vhs-corner-label vhs-corner-label-bl">CAM-01 / FREDDYS</div>
+            <div class="vhs-corner-label vhs-corner-label-br">CH-01</div>
+            <div class="vhs-headline">
+              <span class="vhs-headline-bracket">&#x258C;</span>
+              <span>SISTEMA DE SEGURIDAD ACTIVO</span>
+              <span class="vhs-headline-bracket">&#x2590;</span>
+            </div>
+          </div>
         </div>
-        <p style="font-size:24px;color:#00FF66;font-family:'Orbitron',monospace;margin-bottom:10px;" id="stat-games">--</p>
-        <p>Entregas de la franquicia documentadas cronológicamente. Incluye títulos principales, spin-offs y contenido descargable.</p>
-      </div>
-
-      <div class="dashboard-card">
-        <div class="card-header">
-          <span>INCIDENTES REGISTRADOS</span>
-          <span class="card-badge">CLASSIFIED</span>
+        <blockquote class="classified-quote vhs-quote">
+          <p>&ldquo;Has accedido al sistema de seguridad de Freddy Fazbear's Pizza. Los animatronicos estan activos. Monitorea las cámaras y sobrevive hasta el amanecer.&rdquo;</p>
+          <p class="classified-quote-sub">Cada noche trae nuevos peligros. Documenta todo. No confies en nadie.</p>
+          <p class="classified-quote-sub">Se han reportado incidentes en todas las ubicaciones. Procede bajo tu propio riesgo.</p>
+        </blockquote>
+        <div class="classified-footer vhs-footer">
+          <span>&mdash; Fazbear Entertainment &middot; Sistema de Seguridad v3.1</span>
+          <span class="classified-stamp vhs-stamp">MONITOREAR</span>
         </div>
-        <p style="font-size:24px;color:#E6B800;font-family:'Orbitron',monospace;margin-bottom:10px;" id="stat-incidents">--</p>
-        <p>Eventos documentados que la compañía ha intentado suprimir. Incluye desapariciones, incidentes con animatrónicos y cierres de instalaciones.</p>
       </div>
+    </section>
 
-      <div class="dashboard-card">
-        <div class="card-header">
-          <span>ARCHIVOS RECUPERADOS</span>
-          <span class="card-badge">RESTRICTED</span>
+    <section class="home-monitor">
+      <div class="hm-panel">
+        <div class="hm-titlebar">
+          <span class="hm-title">&#x25A0; MONITOR DE SESION Y DIAGNOSTICO</span>
+          <span class="hm-title-status"><span class="hm-rec-dot"></span> EN LINEA</span>
+          <span class="hm-title-id">SYS-MON-001</span>
         </div>
-        <p style="font-size:24px;color:#FF2222;font-family:'Orbitron',monospace;margin-bottom:10px;" id="stat-archives">--</p>
-        <p>Documentos internos, reportes de seguridad y registros de investigación recuperados de servidores corporativos dados de baja.</p>
+        <div class="hm-body">
+          <div class="hm-widgets">
+            <div class="widget hm-widget">
+              <div class="widget-label">&#x25A0; Nivel de Energia</div>
+              <div class="widget-value" id="power-value">85%</div>
+              <div class="widget-bar-track">
+                <div class="widget-bar-fill" id="power-fill" style="width:85%"></div>
+              </div>
+            </div>
+            <div class="widget hm-widget">
+              <div class="widget-label">&#x25A0; Reloj de Seguridad</div>
+              <div class="widget-value" id="wall-clock">00:00:00</div>
+              <div class="widget-bar-track">
+                <div class="widget-bar-fill widget-bar-fill-alt"></div>
+              </div>
+            </div>
+            <div class="widget hm-widget hm-widget-stats">
+              <div class="widget-label">&#x25A0; ESTADO DEL ARCHIVO</div>
+              <div class="hm-stats-mini">
+                <div class="stat"><span class="stat-num">12</span> Juegos Documentados</div>
+                <div class="stat"><span class="stat-num">213</span> Personajes Registrados</div>
+                <div class="stat"><span class="stat-num">19</span> Libros Recuperados</div>
+              </div>
+            </div>
+          </div>
+          <div class="hm-terminal">
+            <div class="hero-terminal">
+              <div class="hero-line"><span class="prompt">&gt;</span> <span class="cmd">fazbear_archive.exe --init security.db</span></div>
+              <div class="hero-line"><span class="prompt">&gt;</span> <span class="cmd">establecerConexion --camara 01</span></div>
+              <div class="hero-line output">[CONEXION ESTABLECIDA] Señal debil. Estabilizando...</div>
+              <div class="hero-line output">[CAMARA-01] "Freddy Fazbear's Pizza" &mdash; Animatronicos activos.</div>
+              <div class="hero-line output">[ARCHIVO] Personajes documentados: 213 &middot; Juegos: 12 &middot; Libros: 19</div>
+              <div class="hero-line output cursor-line">[SISTEMA] Listo. Bienvenido, guardia de seguridad.<span class="typed-cursor"></span></div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
     <div class="section-title-wrapper" style="margin-top:40px;">
-      <div class="section-title">CRONOLOGÍA DE INCIDENTES</div>
-      <div class="section-sub">LÍNEA TEMPORAL DE EVENTOS DOCUMENTADOS</div>
+      <div class="section-title">CRONOLOGIA DE LA FRANQUICIA</div>
+      <div class="section-sub">LINEA TEMPORAL DE JUEGOS DOCUMENTADOS</div>
       <div class="section-divider"></div>
     </div>
-    <div class="timeline" id="timeline-home"></div>
-
-    <div class="section-title-wrapper" style="margin-top:40px;">
-      <div class="section-title">ARCHIVOS RECUPERADOS RECIENTEMENTE</div>
-      <div class="section-sub">ÚLTIMAS ENTRADAS DEL SISTEMA</div>
-      <div class="section-divider"></div>
-    </div>
-    <div id="recent-stories" class="terminal"></div>
+    <div class="timeline-horizontal" id="timeline-horizontal"></div>
   </section>
 
-  <!-- ============ CHARACTERS ============ -->
   <section id="page-characters" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">BASE DE DATOS DE ANIMATRÓNICOS</div>
@@ -186,7 +344,6 @@
     <div class="characters-grid" id="characters-grid"></div>
   </section>
 
-  <!-- ============ GAMES ============ -->
   <section id="page-games" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">SALA DE JUEGOS — ARCHIVO</div>
@@ -202,7 +359,6 @@
     <div class="games-grid" id="games-grid"></div>
   </section>
 
-  <!-- ============ BOOKS ============ -->
   <section id="page-books" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">BIBLIOTECA — ARCHIVOS LITERARIOS</div>
@@ -218,7 +374,6 @@
     <div class="games-grid" id="books-grid"></div>
   </section>
 
-  <!-- ============ SERIES ============ -->
   <section id="page-series" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">VIDEOTECA — SERIES RECUPERADAS</div>
@@ -228,7 +383,6 @@
     <div class="vhs-grid" id="series-grid"></div>
   </section>
 
-  <!-- ============ HISTORY ============ -->
   <section id="page-history" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">ARCHIVO HISTÓRICO</div>
@@ -288,7 +442,7 @@
         <div class="doc-body">
           <p>Se ha observado que los animatrónicos de la ubicación de Freddy Fazbear's Pizza presentan comportamientos erráticos durante los turnos nocturnos. Específicamente, se ha reportado que Bonnie, Chica y Foxy se desplazan de sus posiciones iniciales sin causa aparente.</p>
           <p>Freddy Fazbear permanece mayormente estático durante la noche, pero se vuelve significativamente más activo a medida que avanza la madrugada. Se recomienda a los guardias de seguridad mantener las puertas cerradas y monitorear constantemente los niveles de energía.</p>
-          <p>NOTA: Se ha reportado la aparición de una figura dorada no identificada en las cámaras de seguridad. Personal no autorizado no debe mencionar este avistamiento.</p>
+          <p>NOTE: Se ha reportado la aparición de una figura dorada no identificada en las cámaras de seguridad. Personal no autorizado no debe mencionar este avistamiento.</p>
         </div>
       </div>
 
@@ -308,7 +462,6 @@
     </div>
   </section>
 
-  <!-- ============ MUSIC ============ -->
   <section id="page-music" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">REPRODUCTOR DE CINTAS</div>
@@ -353,7 +506,6 @@
     </div>
   </section>
 
-  <!-- ============ BLOG ============ -->
   <section id="page-blog" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">TERMINAL DE INVESTIGACIÓN</div>
@@ -374,7 +526,6 @@
     </div>
   </section>
 
-  <!-- ============ ADMIN ============ -->
   <section id="page-admin" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">PANEL DE ADMINISTRACIÓN</div>
@@ -414,7 +565,7 @@
             </div>
             <div class="admin-field">
               <label>ALERTAS DE SEGURIDAD</label>
-              <div style="color:#FF2222;font-size:12px;font-family:'Press Start 2P',monospace;font-size:9px;">3 ALERTAS CRÍTICAS</div>
+              <div style="color:#FF2222;font-family:'Press Start 2P',monospace;font-size:9px;">3 ALERTAS CRÍTICAS</div>
             </div>
             <button class="admin-btn" onclick="triggerStatic()">EJECUTAR DIAGNÓSTICO</button>
           </div>
@@ -473,42 +624,8 @@
                 <div>[12:00:01] SISTEMA INICIADO CORRECTAMENTE</div>
                 <div>[12:00:05] CONECTANDO CON BASE DE DATOS...</div>
                 <div>[12:00:07] CONEXIÓN ESTABLECIDA</div>
-                <div>[12:00:10] CARGANDO ARCHIVOS RECUPERADOS...</div>
-                <div>[12:00:15] 1,987 ARCHIVOS CARGADOS</div>
-                <div style="color:#FF2222;">[12:01:03] ADVERTENCIA: ACCESO NO AUTORIZADO DETECTADO</div>
-                <div style="color:#FF2222;">[12:01:05] PROTOCOLO DE SEGURIDAD ACTIVADO</div>
-                <div>[12:02:00] SISTEMA ESTABLE</div>
               </div>
             </div>
-          </div>
-
-          <div id="admin-settings" style="display:none;">
-            <div class="admin-field">
-              <label>CONFIGURACIÓN DEL SISTEMA</label>
-            </div>
-            <div class="admin-field">
-              <label>SONIDO AMBIENTAL</label>
-              <select id="sound-toggle">
-                <option value="off">DESACTIVADO</option>
-                <option value="on">ACTIVADO</option>
-              </select>
-            </div>  
-            <div class="admin-field">
-              <label>EFECTOS VHS</label>
-              <select id="vhs-toggle">
-                <option value="on">ACTIVADO</option>
-                <option value="off">DESACTIVADO</option>
-              </select>
-            </div>
-            <div class="admin-field">
-              <label>INTERVALO DE SINCRONIZACIÓN</label>
-              <select>
-                <option>CADA 30 MINUTOS</option>
-                <option>CADA 1 HORA</option>
-                <option>CADA 6 HORAS</option>
-              </select>
-            </div>
-            <button class="admin-btn">GUARDAR CONFIGURACIÓN</button>
           </div>
         </div>
       </div>
@@ -517,29 +634,5 @@
 
 </main>
 
-<!-- FOOTER -->
-<footer id="main-footer">
-  <div class="footer-inner">
-    <p>THE FAZBEAR FILES — ARCHIVOS RECUPERADOS DE FAZBEAR ENTERTAINMENT</p>
-    <p>ESTE SISTEMA CONTIENE MATERIAL CLASIFICADO. ACCESO NO AUTORIZADO PROHIBIDO.</p>
-    <p class="footer-warning">◇ FAZBEAR ENTERTAINMENT — TODOS LOS DERECHOS RESERVADOS ◇</p>
-  </div>
-</footer>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content" id="modal-content">
-    <button class="modal-close" id="modal-close">×</button>
-    <div id="modal-body"></div>
-  </div>
-</div>
-
-<script src="data/characters.js"></script>
-<script src="data/games.js"></script>
-<script src="data/books.js"></script>
-<script src="data/timeline.js"></script>
-<script src="data/stories.js"></script>
-<script src="data/images.js"></script>
-<script src="js/main.js"></script>
 </body>
 </html>
