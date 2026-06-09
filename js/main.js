@@ -261,6 +261,10 @@ function renderCharacters(filter = state.currentFilter, search = state.character
 
   grid.innerHTML = filtered.map(char => {
     const imgUrl = getImageUrl('characters', char.id);
+    const status = (char.status || 'UNKNOWN').toLowerCase();
+    const threat = char.threatLevel || 'Medium';
+    const threatPct = getThreatPercent(threat);
+    const threatColor = getThreatColor(threat);
     return `
     <div class="character-card" onclick="showCharacterModal('${char.id}')">
       <div class="char-image">
@@ -271,15 +275,18 @@ function renderCharacters(filter = state.currentFilter, search = state.character
         <div class="char-image-overlay"></div>
       </div>
       <div class="char-classified">ANIMATRONIC</div>
-      <div class="char-threat ${getThreatClass(char.threatLevel)}">${char.threatLevel.toUpperCase()}</div>
+      <div class="char-threat ${getThreatClass(threat)}">${threat.toUpperCase()}</div>
       <div class="char-info">
         <div class="char-name">${char.name}</div>
-        <div class="char-alias">${char.alias}</div>
+        <div class="char-alias">${char.alias || ''}</div>
         <div class="char-meta">
-          <span class="status-${char.status.toLowerCase()}">${char.status.toUpperCase()}</span>
-          <span>${char.category.toUpperCase()}</span>
+          <span class="status-${status}">${status.toUpperCase()}</span>
+          <span>${(char.category || '').toUpperCase()}</span>
         </div>
-        <div class="char-desc">${char.description}</div>
+        <div class="char-desc">${(char.description || '').slice(0, 120)}${(char.description || '').length > 120 ? '...' : ''}</div>
+        <div class="char-threat-bar">
+          <div class="threat-fill" style="width:${threatPct}%;background:${threatColor};"></div>
+        </div>
       </div>
     </div>
   `}).join('');
@@ -292,6 +299,26 @@ function getThreatClass(level) {
     case 'high': return 'high';
     case 'critical': return 'critical';
     default: return 'medium';
+  }
+}
+
+function getThreatPercent(level) {
+  switch((level || '').toLowerCase()) {
+    case 'critical': return 95;
+    case 'high': return 75;
+    case 'medium': return 50;
+    case 'low': return 25;
+    default: return 50;
+  }
+}
+
+function getThreatColor(level) {
+  switch((level || '').toLowerCase()) {
+    case 'critical': return '#FF2222';
+    case 'high': return '#FF6600';
+    case 'medium': return '#E6B800';
+    case 'low': return '#00FF66';
+    default: return '#E6B800';
   }
 }
 
@@ -712,8 +739,20 @@ window.showCharacterModal = (id) => {
     (c.category === char.category || c.firstAppearance === char.firstAppearance)
   ).slice(0, 6);
 
-  const threatColor = char.threatLevel === 'Critical' ? '#FF2222' : char.threatLevel === 'High' ? '#FF6600' : '#E6B800';
-  const threatPct = getThreatPercent(char.threatLevel);
+  const status = (char.status || 'UNKNOWN').toUpperCase();
+  const category = (char.category || '').toUpperCase();
+  const threat = char.threatLevel || 'Medium';
+  const threatColor = getThreatColor(threat);
+  const threatPct = getThreatPercent(threat);
+  const alias = char.alias || '';
+  const origin = char.origin || '';
+  const firstApp = char.firstAppearance || '';
+  const description = char.description || '';
+  const history = char.history || '';
+  const behavior = char.behavior || '';
+  const appearances = char.appearances || [];
+  const relationships = char.relationships || [];
+  const trivia = char.trivia || [];
 
   const body = $('#modal-body');
   body.innerHTML = `
@@ -741,26 +780,26 @@ window.showCharacterModal = (id) => {
 
         <div class="char-modal__hero-right">
           <div class="char-modal__tags">
-            <span class="char-modal__tag char-modal__tag--status">${char.status.toUpperCase()}</span>
-            <span class="char-modal__tag char-modal__tag--category">${char.category.toUpperCase()}</span>
-            <span class="char-modal__tag char-modal__tag--threat" style="color:${threatColor};border-color:${threatColor};">${char.threatLevel.toUpperCase()}</span>
+            <span class="char-modal__tag char-modal__tag--status">${status}</span>
+            <span class="char-modal__tag char-modal__tag--category">${category}</span>
+            <span class="char-modal__tag char-modal__tag--threat" style="color:${threatColor};border-color:${threatColor};">${threat.toUpperCase()}</span>
           </div>
 
           <h2 class="char-modal__title">${char.name}</h2>
-          <div class="char-modal__subtitle">${char.alias}</div>
+          <div class="char-modal__subtitle">${alias}</div>
 
           <div class="char-modal__info-grid">
             <div class="char-modal__info-item">
               <div class="char-modal__info-label">PRIMERA APARICION</div>
-              <div class="char-modal__info-value">${char.firstAppearance}</div>
+              <div class="char-modal__info-value">${firstApp}</div>
             </div>
             <div class="char-modal__info-item">
               <div class="char-modal__info-label">PROCEDENCIA</div>
-              <div class="char-modal__info-value">${char.origin}</div>
+              <div class="char-modal__info-value">${origin}</div>
             </div>
             <div class="char-modal__info-item">
               <div class="char-modal__info-label">CATEGORIA</div>
-              <div class="char-modal__info-value">${char.category}</div>
+              <div class="char-modal__info-value">${category}</div>
             </div>
             <div class="char-modal__info-item">
               <div class="char-modal__info-label">NIVEL DE AMENAZA</div>
@@ -780,7 +819,7 @@ window.showCharacterModal = (id) => {
           <span class="char-modal__section-icon">&#9679;</span> INFORMACION GENERAL
         </div>
         <div class="char-modal__section-content">
-          <p>${char.description}</p>
+          <p>${description}</p>
         </div>
       </div>
 
@@ -789,7 +828,7 @@ window.showCharacterModal = (id) => {
           <span class="char-modal__section-icon">&#9679;</span> HISTORIA
         </div>
         <div class="char-modal__section-content">
-          <p>${char.history}</p>
+          <p>${history}</p>
         </div>
       </div>
 
@@ -798,7 +837,7 @@ window.showCharacterModal = (id) => {
           <span class="char-modal__section-icon">&#9679;</span> COMPORTAMIENTO
         </div>
         <div class="char-modal__section-content">
-          <p>${char.behavior}</p>
+          <p>${behavior}</p>
         </div>
       </div>
 
@@ -807,17 +846,17 @@ window.showCharacterModal = (id) => {
           <span class="char-modal__section-icon">&#9679;</span> APARICIONES
         </div>
         <div class="char-modal__tags-row">
-          ${char.appearances.map(a => `<span class="char-modal__appear-tag">${a}</span>`).join('')}
+          ${appearances.map(a => `<span class="char-modal__appear-tag">${a}</span>`).join('')}
         </div>
       </div>
 
-      ${char.relationships.length > 0 ? `
+      ${relationships.length > 0 ? `
         <div class="char-modal__section">
           <div class="char-modal__section-title">
             <span class="char-modal__section-icon">&#9679;</span> PERSONAJES RELACIONADOS
           </div>
           <div class="char-modal__related-grid">
-            ${char.relationships.map(r => {
+            ${relationships.map(r => {
               const relChar = characters.find(c => c.name.toLowerCase() === r.name.toLowerCase());
               const relImg = relChar ? getImageUrl('characters', relChar.id) : '';
               const relId = relChar ? relChar.id : '';
@@ -859,14 +898,14 @@ window.showCharacterModal = (id) => {
         </div>
       ` : ''}
 
-      ${char.trivia.length > 0 ? `
+      ${trivia.length > 0 ? `
         <div class="char-modal__section">
           <div class="char-modal__section-title">
             <span class="char-modal__section-icon">&#9679;</span> DATOS DE ARCHIVO
           </div>
           <div class="char-modal__section-content">
             <ul class="char-modal__trivia-list">
-              ${char.trivia.map(t => `<li>${t}</li>`).join('')}
+              ${trivia.map(t => `<li>${t}</li>`).join('')}
             </ul>
           </div>
         </div>
