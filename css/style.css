@@ -696,6 +696,49 @@ a:hover {
   margin: 20px 0;
 }
 
+.game-group {
+  margin-bottom: 40px;
+}
+
+.game-group-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #1C1C1C;
+  margin-bottom: 20px;
+}
+
+.game-group-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  color: #00FF66;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+}
+
+.game-group-count {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: #555;
+  background: #111;
+  padding: 2px 8px;
+  border: 1px solid #1C1C1C;
+}
+
+.game-group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.game-group-grid.full-width {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
 .character-card {
   background: #0A0A0A;
   border: 1px solid #1C1C1C;
@@ -2266,6 +2309,9 @@ a:hover {
   .characters-grid {
     grid-template-columns: 1fr;
   }
+  .game-group-grid {
+    grid-template-columns: 1fr;
+  }
   #main-nav ul li a {
     font-size: 9px;
     padding: 8px 10px;
@@ -3460,6 +3506,61 @@ body::after {
 .golden-appear img {
   max-width: 200px;
   filter: brightness(1.2) contrast(1.3);
+}
+
+/* =============================================
+   CHARACTER CARD — ENHANCED
+   ============================================= */
+.char-card-tags {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 3px;
+  padding: 4px 6px;
+  z-index: 2;
+}
+
+.char-card-game {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #E6B800;
+  background: rgba(0,0,0,0.7);
+  padding: 2px 5px;
+  letter-spacing: 0.5px;
+}
+
+.char-card-cat {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #888;
+  background: rgba(0,0,0,0.7);
+  padding: 2px 5px;
+  letter-spacing: 0.5px;
+}
+
+.char-threat-bar {
+  margin-top: 8px;
+  width: 100%;
+  height: 4px;
+  background: #0A0A0A;
+  border: 1px solid #1C1C1C;
+  overflow: hidden;
+}
+
+.threat-fill {
+  height: 100%;
+  transition: width 0.3s;
+}
+
+.character-card:hover .threat-fill {
+  box-shadow: 0 0 6px currentColor;
+}
+
+.char-desc {
+  font-size: 11px;
+  line-height: 1.5;
 }
 
 /* =============================================

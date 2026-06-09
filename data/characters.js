@@ -1,4 +1,4 @@
-window.characters = [
+﻿window.characters = [
   {
     id: 'freddy-fazbear',
     name: 'Freddy Fazbear',
@@ -1784,6 +1784,3628 @@ window.characters = [
       'La Custom Night de FNaF 2 es extremadamente dificil.'
     ]
   }
+,
+  {
+      id: 'freddles',
+      name: 'Freddles',
+      alias: 'Los Mini Freddys / Freddles',
+      firstAppearance: "Five Nights at Freddy's 4 (2015)",
+      status: 'Unknown',
+      threatLevel: 'Low',
+      origin: 'Pesadilla / Mente del Protagonista (The Crying Child)',
+      image: '',
+      category: 'Nightmare',
+      description: 'Los Freddles son pequenas versiones de Nightmare Freddy que aparecen en la cama del jugador y se multiplican si no se les espanta con la linterna.',
+      history: 'Los Freddles son creaciones del subconsciente del Crying Child, representando el miedo a ser superado en numero. Aparecen primero como uno o dos en la cama, pero si se ignoran, se multiplican hasta que Nightmare Freddy aparece.',
+      behavior: 'Los Freddles aparecen en la cama del jugador y deben ser espantados con la linterna. Si se multiplican demasiado, provocan la aparicion de Nightmare Freddy.',
+      appearances: ['FNaF 4', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Nightmare Freddy', relation: 'Manifestacion Superior / Controlador' },
+        { name: 'The Crying Child', relation: 'Huesped de la Pesadilla' }
+      ],
+      trivia: [
+        'Los Freddles pueden multiplicarse hasta cinco en la cama antes de que Nightmare Freddy ataque.',
+        'Cada Freddle tiene una expresion diferente.',
+        'Los Freddles desaparecen inmediatamente cuando Nightmare Freddy aparece.'
+      ]
+    },
+  {
+      id: 'nightmare-cupcake',
+      name: 'Nightmare Cupcake',
+      alias: 'Cupcake de Pesadilla / Nightmare Cupcake',
+      firstAppearance: "Five Nights at Freddy's 4 (2015)",
+      status: 'Unknown',
+      threatLevel: 'Low',
+      origin: 'Pesadilla / Mente del Protagonista (The Crying Child)',
+      image: '',
+      category: 'Nightmare',
+      description: 'Nightmare Cupcake es la version distorsionada del cupcake de Chica, con dientes afilados y una expresion agresiva.',
+      history: 'El Nightmare Cupcake nace de la percepcion distorsionada del Crying Child del accesorio de Chica. En las pesadillas se convierte en una criatura con dientes y mirada amenazante.',
+      behavior: 'Nightmare Cupcake no tiene comportamiento independiente en FNaF 4, apareciendo como parte del diseno de Nightmare Chica.',
+      appearances: ['FNaF 4', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Nightmare Chica', relation: 'Portadora / Companera' },
+        { name: 'Mr. Cupcake', relation: 'Contraparte Original' }
+      ],
+      trivia: [
+        'Nightmare Cupcake tiene dientes afilados visibles.',
+        'En UCN aparece como personaje separado jugable.',
+        'Su diseno incluye una vela derretida y glaseado que parece sangre.'
+      ]
+    },
+  {
+      id: 'nightmare-endo',
+      name: 'Nightmare Endo',
+      alias: 'Endo de Pesadilla / Nightmare Endo',
+      firstAppearance: "Five Nights at Freddy's 4 (2015) - Halloween Edition",
+      status: 'Unknown',
+      threatLevel: 'Low',
+      origin: 'Pesadilla / Mente del Protagonista (Halloween DLC)',
+      image: '',
+      category: 'Nightmare',
+      description: 'Nightmare Endo es un endoesqueleto de pesadilla con partes metalicas retorcidas y mandibula alargada.',
+      history: 'Nightmare Endo fue introducido en la actualizacion de Halloween de FNaF 4. Representa el miedo al endoesqueleto interno de los animatronicos.',
+      behavior: 'Nightmare Endo se acerca a la puerta derecha y debe ser manejado escuchando su respiracion.',
+      appearances: ['FNaF 4 (Halloween Edition)', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Endo-01', relation: 'Forma Base / Inspiracion' },
+        { name: 'Glamrock Endo', relation: 'Contraparte Moderna' }
+      ],
+      trivia: [
+        'Nightmare Endo solo aparece en la version Halloween de FNaF 4.',
+        'Es el unico endoesqueleto de pesadilla en la franquicia.',
+        'En UCN aparece en la categoria de personajes de FNaF 4.'
+      ]
+    },
+  {
+      id: 'nightmare-balloon-boy',
+      name: 'Nightmare Balloon Boy',
+      alias: 'BB de Pesadilla / Nightmare Balloon Boy',
+      firstAppearance: "Five Nights at Freddy's 4 (2015) - Halloween Edition",
+      status: 'Unknown',
+      threatLevel: 'Medium',
+      origin: 'Pesadilla / Mente del Protagonista (Halloween DLC)',
+      image: '',
+      category: 'Nightmare',
+      description: 'Nightmare Balloon Boy es la version aterradora de Balloon Boy con cabeza alargada y sonrisa grotesca.',
+      history: 'Nightmare Balloon Boy fue anadido en la actualizacion de Halloween de FNaF 4. Representa el miedo a los personajes infantiles que se vuelven amenazantes.',
+      behavior: 'Nightmare Balloon Boy aparece en la puerta izquierda y debe ser manejado mirandolo fijamente.',
+      appearances: ['FNaF 4 (Halloween Edition)', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Balloon Boy', relation: 'Forma Base / Version Original' },
+        { name: 'Nightmare', relation: 'Companero de Contenido Halloween' }
+      ],
+      trivia: [
+        'Nightmare Balloon Boy solo aparece en la actualizacion de Halloween de FNaF 4.',
+        'Su cabeza es desproporcionadamente grande.',
+        'Su risa es una version distorsionada del BB original.'
+      ]
+    },
+  {
+      id: 'nightmare-mangle',
+      name: 'Nightmare Mangle',
+      alias: 'Mangle de Pesadilla / Nightmare Mangle',
+      firstAppearance: "Five Nights at Freddy's 4 (2015) - Halloween Edition",
+      status: 'Unknown',
+      threatLevel: 'High',
+      origin: 'Pesadilla / Mente del Protagonista (Halloween DLC)',
+      image: '',
+      category: 'Nightmare',
+      description: 'Nightmare Mangle es la version de pesadilla de Mangle, colgando del techo con apariencia destrozada.',
+      history: 'Nightmare Mangle fue introducido en la actualizacion de Halloween de FNaF 4, reemplazando a Nightmare Foxy en algunas noches.',
+      behavior: 'Nightmare Mangle se acerca desde el techo colgando boca abajo. El jugador debe mirarla fijamente.',
+      appearances: ['FNaF 4 (Halloween Edition)', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Mangle', relation: 'Forma Base Distorsionada' },
+        { name: 'Phantom Mangle', relation: 'Alucinacion Similar' }
+      ],
+      trivia: [
+        'Nightmare Mangle cuelga del techo boca abajo.',
+        'Aparece exclusivamente en la actualizacion de Halloween de FNaF 4.',
+        'Es la unica version de Mangle que ataca desde el techo.'
+      ]
+    },
+  {
+      id: 'jack-o-bonnie',
+      name: 'Jack-O-Bonnie',
+      alias: 'Jack-O-Bonnie / Calabaza Bonnie',
+      firstAppearance: "Five Nights at Freddy's 4 (2015) - Halloween Edition",
+      status: 'Unknown',
+      threatLevel: 'Medium',
+      origin: 'Pesadilla / Mente del Protagonista (Halloween DLC)',
+      image: '',
+      category: 'Nightmare',
+      description: 'Jack-O-Bonnie es una variante tematica de Halloween de Nightmare Bonnie con cabeza de calabaza iluminada.',
+      history: 'Jack-O-Bonnie fue creado como contenido tematico de Halloween para FNaF 4. Su cabeza iluminada evoca una jack-o-lantern.',
+      behavior: 'Jack-O-Bonnie se acerca a la puerta izquierda con un patron ligeramente diferente al de Nightmare Bonnie.',
+      appearances: ['FNaF 4 (Halloween Edition)', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Nightmare Bonnie', relation: 'Variante Tematica / Base' },
+        { name: 'Jack-O-Chica', relation: 'Contraparte Femenina Festiva' }
+      ],
+      trivia: [
+        'Jack-O-Bonnie tiene la cabeza iluminada desde el interior.',
+        'Su cuerpo muestra marcas de carbonizacion.',
+        'Aparece exclusivamente en la actualizacion de Halloween de FNaF 4.'
+      ]
+    },
+  {
+      id: 'jack-o-chica',
+      name: 'Jack-O-Chica',
+      alias: 'Jack-O-Chica / Calabaza Chica',
+      firstAppearance: "Five Nights at Freddy's 4 (2015) - Halloween Edition",
+      status: 'Unknown',
+      threatLevel: 'High',
+      origin: 'Pesadilla / Mente del Protagonista (Halloween DLC)',
+      image: '',
+      category: 'Nightmare',
+      description: 'Jack-O-Chica es la variante de Halloween de Nightmare Chica con cabeza de calabaza ardiente.',
+      history: 'Jack-O-Chica fue creada como contenido festivo de Halloween para FNaF 4, con una calabaza jack-o-lantern como cabeza.',
+      behavior: 'Jack-O-Chica se acerca por la puerta derecha y su cabeza iluminada la hace facil de detectar.',
+      appearances: ['FNaF 4 (Halloween Edition)', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Nightmare Chica', relation: 'Variante Tematica / Base' },
+        { name: 'Jack-O-Bonnie', relation: 'Contraparte Festiva' }
+      ],
+      trivia: [
+        'Jack-O-Chica tiene una calabaza jack-o-lantern como cabeza.',
+        'Su cuerpo muestra quemaduras extensas.',
+        'Es el unico personaje que combina calabaza con cuerpo de animatronico.'
+      ]
+    },
+  {
+      id: 'bidybab',
+      name: 'Bidybab',
+      alias: 'Bidybab / Muneca Bidybab',
+      firstAppearance: "Five Nights at Freddy's: Sister Location (2016)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Circus Baby's Entertainment & Rental",
+      image: '',
+      category: 'Funtime',
+      description: 'Los Bidybabs son pequenas munecas animatronicas que acompanan a Circus Baby en sus actuaciones.',
+      history: 'Los Bidybabs fueron creados como elenco de apoyo de Circus Baby, disenados para parecer munecas inofensivas pero equipados con mecanismos de captura.',
+      behavior: 'Los Bidybabs se mueven en grupo por las instalaciones, apareciendo en conductos y esquinas.',
+      appearances: ['FNaF: Sister Location', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Circus Baby', relation: 'Lider / Creadora' },
+        { name: 'Electrobab', relation: 'Variante Electrica' }
+      ],
+      trivia: [
+        'Los Bidybabs son los animatronicos mas pequenos de Sister Location.',
+        'Pueden trepar por paredes y conductos.',
+        'Su nombre podria ser juego de palabras con "baby doll".'
+      ]
+    },
+  {
+      id: 'minireena',
+      name: 'Minireena',
+      alias: 'Minireena / Bailarina Miniatura',
+      firstAppearance: "Five Nights at Freddy's: Sister Location (2016)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Circus Baby's Entertainment & Rental",
+      image: '',
+      category: 'Funtime',
+      description: 'Las Minireenas son pequenas bailarinas animatronicas que asisten a Ballora en sus actuaciones de ballet.',
+      history: 'Las Minireenas fueron creadas como parte del acto de Ballora, disenadas como bailarinas de ballet en miniatura vinculadas a ella.',
+      behavior: 'Las Minireenas aparecen en la sala de Ballora moviendose sigilosamente por las paredes.',
+      appearances: ['FNaF: Sister Location', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Ballora', relation: 'Lider / Bailarina Principal' },
+        { name: 'Bidybab', relation: 'Companero de Reparto' }
+      ],
+      trivia: [
+        'Las Minireenas pueden trepar por paredes y techo.',
+        'Aparecen en grandes numeros durante el segmento de Ballora.',
+        'Su nombre es juego de palabras entre mini y ballerina.'
+      ]
+    },
+  {
+      id: 'yenndo',
+      name: 'Yenndo',
+      alias: 'Yenndo / Endo Dorado',
+      firstAppearance: "Five Nights at Freddy's: Sister Location (2016)",
+      status: 'Unknown',
+      threatLevel: 'Low',
+      origin: "Circus Baby's Entertainment & Rental",
+      image: '',
+      category: 'Funtime',
+      description: 'Yenndo es un endoesqueleto dorado misterioso que aparece como easter egg en Sister Location.',
+      history: 'Yenndo es un personaje enigmatico que aparece en la sala de control de Sister Location como easter egg.',
+      behavior: 'Yenndo aparece aleatoriamente en la sala de control, mirando fijamente al jugador antes de desaparecer.',
+      appearances: ['FNaF: Sister Location', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Golden Freddy', relation: 'Contraparte Espiritual Similar' },
+        { name: 'Endo-01', relation: 'Forma Base / Inspiracion' }
+      ],
+      trivia: [
+        'Yenndo solo aparece como easter egg en Sister Location.',
+        'Su nombre combina "Golden" y "Endo".',
+        'No se sabe si es real o una alucinacion.'
+      ]
+    },
+  {
+      id: 'lolbit',
+      name: 'Lolbit',
+      alias: 'Lolbit / Zorro Byte',
+      firstAppearance: "Five Nights at Freddy's: Sister Location (2016)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Circus Baby's Entertainment & Rental / Sistema Informatico",
+      image: '',
+      category: 'Funtime',
+      description: 'Lolbit es una entidad digital con forma de zorro animatronico naranja y morado.',
+      history: 'Lolbit aparecio como easter egg en Sister Location, mostrandose en pantallas. Es una version digital de Funtime Foxy con colores invertidos.',
+      behavior: 'Lolbit aparece en pantallas y sistemas informaticos causando interferencia y glitches.',
+      appearances: ['FNaF: Sister Location', 'FNaF World', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Funtime Foxy', relation: 'Contraparte Digital / Inspiracion' },
+        { name: 'Glitchtrap', relation: 'Entidad Digital Similar' }
+      ],
+      trivia: [
+        'Lolbit es Funtime Foxy con colores invertidos.',
+        'Aparece principalmente en pantallas como glitch.',
+        'Su nombre es juego de palabras con "lol" y "bit".'
+      ]
+    },
+  {
+      id: 'electrobab',
+      name: 'Electrobab',
+      alias: 'Electrobab / Bidybab Electrico',
+      firstAppearance: "Five Nights at Freddy's: Sister Location (2016)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Circus Baby's Entertainment & Rental",
+      image: '',
+      category: 'Funtime',
+      description: 'Electrobab es una variante electrica de los Bidybabs con elementos electricos visibles.',
+      history: 'Electrobab fue introducido en la actualizacion de Sister Location como variante de los Bidybabs con capacidades electricas.',
+      behavior: 'Electrobab aparece con comportamiento similar a los Bidybabs pero con efectos electricos.',
+      appearances: ['FNaF: Sister Location (actualizacion)', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Bidybab', relation: 'Variante Electrica / Base' },
+        { name: 'Circus Baby', relation: 'Lider' }
+      ],
+      trivia: [
+        'Electrobab fue anadido en actualizacion posterior de Sister Location.',
+        'Tiene efectos electricos visibles en su cuerpo.',
+        'Su nombre combina "electrico" con "Bidybab".'
+      ]
+    },
+  {
+      id: 'bonnet',
+      name: 'Bonnet',
+      alias: 'Bonnet / Marioneta Bonnet',
+      firstAppearance: "Five Nights at Freddy's: Sister Location (2016)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Circus Baby's Entertainment & Rental",
+      image: '',
+      category: 'Funtime',
+      description: 'Bonnet es una marioneta de mano con forma de conejo morado, similar a Bon-Bon.',
+      history: 'Bonnet fue introducida en la actualizacion de Sister Location como contraparte de Bon-Bon con color morado.',
+      behavior: 'Bonnet aparece en la sala de control moviendose rapidamente y desapareciendo.',
+      appearances: ['FNaF: Sister Location (actualizacion)', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Bon-Bon', relation: 'Contraparte / Version Similar' },
+        { name: 'Funtime Freddy', relation: 'Posible Dueno Alternativo' }
+      ],
+      trivia: [
+        'Bonnet tiene color morado distintivo.',
+        'Fue anadida en la actualizacion de Sister Location.',
+        'Es la contraparte femenina de Bon-Bon.'
+      ]
+    },
+  {
+      id: 'funtime-chica',
+      name: 'Funtime Chica',
+      alias: 'Funtime Chica / Chica Funtime',
+      firstAppearance: "Five Nights at Freddy's: Help Wanted (2019)",
+      status: 'Unknown',
+      threatLevel: 'Low',
+      origin: "Circus Baby's Entertainment & Rental (mencionada)",
+      image: '',
+      category: 'Funtime',
+      description: 'Funtime Chica es una version Funtime de Chica agregada en FNaF VR: Help Wanted.',
+      history: 'Funtime Chica fue mencionada en planos de Sister Location pero introducida en FNaF VR: Help Wanted.',
+      behavior: 'Funtime Chica aparece en FNaF VR moviendose sigilosamente hacia el jugador.',
+      appearances: ['FNaF VR: Help Wanted', 'FNaF AR'],
+      relationships: [
+        { name: 'Chica', relation: 'Forma Base / Inspiracion' },
+        { name: 'Funtime Freddy', relation: 'Companero de Linea Funtime' }
+      ],
+      trivia: [
+        'Funtime Chica fue planeada para Sister Location pero no llego al juego final.',
+        'Aparecio por primera vez en FNaF VR: Help Wanted.',
+        'Es la unica Funtime que no aparecio en Sister Location original.'
+      ]
+    },
+  {
+      id: 'funtime-cupcake',
+      name: 'Funtime Cupcake',
+      alias: 'Funtime Cupcake / Cupcake Funtime',
+      firstAppearance: "Five Nights at Freddy's: Sister Location (2016)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Circus Baby's Entertainment & Rental",
+      image: '',
+      category: 'Funtime',
+      description: 'El Funtime Cupcake es la version Funtime del cupcake de Chica con diseno blanco y rosa.',
+      history: 'El Funtime Cupcake fue disenado para acompanar a Funtime Chica en sus actuaciones.',
+      behavior: 'No tiene comportamiento independiente, apareciendo como accesorio de Funtime Chica.',
+      appearances: ['FNaF: Sister Location (planos)', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Mr. Cupcake', relation: 'Version Original' },
+        { name: 'Funtime Chica', relation: 'Portadora / Duena' }
+      ],
+      trivia: [
+        'Tiene diseno blanco y rosa caracteristico de los Funtimes.',
+        'Su vela tiene forma de tornado.',
+        'No tiene rol activo en ningun juego principal.'
+      ]
+    },
+  {
+      id: 'shadow-cupcake',
+      name: 'Shadow Cupcake',
+      alias: 'Shadow Cupcake / Cupcake Sombra',
+      firstAppearance: "Five Nights at Freddy's 2 (2014)",
+      status: 'Unknown',
+      threatLevel: 'Unknown',
+      origin: "Freddy Fazbear's Pizza (Nuevo Local 1987)",
+      image: '',
+      category: 'Shadow',
+      description: 'Shadow Cupcake es una version sombria del cupcake de Toy Chica, apareciendo como easter egg.',
+      history: 'Shadow Cupcake aparece como easter egg extremadamente raro en FNaF 2, de color negro con ojos brillantes.',
+      behavior: 'No tiene comportamiento activo, solo easter egg visual en el escritorio.',
+      appearances: ['FNaF 2 (easter egg)'],
+      relationships: [
+        { name: 'Toy Cupcake', relation: 'Contraparte Sombra' },
+        { name: 'Shadow Freddy', relation: 'Entidad Shadow Similar' }
+      ],
+      trivia: [
+        'Es uno de los easter eggs mas raros de FNaF 2.',
+        'Su diseno es identico al Toy Cupcake pero negro.',
+        'Se desconoce si tiene significado canonical.'
+      ]
+    },
+  {
+      id: 'golden-cupcake',
+      name: 'Golden Cupcake',
+      alias: 'Golden Cupcake / Cupcake Dorado',
+      firstAppearance: "Five Nights at Freddy's 3 (2015)",
+      status: 'Unknown',
+      threatLevel: 'Unknown',
+      origin: 'Fazbear Fright: The Horror Attraction',
+      image: '',
+      category: 'Shadow',
+      description: 'Golden Cupcake es una version dorada del cupcake que aparece como alucinacion en FNaF 3.',
+      history: 'Golden Cupcake aparece en FNaF 3 como alucinacion en la oficina de Fazbear Fright.',
+      behavior: 'No tiene comportamiento activo, apareciendo y desapareciendo como alucinacion.',
+      appearances: ['FNaF 3 (alucinacion)'],
+      relationships: [
+        { name: 'Mr. Cupcake', relation: 'Forma Base' },
+        { name: 'Golden Freddy', relation: 'Contraparte Dorada Similar' }
+      ],
+      trivia: [
+        'Aparece como alucinacion en FNaF 3.',
+        'Comparte el color dorado con Golden Freddy.',
+        'Su aparicion es completamente aleatoria.'
+      ]
+    },
+  {
+      id: 'mr-cupcake',
+      name: 'Mr. Cupcake',
+      alias: 'Mr. Cupcake / El Cupcake / Cupcake de Chica',
+      firstAppearance: "Five Nights at Freddy's (2014)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Pizza (Local Original)",
+      image: '',
+      category: 'Original',
+      description: 'Mr. Cupcake es el clasico cupcake animatronico que Chica lleva en su mano con vela y glaseado.',
+      history: 'Mr. Cupcake fue disenado como accesorio de Chica, adquiriendo personalidad propia y apareciendo en multiples juegos.',
+      behavior: 'No tiene comportamiento independiente en la mayoria de juegos, pero en UCN ataca al jugador.',
+      appearances: ['FNaF 1', 'FNaF 2', 'FNaF 3', 'UCN', 'FNaF VR: Help Wanted', 'FNaF AR'],
+      relationships: [
+        { name: 'Chica', relation: 'Portadora / Duena' },
+        { name: 'Toy Cupcake', relation: 'Contraparte Toy' },
+        { name: 'Nightmare Cupcake', relation: 'Contraparte de Pesadilla' }
+      ],
+      trivia: [
+        'Mr. Cupcake es el accesorio mas duradero de la franquicia.',
+        'En UCN tiene su propia mecanica de ataque.',
+        'Ha aparecido en mas juegos que algunos personajes principales.'
+      ]
+    },
+  {
+      id: 'toy-cupcake',
+      name: 'Toy Cupcake',
+      alias: 'Toy Cupcake / Cupcake Toy',
+      firstAppearance: "Five Nights at Freddy's 2 (2014)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Pizza (Nuevo Local 1987)",
+      image: '',
+      category: 'Toy',
+      description: 'El Toy Cupcake es la version modernizada del cupcake de Chica que Toy Chica lleva en su mano.',
+      history: 'El Toy Cupcake fue creado para la linea Toy de animatronicos.',
+      behavior: 'No tiene comportamiento independiente.',
+      appearances: ['FNaF 2', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Mr. Cupcake', relation: 'Version Original' },
+        { name: 'Toy Chica', relation: 'Portadora / Duena' }
+      ],
+      trivia: [
+        'Tiene diseno mas brillante y colorido que el original.',
+        'Tiene dos velas a diferencia del original.',
+        'Toy Chica lo arroja durante su ataque.'
+      ]
+    },
+  {
+      id: 'rockstar-freddy',
+      name: 'Rockstar Freddy',
+      alias: 'Rockstar Freddy / Freddy Rockstar',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Rockstar',
+      description: 'Rockstar Freddy es una version de Freddy Fazbear con estetica de estrella de rock.',
+      history: 'Rockstar Freddy fue contratado para la Pizzeria Simulator con apariencia de rockstar glamuroso.',
+      behavior: 'Se sienta en su escenario y pide monedas. Si no recibe, ataca por la ventilacion izquierda.',
+      appearances: ['FFPS', 'UCN', 'FNaF VR: Help Wanted', 'FNaF AR'],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Inspiracion / Version Original' },
+        { name: 'Rockstar Bonnie', relation: 'Companero de Banda' },
+        { name: 'Rockstar Chica', relation: 'Companera de Banda' },
+        { name: 'Rockstar Foxy', relation: 'Companero de Banda' }
+      ],
+      trivia: [
+        'Rockstar Freddy pide monedas y ataca si no recibe.',
+        'Su diseno incluye chaqueta de cuero con tachuelas.',
+        'Es la unica version de Freddy que pide dinero explicitamente.'
+      ]
+    },
+  {
+      id: 'rockstar-bonnie',
+      name: 'Rockstar Bonnie',
+      alias: 'Rockstar Bonnie / Bonnie Rockstar',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Rockstar',
+      description: 'Rockstar Bonnie es la version rockstar de Bonnie con guitarra electrica roja.',
+      history: 'Rockstar Bonnie fue creado con estetica rockstar de los 80s para la Pizzeria Simulator.',
+      behavior: 'Toca su guitarra en el escenario pero ataca si lo molestan con la linterna.',
+      appearances: ['FFPS', 'UCN', 'FNaF VR: Help Wanted', 'FNaF AR'],
+      relationships: [
+        { name: 'Bonnie', relation: 'Inspiracion / Version Original' },
+        { name: 'Rockstar Freddy', relation: 'Lider de Banda' },
+        { name: 'Rockstar Chica', relation: 'Companera de Banda' },
+        { name: 'Rockstar Foxy', relation: 'Companero de Banda' }
+      ],
+      trivia: [
+        'Toca una guitarra electrica roja brillante.',
+        'Desaparece si lo molestan con la linterna.',
+        'Es el unico Bonnie que usa gafas de sol.'
+      ]
+    },
+  {
+      id: 'rockstar-chica',
+      name: 'Rockstar Chica',
+      alias: 'Rockstar Chica / Chica Rockstar',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Rockstar',
+      description: 'Rockstar Chica es la version rockstar de Chica que nunca ataca al jugador.',
+      history: 'Rockstar Chica fue creada como parte de la alineacion Rockstar para la Pizzeria Simulator.',
+      behavior: 'Permanece en el escenario tocando musica sin atacar al jugador.',
+      appearances: ['FFPS', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Chica', relation: 'Inspiracion / Version Original' },
+        { name: 'Rockstar Freddy', relation: 'Lider de Banda' },
+        { name: 'Rockstar Bonnie', relation: 'Companero de Banda' },
+        { name: 'Rockstar Foxy', relation: 'Companero de Banda' }
+      ],
+      trivia: [
+        'Es el unico personaje que nunca ataca en FFPS.',
+        'Toca una guitarra acustica.',
+        'Usa una diadema con pluma.'
+      ]
+    },
+  {
+      id: 'rockstar-foxy',
+      name: 'Rockstar Foxy',
+      alias: 'Rockstar Foxy / Foxy Rockstar',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Rockstar',
+      description: 'Rockstar Foxy es una version pirata-rockstar de Foxy con chaqueta de cuero.',
+      history: 'Rockstar Foxy fue creado combinando tema pirata con elementos rockstar.',
+      behavior: 'Se sienta en Pirate Cove y ataca si se le observa demasiado.',
+      appearances: ['FFPS', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Foxy', relation: 'Inspiracion / Version Original' },
+        { name: 'Rockstar Freddy', relation: 'Lider de Banda' },
+        { name: 'Rockstar Bonnie', relation: 'Companero de Banda' },
+        { name: 'Rockstar Chica', relation: 'Companera de Banda' }
+      ],
+      trivia: [
+        'Mantiene el tema pirata con elementos rockstar.',
+        'Usa chaqueta de cuero con hombreras.',
+        'Es la version mas extravagante de Foxy.'
+      ]
+    },
+  {
+      id: 'music-man',
+      name: 'Music Man',
+      alias: 'Music Man / El Hombre Musica',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Rockstar',
+      description: 'Music Man es un pequeno animatronico cubierto de platillos que reacciona al ruido.',
+      history: 'Music Man fue creado como atraccion musical para la Pizzeria Simulator.',
+      behavior: 'Se activa con el ruido en la oficina. Si es excesivo, se vuelve agresivo y ataca.',
+      appearances: ['FFPS', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'DJ Music Man', relation: 'Version Gigante / Evolucion' },
+        { name: 'Rockstar Freddy', relation: 'Companero de FFPS' }
+      ],
+      trivia: [
+        'Esta cubierto de platillos de musica.',
+        'Su ataque se activa por ruido excesivo.',
+        'En Security Breach aparece como version gigante DJ.'
+      ]
+    },
+  {
+      id: 'el-chip',
+      name: 'El Chip',
+      alias: 'El Chip / El Castor',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Rockstar',
+      description: 'El Chip es un castor animatronico con sombrero mejicano y guitarra.',
+      history: 'El Chip fue creado como atraccion tematica mejicana para la Pizzeria Simulator.',
+      behavior: 'Permanece en su escenario tocando musica sin atacar al jugador.',
+      appearances: ['FFPS', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Music Man', relation: 'Companero de FFPS' },
+        { name: 'Rockstar Freddy', relation: 'Companero de FFPS' }
+      ],
+      trivia: [
+        'Es un castor con tematica mejicana.',
+        'Usa sombrero grande y toca guitarra.',
+        'Nunca ataca al jugador en FFPS.'
+      ]
+    },
+  {
+      id: 'happy-frog',
+      name: 'Happy Frog',
+      alias: 'Happy Frog / Rana Feliz',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Mediocre Melody',
+      description: 'Happy Frog es una rana animatronica alegre lider de la banda Mediocre Melodies.',
+      history: 'Happy Frog fue creada como lider de los Mediocre Melodies para la Pizzeria Simulator.',
+      behavior: 'Permanece en el escenario con su banda. Se vuelve hostil si se le provoca.',
+      appearances: ['FFPS', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Mr. Hippo', relation: 'Companero de Banda' },
+        { name: 'Nedd Bear', relation: 'Companero de Banda' },
+        { name: 'Pigpatch', relation: 'Companero de Banda' },
+        { name: 'Orville Elephant', relation: 'Companero de Banda' }
+      ],
+      trivia: [
+        'Es la lider de la banda Mediocre Melodies.',
+        'Su diseno es simple comparado con otros.',
+        'En UCN tiene mecanica de salto.'
+      ]
+    },
+  {
+      id: 'mr-hippo',
+      name: 'Mr. Hippo',
+      alias: 'Mr. Hippo / El Hipopotamo',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Mediocre Melody',
+      description: 'Mr. Hippo es un hipopotamo animatronico conocido por sus largas historias sin sentido.',
+      history: 'Mr. Hippo fue creado para la banda Mediocre Melodies, famoso por sus monologos extensos.',
+      behavior: 'Aparece en la oficina contando historias. Si se le ignora, ataca.',
+      appearances: ['FFPS', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Happy Frog', relation: 'Lider de Banda' },
+        { name: 'Nedd Bear', relation: 'Companero de Banda' },
+        { name: 'Pigpatch', relation: 'Companero de Banda' },
+        { name: 'Orville Elephant', relation: 'Companero de Banda' }
+      ],
+      trivia: [
+        'Es conocido por sus historias largas y confusas.',
+        'Sus monologos son famosos en la comunidad.',
+        'Sus historias no tienen sentido ni conclusion.'
+      ]
+    },
+  {
+      id: 'nedd-bear',
+      name: 'Nedd Bear',
+      alias: 'Nedd Bear / El Oso Nedd',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Mediocre Melody',
+      description: 'Nedd Bear es un oso animatronico de bajo presupuesto de los Mediocre Melodies.',
+      history: 'Nedd Bear fue creado como version economica de Freddy Fazbear para la banda.',
+      behavior: 'Permanece en el escenario sin mecanicas destacadas.',
+      appearances: ['FFPS', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Happy Frog', relation: 'Lider de Banda' },
+        { name: 'Mr. Hippo', relation: 'Companero de Banda' },
+        { name: 'Pigpatch', relation: 'Companero de Banda' },
+        { name: 'Orville Elephant', relation: 'Companero de Banda' }
+      ],
+      trivia: [
+        'Es la version economica de Freddy Fazbear.',
+        'Usa corbata roja en lugar de pajarita.',
+        'Su nombre juega con "Teddy Bear".'
+      ]
+    },
+  {
+      id: 'pigpatch',
+      name: 'Pigpatch',
+      alias: 'Pigpatch / El Cerdo',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Mediocre Melody',
+      description: 'Pigpatch es un cerdo animatronico con banjo de la banda Mediocre Melodies.',
+      history: 'Pigpatch fue creado con estetica country para los Mediocre Melodies.',
+      behavior: 'Permanece en el escenario tocando su banjo pacificamente.',
+      appearances: ['FFPS', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Happy Frog', relation: 'Lider de Banda' },
+        { name: 'Mr. Hippo', relation: 'Companero de Banda' },
+        { name: 'Nedd Bear', relation: 'Companero de Banda' },
+        { name: 'Orville Elephant', relation: 'Companero de Banda' }
+      ],
+      trivia: [
+        'Toca un banjo en el escenario.',
+        'Tiene acento sureno distintivo.',
+        'Es el unico cerdo animatronico de la franquicia.'
+      ]
+    },
+  {
+      id: 'orville-elephant',
+      name: 'Orville Elephant',
+      alias: 'Orville Elephant / Elefante Orville',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Mediocre Melody',
+      description: 'Orville Elephant es un elefante animatronico azul con voz profunda de los Mediocre Melodies.',
+      history: 'Orville Elephant fue creado como el miembro mas grande de los Mediocre Melodies.',
+      behavior: 'Permanece en el escenario cantando con su voz profunda.',
+      appearances: ['FFPS', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Happy Frog', relation: 'Lider de Banda' },
+        { name: 'Mr. Hippo', relation: 'Companero de Banda' },
+        { name: 'Nedd Bear', relation: 'Companero de Banda' },
+        { name: 'Pigpatch', relation: 'Companero de Banda' }
+      ],
+      trivia: [
+        'Es el unico elefante animatronico de la franquicia.',
+        'Tiene la voz mas grave de todos los personajes.',
+        'Su nombre podria referenciar a Orville Redenbacher.'
+      ]
+    },
+  {
+      id: 'glamrock-bonnie',
+      name: 'Glamrock Bonnie',
+      alias: 'Bonnie Glamrock / Bonnie del Pizzaplex',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Destroyed',
+      threatLevel: 'Unknown',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Glamrock',
+      description: 'Glamrock Bonnie era el bajista original de los Glamrock, destruido antes de Security Breach.',
+      history: 'Glamrock Bonnie fue el bajista original del Pizzaplex pero desaparecio antes del juego. Se cree que Monty lo destruyo.',
+      behavior: 'No aparece activo, solo se encuentran sus restos en Monty Golf.',
+      appearances: ['FNaF: Security Breach (restos)'],
+      relationships: [
+        { name: 'Montgomery Gator', relation: 'Destructor / Reemplazante' },
+        { name: 'Glamrock Freddy', relation: 'Companero de Banda' },
+        { name: 'Glamrock Chica', relation: 'Companera de Banda' },
+        { name: 'Roxanne Wolf', relation: 'Companera de Banda' }
+      ],
+      trivia: [
+        'Fue destruido antes de Security Breach.',
+        'Sus restos estan en Monty Golf.',
+        'Se cree que Monty lo destruyo para reemplazarlo.'
+      ]
+    },
+  {
+      id: 'glamrock-endo',
+      name: 'Glamrock Endo',
+      alias: 'Glamrock Endo / Endo Glamrock',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Glamrock',
+      description: 'Glamrock Endo es el endoesqueleto de repuesto de los Glamrock animatronics.',
+      history: 'Los Glamrock Endos son endoesqueletos modernos con luces LED usados para mantenimiento.',
+      behavior: 'Deambulan por Parts and Service atacando si Gregory se acerca.',
+      appearances: ['FNaF: Security Breach', 'FNaF: HW2'],
+      relationships: [
+        { name: 'Endo-01', relation: 'Predecesor' },
+        { name: 'Glamrock Freddy', relation: 'Modelo Similar' }
+      ],
+      trivia: [
+        'Tienen luces LED en el pecho.',
+        'Son los endoesqueletos mas avanzados.',
+        'Su diseno es mas estilizado que los clasicos.'
+      ]
+    },
+  {
+      id: 'eclipse',
+      name: 'Eclipse',
+      alias: 'Eclipse / Fusion Sun-Moon',
+      firstAppearance: "Five Nights at Freddy's: Security Breach - Ruin (2023)",
+      status: 'Unknown',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex - Daycare (Ruin DLC)",
+      image: '',
+      category: 'Glamrock',
+      description: 'Eclipse es la fusion de Sun y Moon del Daycare Attendant en el DLC Ruin.',
+      history: 'Eclipse aparecio en Ruin fusionando las personalidades de Sun y Moon en una entidad equilibrada.',
+      behavior: 'Actua como guia para Cassie, amigable y cooperativo.',
+      appearances: ['FNaF: Security Breach - Ruin DLC'],
+      relationships: [
+        { name: 'Sun', relation: 'Mitad Diurna' },
+        { name: 'Moon', relation: 'Mitad Nocturna' },
+        { name: 'Daycare Attendant', relation: 'Cuerpo Base' }
+      ],
+      trivia: [
+        'Es la fusion de Sun y Moon.',
+        'Aparecio en el DLC Ruin.',
+        'Es una de las pocas entidades que ayuda al protagonista.'
+      ]
+    },
+  {
+      id: 'fredbear',
+      name: 'Fredbear',
+      alias: 'Fredbear / Oso Dorado Original / Fredbear the Bear',
+      firstAppearance: "Five Nights at Freddy's 4 (2015)",
+      status: 'Haunted',
+      threatLevel: 'Critical',
+      origin: "Fredbear's Family Diner",
+      image: '',
+      category: 'Original',
+      description: 'Fredbear es el oso animatronico dorado original de Fredbear Family Diner.',
+      history: 'Fredbear fue el primer animatronico creado por Henry Emily y William Afton. Fue el responsable del Mordisco del 83.',
+      behavior: 'No aparece como antagonista activo excepto como Nightmare Fredbear en pesadillas.',
+      appearances: ['FNaF 4 (minijuegos)', 'FNaF World', 'UCN'],
+      relationships: [
+        { name: 'Golden Freddy', relation: 'Forma Espiritual' },
+        { name: 'Nightmare Fredbear', relation: 'Forma de Pesadilla' },
+        { name: 'Spring Bonnie', relation: 'Companero de Escenario' }
+      ],
+      trivia: [
+        'Es el animatronico mas antiguo de la franquicia.',
+        'Fue el protagonista del Mordisco del 83.',
+        'Fue desmantelado despues del incidente.'
+      ]
+    },
+  {
+      id: 'spring-bonnie',
+      name: 'Spring Bonnie',
+      alias: 'Spring Bonnie / Conejo de Resortes / El Traje de Afton',
+      firstAppearance: "Five Nights at Freddy's 4 (2015)",
+      status: 'Destroyed',
+      threatLevel: 'Critical',
+      origin: "Fredbear's Family Diner",
+      image: '',
+      category: 'Original',
+      description: 'Spring Bonnie es el traje springlock de conejo amarillo usado por William Afton.',
+      history: 'Spring Bonnie era el traje springlock de Fredbear Family Diner. Afton lo uso para sus asesinatos y quedo atrapado en el.',
+      behavior: 'No aparece como personaje activo, solo a traves de su legado como Springtrap.',
+      appearances: ['FNaF 4 (minijuegos)', 'FNaF World', 'FNaF: SL (minijuegos)', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'William Afton', relation: 'Portador' },
+        { name: 'Springtrap', relation: 'Forma Corrupta' },
+        { name: 'Fredbear', relation: 'Companero de Escenario' }
+      ],
+      trivia: [
+        'Era un traje springlock de modo dual.',
+        'Afton lo uso para sus asesinatos.',
+        'Es el predecesor directo de Springtrap.'
+      ]
+    },
+  {
+      id: 'glitchtrap',
+      name: 'Glitchtrap',
+      alias: 'Glitchtrap / Virus Afton / William Digital',
+      firstAppearance: "Five Nights at Freddy's VR: Help Wanted (2019)",
+      status: 'Active',
+      threatLevel: 'Critical',
+      origin: "FNaF VR: Help Wanted / Codigo Digital",
+      image: '',
+      category: 'Other',
+      description: 'Glitchtrap es la manifestacion digital de la conciencia de William Afton.',
+      history: 'Glitchtrap surgio cuando la conciencia de Afton se transfirio al codigo del juego de realidad virtual.',
+      behavior: 'Posee jugadores y corrompe sistemas para perpetuar el legado de Afton.',
+      appearances: ['FNaF VR: Help Wanted', 'FNaF AR', 'FNaF: HW2'],
+      relationships: [
+        { name: 'William Afton', relation: 'Conciencia Digital' },
+        { name: 'Vanessa (Vanny)', relation: 'Huesped Poseida' },
+        { name: 'Springtrap', relation: 'Forma Fisica Original' }
+      ],
+      trivia: [
+        'Es la conciencia digital de William Afton.',
+        'Aparecio en FNaF VR: Help Wanted.',
+        'Puede poseer personas a traves de realidad virtual.'
+      ]
+    },
+  {
+      id: 'burntrap',
+      name: 'Burntrap',
+      alias: 'Burntrap / Afton Quemado',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Unknown',
+      threatLevel: 'Critical',
+      origin: 'Restos de Afton / Subsuelo del Mega Pizzaplex',
+      image: '',
+      category: 'Glamrock',
+      description: 'Burntrap es Afton carbonizado fusionado con Glamrock Endo en el subsuelo del Pizzaplex.',
+      history: 'Burntrap emerge en el final secreto de Security Breach, gravemente quemado pero funcional.',
+      behavior: 'Se arrastra lentamente intentando poseer a Gregory.',
+      appearances: ['FNaF: Security Breach (final secreto)'],
+      relationships: [
+        { name: 'William Afton', relation: 'Forma Actual' },
+        { name: 'Springtrap', relation: 'Iteracion Anterior' },
+        { name: 'The Blob', relation: 'Entidad del Subsuelo' }
+      ],
+      trivia: [
+        'Es la forma mas reciente de Afton.',
+        'Su cuerpo esta fusionado con Glamrock Endo.',
+        'Aparece solo en el final secreto.'
+      ]
+    },
+  {
+      id: 'the-mimic',
+      name: 'The Mimic',
+      alias: 'The Mimic / El Imitador',
+      firstAppearance: "Five Nights at Freddy's: Security Breach - Ruin (2023)",
+      status: 'Active',
+      threatLevel: 'Critical',
+      origin: 'Fazbear Entertainment / Programa de IA',
+      image: '',
+      category: 'Other',
+      description: 'The Mimic es una IA que imita comportamientos, responsable de los eventos del DLC Ruin.',
+      history: 'The Mimic fue creado por Edwin para imitar movimientos pero se volvio malevolo al presenciar violencia.',
+      behavior: 'Acecha a Cassie imitando voces para manipularla.',
+      appearances: ['FNaF: Security Breach - Ruin DLC'],
+      relationships: [
+        { name: 'Glitchtrap', relation: 'Entidad Similar' },
+        { name: 'William Afton', relation: 'Comportamiento Imitado' },
+        { name: 'Cassie', relation: 'Objetivo' }
+      ],
+      trivia: [
+        'Es una IA que imita comportamientos.',
+        'Fue creado por Edwin.',
+        'Puede imitar voces para enganar.'
+      ]
+    },
+  {
+      id: 'dj-music-man',
+      name: 'DJ Music Man',
+      alias: 'DJ Music Man / Music Man Gigante',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Glamrock',
+      description: 'DJ Music Man es una version gigante de Music Man que actua como DJ.',
+      history: 'DJ Music Man fue construido como atraccion principal de la discoteca del Pizzaplex.',
+      behavior: 'Persigue a Gregory si hace demasiado ruido en la discoteca.',
+      appearances: ['FNaF: Security Breach', 'FNaF: HW2'],
+      relationships: [
+        { name: 'Music Man', relation: 'Version Original' },
+        { name: 'Gregory', relation: 'Objetivo' }
+      ],
+      trivia: [
+        'Es el animatronico mas grande de Security Breach.',
+        'Esta cubierto de platillos y luces.',
+        'No ataca a menos que sea provocado por ruido.'
+      ]
+    },
+  {
+      id: 'candy-cadet',
+      name: 'Candy Cadet',
+      alias: 'Candy Cadet / Maquina de Dulces',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Other',
+      description: 'Candy Cadet es una maquina expendedora de dulces que cuenta historias oscuras.',
+      history: 'Candy Cadet era una atraccion comprable que contaba historias tragicas.',
+      behavior: 'Permanece inmobil dispensando dulces y contando historias.',
+      appearances: ['FFPS', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Prize King', relation: 'Companero de Maquinas' },
+        { name: 'Helpy', relation: 'Companero de FFPS' }
+      ],
+      trivia: [
+        'Sus historias siempre tienen final tragico.',
+        'Las historias son pistas sobre la lore.',
+        'Es uno de los pocos narradores canonicos.'
+      ]
+    },
+  {
+      id: 'security-puppet',
+      name: 'Security Puppet',
+      alias: 'Security Puppet / Puppet de Seguridad',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Freddy Fazbear's Pizza / Pizzeria Simulator",
+      image: '',
+      category: 'Other',
+      description: 'Security Puppet es el animatronico de seguridad que fallo en proteger a Charlotte Emily.',
+      history: 'Security Puppet fue creado para vigilar la guarderia pero fallo cuando Charlotte fue asesinada.',
+      behavior: 'Sigue rutas predefinidas en los minijuegos de FFPS.',
+      appearances: ['FFPS (minijuego)', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'The Puppet', relation: 'Forma Posterior' },
+        { name: 'Charlotte Emily', relation: 'Nina que Debio Proteger' },
+        { name: 'Henry Emily', relation: 'Creador' }
+      ],
+      trivia: [
+        'Fue la primera version del Puppet.',
+        'Fallo en proteger a Charlotte.',
+        'Su fracaso lleva a la creacion del Puppet poseido.'
+      ]
+    },
+  {
+      id: 'helpy',
+      name: 'Helpy',
+      alias: 'Helpy / Mini Ayudante',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Other',
+      description: 'Helpy es un pequeno animatronico asistente en la Pizzeria Simulator.',
+      history: 'Helpy fue disenado como asistente para la gestion del restaurante.',
+      behavior: 'Realiza tareas administrativas y no es hostil.',
+      appearances: ['FFPS', 'UCN (cameo)', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Version Miniatura' },
+        { name: 'Candy Cadet', relation: 'Companero de FFPS' }
+      ],
+      trivia: [
+        'Es version miniatura de Freddy Fazbear.',
+        'Ayuda con tareas de gestion.',
+        'Es uno de los pocos personajes completamente utiles.'
+      ]
+    },
+  {
+      id: 'old-man-consequences',
+      name: 'Old Man Consequences',
+      alias: 'Old Man Consequences / OMC',
+      firstAppearance: 'FNaF World (2016)',
+      status: 'Unknown',
+      threatLevel: 'Unknown',
+      origin: 'FNaF World / Plano Espiritual',
+      image: '',
+      category: 'Other',
+      description: 'Old Man Consequences es una entidad enigmatica que ofrece consejos sobre consecuencias.',
+      history: 'Aparecio en FNaF World y UCN como entidad que aconseja al jugador.',
+      behavior: 'No ataca, solo ofrece dialogo enigmatico.',
+      appearances: ['FNaF World', 'UCN (minijuego)'],
+      relationships: [
+        { name: 'William Afton', relation: 'Entidad que Advierte' },
+        { name: 'Golden Freddy', relation: 'Interlocutor en UCN' }
+      ],
+      trivia: [
+        'Aparece en area oculta de FNaF World.',
+        'En UCN aparece en minijuego de pesca.',
+        'Es uno de los personajes mas enigmaticos.'
+      ]
+    },
+  {
+      id: 'dee-dee',
+      name: 'Dee Dee',
+      alias: 'Dee Dee / La Alteradora',
+      firstAppearance: "Ultimate Custom Night (2018)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Ultimate Custom Night',
+      image: '',
+      category: 'Other',
+      description: 'Dee Dee aparece en UCN para anadir personajes adicionales a la noche.',
+      history: 'Dee Dee aparecio en UCN como entidad que modifica la configuracion de la noche.',
+      behavior: 'Vuela por la pantalla y anade personajes si no se la detiene.',
+      appearances: ['UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'XOR', relation: 'Contraparte Sombria' },
+        { name: 'Old Man Consequences', relation: 'Entidad Similar' }
+      ],
+      trivia: [
+        'Puede anadir personajes aleatorios en UCN.',
+        'Hay que hacer clic en ella para evitar que anada personajes.',
+        'Tiene apariencia de globo o hada.'
+      ]
+    },
+  {
+      id: 'xor',
+      name: 'XOR',
+      alias: 'XOR / Dee Dee Sombra',
+      firstAppearance: "Ultimate Custom Night (2018)",
+      status: 'Unknown',
+      threatLevel: 'High',
+      origin: 'Ultimate Custom Night',
+      image: '',
+      category: 'Other',
+      description: 'XOR es la contraparte sombria de Dee Dee que no puede ser detenida.',
+      history: 'XOR aparece en UCN bajo condiciones especificas como version oscura de Dee Dee.',
+      behavior: 'Anade personajes sin que el jugador pueda detenerla.',
+      appearances: ['UCN'],
+      relationships: [
+        { name: 'Dee Dee', relation: 'Contraparte Clara' },
+        { name: 'Shadow Freddy', relation: 'Entidad Sombria Similar' }
+      ],
+      trivia: [
+        'Es la version sombria de Dee Dee.',
+        'No puede ser detenida.',
+        'Su nombre refiere a compuerta logica XOR.'
+      ]
+    },
+  {
+      id: 'paperpals',
+      name: 'Paperpals',
+      alias: 'Paperpals / Los Amigos de Papel',
+      firstAppearance: "Five Nights at Freddy's 2 (2014)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Pizza (Nuevo Local 1987)",
+      image: '',
+      category: 'Toy',
+      description: 'Los Paperpals son recortes de papel de Freddy, Bonnie y Chica que se mueven.',
+      history: 'Los Paperpals eran decoraciones de papel que cobraron vida en FNaF 2.',
+      behavior: 'Aparecen en paredes mirando fijamente sin atacar directamente.',
+      appearances: ['FNaF 2', 'UCN', 'FNaF VR: Help Wanted'],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Representacion en Papel' },
+        { name: 'Bonnie', relation: 'Representacion en Papel' },
+        { name: 'Chica', relation: 'Representacion en Papel' }
+      ],
+      trivia: [
+        'Son recortes de papel que se mueven.',
+        'Aparecen en la oficina del guardia.',
+        'No atacan pero su presencia es perturbadora.'
+      ]
+    },
+  {
+      id: 'bucket-bob',
+      name: 'Bucket Bob',
+      alias: 'Bucket Bob / Bob el Cubo',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Other',
+      description: 'Bucket Bob es un cubo de basura con cara del grupo Trash and the Gang.',
+      history: 'Bucket Bob es basura que cobro vida en la Pizzeria Simulator.',
+      behavior: 'Se mueve lentamente hacia la oficina.',
+      appearances: ['FFPS', 'UCN'],
+      relationships: [
+        { name: 'Mr. Can-Do', relation: 'Companero' },
+        { name: 'Mr. Hugs', relation: 'Companero' },
+        { name: 'No. 1 Crate', relation: 'Companero' },
+        { name: 'Pan Stan', relation: 'Companero' }
+      ],
+      trivia: [
+        'Es un cubo de basura con cara.',
+        'Es parte de Trash and the Gang.',
+        'A pesar de ser basura, puede atacar.'
+      ]
+    },
+  {
+      id: 'mr-can-do',
+      name: 'Mr. Can-Do',
+      alias: 'Mr. Can-Do / El Lata',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Other',
+      description: 'Mr. Can-Do es una lata de basura con cara de Trash and the Gang.',
+      history: 'Mr. Can-Do es basura metalica que cobro vida en FFPS.',
+      behavior: 'Amenaza de bajo nivel que se mueve hacia la oficina.',
+      appearances: ['FFPS', 'UCN'],
+      relationships: [
+        { name: 'Bucket Bob', relation: 'Companero' },
+        { name: 'Mr. Hugs', relation: 'Companero' },
+        { name: 'No. 1 Crate', relation: 'Companero' },
+        { name: 'Pan Stan', relation: 'Companero' }
+      ],
+      trivia: [
+        'Es una lata con cara sonriente.',
+        'Parte de Trash and the Gang.',
+        'Su nombre juega con "can" y "can do".'
+      ]
+    },
+  {
+      id: 'mr-hugs',
+      name: 'Mr. Hugs',
+      alias: 'Mr. Hugs / Sr. Abrazos',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Other',
+      description: 'Mr. Hugs es un oso de peluche sucio de Trash and the Gang.',
+      history: 'Mr. Hugs es un peluche desechado que cobro vida en FFPS.',
+      behavior: 'Se mueve hacia la oficina y puede atacar.',
+      appearances: ['FFPS', 'UCN'],
+      relationships: [
+        { name: 'Bucket Bob', relation: 'Companero' },
+        { name: 'Mr. Can-Do', relation: 'Companero' },
+        { name: 'No. 1 Crate', relation: 'Companero' },
+        { name: 'Pan Stan', relation: 'Companero' }
+      ],
+      trivia: [
+        'Es un oso de peluche sucio y desgarrado.',
+        'Su nombre es ironico.',
+        'Es parte de Trash and the Gang.'
+      ]
+    },
+  {
+      id: 'no-1-crate',
+      name: 'No. 1 Crate',
+      alias: 'No. 1 Crate / La Caja',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Other',
+      description: 'No. 1 Crate es una caja de madera con cara de Trash and the Gang.',
+      history: 'No. 1 Crate es una caja de embalaje abandonada que cobro vida.',
+      behavior: 'Se mueve lentamente hacia la oficina.',
+      appearances: ['FFPS', 'UCN'],
+      relationships: [
+        { name: 'Bucket Bob', relation: 'Companero' },
+        { name: 'Mr. Can-Do', relation: 'Companero' },
+        { name: 'Mr. Hugs', relation: 'Companero' },
+        { name: 'Pan Stan', relation: 'Companero' }
+      ],
+      trivia: [
+        'Es una caja de madera con cara.',
+        'Es el mas grande de Trash and the Gang.',
+        'Tiene sonrisa simple pintada.'
+      ]
+    },
+  {
+      id: 'pan-stan',
+      name: 'Pan Stan',
+      alias: 'Pan Stan / Stan la Sarten',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Other',
+      description: 'Pan Stan es una sarten con cara de Trash and the Gang.',
+      history: 'Pan Stan es una sarten desechada que cobro vida en FFPS.',
+      behavior: 'Se mueve hacia la oficina como amenaza menor.',
+      appearances: ['FFPS', 'UCN'],
+      relationships: [
+        { name: 'Bucket Bob', relation: 'Companero' },
+        { name: 'Mr. Can-Do', relation: 'Companero' },
+        { name: 'Mr. Hugs', relation: 'Companero' },
+        { name: 'No. 1 Crate', relation: 'Companero' }
+      ],
+      trivia: [
+        'Es una sarten con cara.',
+        'Es el mas pequeno de Trash and the Gang.',
+        'Su nombre juega con "pan" y "Stan".'
+      ]
+    },
+  {
+      id: 'prize-king',
+      name: 'Prize King',
+      alias: 'Prize King / Rey de Premios',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Other',
+      description: 'Prize King es una maquina de premios con corona y cara animatronica.',
+      history: 'Prize King era atraccion comprable que dispensaba premios.',
+      behavior: 'Permanece inmobil dispensando premios sin atacar.',
+      appearances: ['FFPS'],
+      relationships: [
+        { name: 'Candy Cadet', relation: 'Companero de Maquinas' },
+        { name: 'Gumball Swivelhands', relation: 'Companero de Maquinas' }
+      ],
+      trivia: [
+        'Es maquina dispensadora de premios.',
+        'Tiene corona gigante.',
+        'No ataca al jugador.'
+      ]
+    },
+  {
+      id: 'egg-baby',
+      name: 'Egg Baby',
+      alias: 'Egg Baby / Bebe Huevo',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Other',
+      description: 'Egg Baby es una figura de bebe con cabeza de huevo en el radar de FFPS.',
+      history: 'Egg Baby aparece en el radar de la oficina sin proposito conocido.',
+      behavior: 'Punto erratico en el radar sin interaccion directa.',
+      appearances: ['FFPS'],
+      relationships: [
+        { name: 'Helpy', relation: 'Companero de FFPS' }
+      ],
+      trivia: [
+        'Es figura con cabeza de huevo.',
+        'Aparece solo en el radar.',
+        'Es uno de los personajes mas extranos.'
+      ]
+    },
+  {
+      id: 'gumball-swivelhands',
+      name: 'Gumball Swivelhands',
+      alias: 'Gumball Swivelhands / Maquina de Chicles',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Other',
+      description: 'Gumball Swivelhands es una maquina de chicles con brazos giratorios.',
+      history: 'Gumball Swivelhands era atraccion comprable en FFPS.',
+      behavior: 'Gira sus brazos y dispensa chicles sin atacar.',
+      appearances: ['FFPS'],
+      relationships: [
+        { name: 'Prize King', relation: 'Companero de Maquinas' },
+        { name: 'Neon Jukebox', relation: 'Companero de Maquinas' }
+      ],
+      trivia: [
+        'Tiene brazos que giran constantemente.',
+        'Es maquina de chicles animatronica.',
+        'No ataca al jugador.'
+      ]
+    },
+  {
+      id: 'neon-jukebox',
+      name: 'Neon Jukebox',
+      alias: 'Neon Jukebox / Rockola Neon',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Other',
+      description: 'Neon Jukebox es una rocola neon con cara animatronica.',
+      history: 'Neon Jukebox era atraccion musical comprable en FFPS.',
+      behavior: 'Reproduce musica sin atacar.',
+      appearances: ['FFPS'],
+      relationships: [
+        { name: 'Gumball Swivelhands', relation: 'Companero de Maquinas' },
+        { name: 'Music Man', relation: 'Personaje Musical Similar' }
+      ],
+      trivia: [
+        'Es rocola con luces neon.',
+        'Tiene cara animatronica.',
+        'Anade ambiente musical al restaurante.'
+      ]
+    },
+  {
+      id: 'lemonade-clown',
+      name: 'Lemonade Clown',
+      alias: 'Lemonade Clown / Payaso Limonada',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Other',
+      description: 'Lemonade Clown es un payaso que sirve limonada en FFPS.',
+      history: 'Lemonade Clown era atraccion tematica de comida en FFPS.',
+      behavior: 'Sirve limonada sin atacar.',
+      appearances: ['FFPS'],
+      relationships: [
+        { name: 'Fruit Punch Clown', relation: 'Contraparte' },
+        { name: 'Candy Cadet', relation: 'Companero de Atracciones' }
+      ],
+      trivia: [
+        'Es payaso que sirve limonada.',
+        'Es atraccion tematica.',
+        'No ataca al jugador.'
+      ]
+    },
+  {
+      id: 'fruit-punch-clown',
+      name: 'Fruit Punch Clown',
+      alias: 'Fruit Punch Clown / Payaso Punch',
+      firstAppearance: 'Freddy Fazbear Pizzeria Simulator (2017)',
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear Pizzeria Simulator',
+      image: '',
+      category: 'Other',
+      description: 'Fruit Punch Clown es un payaso que sirve punch de frutas en FFPS.',
+      history: 'Fruit Punch Clown complementa a Lemonade Clown en FFPS.',
+      behavior: 'Sirve punch sin atacar.',
+      appearances: ['FFPS'],
+      relationships: [
+        { name: 'Lemonade Clown', relation: 'Contraparte' },
+        { name: 'Candy Cadet', relation: 'Companero de Atracciones' }
+      ],
+      trivia: [
+        'Es payaso que sirve punch de frutas.',
+        'Complementa a Lemonade Clown.',
+        'Tiene diseno mas colorido.'
+      ]
+    },
+  {
+      id: 'dreadbear',
+      name: 'Dreadbear',
+      alias: 'Dreadbear / Oso del Terror',
+      firstAppearance: "FNaF VR: Help Wanted - Curse of Dreadbear (2019)",
+      status: 'Unknown',
+      threatLevel: 'Medium',
+      origin: 'Curse of Dreadbear DLC',
+      image: '',
+      category: 'Other',
+      description: 'Dreadbear es un monstruoso oso de partes de animatronicos estilo Frankenstein.',
+      history: 'Dreadbear fue creado para el DLC Curse of Dreadbear con tematica de Halloween.',
+      behavior: 'Acecha al jugador en un laberinto del DLC.',
+      appearances: ['FNaF VR: HW - Curse of Dreadbear DLC'],
+      relationships: [
+        { name: 'Grim Foxy', relation: 'Companero de DLC' },
+        { name: 'Nightmare Freddy', relation: 'Estetica Similar' }
+      ],
+      trivia: [
+        'Creado de partes de diferentes animatronicos.',
+        'Inspirado en Frankenstein.',
+        'Aparece en laberinto de Halloween.'
+      ]
+    },
+  {
+      id: 'grim-foxy',
+      name: 'Grim Foxy',
+      alias: 'Grim Foxy / Foxy Siniestro',
+      firstAppearance: "FNaF VR: Help Wanted - Curse of Dreadbear (2019)",
+      status: 'Unknown',
+      threatLevel: 'Medium',
+      origin: 'Curse of Dreadbear DLC',
+      image: '',
+      category: 'Other',
+      description: 'Grim Foxy es Foxy con tematica de la Parca con capa y guadana.',
+      history: 'Grim Foxy fue introducido en el DLC Curse of Dreadbear.',
+      behavior: 'Acecha sigilosamente al jugador en el DLC.',
+      appearances: ['FNaF VR: HW - Curse of Dreadbear DLC'],
+      relationships: [
+        { name: 'Foxy', relation: 'Forma Base' },
+        { name: 'Dreadbear', relation: 'Companero de DLC' }
+      ],
+      trivia: [
+        'Tematica de la Parca con capa y guadana.',
+        'Uno de los disenos mas creativos de Foxy.',
+        'Exclusivo del DLC Curse of Dreadbear.'
+      ]
+    },
+  {
+      id: 'jackie',
+      name: 'Jackie',
+      alias: 'Jackie / Payasa Mecanica',
+      firstAppearance: "Five Nights at Freddy's: Help Wanted 2 (2023)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Fazbear Entertainment - FNaF: HW2",
+      image: '',
+      category: 'Other',
+      description: 'Jackie es una payasa mecanica que emerge de una caja de musica en HW2.',
+      history: 'Jackie fue introducida en FNaF: Help Wanted 2 como nuevo personaje.',
+      behavior: 'Persigue al jugador con movimientos mecanicos de juguete de cuerda.',
+      appearances: ['FNaF: Help Wanted 2'],
+      relationships: [
+        { name: 'Carnie', relation: 'Companero de HW2' },
+        { name: 'Mystic Hippo', relation: 'Companero de HW2' }
+      ],
+      trivia: [
+        'Es payasa de caja de musica.',
+        'Sus movimientos son mecanicos.',
+        'Tiene sonrisa perpetua congelada.'
+      ]
+    },
+  {
+      id: 'carnie',
+      name: 'Carnie',
+      alias: 'Carnie / Feriante',
+      firstAppearance: "Five Nights at Freddy's: Help Wanted 2 (2023)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Fazbear Entertainment - FNaF: HW2",
+      image: '',
+      category: 'Other',
+      description: 'Carnie es un animatronico con tematica de feria o carnaval en HW2.',
+      history: 'Carnie fue introducido en FNaF: Help Wanted 2.',
+      behavior: 'Interactua con el jugador de manera impredecible.',
+      appearances: ['FNaF: Help Wanted 2'],
+      relationships: [
+        { name: 'Jackie', relation: 'Companero de HW2' },
+        { name: 'Mystic Hippo', relation: 'Companero de HW2' }
+      ],
+      trivia: [
+        'Tematica de feria o carnaval.',
+        'Nuevo personaje de HW2.',
+        'Representa aspecto de entretenimiento.'
+      ]
+    },
+  {
+      id: 'mystic-hippo',
+      name: 'Mystic Hippo',
+      alias: 'Mystic Hippo / Hipopotamo Mistico',
+      firstAppearance: "Five Nights at Freddy's: Help Wanted 2 (2023)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Fazbear Entertainment - FNaF: HW2",
+      image: '',
+      category: 'Other',
+      description: 'Mystic Hippo es Mr. Hippo con tematica de vidente en HW2.',
+      history: 'Mystic Hippo es variante mistica de Mr. Hippo para HW2.',
+      behavior: 'Ofrece predicciones y acertijos.',
+      appearances: ['FNaF: Help Wanted 2'],
+      relationships: [
+        { name: 'Mr. Hippo', relation: 'Forma Base' },
+        { name: 'Jackie', relation: 'Companero de HW2' }
+      ],
+      trivia: [
+        'Es version vidente de Mr. Hippo.',
+        'Tiene bola de cristal.',
+        'Ofrece predicciones en lugar de historias.'
+      ]
+    },
+  {
+      id: 'captain-foxy',
+      name: 'Captain Foxy',
+      alias: 'Captain Foxy / Capitan Foxy',
+      firstAppearance: "Five Nights at Freddy's: Help Wanted 2 (2023)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Fazbear Entertainment - FNaF: HW2",
+      image: '',
+      category: 'Other',
+      description: 'Captain Foxy es Foxy como capitan pirata con sombrero y espada en HW2.',
+      history: 'Captain Foxy lleva el tema pirata de Foxy a su maxima expresion.',
+      behavior: 'Persigue al jugador en nivel tematico pirata.',
+      appearances: ['FNaF: Help Wanted 2'],
+      relationships: [
+        { name: 'Foxy', relation: 'Forma Base' },
+        { name: 'Rockstar Foxy', relation: 'Variante Pirata Similar' }
+      ],
+      trivia: [
+        'Es la version mas pirata de Foxy.',
+        'Tiene sombrero de capitan y espada.',
+        'Encarnacion definitiva del tema pirata.'
+      ]
+    },
+  {
+      id: 'helpi',
+      name: 'Helpi',
+      alias: 'Helpi / Asistente Virtual',
+      firstAppearance: "Five Nights at Freddy's: Security Breach - Ruin (2023)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex - Sistema Virtual",
+      image: '',
+      category: 'Other',
+      description: 'Helpi es una IA con forma de cabeza de Helpy que guia a Cassie en Ruin.',
+      history: 'Helpi fue creado como asistente virtual para el DLC Ruin.',
+      behavior: 'Sigue a Cassie ofreciendo consejos, a veces enganosos.',
+      appearances: ['FNaF: Security Breach - Ruin DLC'],
+      relationships: [
+        { name: 'Helpy', relation: 'Inspiracion' },
+        { name: 'Cassie', relation: 'Usuario' },
+        { name: 'The Mimic', relation: 'Posible Controlador' }
+      ],
+      trivia: [
+        'Es asistente virtual en Ruin.',
+        'Tiene forma de cabeza de Helpy.',
+        'Podria estar controlado por The Mimic.'
+      ]
+    },
+  {
+      id: 'mxes',
+      name: 'M.X.E.S.',
+      alias: 'M.X.E.S. / Sistema de Seguridad',
+      firstAppearance: "Five Nights at Freddy's: Security Breach - Ruin (2023)",
+      status: 'Unknown',
+      threatLevel: 'Unknown',
+      origin: "Freddy Fazbear's Mega Pizzaplex - Sistema de Seguridad",
+      image: '',
+      category: 'Other',
+      description: 'M.X.E.S. es un sistema de seguridad digital que persigue a Cassie como cubo rojo.',
+      history: 'M.X.E.S. protege areas restringidas del Pizzaplex en Ruin.',
+      behavior: 'Persigue a Cassie activando alarmas.',
+      appearances: ['FNaF: Security Breach - Ruin DLC'],
+      relationships: [
+        { name: 'Cassie', relation: 'Objetivo' },
+        { name: 'The Mimic', relation: 'Posible Protegido' }
+      ],
+      trivia: [
+        'Es sistema de seguridad digital.',
+        'Aparece como cubo rojo con ojo.',
+        'Podria proteger a The Mimic.'
+      ]
+    },
+  {
+      id: 'prototipo-glamrock-freddy',
+      name: 'Prototipo Glamrock Freddy',
+      alias: 'Prototipo Glamrock Freddy / Freddy Falso',
+      firstAppearance: "Five Nights at Freddy's: Security Breach - Ruin (2023)",
+      status: 'Destroyed',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex - Parts and Service",
+      image: '',
+      category: 'Other',
+      description: 'Prototipo Glamrock Freddy es una version incompleta encontrada en Ruin.',
+      history: 'Se descubre un prototipo incompleto en Parts and Service durante Ruin.',
+      behavior: 'Permanece inmobil por su estado incompleto.',
+      appearances: ['FNaF: Security Breach - Ruin DLC'],
+      relationships: [
+        { name: 'Glamrock Freddy', relation: 'Modelo Completo' }
+      ],
+      trivia: [
+        'Esta incompleto y danado.',
+        'No puede moverse ni atacar.',
+        'Es uno de los misterios de Ruin.'
+      ]
+    },
+  {
+      id: 'twisted-freddy',
+      name: 'Twisted Freddy',
+      alias: 'Twisted Freddy / Freddy Retorcido',
+      firstAppearance: 'The Twisted Ones (2017)',
+      status: 'Unknown',
+      threatLevel: 'High',
+      origin: 'Libro The Twisted Ones',
+      image: '',
+      category: 'Other',
+      description: 'Twisted Freddy distorsiona la percepcion de quienes lo miran en los libros.',
+      history: 'Twisted Freddy aparece en la novela The Twisted Ones, creado por William Afton con tecnologia ilusionista.',
+      behavior: 'Acecha usando distorsion perceptual.',
+      appearances: ['The Twisted Ones (novela)'],
+      relationships: [
+        { name: 'William Afton', relation: 'Creador' },
+        { name: 'Twisted Bonnie', relation: 'Companero de Libros' },
+        { name: 'Twisted Foxy', relation: 'Companero de Libros' },
+        { name: 'Twisted Wolf', relation: 'Companero de Libros' }
+      ],
+      trivia: [
+        'Exclusivo de la serie de libros.',
+        'Distorsiona la percepcion.',
+        'Creado por William Afton.'
+      ]
+    },
+  {
+      id: 'twisted-bonnie',
+      name: 'Twisted Bonnie',
+      alias: 'Twisted Bonnie / Bonnie Retorcido',
+      firstAppearance: 'The Twisted Ones (2017)',
+      status: 'Unknown',
+      threatLevel: 'High',
+      origin: 'Libro The Twisted Ones',
+      image: '',
+      category: 'Other',
+      description: 'Twisted Bonnie tiene multiples ojos y mandibula desencajada en los libros.',
+      history: 'Twisted Bonnie aparece en The Twisted Ones como creacion de Afton.',
+      behavior: 'Acecha usando distorsion perceptual.',
+      appearances: ['The Twisted Ones (novela)'],
+      relationships: [
+        { name: 'William Afton', relation: 'Creador' },
+        { name: 'Twisted Freddy', relation: 'Companero' },
+        { name: 'Twisted Foxy', relation: 'Companero' },
+        { name: 'Twisted Wolf', relation: 'Companero' }
+      ],
+      trivia: [
+        'Tiene multiples pares de ojos.',
+        'Aparece solo en libros.',
+        'Diseno grotesco.'
+      ]
+    },
+  {
+      id: 'twisted-foxy',
+      name: 'Twisted Foxy',
+      alias: 'Twisted Foxy / Foxy Retorcido',
+      firstAppearance: 'The Twisted Ones (2017)',
+      status: 'Unknown',
+      threatLevel: 'High',
+      origin: 'Libro The Twisted Ones',
+      image: '',
+      category: 'Other',
+      description: 'Twisted Foxy combina elementos piratas con rasgos grotescos en los libros.',
+      history: 'Twisted Foxy aparece en The Twisted Ones como creacion literaria de Afton.',
+      behavior: 'Rapido y letal con distorsion perceptual.',
+      appearances: ['The Twisted Ones (novela)'],
+      relationships: [
+        { name: 'William Afton', relation: 'Creador' },
+        { name: 'Twisted Freddy', relation: 'Companero' },
+        { name: 'Twisted Bonnie', relation: 'Companero' },
+        { name: 'Twisted Wolf', relation: 'Companero' }
+      ],
+      trivia: [
+        'Combina pirata con grotesco.',
+        'Exclusivo de libros.',
+        'Mas rapido que otros Twisted.'
+      ]
+    },
+  {
+      id: 'twisted-wolf',
+      name: 'Twisted Wolf',
+      alias: 'Twisted Wolf / Lobo Retorcido',
+      firstAppearance: 'The Twisted Ones (2017)',
+      status: 'Unknown',
+      threatLevel: 'High',
+      origin: 'Libro The Twisted Ones',
+      image: '',
+      category: 'Other',
+      description: 'Twisted Wolf es un lobo animatronico retorcido de los libros.',
+      history: 'Twisted Wolf aparece en The Twisted Ones como creacion de Afton.',
+      behavior: 'Acecha usando distorsion perceptual como los otros Twisted.',
+      appearances: ['The Twisted Ones (novela)'],
+      relationships: [
+        { name: 'William Afton', relation: 'Creador' },
+        { name: 'Twisted Freddy', relation: 'Companero' },
+        { name: 'Twisted Bonnie', relation: 'Companero' },
+        { name: 'Twisted Foxy', relation: 'Companero' }
+      ],
+      trivia: [
+        'Unico lobo de la serie de libros.',
+        'Exclusivo de novelas.',
+        'Parte del grupo Twisted.'
+      ]
+    },
+  {
+      id: 'freddy-frostbear',
+      name: 'Freddy Frostbear',
+      alias: 'Freddy Frostbear / Oso Helado',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Fazbear Entertainment - FNaF AR",
+      image: '',
+      category: 'Other',
+      description: 'Freddy Frostbear es la version invernal de Freddy con tematica de hielo.',
+      history: 'Freddy Frostbear fue un skin de FNaF AR de temporada invernal.',
+      behavior: 'Persigue al jugador en FNaF AR con habilidades de hielo.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Skin invernal de Freddy.',
+        'Tematica de hielo.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'shamrock-freddy',
+      name: 'Shamrock Freddy',
+      alias: 'Shamrock Freddy / Freddy Irlandes',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Fazbear Entertainment - FNaF AR",
+      image: '',
+      category: 'Other',
+      description: 'Shamrock Freddy es la version irlandesa de Freddy con tematica de trebol.',
+      history: 'Shamrock Freddy fue skin de San Patricio en FNaF AR.',
+      behavior: 'Persigue al jugador con metodos similares a Freddy.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Skin de San Patricio.',
+        'Tematica de trebol.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'radioactive-foxy',
+      name: 'Radioactive Foxy',
+      alias: 'Radioactive Foxy / Foxy Radiactivo',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Fazbear Entertainment - FNaF AR",
+      image: '',
+      category: 'Other',
+      description: 'Radioactive Foxy es Foxy con tematica nuclear y brillo verde.',
+      history: 'Radioactive Foxy fue skin de FNaF AR con tematica radioactiva.',
+      behavior: 'Persigue al jugador con brillo verde radioactivo.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Foxy', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica nuclear.',
+        'Brillo verde radioactivo.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'toxic-springtrap',
+      name: 'Toxic Springtrap',
+      alias: 'Toxic Springtrap / Springtrap Toxico',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'High',
+      origin: "Fazbear Entertainment - FNaF AR",
+      image: '',
+      category: 'Other',
+      description: 'Toxic Springtrap es Springtrap con apariencia toxica y verde.',
+      history: 'Toxic Springtrap fue skin de FNaF AR con tematica toxica.',
+      behavior: 'Persigue al jugador con apariencia toxica.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Springtrap', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica toxica.',
+        'Color verde brillante.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'great-escape-golden-freddy',
+      name: 'Great Escape Golden Freddy',
+      alias: 'Great Escape Golden Freddy / Golden Freddy Fugitivo',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'High',
+      origin: "Fazbear Entertainment - FNaF AR",
+      image: '',
+      category: 'Other',
+      description: 'Great Escape Golden Freddy es Golden Freddy con tematica de prision fugitiva.',
+      history: 'Great Escape Golden Freddy fue skin de FNaF AR con tematica carcelaria.',
+      behavior: 'Aparece repentinamente como Golden Freddy clasico.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Golden Freddy', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica de fuga de prision.',
+        'Variante de Golden Freddy.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'black-heart-bonnie',
+      name: 'Black Heart Bonnie',
+      alias: 'Black Heart Bonnie / Bonnie Corazon Negro',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Fazbear Entertainment - FNaF AR",
+      image: '',
+      category: 'Other',
+      description: 'Black Heart Bonnie es Bonnie con tematica de corazon negro y San Valentin.',
+      history: 'Black Heart Bonnie fue skin de FNaF AR de San Valentin.',
+      behavior: 'Persigue al jugador con tematica oscura.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Bonnie', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica de San Valentin.',
+        'Corazon negro caracteristico.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'little-red-chica',
+      name: 'Little Red Chica',
+      alias: 'Little Red Chica / Caperucita Chica',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Fazbear Entertainment - FNaF AR",
+      image: '',
+      category: 'Other',
+      description: 'Little Red Chica es Chica con tematica de Caperucita Roja.',
+      history: 'Little Red Chica fue skin de FNaF AR de cuento de hadas.',
+      behavior: 'Persigue al jugador con capa roja.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Chica', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica de Caperucita Roja.',
+        'Viste capa roja.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'big-bad-foxy',
+      name: 'Big Bad Foxy',
+      alias: 'Big Bad Foxy / Lobo Feroz Foxy',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'High',
+      origin: "Fazbear Entertainment - FNaF AR",
+      image: '',
+      category: 'Other',
+      description: 'Big Bad Foxy es Foxy con tematica del Lobo Feroz.',
+      history: 'Big Bad Foxy fue skin de FNaF AR de cuento de hadas.',
+      behavior: 'Persigue rapidamente como el lobo feroz.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Foxy', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica del Lobo Feroz.',
+        'Mas agresivo que Foxy normal.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'clockwork-ballora',
+      name: 'Clockwork Ballora',
+      alias: 'Clockwork Ballora / Ballora de Cuerda',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Fazbear Entertainment - FNaF AR",
+      image: '',
+      category: 'Other',
+      description: 'Clockwork Ballora es Ballora con tematica de mecanismo de cuerda.',
+      history: 'Clockwork Ballora fue skin de FNaF AR con tematica de relojeria.',
+      behavior: 'Se mueve con movimientos mecanicos de cuerda.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Ballora', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica de relojeria.',
+        'Movimientos de cuerda.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'serpent-mangle',
+      name: 'Serpent Mangle',
+      alias: 'Serpent Mangle / Mangle Serpiente',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'High',
+      origin: "Fazbear Entertainment - FNaF AR",
+      image: '',
+      category: 'Other',
+      description: 'Serpent Mangle es Mangle con tematica de serpiente.',
+      history: 'Serpent Mangle fue skin de FNaF AR con apariencia serpentina.',
+      behavior: 'Se arrastra como serpiente hacia el jugador.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Mangle', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica de serpiente.',
+        'Apariencia serpentina.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'arctic-ballora',
+      name: 'Arctic Ballora',
+      alias: 'Arctic Ballora / Ballora Artica',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Fazbear Entertainment - FNaF AR",
+      image: '',
+      category: 'Other',
+      description: 'Arctic Ballora es Ballora con tematica de hielo y nieve.',
+      history: 'Arctic Ballora fue skin invernal de FNaF AR.',
+      behavior: 'Se mueve sigilosamente con estetica helada.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Ballora', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica de hielo.',
+        'Skin invernal.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'heartsick-baby',
+      name: 'Heartsick Baby',
+      alias: 'Heartsick Baby / Baby Enamorada',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'High',
+      origin: "Fazbear Entertainment - FNaF AR",
+      image: '',
+      category: 'Other',
+      description: 'Heartsick Baby es Circus Baby con tematica de San Valentin.',
+      history: 'Heartsick Baby fue skin de San Valentin en FNaF AR.',
+      behavior: 'Acecha con tematica amorosa distorsionada.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Circus Baby', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica de San Valentin.',
+        'Corazones en su diseno.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'endo-01',
+      name: 'Endo-01',
+      alias: 'Endoesqueleto Original / Endo-01',
+      firstAppearance: "Five Nights at Freddy's (2014)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Pizza (Local Original)",
+      image: '',
+      category: 'Original',
+      description: 'The basic endoskeleton used in the original Freddy Fazbear Pizza animatronics. Endo-01 is the internal framework that supports the exterior shells of the classic animatronics.',
+      history: 'Endo-01 was the standard endoskeleton platform for the original Freddy Fazbear Pizza location. It was designed to be lightweight yet durable enough to support the heavy exterior shells of the main characters. After the closure of the original location, several Endo-01 units remained in the Parts/Service room. These endoskeletons were later repurposed or replaced by newer models in subsequent locations.',
+      behavior: 'Endo-01 remains stationary unless active. It can be seen twitching and moving slightly in the Parts/Service room, suggesting a residual haunting or mechanical malfunction.',
+      appearances: ['FNaF 1', 'FNaF 2', 'FNaF World', 'UCN'],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Internal Framework' },
+        { name: 'Bonnie', relation: 'Internal Framework' },
+        { name: 'Chica', relation: 'Internal Framework' },
+        { name: 'Foxy', relation: 'Internal Framework' }
+      ],
+      trivia: [
+        'Endo-01 appears in the Parts/Service room in FNaF 1.',
+        'It can be seen moving its eyes and twitching when observed.',
+        'The endoskeleton is one of the few non-hostile entities in the series.',
+        'Its design was reused as a base for many later animatronics.'
+      ]
+    },
+  {
+      id: 'endo-02',
+      name: 'Endo-02',
+      alias: 'Endoesqueleto Toy / Endo-02',
+      firstAppearance: "Five Nights at Freddy's 2 (2014)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Pizza (Nuevo Local)",
+      image: '',
+      category: 'Toy',
+      description: 'The upgraded endoskeleton used in the Toy animatronic line. Features advanced articulation and sensor mounts.',
+      history: 'Endo-02 was developed for the Toy animatronic line to support more complex movements and facial recognition technology. It featured improved articulation joints and mounting points for the advanced sensor arrays. The endoskeleton was designed to be more expressive and agile than its predecessor. After the Toy location closed, remaining Endo-02 units were scrapped or placed in storage.',
+      behavior: 'Endo-02 is rarely seen active. In FNaF 2, it can be spotted in the darkened Parts/Service room alongside damaged animatronics.',
+      appearances: ['FNaF 2', 'FNaF World', 'UCN'],
+      relationships: [
+        { name: 'Toy Freddy', relation: 'Internal Framework' },
+        { name: 'Toy Bonnie', relation: 'Internal Framework' },
+        { name: 'Toy Chica', relation: 'Internal Framework' },
+        { name: 'Mangle', relation: 'Internal Framework' }
+      ],
+      trivia: [
+        'Endo-02 has visible sensor mounts on its face.',
+        'It was designed for the Toy animatronic line.',
+        'Its joints are more articulated than Endo-01.'
+      ]
+    },
+  {
+      id: 'bare-endo',
+      name: 'Bare Endo',
+      alias: 'Bare Endo / Endo Desnudo / Flamethrower Bare Endo',
+      firstAppearance: "Five Nights at Freddy's: Help Wanted (2019)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Fazbear Entertainment - Help Wanted',
+      image: '',
+      category: 'Other',
+      description: 'A stripped-down endoskeleton with no exterior plating. In FNaF AR, a version with a flamethrower attachment was deployed.',
+      history: 'The Bare Endo appears as a menacing endoskeleton with all exterior plating removed, exposing its mechanical frame. Fazbear Entertainment later modified this design in FNaF AR, equipping it with a flamethrower attachment for special delivery missions. The flamethrower variant became one of the more dangerous endoskeleton iterations.',
+      behavior: 'Bare Endo is aggressive and relentless, pursuing its target with single-minded determination. The flamethrower variant uses ranged attacks.',
+      appearances: ['FNaF VR: Help Wanted', 'FNaF AR', 'UCN'],
+      relationships: [
+        { name: 'Endo-01', relation: 'Derived Design' },
+        { name: 'Flamethrower Bare Endo', relation: 'Variant' }
+      ],
+      trivia: [
+        'Flamethrower Bare Endo was a popular skin in FNaF AR.',
+        'The design emphasizes the skeletal mechanical structure.',
+        'Appears as a challenge in FNaF VR.'
+      ]
+    },
+  {
+      id: 'dark-freddy',
+      name: 'Dark Freddy',
+      alias: 'Dark Freddy / Freddy Oscuro',
+      firstAppearance: "FNaF World (2016)",
+      status: 'Unknown',
+      threatLevel: 'Medium',
+      origin: 'FNaF World - Blacklight Area',
+      image: '',
+      category: 'Other',
+      description: 'A blacklight version of Freddy with inverted colors. Part of the dark animatronic variants in FNaF World\'s Blacklight area.',
+      history: 'Dark Freddy is one of the blacklight variants introduced in FNaF World, featuring a dark color palette with inverted highlights. These variants were encountered in the Blacklight area of the game, a twisted version of the normal FNaF World. Their origin within the game\'s lore remains unclear, possibly representing corrupted data or alternate versions of the characters.',
+      behavior: 'Dark Freddy attacks using dark energy projectiles and shadow-based moves in the RPG-style combat of FNaF World.',
+      appearances: ['FNaF World'],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Dark Variant' }
+      ],
+      trivia: [
+        'Dark Freddy has inverted colors compared to regular Freddy.',
+        'Exclusive to FNaF World.',
+        'Part of the Blacklight animatronic set.'
+      ]
+    },
+  {
+      id: 'neon-bonnie',
+      name: 'Neon Bonnie',
+      alias: 'Neon Bonnie / Bonnie Ne\u00f3n',
+      firstAppearance: "FNaF World (2016)",
+      status: 'Unknown',
+      threatLevel: 'Medium',
+      origin: 'FNaF World - Neon Area',
+      image: '',
+      category: 'Other',
+      description: 'A neon-styled version of Bonnie with glow-in-the-dark accents. Appears in FNaF World.',
+      history: 'Neon Bonnie was introduced as part of FNaF World\'s colorful alternative character variants. Featuring bright neon highlights and a glowing aesthetic, this variant stands out from the standard Bonnie design. Like other special variants in FNaF World, its existence may be tied to the game\'s digital nature.',
+      behavior: 'Neon Bonnie attacks with glowing projectile moves and electric-based abilities in combat.',
+      appearances: ['FNaF World'],
+      relationships: [
+        { name: 'Bonnie', relation: 'Neon Variant' }
+      ],
+      trivia: [
+        'Neon Bonnie has bright glowing accents.',
+        'Exclusive to FNaF World.',
+        'Part of the neon character set.'
+      ]
+    },
+  {
+      id: 'neon-chica',
+      name: 'Neon Chica',
+      alias: 'Neon Chica / Chica Ne\u00f3n',
+      firstAppearance: "FNaF World (2016)",
+      status: 'Unknown',
+      threatLevel: 'Medium',
+      origin: 'FNaF World - Neon Area',
+      image: '',
+      category: 'Other',
+      description: 'A neon variant of Chica with bright glowing colors. Appears in FNaF World.',
+      history: 'Neon Chica is a glowing variant of the original chicken animatronic, featured in FNaF World\'s roster of alternate characters. Her neon design incorporates bright pink and green highlights that stand out against darker environments. She was likely created as a bonus character for players exploring deeper into FNaF World.',
+      behavior: 'Neon Chica uses bright energy attacks and support abilities in FNaF World\'s turn-based combat.',
+      appearances: ['FNaF World'],
+      relationships: [
+        { name: 'Chica', relation: 'Neon Variant' }
+      ],
+      trivia: [
+        'Neon Chica features bright pink and green neon colors.',
+        'Exclusive to FNaF World.',
+        'Part of the neon character set.'
+      ]
+    },
+  {
+      id: 'dark-foxy',
+      name: 'Dark Foxy',
+      alias: 'Dark Foxy / Foxy Oscuro',
+      firstAppearance: "FNaF World (2016)",
+      status: 'Unknown',
+      threatLevel: 'Medium',
+      origin: 'FNaF World - Blacklight Area',
+      image: '',
+      category: 'Other',
+      description: 'A dark-themed Foxy variant found in the Blacklight area. Appears in FNaF World.',
+      history: 'Dark Foxy is a shadowy version of the pirate fox animatronic, encountered in FNaF World\'s Blacklight area. Like other blacklight variants, Dark Foxy features an inverted and darkened color scheme. These variants represent some of the more challenging encounters in the game.',
+      behavior: 'Dark Foxy attacks with shadow-based abilities and high-speed strikes in combat.',
+      appearances: ['FNaF World'],
+      relationships: [
+        { name: 'Foxy', relation: 'Dark Variant' }
+      ],
+      trivia: [
+        'Dark Foxy has a shadow-themed design.',
+        'Exclusive to FNaF World.',
+        'Part of the Blacklight animatronic set.'
+      ]
+    },
+  {
+      id: 'burnt-foxy',
+      name: 'Burnt Foxy',
+      alias: 'Burnt Foxy / Foxy Quemado',
+      firstAppearance: "FNaF World (2016)",
+      status: 'Unknown',
+      threatLevel: 'Low',
+      origin: 'FNaF World',
+      image: '',
+      category: 'Other',
+      description: 'A charred version of Foxy with burn marks across his body. Appears in FNaF World.',
+      history: 'Burnt Foxy is a damaged variant of Foxy that appears in FNaF World, covered in scorch marks and burns. This design suggests Foxy suffered some form of fire damage, though the exact cause within FNaF World\'s narrative remains ambiguous. The character provides a glimpse into alternate fates for the beloved pirate fox.',
+      behavior: 'Burnt Foxy attacks with fire-based abilities and shows damage-over-time effects in combat.',
+      appearances: ['FNaF World'],
+      relationships: [
+        { name: 'Foxy', relation: 'Burnt Variant' }
+      ],
+      trivia: [
+        'Burnt Foxy has visible burn damage on his design.',
+        'Exclusive to FNaF World.',
+        'One of several damaged character variants.'
+      ]
+    },
+  {
+      id: 'party-freddy',
+      name: 'Party Freddy',
+      alias: 'Party Freddy / Freddy Fiestero',
+      firstAppearance: "FNaF World (2016)",
+      status: 'Unknown',
+      threatLevel: 'Low',
+      origin: 'FNaF World',
+      image: '',
+      category: 'Other',
+      description: 'A festive Freddy variant with party hat and decorations. Appears in FNaF World.',
+      history: 'Party Freddy is a celebratory variant of Freddy Fazbear wearing a party hat and festive decorations. This variant was likely created for special in-game events or as a fun bonus character in FNaF World. His design emphasizes the lighter, more whimsical side of the FNaF universe.',
+      behavior: 'Party Freddy uses festive-themed attacks and party-based support abilities in combat.',
+      appearances: ['FNaF World'],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Party Variant' }
+      ],
+      trivia: [
+        'Party Freddy wears a party hat.',
+        'Exclusive to FNaF World.',
+        'One of the lighter-themed character variants.'
+      ]
+    },
+  {
+      id: 'shadow-balloon-boy',
+      name: 'Shadow Balloon Boy',
+      alias: 'Shadow Balloon Boy / BB Sombra',
+      firstAppearance: "Five Nights at Freddy's 2 (2014)",
+      status: 'Unknown',
+      threatLevel: 'Unknown',
+      origin: "Freddy Fazbear's Pizza (Nuevo Local)",
+      image: '',
+      category: 'Shadow',
+      description: 'A mysterious dark version of Balloon Boy. Like other Shadow animatronics, its origin is unknown.',
+      history: 'Shadow Balloon Boy is an extremely rare easter egg in FNaF 2, appearing only under specific conditions. Like Shadow Freddy and Shadow Bonnie, this entity represents a dark reflection of a standard animatronic. Its purpose and origin remain unexplained, though it may be connected to the dark remnant or agony that permeates the franchise.',
+      behavior: 'Shadow Balloon Boy appears briefly as a static image, serving only as a rare easter egg with no direct threat to the player.',
+      appearances: ['FNaF 2', 'FNaF World'],
+      relationships: [
+        { name: 'Balloon Boy', relation: 'Shadow Variant' },
+        { name: 'Shadow Freddy', relation: 'Fellow Shadow Entity' },
+        { name: 'Shadow Bonnie', relation: 'Fellow Shadow Entity' }
+      ],
+      trivia: [
+        'Shadow Balloon Boy is one of the rarest easter eggs in FNaF 2.',
+        'Requires specific conditions to appear.',
+        'Part of the Shadow animatronic line.',
+        'Its existence remains unexplained in the lore.'
+      ]
+    },
+  {
+      id: 'shadow-puppet',
+      name: 'Shadow Puppet',
+      alias: 'Shadow Puppet / Marioneta Sombra',
+      firstAppearance: "Five Nights at Freddy's 2 (2014)",
+      status: 'Unknown',
+      threatLevel: 'Unknown',
+      origin: "Freddy Fazbear's Pizza (Nuevo Local)",
+      image: '',
+      category: 'Shadow',
+      description: 'A shadowy version of The Puppet. Its presence is extremely rare.',
+      history: 'Shadow Puppet is an incredibly rare easter egg in FNaF 2, appearing as a darkened version of the Marionette. Its appearance mirrors that of other Shadow animatronics, suggesting a connection to the dark side of the franchise\'s supernatural elements. The entity\'s exact nature and purpose remain one of FNaF\'s many mysteries.',
+      behavior: 'Shadow Puppet appears only as a static easter egg image with no direct interaction or threat.',
+      appearances: ['FNaF 2'],
+      relationships: [
+        { name: 'The Puppet', relation: 'Shadow Variant' },
+        { name: 'Shadow Freddy', relation: 'Fellow Shadow Entity' },
+        { name: 'Shadow Bonnie', relation: 'Fellow Shadow Entity' }
+      ],
+      trivia: [
+        'Shadow Puppet is one of the most obscure easter eggs in FNaF 2.',
+        'Its appearance is extremely difficult to trigger.',
+        'Part of the mysterious Shadow animatronic group.'
+      ]
+    },
+  {
+      id: 'shadow-mangle',
+      name: 'Shadow Mangle',
+      alias: 'Shadow Mangle / Mangle Sombra',
+      firstAppearance: "Five Nights at Freddy's 2 (2014)",
+      status: 'Unknown',
+      threatLevel: 'Unknown',
+      origin: "Freddy Fazbear's Pizza (Nuevo Local)",
+      image: '',
+      category: 'Shadow',
+      description: 'A dark corrupted version of Mangle. Appears only as a rare easter egg.',
+      history: 'Shadow Mangle is a shadowy variant of the disassembled fox animatronic, appearing only as a rare easter egg in FNaF 2. Like other Shadow entities, its origin is tied to the darker supernatural forces at play within the franchise. Its appearance suggests that even damaged animatronics can have shadow counterparts.',
+      behavior: 'Shadow Mangle appears as a static image easter egg with no direct gameplay impact.',
+      appearances: ['FNaF 2'],
+      relationships: [
+        { name: 'Mangle', relation: 'Shadow Variant' },
+        { name: 'Shadow Freddy', relation: 'Fellow Shadow Entity' },
+        { name: 'Shadow Bonnie', relation: 'Fellow Shadow Entity' }
+      ],
+      trivia: [
+        'Shadow Mangle is an extremely rare easter egg.',
+        'One of the lesser-known Shadow variants.',
+        'Only appears in FNaF 2 as a hidden image.'
+      ]
+    },
+  {
+      id: 'vendor-bots',
+      name: 'Vendor Bots',
+      alias: 'Vendor Bots / Bots Expendedores',
+      firstAppearance: "Freddy Fazbear's Pizzeria Simulator (2017)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Fazbear Entertainment',
+      image: '',
+      category: 'Other',
+      description: 'Generic automated vending bots found throughout Fazbear Entertainment establishments. Appears in FFPS and Security Breach.',
+      history: 'Vendor Bots are automated machines designed by Fazbear Entertainment to serve customers in their various establishments. These bots handle simple vending tasks, dispensing food, drinks, and merchandise. In Security Breach, more advanced vendor bots are found throughout the Pizzaplex, showing the evolution of Fazbear\'s automation technology. While not hostile, their presence adds to the unsettling atmosphere of abandoned Fazbear locations.',
+      behavior: 'Vendor Bots are non-hostile and remain stationary, performing their vending functions unless tampered with.',
+      appearances: ['FFPS', 'Security Breach'],
+      relationships: [],
+      trivia: [
+        'Vendor Bots appear in multiple game eras.',
+        'They represent Fazbear Entertainment\'s automation push.',
+        'Non-hostile but add to environmental storytelling.'
+      ]
+    },
+  {
+      id: 'fetch',
+      name: 'Fetch',
+      alias: 'Fetch / El Perro Robot',
+      firstAppearance: "Fazbear Frights #2: Fetch (2020)",
+      status: 'Haunted',
+      threatLevel: 'High',
+      origin: 'Fazbear Entertainment',
+      image: '',
+      category: 'Other',
+      description: 'A toy dog animatronic that can grant wishes but with deadly consequences. Connected to the Stitchwraith saga.',
+      history: 'Fetch was a promotional toy released by Fazbear Entertainment, designed as an interactive robotic dog that could retrieve objects. The toy became possessed by the restless soul of a murdered child, gaining the ability to grant wishes in twisted and literal ways. Those who used Fetch often met grisly fates as their wishes were fulfilled with deadly precision. The entity within Fetch was later connected to the larger Stitchwraith narrative, where multiple haunted objects were gathered by a mysterious collector.',
+      behavior: 'Fetch follows its owner and retrieves objects, but will interpret wishes in dangerously literal ways, often leading to fatal outcomes.',
+      appearances: ['Fazbear Frights books'],
+      relationships: [
+        { name: 'Stitchwraith', relation: 'Connected Entity' },
+        { name: 'Eleanor', relation: 'Possible Source of Power' }
+      ],
+      trivia: [
+        'Fetch is the titular character of the second Fazbear Frights book.',
+        'The dog animatronic can grant wishes in twisted ways.',
+        'Part of the larger Stitchwraith saga.',
+        'One of the more dangerous Fazbear Frights animatronics.'
+      ]
+    },
+  {
+      id: 'lonely-freddy',
+      name: 'Lonely Freddy',
+      alias: 'Lonely Freddy / Freddy Solitario',
+      firstAppearance: "Fazbear Frights #1: Into the Pit (2019)",
+      status: 'Haunted',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment',
+      image: '',
+      category: 'Other',
+      description: 'A special Freddy plush that can switch souls with its owner. Created by Fazbear Entertainment as a novelty item.',
+      history: 'Lonely Freddy was produced by Fazbear Entertainment as a special interactive plush toy designed to be a "best friend" for lonely children. The plush possessed strange powers, most notably the ability to swap the consciousness of its owner into the plush body while the entity within Lonely Freddy took over the child\'s life. This body-swapping ability made it one of the most insidious Fazbear Entertainment products.',
+      behavior: 'Lonely Freddy appears friendly and comforting but actively seeks to swap souls with its owner, trapping them in the plush body.',
+      appearances: ['Fazbear Frights books'],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Plush Variant' }
+      ],
+      trivia: [
+        'Lonely Freddy appears in the Fazbear Frights story "Lonely Freddy."',
+        'Can swap souls with its owner through unknown means.',
+        'Represents Fazbear Entertainment\'s dangerous merchandise.',
+        'One of the most psychologically disturbing animatronics.'
+      ]
+    },
+  {
+      id: 'stitchwraith',
+      name: 'The Stitchwraith',
+      alias: 'The Stitchwraith / El Ente Cosido',
+      firstAppearance: "Fazbear Frights (2020)",
+      status: 'Haunted',
+      threatLevel: 'Critical',
+      origin: 'Fazbear Entertainment',
+      image: '',
+      category: 'Other',
+      description: 'A mysterious entity created from the remnants of multiple animatronics, fused together by agony. Houses the souls of Jake and Andrew.',
+      history: 'The Stitchwraith was created when various haunted animatronic parts were fused together into a single patchwork entity, bound by the agony and remnant of multiple tragic events. Within this being reside two souls: Jake, a kind-hearted boy who seeks to help others, and Andrew, a vengeful spirit consumed by rage against those who wronged him. The Stitchwraith serves as a central figure in the Fazbear Frights series, connecting many of the stories and collecting haunted objects.',
+      behavior: 'The Stitchwraith stalks and collects haunted objects, with its behavior shifting depending on which soul is in control at any given time.',
+      appearances: ['Fazbear Frights books'],
+      relationships: [
+        { name: 'Fetch', relation: 'Collected Entity' },
+        { name: 'Eleanor', relation: 'Antagonistic Force' },
+        { name: 'Jake', relation: 'Host Soul / Protector' },
+        { name: 'Andrew', relation: 'Host Soul / Avenger' }
+      ],
+      trivia: [
+        'The Stitchwraith is a central connecting figure in the Fazbear Frights series.',
+        'It is a fusion of multiple haunted animatronic parts.',
+        'Houses two souls with opposing motivations.',
+        'Plays a key role in the overarching narrative of the book series.'
+      ]
+    },
+  {
+      id: 'eleanor',
+      name: 'Eleanor',
+      alias: 'Eleanor / La Entidad Oscura',
+      firstAppearance: "Fazbear Frights (2020)",
+      status: 'Active',
+      threatLevel: 'Critical',
+      origin: 'Unknown / Dark Entity',
+      image: '',
+      category: 'Other',
+      description: 'A shapeshifting entity that feeds on suffering, often taking the form of a clown-like animatronic girl. Connected to the darkest events in the Fazbear Frights series.',
+      history: 'Eleanor is a sinister entity that predates many of the events in the Fazbear Frights series, appearing as a shapeshifting being that feeds on human suffering and agony. She often takes the form of a clown-like animatronic girl resembling Circus Baby, using this appearance to lure victims. Eleanor is responsible for some of the darkest tragedies in the book series, manipulating events from behind the scenes. Her true nature and origins remain largely unknown, making her one of the most dangerous entities in the FNaF universe.',
+      behavior: 'Eleanor is manipulative and sadistic, appearing to offer help or companionship while secretly feeding on the suffering she causes.',
+      appearances: ['Fazbear Frights books'],
+      relationships: [
+        { name: 'Circus Baby', relation: 'Preferred Form / Mimicry' },
+        { name: 'Stitchwraith', relation: 'Antagonistic Force' },
+        { name: 'The Agony', relation: 'Possible Connection' }
+      ],
+      trivia: [
+        'Eleanor is one of the primary antagonists of the Fazbear Frights series.',
+        'She is a shapeshifter who can take many forms.',
+        'Feeds on human suffering and agony.',
+        'Her true origin remains a mystery.'
+      ]
+    },
+  {
+      id: 'ralpho',
+      name: 'Ralpho',
+      alias: 'Ralpho / El Mu\u00f1eco del Juego',
+      firstAppearance: "Fazbear Frights #5: The Bunny Call (2020)",
+      status: 'Haunted',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment',
+      image: '',
+      category: 'Other',
+      description: 'A jack-in-the-box style animatronic that appears in the Fazbear Frights story "The Man in the Room."',
+      history: 'Ralpho was created as a jack-in-the-box style animatronic toy by Fazbear Entertainment, featuring a clown-like appearance. In the Fazbear Frights story "The Man in the Room," Ralpho becomes possessed and begins to terrorize a man trapped in a room. The animatronic\'s incessant playing and sudden appearances drive the victim to the edge of madness, showcasing the psychological horror that Fazbear Entertainment products can inflict.',
+      behavior: 'Ralpho emerges unexpectedly from its box with music and laughter, using startling appearances to psychologically torment its victims.',
+      appearances: ['Fazbear Frights books'],
+      relationships: [],
+      trivia: [
+        'Ralpho is a jack-in-the-box style animatronic.',
+        'Appears in "The Man in the Room" story.',
+        'Uses psychological terror as its primary weapon.',
+        'Represents Fazbear Entertainment\'s dangerous toy line.'
+      ]
+    },
+  {
+      id: 'the-agony',
+      name: 'The Agony',
+      alias: 'The Agony / La Agon\u00eda / Shadow Entity',
+      firstAppearance: "Fazbear Frights (2020)",
+      status: 'Active',
+      threatLevel: 'Critical',
+      origin: 'Manifestation of Emotional Agony',
+      image: '',
+      category: 'Other',
+      description: 'A pure manifestation of emotional agony given form. Can possess objects and animatronics.',
+      history: 'The Agony is not an animatronic but a supernatural force that manifests from intense emotional pain and suffering. In the Fazbear Frights series, it is revealed that agony can take physical form and possess objects, animatronics, and even people. This entity represents the dark energy that fuels many of the haunted objects in the FNaF universe. The Agony is considered the source of power behind many possessed animatronics and is connected to the darkest aspects of Fazbear Entertainment\'s history.',
+      behavior: 'The Agony possesses objects and animatronics, twisting them into dangerous entities that seek to spread suffering.',
+      appearances: ['Fazbear Frights books'],
+      relationships: [
+        { name: 'Eleanor', relation: 'Possible Manifestation' },
+        { name: 'Stitchwraith', relation: 'Fueled by Agony' },
+        { name: 'Shadow Animatronics', relation: 'Related Phenomena' }
+      ],
+      trivia: [
+        'The Agony is a supernatural force, not a physical animatronic.',
+        'It is created from intense emotional pain.',
+        'Can possess and corrupt objects and animatronics.',
+        'Central to understanding the supernatural rules of FNaF.'
+      ]
+    },
+  {
+      id: 'chocolate-bonnie',
+      name: 'Chocolate Bonnie',
+      alias: 'Chocolate Bonnie / Bonnie de Chocolate',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'A chocolate-themed Bonnie skin for FNaF AR. Appears in FNaF AR.',
+      history: 'Chocolate Bonnie was released as a special skin for Bonnie in FNaF AR: Special Delivery, featuring a chocolate bar-inspired design with brown coloring and wrapped appearance. Like other AR skins, it was deployed by Fazbear Entertainment as part of their special delivery service.',
+      behavior: 'Chocolate Bonnie behaves similarly to standard Bonnie but with chocolate-themed visual effects.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Bonnie', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Chocolate Bonnie is a food-themed skin.',
+        'Exclusive to FNaF AR.',
+        'Part of a series of food-themed animatronic skins.'
+      ]
+    },
+  {
+      id: 'catrina-toy-chica',
+      name: 'Catrina Toy Chica',
+      alias: 'Catrina Toy Chica / Chica Catrina',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'A Day of the Dead themed Toy Chica skin with sugar skull makeup and traditional dress. Appears in FNaF AR.',
+      history: 'Catrina Toy Chica was a special skin released for FNaF AR: Special Delivery, inspired by the Day of the Dead holiday. The design features intricate sugar skull makeup on Toy Chica\'s face and traditional Mexican dress, transforming her into a Catrina-style character. This skin was part of Fazbear Entertainment\'s themed content releases.',
+      behavior: 'Catrina Toy Chica behaves like standard Toy Chica but with Day of the Dead themed visual effects.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Toy Chica', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Catrina Toy Chica is inspired by Day of the Dead.',
+        'Features sugar skull makeup.',
+        'Exclusive to FNaF AR.',
+        'One of the more culturally-inspired skins.'
+      ]
+    },
+  {
+      id: 'woodland-toy-freddy',
+      name: 'Woodland Toy Freddy',
+      alias: 'Woodland Toy Freddy / Freddy del Bosque',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'A forest-themed Toy Freddy skin with camouflage and antlers. Appears in FNaF AR.',
+      history: 'Woodland Toy Freddy was a nature-themed skin for FNaF AR, transforming Toy Freddy into a forest creature with camouflage patterns, antlers, and woodland aesthetics. The design represents one of the more creative reimaginings of the classic characters for Fazbear Entertainment\'s AR service.',
+      behavior: 'Woodland Toy Freddy behaves similarly to standard Toy Freddy but with forest-themed visual effects.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Toy Freddy', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Woodland Toy Freddy has a forest camouflage theme.',
+        'Features antlers and natural elements.',
+        'Exclusive to FNaF AR.'
+      ]
+    },
+  {
+      id: 'flaming-springtrap',
+      name: 'Flaming Springtrap',
+      alias: 'Flaming Springtrap / Springtrap Ardiente',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'High',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'A fire-themed Springtrap skin engulfed in digital flames. Appears in FNaF AR.',
+      history: 'Flaming Springtrap was a fire-themed skin released for FNaF AR: Special Delivery, depicting Springtrap engulfed in roaring flames. The design is a nod to the multiple fires that have consumed Fazbear locations throughout the series history. This skin transforms the already menacing Springtrap into an even more terrifying fiery version.',
+      behavior: 'Flaming Springtrap behaves like standard Springtrap but with fire-based visual effects and increased visual intimidation.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Springtrap', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Flaming Springtrap is engulfed in digital flames.',
+        'References the many fires in FNaF history.',
+        'Exclusive to FNaF AR.',
+        'One of the more visually striking AR skins.'
+      ]
+    },
+  {
+      id: 'ringmaster-foxy',
+      name: 'Ringmaster Foxy',
+      alias: 'Ringmaster Foxy / Foxy Domador',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'A circus ringmaster themed Foxy skin with top hat and whip. Appears in FNaF AR.',
+      history: 'Ringmaster Foxy was a circus-themed skin for FNaF AR, transforming the pirate fox into a ringmaster complete with top hat, bow tie, and whip. This design plays up the circus/entertainment aspect of the Fazbear franchise, giving Foxy a more theatrical appearance befitting a showman.',
+      behavior: 'Ringmaster Foxy behaves like standard Foxy but with circus-themed visual effects and animations.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Foxy', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Ringmaster Foxy has a circus ringmaster theme.',
+        'Features a top hat and whip.',
+        'Exclusive to FNaF AR.',
+        'Emphasizes the theatrical nature of the animatronics.'
+      ]
+    },
+  {
+      id: 'frost-plushtrap',
+      name: 'Frost Plushtrap',
+      alias: 'Frost Plushtrap / Plushtrap Helado',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'An ice-themed Plushtrap skin. Appears in FNaF AR.',
+      history: 'Frost Plushtrap was a winter-themed skin for FNaF AR, transforming the plush Springtrap toy into an ice-covered version with frost effects. The design was part of a seasonal content release, adding a chilly aesthetic to the already unsettling Plushtrap character.',
+      behavior: 'Frost Plushtrap behaves like standard Plushtrap but with ice-themed visual effects.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Plushtrap', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Frost Plushtrap has an ice and frost theme.',
+        'Winter seasonal skin for FNaF AR.',
+        'Exclusive to FNaF AR.'
+      ]
+    },
+  {
+      id: 'pumpkin',
+      name: 'Pumpkin',
+      alias: 'Pumpkin / Calabaza',
+      firstAppearance: "Five Nights at Freddy's 4 (2015) Halloween Edition",
+      status: 'Unknown',
+      threatLevel: 'Low',
+      origin: "FNaF 4 - Halloween Edition",
+      image: '',
+      category: 'Other',
+      description: 'Jack-O-Chica\'s floating pumpkin companion from the Halloween Edition. Appears in FNaF 4.',
+      history: 'The Pumpkin was introduced as part of FNaF 4\'s Halloween Edition, serving as a floating companion to Jack-O-Chica. Like Jack-O-Chica herself, the Pumpkin replaced the standard Nightmare Chica in the Halloween update. The floating pumpkin with its glowing, grinning face added an extra layer of Halloween-themed horror to the bedroom setting.',
+      behavior: 'The Pumpkin floats alongside Jack-O-Chica and appears in the hallway, serving as a visual indicator of her approach.',
+      appearances: ['FNaF 4'],
+      relationships: [
+        { name: 'Jack-O-Chica', relation: 'Companion / Floating Pumpkin' },
+        { name: 'Nightmare Chica', relation: 'Halloween Replacement' }
+      ],
+      trivia: [
+        'The Pumpkin is exclusive to FNaF 4\'s Halloween Edition.',
+        'It floats alongside Jack-O-Chica.',
+        'Replaces elements of Nightmare Chica\'s standard design.'
+      ]
+    },
+  {
+      id: 'wind-up-music-man',
+      name: 'Wind-Up Music Man',
+      alias: 'Wind-Up Music Man / Music Man de Cuerda',
+      firstAppearance: "Five Nights at Freddy's: Security Breach - Ruin (2023)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear\'s Mega Pizzaplex',
+      image: '',
+      category: 'Other',
+      description: 'A smaller clockwork version of Music Man found in the Pizzaplex. Appears in Security Breach: Ruin.',
+      history: 'Wind-Up Music Man is a miniature, wind-up version of the larger Music Man animatronic, found as a decorative collectible in the Pizzaplex during the Ruin DLC. Unlike his larger counterpart, this version functions more as a novelty item, powered by a wind-up key rather than complex animatronics. Its presence adds to the Pizzaplex\'s extensive collection of Fazbear-themed merchandise and decorations.',
+      behavior: 'Wind-Up Music Man is non-hostile and serves as a environmental detail rather than an active threat.',
+      appearances: ['Security Breach: Ruin'],
+      relationships: [
+        { name: 'Music Man', relation: 'Miniature Version' }
+      ],
+      trivia: [
+        'Wind-Up Music Man is a decoration in Ruin DLC.',
+        'Operated by a wind-up key mechanism.',
+        'Much smaller than the standard Music Man.'
+      ]
+    },
+  {
+      id: 'giant-cupcake',
+      name: 'Giant Cupcake',
+      alias: 'Giant Cupcake / Cupcake Gigante',
+      firstAppearance: "Five Nights at Freddy's: Security Breach - Ruin (2023)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear\'s Mega Pizzaplex',
+      image: '',
+      category: 'Other',
+      description: 'A massive cupcake animatronic found in the Pizzaplex. Appears in Security Breach: Ruin.',
+      history: 'The Giant Cupcake is an oversized decorative animatronic found in the Pizzaplex, specifically in the daycare or food court areas during the Ruin DLC. This massive confectionary creation is part of the Pizzaplex\'s whimsical decor, though its size makes it somewhat unsettling. Like many Pizzaplex decorations, it adds to the atmosphere of a once-vibrant entertainment center now fallen into decay.',
+      behavior: 'The Giant Cupcake is a static decoration and does not move or attack.',
+      appearances: ['Security Breach: Ruin'],
+      relationships: [
+        { name: 'Chica\'s Cupcake', relation: 'Giant Counterpart' }
+      ],
+      trivia: [
+        'The Giant Cupcake is a massive decoration in Ruin.',
+        'Non-hostile environmental element.',
+        'Part of the Pizzaplex\'s oversized decorative theme.'
+      ]
+    },
+  {
+      id: 'bonnie-bowl-head',
+      name: 'Bonnie Bowl Head',
+      alias: 'Bonnie Bowl Head / Cabeza de Bonnie Bowling',
+      firstAppearance: "Five Nights at Freddy's: Help Wanted 2 (2023)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Freddy Fazbear\'s Mega Pizzaplex',
+      image: '',
+      category: 'Other',
+      description: 'A bowling ball styled as Bonnie\'s head from the Bonnie Bowl attraction. Appears in FNaF: HW2.',
+      history: 'The Bonnie Bowl Head is a novelty bowling ball shaped like Bonnie the Bunny\'s head, originating from the Bonnie Bowl attraction within the Pizzaplex. In Help Wanted 2, this object appears as part of the Bonnie Bowl-themed mini-games. It represents the commercialization of Fazbear characters across all aspects of the Pizzaplex experience.',
+      behavior: 'The Bonnie Bowl Head is an object used in bowling-themed challenges, rolling toward pins when thrown.',
+      appearances: ['FNaF: Help Wanted 2'],
+      relationships: [
+        { name: 'Bonnie', relation: 'Bowling Ball Themed After' }
+      ],
+      trivia: [
+        'Bonnie Bowl Head is a bowling ball version of Bonnie.',
+        'Appears in the Bonnie Bowl attraction in HW2.',
+        'Demonstrates Fazbear Entertainment\'s merchandising.'
+      ]
+    },
+  {
+      id: 'jack-o-moon',
+      name: 'Jack-O-Moon',
+      alias: 'Jack-O-Moon / Luna Calabaza',
+      firstAppearance: "Five Nights at Freddy's: Help Wanted 2 (2023)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Freddy Fazbear\'s Mega Pizzaplex',
+      image: '',
+      category: 'Other',
+      description: 'A Halloween-themed variant of Moon with jack-o-lantern aesthetics. Appears in FNaF: HW2.',
+      history: 'Jack-O-Moon is a seasonal variant of the Moon animatronic from Security Breach, redesigned with Halloween aesthetics including a jack-o-lantern-inspired head and dark color scheme. This variant was introduced in Help Wanted 2 as part of the game\'s expanded animatronic roster. The design fuses the eerie daycare attendant with traditional Halloween imagery.',
+      behavior: 'Jack-O-Moon stalks the player with jack-o-lantern themed attacks and Halloween-inspired behavior patterns.',
+      appearances: ['FNaF: Help Wanted 2'],
+      relationships: [
+        { name: 'Moon', relation: 'Halloween Variant' },
+        { name: 'Sun', relation: 'Counterpart Variant' }
+      ],
+      trivia: [
+        'Jack-O-Moon is a Halloween variant of Moon.',
+        'Features a jack-o-lantern style head.',
+        'Exclusive to FNaF: Help Wanted 2.',
+        'Part of the holiday-themed animatronic variants.'
+      ]
+    },
+  {
+      id: '8-bit-baby',
+      name: '8-Bit Baby',
+      alias: '8-Bit Baby / Circus Baby Pixelada',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Apariencia pixelada de Circus Baby, coleccionable rara.',
+      history: '8-Bit Baby fue una skin exclusiva y rara de FNaF AR con estetica retro de 8 bits. Su diseno pixelado representa una version digital de Circus Baby.',
+      behavior: 'Persigue al jugador con animaciones pixeladas y estetica retro en FNaF AR.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Circus Baby', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Es una coleccionable rara en FNaF AR.',
+        'Tiene estetica pixelada de 8 bits.',
+        'Representa una version retro de Circus Baby.'
+      ]
+    },
+  {
+      id: 'aeronaut-toy-freddy',
+      name: 'Aeronaut Toy Freddy',
+      alias: 'Aeronaut Toy Freddy / Toy Freddy Aviador',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Toy Freddy con traje de aviador.',
+      history: 'Aeronaut Toy Freddy fue una skin de FNaF AR que viste a Toy Freddy con un traje de aviador completo, incluyendo gafas de vuelo y casco.',
+      behavior: 'Persigue al jugador con tematica de aviacion en FNaF AR.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Toy Freddy', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Viste un traje completo de aviador.',
+        'Incluye gafas de vuelo y casco.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'black-ice-frostbear',
+      name: 'Black Ice Frostbear',
+      alias: 'Black Ice Frostbear / Frostbear Hielo Negro',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'High',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Version oscura de Freddy Frostbear con hielo negro.',
+      history: 'Black Ice Frostbear fue una variante oscura y peligrosa de Freddy Frostbear, con hielo negro que cubre su cuerpo y efectos gélidos.',
+      behavior: 'Persigue al jugador con habilidades de hielo negro mas letales que el Frostbear original.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Freddy Frostbear', relation: 'Skin / Variante Oscura' }
+      ],
+      trivia: [
+        'Version oscura de Freddy Frostbear.',
+        'Tiene hielo negro cubriendo su cuerpo.',
+        'Mas peligroso que el Frostbear original.'
+      ]
+    },
+  {
+      id: 'boulder-toy-bonnie',
+      name: 'Boulder Toy Bonnie',
+      alias: 'Boulder Toy Bonnie / Toy Bonnie Roca',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Toy Bonnie con roca y musgo.',
+      history: 'Boulder Toy Bonnie fue una skin de FNaF AR con tematica natural, cubierto de rocas y musgo que le dan una apariencia antigua y abandonada.',
+      behavior: 'Persigue al jugador con estetica de naturaleza reclaimada.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Toy Bonnie', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Cubierto de rocas y musgo.',
+        'Tiene apariencia de haber sido abandonado.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'broiler-baby',
+      name: 'Broiler Baby',
+      alias: 'Broiler Baby / Baby Quemada',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'High',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Circus Baby con quemaduras de fuego.',
+      history: 'Broiler Baby fue una skin de FNaF AR con quemaduras de fuego visibles en el cuerpo de Circus Baby, dandole una apariencia carbonizada y aterradora.',
+      behavior: 'Persigue al jugador con efectos de fuego y quemaduras en su diseno.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Circus Baby', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tiene quemaduras de fuego en su cuerpo.',
+        'Apariencia carbonizada.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'clown-springtrap',
+      name: 'Clown Springtrap',
+      alias: 'Clown Springtrap / Springtrap Payaso',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'High',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Springtrap con disfraz de payaso.',
+      history: 'Clown Springtrap fue una skin de FNaF AR que viste a Springtrap con un disfraz de payaso completo, incluyendo nariz roja y maquillaje.',
+      behavior: 'Persigue al joueur con estetica de circo y payaso siniestro.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Springtrap', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Viste un disfraz de payaso completo.',
+        'Incluye nariz roja y maquillaje.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'dark-water-bare-endo',
+      name: 'Dark Water Bare Endo',
+      alias: 'Dark Water Bare Endo / Endo Agua Oscura',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Endoskeleton sumergido en agua oscura.',
+      history: 'Dark Water Bare Endo fue una skin de FNaF AR con un endoskeleton cubierto de agua oscura y algas, dandole una apariencia sumergida y putrefacta.',
+      behavior: 'Persigue al jugador con estetica de agua oscura y deterioro.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Bare Endo', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Endoskeleton cubierto de agua oscura.',
+        'Tiene algas y deterioro acuatico.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'easter-bonnie',
+      name: 'Easter Bonnie',
+      alias: 'Easter Bonnie / Bonnie de Pascua',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Bonnie con tema de Pascua y decoraciones.',
+      history: 'Easter Bonnie fue una skin estacional de FNaF AR con tematica de Pascua, decorado con huevos de colores y cintas festivas.',
+      behavior: 'Persigue al joueur con estetica de Pascua y decoraciones festivas.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Bonnie', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica de Pascua.',
+        'Decorado con huevos de colores.',
+        'Skin estacional de FNaF AR.'
+      ]
+    },
+  {
+      id: 'firework-freddy',
+      name: 'Firework Freddy',
+      alias: 'Firework Freddy / Freddy Pirotecnico',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Freddy con pirotecnia y fuegos artificiales.',
+      history: 'Firework Freddy fue una skin de FNaF AR con tematica de fuegos artificiales, con destellos y explosiones en su diseno.',
+      behavior: 'Persigue al joueur con efectos pirotecnicos visuales.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica de pirotecnia.',
+        'Tiene efectos de fuegos artificiales.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'flamethrower-bare-endo',
+      name: 'Flamethrower Bare Endo',
+      alias: 'Flamethrower Bare Endo / Endo Lanzallamas',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'High',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Endoskeleton con lanzallamas.',
+      history: 'Flamethrower Bare Endo fue una skin de FNaF AR con un endoskeleton equipado con un lanzallamas funcional, uno de los disenos mas agresivos de la app.',
+      behavior: 'Persigue al joueur usando un lanzallamas para atacar a distancia.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Bare Endo', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Equipado con un lanzallamas.',
+        'Uno de los disenos mas agresivos de FNaF AR.',
+        'Ataca a distancia con fuego.'
+      ]
+    },
+  {
+      id: 'frostbite-balloon-boy',
+      name: 'Frostbite Balloon Boy',
+      alias: 'Frostbite Balloon Boy / BB Helado',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Balloon Boy con tema helado y escarcha.',
+      history: 'Frostbite Balloon Boy fue una skin invernal de FNaF AR con Balloon Boy cubierto de hielo y escarcha.',
+      behavior: 'Persigue al joueur con estetica invernal y helada.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Balloon Boy', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Cubierto de hielo y escarcha.',
+        'Skin invernal de FNaF AR.',
+        'Tematica helada.'
+      ]
+    },
+  {
+      id: 'highscore-toy-chica',
+      name: 'Highscore Toy Chica',
+      alias: 'Highscore Toy Chica / Toy Chica Retro',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Toy Chica con tema de videojuegos retro.',
+      history: 'Highscore Toy Chica fue una skin de FNaF AR con estetica de videojuegos retro de los 80, con colores neon y pixel art.',
+      behavior: 'Persigue al joueur con estetica retro y colores neon.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Toy Chica', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica de videojuegos retro.',
+        'Colores neon y pixel art.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'jetpack-balloon-boy',
+      name: 'Jetpack Balloon Boy',
+      alias: 'Jetpack Balloon Boy / BB Propulsores',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Balloon Boy con propulsores.',
+      history: 'Jetpack Balloon Boy fue una skin de FNaF AR con Balloon Boy equipado con propulsores en la espalda.',
+      behavior: 'Persigue al joueur volando con sus propulsores.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Balloon Boy', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Equipado con propulsores.',
+        'Puede volar para perseguir.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'liberty-chica',
+      name: 'Liberty Chica',
+      alias: 'Liberty Chica / Chica Estatua de la Libertad',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Chica con tema de la Estatua de la Libertad.',
+      history: 'Liberty Chica fue una skin de FNaF AR con tematica patriota, vistiendo a Chica con la estetica de la Estatua de la Libertad.',
+      behavior: 'Persigue al joueur con estetica patriota y verde oxidado.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Chica', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica de la Estatua de la Libertad.',
+        'Color verde oxidado caracteristico.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'magician-mangle',
+      name: 'Magician Mangle',
+      alias: 'Magician Mangle / Mangle Mago',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Mangle con traje de mago.',
+      history: 'Magician Mangle fue una skin de FNaF AR con Mangle vistiendo un traje de mago con sombrero de copa y capa.',
+      behavior: 'Persigue al joueur con estetica de magia y ilusionismo.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Mangle', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Viste un traje de mago.',
+        'Incluye sombrero de copa y capa.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'melted-chocolate-bonnie',
+      name: 'Melted Chocolate Bonnie',
+      alias: 'Melted Chocolate Bonnie / Bonnie Chocolate Derretido',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Bonnie cubierto de chocolate derretido.',
+      history: 'Melted Chocolate Bonnie fue una skin de FNaF AR con Bonnie cubierto de chocolate derretido que gotea por su cuerpo.',
+      behavior: 'Persigue al joueur con efectos visuales de chocolate derretido.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Bonnie', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Cubierto de chocolate derretido.',
+        'El chocolate gotea de su cuerpo.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'pirahna-plushtrap',
+      name: 'Pirahna Plushtrap',
+      alias: 'Pirahna Plushtrap / Plushtrap Piraña',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Plushtrap con tema de piraña.',
+      history: 'Pirahna Plushtrap fue una skin de FNaF AR con tematica acuatica, dando a Plushtrap rasgos de piraña con dientes afilados y aletas.',
+      behavior: 'Persigue al joueur con estetica acuatica y dientes afilados.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Plushtrap', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica de piraña.',
+        'Tiene dientes afilados y aletas.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'scorching-chica',
+      name: 'Scorching Chica',
+      alias: 'Scorching Chica / Chica Quemada',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'High',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Chica con quemaduras y fuego.',
+      history: 'Scorching Chica fue una skin de FNaF AR con quemaduras extensas y efectos de fuego en el cuerpo de Chica.',
+      behavior: 'Persigue al joueur con efectos de fuego y quemaduras.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Chica', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tiene quemaduras y efectos de fuego.',
+        'Apariencia carbonizada.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'sunked-toy-bonnie',
+      name: 'Sunked Toy Bonnie',
+      alias: 'Sunked Toy Bonnie / Toy Bonnie Hundido',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Toy Bonnie hundido y oxidado.',
+      history: 'Sunked Toy Bonnie fue una skin de FNaF AR con Toy Bonnie cubierto de oxido y sedimentos, como si hubiera estado sumergido en agua.',
+      behavior: 'Persigue al joueur con estetica de deterioro acuatico y oxidacion.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Toy Bonnie', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Cubierto de oxido y sedimentos.',
+        'Apariencia de haber sido sumergido.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'swamp-balloon-boy',
+      name: 'Swamp Balloon Boy',
+      alias: 'Swamp Balloon Boy / BB del Pantano',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Balloon Boy del pantano con musgo.',
+      history: 'Swamp Balloon Boy fue una skin de FNaF AR con tematica de pantano, cubriendo a Balloon Boy de musgo y vegetacion.',
+      behavior: 'Persigue al joueur con estetica de pantano y vegetacion.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Balloon Boy', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Cubierto de musgo y vegetacion.',
+        'Tematica de pantano.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'system-error-toy-bonnie',
+      name: 'System Error Toy Bonnie',
+      alias: 'System Error Toy Bonnie / Toy Bonnie Glitched',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Toy Bonnie glitched con error del sistema.',
+      history: 'System Error Toy Bonnie fue una skin de FNaF AR con estetica de glitch digital, mostrando Toy Bonnie con artefactos visuales y distorsiones de error del sistema.',
+      behavior: 'Persigue al joueur con efectos visuales de glitch y distorsion.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Toy Bonnie', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Estetica de glitch digital.',
+        'Tiene artefactos visuales de error.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'vr-toy-freddy',
+      name: 'VR Toy Freddy',
+      alias: 'VR Toy Freddy / Toy Freddy Realidad Virtual',
+      firstAppearance: "Five Nights at Freddy's AR: Special Delivery (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF AR',
+      image: '',
+      category: 'Other',
+      description: 'Toy Freddy con tema de realidad virtual.',
+      history: 'VR Toy Freddy fue una skin de FNaF AR con tematica de realidad virtual, con estetica de auriculares VR y codigo digital.',
+      behavior: 'Persigue al joueur con estetica de realidad virtual y codigo.',
+      appearances: ['FNaF AR: Special Delivery'],
+      relationships: [
+        { name: 'Toy Freddy', relation: 'Skin / Variante' }
+      ],
+      trivia: [
+        'Tematica de realidad virtual.',
+        'Tiene auriculares VR en su diseno.',
+        'Exclusivo de FNaF AR.'
+      ]
+    },
+  {
+      id: 'plushbaby',
+      name: 'PlushBaby',
+      alias: 'PlushBaby / Bebe de Peluche Animatronico',
+      firstAppearance: "Five Nights at Freddy's VR: Help Wanted (2019)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: 'Fazbear Entertainment - FNaF VR: Help Wanted',
+      image: '',
+      category: 'Other',
+      description: 'Bebe de peluche animatronico.',
+      history: 'PlushBaby es un animatronico con forma de bebe de peluche que aparece en FNaF VR: Help Wanted. Tiene una apariencia inocente pero es capaz de atacar.',
+      behavior: 'PlushBaby aparece en la habitacion y debe ser detenido con la linterna antes de que ataque.',
+      appearances: ['FNaF VR: Help Wanted', 'FNaF AR'],
+      relationships: [],
+      trivia: [
+        'Tiene apariencia de bebe de peluche.',
+        'Aparece en FNaF VR: Help Wanted.',
+        'Es mas amenazante de lo que aparenta.'
+      ]
+    },
+  {
+      id: 'head-chef-bot',
+      name: 'Head Chef Bot',
+      alias: 'Head Chef Bot / Robot Chef Jefe',
+      firstAppearance: "Five Nights at Freddy's: Help Wanted 2 (2023)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Fazbear Entertainment - FNaF: HW2',
+      image: '',
+      category: 'Other',
+      description: 'Robot chef jefe de cocina.',
+      history: 'Head Chef Bot es un robot de cocina que aparece en FNaF: Help Wanted 2, encargado de supervisar la cocina del restaurante.',
+      behavior: 'Permanece en la cocina realizando tareas de supervision sin ser hostil.',
+      appearances: ['FNaF: Help Wanted 2'],
+      relationships: [],
+      trivia: [
+        'Es el jefe de la cocina.',
+        'Robot de servicio especializado.',
+        'Aparece en FNaF: HW2.'
+      ]
+    },
+  {
+      id: 'staff-bots',
+      name: 'S.T.A.F.F. Bots',
+      alias: 'S.T.A.F.F. Bots / Robots de Servicio',
+      firstAppearance: "Five Nights at Freddy's: Help Wanted 2 (2023)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Fazbear Entertainment - FNaF: HW2',
+      image: '',
+      category: 'Other',
+      description: 'Robots de servicio de Fazbear.',
+      history: 'Los S.T.A.F.F. Bots son robots de servicio automatizados que aparecen en FNaF: Help Wanted 2, realizando diversas tareas de mantenimiento.',
+      behavior: 'Realizan tareas de servicio y mantenimiento sin ser hostiles.',
+      appearances: ['FNaF: Help Wanted 2', 'Security Breach'],
+      relationships: [],
+      trivia: [
+        'Son robots de servicio automatizados.',
+        'Realizan tareas de mantenimiento.',
+        'Aparecen en multiples juegos.'
+      ]
+    },
+  {
+      id: 'alien-bots',
+      name: 'Alien Bots',
+      alias: 'Alien Bots / Robots Alienigenas',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Other',
+      description: 'Robots con tema alienigena.',
+      history: 'Los Alien Bots son robots decorativos con tematica alienigena que adornan el Mega Pizzaplex.',
+      behavior: 'Permanecen estaticos como decoracion sin ser hostiles.',
+      appearances: ['FNaF: Security Breach'],
+      relationships: [],
+      trivia: [
+        'Robots decorativos con tema alienigena.',
+        'Adornan el Mega Pizzaplex.',
+        'No son hostiles.'
+      ]
+    },
+  {
+      id: 'alpha-staff-bots',
+      name: 'Alpha S.T.A.F.F. Bots',
+      alias: 'Alpha S.T.A.F.F. Bots / Robots Alpha',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Other',
+      description: 'Version alpha de los robots de servicio.',
+      history: 'Los Alpha S.T.A.F.F. Bots son la version prototipo de los robots de servicio, con un diseno mas basico y funcional.',
+      behavior: 'Realizan tareas basicas de servicio.',
+      appearances: ['FNaF: Security Breach'],
+      relationships: [
+        { name: 'S.T.A.F.F. Bots', relation: 'Version Prototipo' }
+      ],
+      trivia: [
+        'Son la version prototipo.',
+        'Diseno mas basico.',
+        'Predecesores de los S.T.A.F.F. Bots.'
+      ]
+    },
+  {
+      id: 'attendant-bots',
+      name: 'Attendant Bots',
+      alias: 'Attendant Bots / Robots Asistentes',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Other',
+      description: 'Robots asistentes del personal.',
+      history: 'Los Attendant Bots son robots disenados para asistir al personal del Pizzaplex en sus tareas diarias.',
+      behavior: 'Asisten al personal sin ser hostiles.',
+      appearances: ['FNaF: Security Breach'],
+      relationships: [],
+      trivia: [
+        'Robots asistentes del personal.',
+        'Realizan tareas de apoyo.',
+        'No son hostiles.'
+      ]
+    },
+  {
+      id: 'caution-bot',
+      name: 'Caution Bot',
+      alias: 'Caution Bot / Robot de Advertencia',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Other',
+      description: 'Robot de advertencia y seguridad.',
+      history: 'Caution Bot es un robot disenado para emitir advertencias de seguridad en el Pizzaplex.',
+      behavior: 'Emite advertencias y senales de seguridad.',
+      appearances: ['FNaF: Security Breach'],
+      relationships: [],
+      trivia: [
+        'Robot de advertencia y seguridad.',
+        'Emite senales de peligro.',
+        'No es hostil.'
+      ]
+    },
+  {
+      id: 'comedy-bot',
+      name: 'Comedy Bot',
+      alias: 'Comedy Bot / Robot Comico',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Other',
+      description: 'Robot comico de entretenimiento.',
+      history: 'Comedy Bot es un robot disenado para entretener a los visitantes con chistes y actuaciones comicas.',
+      behavior: 'Realiza actuaciones comicas para entretener.',
+      appearances: ['FNaF: Security Breach'],
+      relationships: [],
+      trivia: [
+        'Robot de entretenimiento comico.',
+        'Realiza chistes y actuaciones.',
+        'No es hostil.'
+      ]
+    },
+  {
+      id: 'glamrock-helpy',
+      name: 'Glamrock Helpy',
+      alias: 'Glamrock Helpy / Helpy Glamrock',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Other',
+      description: 'Version glamrock de Helpy.',
+      history: 'Glamrock Helpy es la version modernizada de Helpy con estetica glamrock, encontrada en el Mega Pizzaplex.',
+      behavior: 'Actua como asistente del Pizzaplex sin ser hostil.',
+      appearances: ['FNaF: Security Breach'],
+      relationships: [
+        { name: 'Helpy', relation: 'Version Glamrock' }
+      ],
+      trivia: [
+        'Version glamrock de Helpy.',
+        'Tiene estetica moderna.',
+        'No es hostil.'
+      ]
+    },
+  {
+      id: 'glamrock-mr-hippo',
+      name: 'Glamrock Mr. Hippo',
+      alias: 'Glamrock Mr. Hippo / Mr. Hippo Glamrock',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Other',
+      description: 'Version glamrock de Mr. Hippo.',
+      history: 'Glamrock Mr. Hippo es la version modernizada de Mr. Hippo con estetica glamrock, encontrada en el Mega Pizzaplex.',
+      behavior: 'Cuenta historias largas como su version original.',
+      appearances: ['FNaF: Security Breach'],
+      relationships: [
+        { name: 'Mr. Hippo', relation: 'Version Glamrock' }
+      ],
+      trivia: [
+        'Version glamrock de Mr. Hippo.',
+        'Cuenta historias largas.',
+        'No es hostil.'
+      ]
+    },
+  {
+      id: 'magician-bot',
+      name: 'Magician Bot',
+      alias: 'Magician Bot / Robot Mago',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Other',
+      description: 'Robot mago de entretenimiento.',
+      history: 'Magician Bot es un robot disenado para realizar trucos de magia y espectaculos para los visitantes del Pizzaplex.',
+      behavior: 'Realiza trucos de magia para entretener.',
+      appearances: ['FNaF: Security Breach'],
+      relationships: [],
+      trivia: [
+        'Robot de entretenimiento magico.',
+        'Realiza trucos de magia.',
+        'No es hostil.'
+      ]
+    },
+  {
+      id: 'map-bots',
+      name: 'Map Bots',
+      alias: 'Map Bots / Robots de Mapas',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Other',
+      description: 'Robots de mapas y navegacion.',
+      history: 'Los Map Bots son robots que ayudan a los visitantes a navegar por el Pizzaplex con mapas interactivos.',
+      behavior: 'Proporcionan direcciones y mapas a los visitantes.',
+      appearances: ['FNaF: Security Breach'],
+      relationships: [],
+      trivia: [
+        'Robots de navegacion y mapas.',
+        'Ayudan a los visitantes.',
+        'No son hostiles.'
+      ]
+    },
+  {
+      id: 'mop-bots',
+      name: 'Mop Bots',
+      alias: 'Mop Bots / Robots de Limpieza',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Other',
+      description: 'Robots de limpieza con trapeadores.',
+      history: 'Los Mop Bots son robots de limpieza automatizados que mantienen el Pizzaplex limpio.',
+      behavior: 'Limpian el suelo con trapeadores automaticos.',
+      appearances: ['FNaF: Security Breach'],
+      relationships: [],
+      trivia: [
+        'Robots de limpieza automatizados.',
+        'Usan trapeadores.',
+        'No son hostiles.'
+      ]
+    },
+  {
+      id: 'party-bots',
+      name: 'Party Bots',
+      alias: 'Party Bots / Robots de Fiesta',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Other',
+      description: 'Robots de fiesta y celebracion.',
+      history: 'Los Party Bots son robots disenados para animar fiestas y celebraciones en el Pizzaplex.',
+      behavior: 'Animan fiestas con musica y baile.',
+      appearances: ['FNaF: Security Breach'],
+      relationships: [],
+      trivia: [
+        'Robots de fiesta y celebracion.',
+        'Animan eventos.',
+        'No son hostiles.'
+      ]
+    },
+  {
+      id: 'security-bots',
+      name: 'Security Bots',
+      alias: 'Security Bots / Robots de Seguridad',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Freddy Fazbear's Mega Pizzaplex",
+      image: '',
+      category: 'Other',
+      description: 'Robots de seguridad armados.',
+      history: 'Los Security Bots son robots de seguridad armados que patrullan el Pizzaplex para mantener el orden.',
+      behavior: 'Patrullan el Pizzaplex y mantienen el orden.',
+      appearances: ['FNaF: Security Breach'],
+      relationships: [],
+      trivia: [
+        'Robots de seguridad armados.',
+        'Patrullan el Pizzaplex.',
+        'Mantienen el orden.'
+      ]
+    },
+  {
+      id: 'adivina',
+      name: 'Adivina',
+      alias: 'Adivina / La Adivinadora',
+      firstAppearance: "Five Nights at Freddy's: Sister Location (2016)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Circus Baby's Entertainment & Rental",
+      image: '',
+      category: 'Funtime',
+      description: 'Adivinadora animatronica del Circus.',
+      history: 'Adivina es un animatronico del Circus que aparece en Sister Location, con la capacidad de hacer predicciones y adivinanzas.',
+      behavior: 'Hace preguntas y adivinanzas sin ser hostil.',
+      appearances: ['FNaF: Sister Location'],
+      relationships: [
+        { name: 'Circus Baby', relation: 'Companera de Circus' }
+      ],
+      trivia: [
+        'Es una adivinadora animatronica.',
+        'Hace preguntas y adivinanzas.',
+        'Aparece en Sister Location.'
+      ]
+    },
+  {
+      id: 'little-joe',
+      name: 'Little Joe',
+      alias: 'Little Joe / El Vendedor Pequeno',
+      firstAppearance: "Five Nights at Freddy's: Sister Location (2016)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Circus Baby's Entertainment & Rental",
+      image: '',
+      category: 'Funtime',
+      description: 'Pequeno animatronico vendedor.',
+      history: 'Little Joe es un pequeno animatronico vendedor que aparece en Sister Location, vendiendo productos en las instalaciones.',
+      behavior: 'Vende productos sin ser hostil.',
+      appearances: ['FNaF: Sister Location'],
+      relationships: [
+        { name: 'Circus Baby', relation: 'Companero de Circus' }
+      ],
+      trivia: [
+        'Es un pequeno vendedor animatronico.',
+        'Vende productos.',
+        'Aparece en Sister Location.'
+      ]
+    },
+  {
+      id: 'magician-sl',
+      name: 'Magician',
+      alias: 'Magician / El Magico',
+      firstAppearance: "Five Nights at Freddy's: Sister Location (2016)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Circus Baby's Entertainment & Rental",
+      image: '',
+      category: 'Funtime',
+      description: 'Magico animatronico del Circus.',
+      history: 'Magician es un animatronico mago del Circus que aparece en Sister Location, realizando trucos de magia.',
+      behavior: 'Realiza trucos de magia sin ser hostil.',
+      appearances: ['FNaF: Sister Location'],
+      relationships: [
+        { name: 'Circus Baby', relation: 'Companero de Circus' }
+      ],
+      trivia: [
+        'Es un mago animatronico.',
+        'Realiza trucos de magia.',
+        'Aparece en Sister Location.'
+      ]
+    }
+
+
 ];
 
 // loaded

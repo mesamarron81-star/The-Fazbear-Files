@@ -8,11 +8,11 @@ window.games = [
     platform: 'PC, iOS, Android, Consolas',
     platforms: ['windows', 'ios', 'android', 'console'],
     steamUrl: 'https://store.steampowered.com/app/319630/',
-    description: 'El primer juego de la saga que inici?? todo. El jugador asume el rol de Mike Schmidt, un guardia de seguridad nocturno en Freddy Fazbear\'s Pizza. Debe sobrevivir cinco noches utilizando un sistema limitado de energ??a para controlar puertas y c??maras. Los animatr??nicos cobran vida por la noche y deambulan hacia la oficina. La atm??sfera de tensi??n y el dise??o sonoro crean una experiencia de terror ??nica. Sent?? las bases de una de las franquicias de terror m??s exitosas de la historia.',
+    description: 'El primer juego de la saga que inició todo. El jugador asume el rol de Mike Schmidt, un guardia de seguridad nocturno en Freddy Fazbear\'s Pizza. Debe sobrevivir cinco noches utilizando un sistema limitado de energía para controlar puertas y cámaras. Los animatrónicos cobran vida por la noche y deambulan hacia la oficina. La atmósfera de tensión y el diseño sonoro crean una experiencia de terror única. Sentó las bases de una de las franquicias de terror más exitosas de la historia.',
     characters: ['Freddy Fazbear', 'Bonnie', 'Chica', 'Foxy', 'Golden Freddy', 'Mike Schmidt', 'Phone Guy'],
-    mechanics: ['Supervivencia', 'Control de Puertas', 'Uso de Luces', 'Gesti??n de Energ??a', 'Monitoreo de C??maras'],
-    connections: ['Introdujo el incidente de los ni??os desaparecidos', 'Estableci?? la ubicaci??n original de Freddy Fazbear\'s Pizza', 'Present?? al Phone Guy como fuente de exposici??n'],
-    trivia: ['Creado originalmente en Clickteam Fusion', 'Scott Cawthon desarroll?? el juego tras recibir cr??ticas por sus animatr??nicos en un juego infantil anterior', 'Se convirti?? en un fen??meno cultural de internet', 'Originalmente iba a llamarse "The Teddy\'s"']
+    mechanics: ['Supervivencia', 'Control de Puertas', 'Uso de Luces', 'Gestión de Energía', 'Monitoreo de Cámaras'],
+    connections: ['Introdujo el incidente de los niños desaparecidos', 'Estableció la ubicación original de Freddy Fazbear\'s Pizza', 'Presentó al Phone Guy como fuente de exposición'],
+    trivia: ['Creado originalmente en Clickteam Fusion', 'Scott Cawthon desarrolló el juego tras recibir críticas por sus animatrónicos en un juego infantil anterior', 'Se convirtió en un fenómeno cultural de internet', 'Originalmente iba a llamarse "The Teddy\'s"']
   },
   {
     id: 'fnaf-2',
@@ -23,11 +23,11 @@ window.games = [
     platform: 'PC, iOS, Android, Consolas',
     platforms: ['windows', 'ios', 'android', 'console'],
     steamUrl: 'https://store.steampowered.com/app/332830/',
-    description: 'La secuela directa que funciona como precuela del primer juego. El jugador es Jeremy Fitzgerald, un guardia nocturno en la nueva y mejorada Freddy Fazbear\'s Pizza. Esta entrega introdujo nuevos animatr??nicos como los Toy y el misterioso Puppet. El sistema de juego cambi?? dr??sticamente al eliminar las puertas y a??adir una m??scara para enga??ar a los animatr??nicos. La llegada de Withered animatr??nicos desbloqueados a??adi?? capas de complejidad. Ampli?? enormemente el lore y present?? a la ic??nica Marioneta.',
+    description: 'La secuela directa que funciona como precuela del primer juego. El jugador es Jeremy Fitzgerald, un guardia nocturno en la nueva y mejorada Freddy Fazbear\'s Pizza. Esta entrega introdujo nuevos animatrónicos como los Toy y el misterioso Puppet. El sistema de juego cambió drásticamente al eliminar las puertas y añadir una máscara para engañar a los animatrónicos. La llegada de Withered animatrónicos desbloqueados añadió capas de complejidad. Amplió enormemente el lore y presentó a la icónica Marioneta.',
     characters: ['Toy Freddy', 'Toy Bonnie', 'Toy Chica', 'Mangle', 'Balloon Boy', 'JJ', 'The Puppet', 'Withered Freddy', 'Withered Bonnie', 'Withered Chica', 'Withered Foxy', 'Golden Freddy', 'Jeremy Fitzgerald', 'Phone Guy', 'Shadow Freddy', 'Shadow Bonnie'],
-    mechanics: ['Uso de M??scara', 'Linterna', 'Recarga de M??sica Box', 'Monitoreo de C??maras', 'Ventilaci??n'],
-    connections: ['Precuela del primer juego', 'Introdujo el Bite of \'87', 'Present?? la Marioneta y su conexi??n con Charlotte Emily'],
-    trivia: ['Desarrollado en solo unos meses tras el ??xito del primero', 'El sistema de m??scara fue una innovaci??n mec??nica', 'Mangle es un animatr??nico desmontable por los ni??os']
+    mechanics: ['Uso de Máscara', 'Linterna', 'Recarga de Música Box', 'Monitoreo de Cámaras', 'Ventilación'],
+    connections: ['Precuela del primer juego', 'Introdujo el Bite of \'87', 'Presentó la Marioneta y su conexión con Charlotte Emily'],
+    trivia: ['Desarrollado en solo unos meses tras el éxito del primero', 'El sistema de máscara fue una innovación mecánica', 'Mangle es un animatrónico desmontable por los niños']
   },
   {
     id: 'fnaf-3',
@@ -38,11 +38,11 @@ window.games = [
     platform: 'PC, iOS, Android, Consolas',
     platforms: ['windows', 'ios', 'android', 'console'],
     steamUrl: 'https://store.steampowered.com/app/354140/',
-    description: 'La tercera entrega se ambienta treinta a??os despu??s en Fazbear\'s Fright, una atracci??n de terror inspirada en los cr??menes de Freddy\'s. El jugador debe sobrevivir a Springtrap, el ??nico animatr??nico activo que acecha el edificio. El juego introdujo un sistema de ventilaci??n y la capacidad de sellar habitaciones para controlar la ubicaci??n de Springtrap. Los fantasmas de los animatr??nicos originales aparecen como alucinaciones que desestabilizan los sistemas. Springtrap revel?? ser William Afton atrapado dentro del traje de Spring Bonnie. El juego tiene m??ltiples finales que expanden la narrativa.',
+    description: 'La tercera entrega se ambienta treinta años después en Fazbear\'s Fright, una atracción de terror inspirada en los crímenes de Freddy\'s. El jugador debe sobrevivir a Springtrap, el único animatrónico activo que acecha el edificio. El juego introdujo un sistema de ventilación y la capacidad de sellar habitaciones para controlar la ubicación de Springtrap. Los fantasmas de los animatrónicos originales aparecen como alucinaciones que desestabilizan los sistemas. Springtrap reveló ser William Afton atrapado dentro del traje de Spring Bonnie. El juego tiene múltiples finales que expanden la narrativa.',
     characters: ['Springtrap', 'Phantom Freddy', 'Phantom Chica', 'Phantom Foxy', 'Phantom Balloon Boy', 'Phantom Mangle', 'Phantom Puppet', 'Shadow Bonnie', 'Phone Dude'],
-    mechanics: ['Sistema de Ventilaci??n', 'Sellado de Habitaciones', 'Reparaci??n de Audio', 'Monitoreo de C??maras', 'Gesti??n de Sistemas'],
-    connections: ['Revel?? que William Afton sobrevivi?? dentro de Springtrap', 'Conect?? el pasado con el presente de la saga', 'El final bueno muestra las almas de los ni??os siendo liberadas'],
-    trivia: ['Inicialmente iba a tener m??ltiples animatr??nicos activos', 'Los efectos de sonido incluyen grabaciones distorsionadas de los juegos anteriores', 'El final malo muestra a Springtrap arrastr??ndose']
+    mechanics: ['Sistema de Ventilación', 'Sellado de Habitaciones', 'Reparación de Audio', 'Monitoreo de Cámaras', 'Gestión de Sistemas'],
+    connections: ['Reveló que William Afton sobrevivió dentro de Springtrap', 'Conectó el pasado con el presente de la saga', 'El final bueno muestra las almas de los niños siendo liberadas'],
+    trivia: ['Inicialmente iba a tener múltiples animatrónicos activos', 'Los efectos de sonido incluyen grabaciones distorsionadas de los juegos anteriores', 'El final malo muestra a Springtrap arrastrándose']
   },
   {
     id: 'fnaf-4',
@@ -53,11 +53,11 @@ window.games = [
     platform: 'PC, iOS, Android, Consolas',
     platforms: ['windows', 'ios', 'android', 'console'],
     steamUrl: 'https://store.steampowered.com/app/638490/',
-    description: 'La cuarta entrega cambia dr??sticamente la ambientaci??n, llevando la acci??n al dormitorio de un ni??o en 1983. El jugador debe sobrevivir a pesadillas con versiones terror??ficas de los animatr??nicos. La mec??nica principal consiste en escuchar atentamente las respiraciones para determinar d??nde est?? cada animatr??nico. Se introdujo el concepto del Bite of \'83, un evento crucial en la l??nea temporal. La historia explora el trauma infantil y la conexi??n con los experimentos de William Afton. Es considerado uno de los juegos m??s aterradores de la franquicia.',
+    description: 'La cuarta entrega cambia drásticamente la ambientación, llevando la acción al dormitorio de un niño en 1983. El jugador debe sobrevivir a pesadillas con versiones terroríficas de los animatrónicos. La mecánica principal consiste en escuchar atentamente las respiraciones para determinar dónde está cada animatrónico. Se introdujo el concepto del Bite of \'83, un evento crucial en la línea temporal. La historia explora el trauma infantil y la conexión con los experimentos de William Afton. Es considerado uno de los juegos más aterradores de la franquicia.',
     characters: ['Nightmare Freddy', 'Nightmare Bonnie', 'Nightmare Chica', 'Nightmare Foxy', 'Nightmare Fredbear', 'Nightmare', 'Plushtrap', 'Jack-O-Bonnie', 'Jack-O-Chica', 'Nightmare Mangle', 'Nightmarionne', 'Crying Child', 'Fredbear Plush', 'William Afton', 'Michael Afton', 'Elizabeth Afton', 'Freddy Bully'],
-    mechanics: ['Escucha Activa', 'Uso de Linterna', 'Cierre de Puertas', 'Detecci??n de Respiraciones', 'Control de Pasillos'],
-    connections: ['Clarific?? el Bite of \'83, diferenci??ndolo del Bite of \'87', 'Mostr?? los experimentos de pesadilla de William Afton', 'El Crying Child es un personaje clave en la tragedia de la familia Afton'],
-    trivia: ['Originalmente planeado como un juego sin jumpscares convencionales', 'Los dise??os de pesadilla fueron inspirados por bocetos de fans', 'El juego contiene huevos de pascua conectados al lore profundo']
+    mechanics: ['Escucha Activa', 'Uso de Linterna', 'Cierre de Puertas', 'Detección de Respiraciones', 'Control de Pasillos'],
+    connections: ['Clarificó el Bite of \'83, diferenciándolo del Bite of \'87', 'Mostró los experimentos de pesadilla de William Afton', 'El Crying Child es un personaje clave en la tragedia de la familia Afton'],
+    trivia: ['Originalmente planeado como un juego sin jumpscares convencionales', 'Los diseños de pesadilla fueron inspirados por bocetos de fans', 'El juego contiene huevos de pascua conectados al lore profundo']
   },
   {
     id: 'fnaf-world',
@@ -68,11 +68,11 @@ window.games = [
     platform: 'PC, iOS, Android',
     platforms: ['windows', 'ios', 'android'],
     steamUrl: null,
-    description: 'Un RPG spin-off que se aleja completamente del horror de la saga principal. Los jugadores controlan a los animatr??nicos en un mundo colorido y alegre lleno de aventuras por turnos. El juego presenta una vasta cantidad de personajes jugables, incluyendo versiones pixeladas de todos los animatr??nicos conocidos. La historia incluye elementos meta y referencias directas a la comunidad de fans. Aunque recibi?? cr??ticas mixtas, introdujo revelaciones importantes sobre el lore. Fue retirado temporalmente de las tiendas para ser relanzado con mejoras.',
+    description: 'Un RPG spin-off que se aleja completamente del horror de la saga principal. Los jugadores controlan a los animatrónicos en un mundo colorido y alegre lleno de aventuras por turnos. El juego presenta una vasta cantidad de personajes jugables, incluyendo versiones pixeladas de todos los animatrónicos conocidos. La historia incluye elementos meta y referencias directas a la comunidad de fans. Aunque recibió críticas mixtas, introdujo revelaciones importantes sobre el lore. Fue retirado temporalmente de las tiendas para ser relanzado con mejoras.',
     characters: ['Freddy', 'Bonnie', 'Chica', 'Foxy', 'Fredbear', 'Spring Bonnie', 'Endo-01', 'Endo-02', 'Plushtrap', 'Nightmare', 'Animdude', 'Scott Cawthon', 'Chipper', 'Bubba', 'Coffee', 'Security'],
-    mechanics: ['Combate por Turnos', 'Exploraci??n en Mundo Abierto', 'Personalizaci??n de Equipo', 'Reclutamiento de Personajes'],
-    connections: ['Contiene pistas sobre el lore de la saga principal', 'Introdujo el personaje de Animdude que representa a Scott Cawthon', 'Las actualizaciones posteriores a??adieron profundidad narrativa'],
-    trivia: ['Scott Cawthon lo retir?? temporalmente por no cumplir sus expectativas', 'El juego contiene m??ltiples finales y secretos', 'Incluye un minijuego que revela informaci??n sobre el experimento de pesadilla']
+    mechanics: ['Combate por Turnos', 'Exploración en Mundo Abierto', 'Personalización de Equipo', 'Reclutamiento de Personajes'],
+    connections: ['Contiene pistas sobre el lore de la saga principal', 'Introdujo el personaje de Animdude que representa a Scott Cawthon', 'Las actualizaciones posteriores añadieron profundidad narrativa'],
+    trivia: ['Scott Cawthon lo retiró temporalmente por no cumplir sus expectativas', 'El juego contiene múltiples finales y secretos', 'Incluye un minijuego que revela información sobre el experimento de pesadilla']
   },
   {
     id: 'sister-location',
@@ -83,11 +83,11 @@ window.games = [
     platform: 'PC, iOS, Android, Consolas',
     platforms: ['windows', 'ios', 'android', 'console'],
     steamUrl: 'https://store.steampowered.com/app/637710/',
-    description: 'La quinta entrega principal se aleja del formato tradicional para ofrecer una experiencia m??s narrativa. El jugador es un t??cnico que trabaja en Circus Baby\'s Entertainment and Rental, una instalaci??n subterr??nea. Cada noche presenta tareas mec??nicas ??nicas que involucran a los animatr??nicos Funtime, dise??ados espec??ficamente para capturar ni??os. El juego introdujo di??logos hablados por primera vez en la serie, con actuaci??n de voz profesional. La historia se centra en Elizabeth Afton y su tr??gico destino dentro de Circus Baby. El final revela conexiones impactantes con los juegos anteriores.',
+    description: 'La quinta entrega principal se aleja del formato tradicional para ofrecer una experiencia más narrativa. El jugador es un técnico que trabaja en Circus Baby\'s Entertainment and Rental, una instalación subterránea. Cada noche presenta tareas mecánicas únicas que involucran a los animatrónicos Funtime, diseñados específicamente para capturar niños. El juego introdujo diálogos hablados por primera vez en la serie, con actuación de voz profesional. La historia se centra en Elizabeth Afton y su trágico destino dentro de Circus Baby. El final revela conexiones impactantes con los juegos anteriores.',
     characters: ['Circus Baby', 'Ballora', 'Funtime Freddy', 'Funtime Foxy', 'Bon-Bon', 'Bonnet', 'Ennard', 'Bidybab', 'Minireena', 'Electrobab', 'Lolbit', 'Yenndo', 'Michael Afton', 'William Afton', 'Elizabeth Afton', 'HandUnit'],
-    mechanics: ['Tareas Mec??nicas', 'Gesti??n de Panel', 'Flashlight Control', 'Ventilaci??n', 'Navegaci??n de Pasillos', 'Sistema de Audio'],
-    connections: ['Revel?? el destino de Elizabeth Afton dentro de Circus Baby', 'Conect?? con los experimentos de William Afton', 'Ennard escap?? usando el cuerpo de Michael Afton'],
-    trivia: ['Primer juego con actuaci??n de voz completa', 'El dise??o de Circus Baby fue inspirado por mu??ecas de porcelana', 'Contiene la escena m??s grotesca de la saga con el desmantelamiento de Michael']
+    mechanics: ['Tareas Mecánicas', 'Gestión de Panel', 'Flashlight Control', 'Ventilación', 'Navegación de Pasillos', 'Sistema de Audio'],
+    connections: ['Reveló el destino de Elizabeth Afton dentro de Circus Baby', 'Conectó con los experimentos de William Afton', 'Ennard escapó usando el cuerpo de Michael Afton'],
+    trivia: ['Primer juego con actuación de voz completa', 'El diseño de Circus Baby fue inspirado por muñecas de porcelana', 'Contiene la escena más grotesca de la saga con el desmantelamiento de Michael']
   },
   {
     id: 'ffps',
@@ -98,11 +98,11 @@ window.games = [
     platform: 'PC, iOS, Android, Consolas',
     platforms: ['windows', 'ios', 'android', 'console'],
     steamUrl: 'https://store.steampowered.com/app/738060/',
-    description: 'Un juego que comienza como un simulador de gesti??n de pizzer??a pero oculta un juego de terror en su interior. El jugador administra su propia franquicia de Freddy Fazbear\'s mientras realiza investigaci??n nocturna en las habitaciones traseras. La fachada de simulaci??n oculta una narrativa profunda que concluye muchas tramas de la saga. Los animatr??nicos rescatados, incluyendo versiones deterioradas de personajes conocidos, deben ser salvados del peligro. El juego culmina en un incendio que parece poner fin definitivo a la maldici??n de Freddy\'s. Es una conclusi??n agridulce para la historia original de FNAF.',
+    description: 'Un juego que comienza como un simulador de gestión de pizzería pero oculta un juego de terror en su interior. El jugador administra su propia franquicia de Freddy Fazbear\'s mientras realiza investigación nocturna en las habitaciones traseras. La fachada de simulación oculta una narrativa profunda que concluye muchas tramas de la saga. Los animatrónicos rescatados, incluyendo versiones deterioradas de personajes conocidos, deben ser salvados del peligro. El juego culmina en un incendio que parece poner fin definitivo a la maldición de Freddy\'s. Es una conclusión agridulce para la historia original de FNAF.',
     characters: ['Lefty', 'Molten Freddy', 'Scrap Baby', 'Scraptrap (William Afton)', 'Helpy', 'Rockstar Freddy', 'Rockstar Bonnie', 'Rockstar Chica', 'Rockstar Foxy', 'El Chip', 'Mr. Hippo', 'Pigpatch', 'Nedd Bear', 'Happy Frog', 'Orville Elephant', 'Music Man', 'Funtime Chica', 'Security Puppet'],
-    mechanics: ['Gesti??n de Pizzer??a', 'Mini-juegos de Arcade', 'Investigaci??n Nocturna', 'Sistema de Ventilaci??n', 'Audios Atrayentes'],
-    connections: ['Concluy?? la historia original de la franquicia', 'Lefty fue dise??ado para capturar a la Marioneta', 'El incendio final liber?? las almas de los ni??os'],
-    trivia: ['Lanzado sin aviso previo como un juego independiente', 'La comunidad descubri?? el horror oculto en horas', 'El personaje de Helpy se convirti?? en un favorito de los fans']
+    mechanics: ['Gestión de Pizzería', 'Mini-juegos de Arcade', 'Investigación Nocturna', 'Sistema de Ventilación', 'Audios Atrayentes'],
+    connections: ['Concluyó la historia original de la franquicia', 'Lefty fue diseñado para capturar a la Marioneta', 'El incendio final liberó las almas de los niños'],
+    trivia: ['Lanzado sin aviso previo como un juego independiente', 'La comunidad descubrió el horror oculto en horas', 'El personaje de Helpy se convirtió en un favorito de los fans']
   },
   {
     id: 'ucn',
@@ -113,11 +113,11 @@ window.games = [
     platform: 'PC, iOS, Android, Consolas',
     platforms: ['windows', 'ios', 'android', 'console'],
     steamUrl: 'https://store.steampowered.com/app/871720/',
-    description: 'Un juego no can??nico que re??ne a los 50 animatr??nicos de toda la franquicia en un solo lugar. El jugador puede personalizar completamente la dificultad de cada personaje para crear el desaf??o perfecto. Cada animatr??nico tiene mec??nicas ??nicas que deben ser gestionadas simult??neamente para sobrevivir. El juego incluye oficinas tem??ticas y sistemas de juego de entregas anteriores. Los di??logos de los animatr??nicos revelan personalidades y conexiones entre personajes. Es la celebraci??n definitiva de la franquicia y un regalo para los fans m??s dedicados.',
+    description: 'Un juego no canónico que reúne a los 50 animatrónicos de toda la franquicia en un solo lugar. El jugador puede personalizar completamente la dificultad de cada personaje para crear el desafío perfecto. Cada animatrónico tiene mecánicas únicas que deben ser gestionadas simultáneamente para sobrevivir. El juego incluye oficinas temáticas y sistemas de juego de entregas anteriores. Los diálogos de los animatrónicos revelan personalidades y conexiones entre personajes. Es la celebración definitiva de la franquicia y un regalo para los fans más dedicados.',
     characters: ['Freddy Fazbear', 'Bonnie', 'Chica', 'Foxy', 'Golden Freddy', 'Toy Freddy', 'Toy Bonnie', 'Toy Chica', 'Mangle', 'Balloon Boy', 'JJ', 'The Puppet', 'Withered Freddy', 'Withered Bonnie', 'Withered Chica', 'Withered Foxy', 'Springtrap', 'Phantom Freddy', 'Phantom Chica', 'Phantom Foxy', 'Phantom Balloon Boy', 'Phantom Mangle', 'Phantom Puppet', 'Nightmare Freddy', 'Nightmare Bonnie', 'Nightmare Chica', 'Nightmare Foxy', 'Nightmare Fredbear', 'Nightmare', 'Plushtrap', 'Jack-O-Bonnie', 'Jack-O-Chica', 'Nightmare Mangle', 'Nightmarionne', 'Circus Baby', 'Ballora', 'Funtime Freddy', 'Funtime Foxy', 'Bon-Bon', 'Bonnet', 'Ennard', 'Bidybab', 'Minireena', 'Electrobab', 'Lolbit', 'Yenndo', 'Lefty', 'Molten Freddy', 'Scrap Baby', 'Scraptrap', 'Helpy', 'Rockstar Freddy', 'Rockstar Bonnie', 'Rockstar Chica', 'Rockstar Foxy', 'El Chip', 'Mr. Hippo', 'Pigpatch', 'Nedd Bear', 'Happy Frog', 'Music Man', 'Funtime Chica', 'Security Puppet', 'Dee Dee', 'XOR'],
-    mechanics: ['Personalizaci??n de Dificultad', 'Sistema de Puntos', 'Gesti??n M??ltiple de Amenazas', 'Oficinas Intercambiables'],
-    connections: ['No can??nico pero revela personalidades de personajes', 'Incluye todos los animatr??nicos de la franquicia', 'Mr. Hippo narra historias filos??ficas entre noches'],
-    trivia: ['Creado como agradecimiento a la comunidad de fans', 'Tiene m??s de 50 animatr??nicos diferentes', 'Las voces fueron grabadas por actores de la comunidad']
+    mechanics: ['Personalización de Dificultad', 'Sistema de Puntos', 'Gestión Múltiple de Amenazas', 'Oficinas Intercambiables'],
+    connections: ['No canónico pero revela personalidades de personajes', 'Incluye todos los animatrónicos de la franquicia', 'Mr. Hippo narra historias filosóficas entre noches'],
+    trivia: ['Creado como agradecimiento a la comunidad de fans', 'Tiene más de 50 animatrónicos diferentes', 'Las voces fueron grabadas por actores de la comunidad']
   },
   {
     id: 'help-wanted',
@@ -128,11 +128,11 @@ window.games = [
     platform: 'PC VR, PlayStation VR, Oculus Quest, PC, Consolas',
     platforms: ['windows', 'vr', 'console'],
     steamUrl: 'https://store.steampowered.com/app/732690/',
-    description: 'El primer juego de la franquicia desarrollado por Steel Wool Studios, dise??ado para realidad virtual. Reimagina escenarios cl??sicos de los primeros juegos con gr??ficos modernos y mec??nicas inmersivas. El juego presenta una narrativa meta donde una compa????a de desarrollo intenta recrear los eventos de Freddy\'s. Incluye nuevos animatr??nicos como Glitchtrap, una versi??n digital de William Afton que posee el juego. Los minijuegos de reparaci??n y las experiencias de terror estrella ampl??an la jugabilidad. Revitaliz?? la franquicia y abri?? la puerta a una nueva era de FNAF.',
+    description: 'El primer juego de la franquicia desarrollado por Steel Wool Studios, diseñado para realidad virtual. Reimagina escenarios clásicos de los primeros juegos con gráficos modernos y mecánicas inmersivas. El juego presenta una narrativa meta donde una compañía de desarrollo intenta recrear los eventos de Freddy\'s. Incluye nuevos animatrónicos como Glitchtrap, una versión digital de William Afton que posee el juego. Los minijuegos de reparación y las experiencias de terror estrella amplían la jugabilidad. Revitalizó la franquicia y abrió la puerta a una nueva era de FNAF.',
     characters: ['Glitchtrap', 'Dreadbear', 'Grim Foxy', 'Freddy Fazbear', 'Bonnie', 'Chica', 'Foxy', 'Fredbear', 'Springtrap', 'Circus Baby', 'Mangle', 'Puppet', 'Plushtrap', 'Nightmare Freddy', 'Nightmare Bonnie', 'Nightmare Chica', 'Nightmare Foxy'],
-    mechanics: ['Realidad Virtual', 'Reparaci??n de Animatr??nicos', 'Minijuegos Arcade', 'Colecci??n de Monedas', 'Exploraci??n de Niveles'],
-    connections: ['Introdujo a Glitchtrap como la conciencia digital de William Afton', 'Reinici?? la l??nea principal de la franquicia', 'Conect?? la era original con la nueva era de Steel Wool'],
-    trivia: ['Primer juego no desarrollado por Scott Cawthon como desarrollador principal', 'Incluye referencias a los juegos de la comunidad', 'Glitchtrap se convirti?? en el nuevo villano principal']
+    mechanics: ['Realidad Virtual', 'Reparación de Animatrónicos', 'Minijuegos Arcade', 'Colección de Monedas', 'Exploración de Niveles'],
+    connections: ['Introdujo a Glitchtrap como la conciencia digital de William Afton', 'Reinició la línea principal de la franquicia', 'Conectó la era original con la nueva era de Steel Wool'],
+    trivia: ['Primer juego no desarrollado por Scott Cawthon como desarrollador principal', 'Incluye referencias a los juegos de la comunidad', 'Glitchtrap se convirtió en el nuevo villano principal']
   },
   {
     id: 'security-breach',
@@ -143,12 +143,12 @@ window.games = [
     platform: 'PC, PlayStation 4, PlayStation 5, Xbox Series, Nintendo Switch',
     platforms: ['windows', 'playstation', 'xbox', 'switch'],
     steamUrl: 'https://store.steampowered.com/app/747660/',
-    description: 'La entrega m??s ambiciosa de la franquicia, ambientada en el enorme centro comercial Freddy Fazbear\'s Mega Pizzaplex. El jugador controla a Gregory, un ni??o atrapado durante la noche que debe sobrevivir con la ayuda de Glamrock Freddy. El juego abandona las c??maras fijas por un entorno 3D abierto lleno de ??reas secretas y misiones secundarias. Los animatr??nicos Glamrock tienen personalidades distintas y representan una nueva generaci??n de personajes. La narrativa explora el regreso de William Afton a trav??s de la princesa Vanessa y entidades misteriosas como Burntrap. El Pizzaplex es un parque tem??tico masivo con tiendas, juegos y restaurantes.',
+    description: 'La entrega más ambiciosa de la franquicia, ambientada en el enorme centro comercial Freddy Fazbear\'s Mega Pizzaplex. El jugador controla a Gregory, un niño atrapado durante la noche que debe sobrevivir con la ayuda de Glamrock Freddy. El juego abandona las cámaras fijas por un entorno 3D abierto lleno de áreas secretas y misiones secundarias. Los animatrónicos Glamrock tienen personalidades distintas y representan una nueva generación de personajes. La narrativa explora el regreso de William Afton a través de la princesa Vanessa y entidades misteriosas como Burntrap. El Pizzaplex es un parque temático masivo con tiendas, juegos y restaurantes.',
     characters: ['Glamrock Freddy', 'Glamrock Chica', 'Glamrock Bonnie', 'Montgomery Gator', 'Roxanne Wolf', 'Sun', 'Moon', 'Vanessa', 'Gregory', 'Burntrap', 'Vanny', 'DJ Music Man', 'The Blob', 'Helpy', 'Map Bot', 'STAFF Bot', 'Glamrock Endo', 'Wet Floor Bot', 'Cake Bot', 'Freddy Frostbear'],
-    mechanics: ['Mundo Abierto 3D', 'Escondite y Acecho', 'Misiones Secundarias', 'Desbloqueo de ??reas', 'Gesti??n de Bater??a', 'Uso de Freddy como Transporte', 'Sigilo'],
-    connections: ['Secuela directa de Help Wanted', 'Present?? el regreso f??sico de William Afton como Burntrap', 'El Blob parece contener las almas de v??ctimas pasadas',
-      'La princesa Vanessa tiene conexi??n con Glitchtrap'],
-    trivia: ['El juego m??s grande de la franquicia en escala', 'Incluye m??ltiples finales diferentes', 'Glamrock Freddy es el primer animatr??nico aliado del jugador', 'El Pizzaplex es el escenario m??s grande jam??s creado en FNAF']
+    mechanics: ['Mundo Abierto 3D', 'Escondite y Acecho', 'Misiones Secundarias', 'Desbloqueo de Áreas', 'Gestión de Batería', 'Uso de Freddy como Transporte', 'Sigilo'],
+    connections: ['Secuela directa de Help Wanted', 'Presentó el regreso físico de William Afton como Burntrap', 'El Blob parece contener las almas de víctimas pasadas',
+      'La princesa Vanessa tiene conexión con Glitchtrap'],
+    trivia: ['El juego más grande de la franquicia en escala', 'Incluye múltiples finales diferentes', 'Glamrock Freddy es el primer animatrónico aliado del jugador', 'El Pizzaplex es el escenario más grande jamás creado en FNAF']
   },
   {
     id: 'help-wanted-2',
@@ -159,11 +159,11 @@ window.games = [
     platform: 'PC VR, PlayStation VR2, PC',
     platforms: ['windows', 'vr'],
     steamUrl: 'https://store.steampowered.com/app/2287520/',
-    description: 'La secuela directa de Help Wanted que expande significativamente la experiencia de realidad virtual. Ofrece una nueva colecci??n de minijuegos y escenarios que contin??an explorando el lore de la franquicia. El juego profundiza en la historia de la familia Afton y los or??genes de la maldici??n de Freddy\'s. Nuevos animatr??nicos y versiones alternativas de personajes cl??sicos aparecen en experiencias renovadas. La narrativa avanza el arco de Glitchtrap y su influencia en el mundo digital. Incluye referencias directas a Security Breach y prepara el terreno para futuras entregas.',
+    description: 'La secuela directa de Help Wanted que expande significativamente la experiencia de realidad virtual. Ofrece una nueva colección de minijuegos y escenarios que continúan explorando el lore de la franquicia. El juego profundiza en la historia de la familia Afton y los orígenes de la maldición de Freddy\'s. Nuevos animatrónicos y versiones alternativas de personajes clásicos aparecen en experiencias renovadas. La narrativa avanza el arco de Glitchtrap y su influencia en el mundo digital. Incluye referencias directas a Security Breach y prepara el terreno para futuras entregas.',
     characters: ['Glitchtrap', 'Masked Freddy', 'Masked Bonnie', 'Masked Chica', 'Masked Foxy', 'Carnival', 'Eclipse', 'Moon', 'Sun', 'Nightmarionne', 'Jack-O-Bonnie', 'Jack-O-Chica', 'Helpy', 'Balloon Boy', 'Mangle', 'Funtime Freddy', 'Circus Baby', 'Vanny', 'Vanessa', 'Cassie', 'Gregory', 'Roxanne Wolf', 'Montgomery Gator', 'Glamrock Chica', 'Glamrock Freddy'],
-    mechanics: ['Realidad Virtual Mejorada', 'Minijuegos Tem??ticos', 'Colecci??n de Sellos', 'Desbloqueo de Escenarios', 'Sistema de Progresi??n'],
-    connections: ['Contin??a la historia de Glitchtrap desde Help Wanted', 'Conecta directamente con los eventos de Security Breach', 'Introduce elementos que llevan a Secret of the Mimic'],
-    trivia: ['Lanzado exclusivamente para VR en su lanzamiento inicial', 'Incluye un modo de terror extremo para veteranos', 'Los sellos ocultos revelan mensajes cr??pticos sobre el lore']
+    mechanics: ['Realidad Virtual Mejorada', 'Minijuegos Temáticos', 'Colección de Sellos', 'Desbloqueo de Escenarios', 'Sistema de Progresión'],
+    connections: ['Continúa la historia de Glitchtrap desde Help Wanted', 'Conecta directamente con los eventos de Security Breach', 'Introduce elementos que llevan a Secret of the Mimic'],
+    trivia: ['Lanzado exclusivamente para VR en su lanzamiento inicial', 'Incluye un modo de terror extremo para veteranos', 'Los sellos ocultos revelan mensajes crípticos sobre el lore']
   },
   {
     id: 'secret-of-the-mimic',
@@ -174,11 +174,11 @@ window.games = [
     platform: 'PC, Consolas',
     platforms: ['windows', 'console'],
     steamUrl: null,
-    description: 'La entrega m??s reciente de la franquicia que promete revolucionar la narrativa establecida. El juego se centra en el misterioso animatr??nico Mimic, una inteligencia artificial capaz de copiar comportamientos. La historia explora los or??genes de la tecnolog??a de Fazbear Entertainment y sus oscuros secretos corporativos. Nuevas mec??nicas de juego basadas en IA adaptativa ofrecen una experiencia din??mica y cambiante. El juego conecta los hilos narrativos entre la era original y la nueva trilog??a de Steel Wool. Promete ser un punto de inflexi??n en la cronolog??a de la saga.',
+    description: 'La entrega más reciente de la franquicia que promete revolucionar la narrativa establecida. El juego se centra en el misterioso animatrónico Mimic, una inteligencia artificial capaz de copiar comportamientos. La historia explora los orígenes de la tecnología de Fazbear Entertainment y sus oscuros secretos corporativos. Nuevas mecánicas de juego basadas en IA adaptativa ofrecen una experiencia dinámica y cambiante. El juego conecta los hilos narrativos entre la era original y la nueva trilogía de Steel Wool. Promete ser un punto de inflexión en la cronología de la saga.',
     characters: ['The Mimic', 'M.X.E.S.', 'Edwin', 'Jackie', 'New Animatronics', 'Glitchtrap', 'Cassie', 'Gregory', 'Vanessa', 'Helpy'],
-    mechanics: ['IA Adaptativa', 'Sigilo Avanzado', 'Entornos Din??micos', 'Puzzle Ambiental', 'Sistema de Escaneo'],
+    mechanics: ['IA Adaptativa', 'Sigilo Avanzado', 'Entornos Dinámicos', 'Puzzle Ambiental', 'Sistema de Escaneo'],
     connections: ['Explica el origen del sistema Mimic introducido en Security Breach', 'Conecta con los libros Tales from the Pizzaplex', 'Establece el futuro de la franquicia post-Security Breach'],
-    trivia: ['Primer juego en centrarse en el animatr??nico Mimic como antagonista principal', 'Incorpora tecnolog??a de IA generativa para el comportamiento enemigo', 'Los libros Tales from the Pizzaplex adelantaron muchos elementos de su historia']
+    trivia: ['Primer juego en centrarse en el animatrónico Mimic como antagonista principal', 'Incorpora tecnología de IA generativa para el comportamiento enemigo', 'Los libros Tales from the Pizzaplex adelantaron muchos elementos de su historia']
   }
 ];
 
