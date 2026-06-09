@@ -157,8 +157,8 @@ function loadPage(page) {
     case 'books':
       renderBooks();
       break;
-    case 'series':
-      renderSeries();
+    case 'videos':
+      renderVideos();
       break;
     case 'history':
       renderHistory();
@@ -457,32 +457,94 @@ function renderBooks(search = state.booksSearch) {
 // =============================================
 // SERIES
 // =============================================
-function renderSeries() {
-  const grid = $('#series-grid');
-  const seriesData = [
-    { id: 'fnaf-1', title: 'FNaF 1', year: '2014' },
-    { id: 'fnaf-2', title: 'FNaF 2', year: '2014' },
-    { id: 'fnaf-3', title: 'FNaF 3', year: '2015' },
-    { id: 'fnaf-4', title: 'FNaF 4', year: '2015' },
-    { id: 'fnaf-sl', title: 'Sister Location', year: '2016' },
-    { id: 'fnaf-ps', title: 'Pizzeria Simulator', year: '2017' },
-    { id: 'fnaf-ucn', title: 'Ultimate Custom Night', year: '2018' },
-    { id: 'fnaf-vr', title: 'Help Wanted', year: '2019' },
-    { id: 'fnaf-sb', title: 'Security Breach', year: '2021' },
-    { id: 'fnaf-hw2', title: 'Help Wanted 2', year: '2023' },
-    { id: 'fnaf-movie', title: 'La Película', year: '2023' },
-    { id: 'fnaf-sotm', title: 'Secret of the Mimic', year: '2026' },
+function renderVideos() {
+  const grid = $('#videos-grid');
+  const videos = [
+    { id: 'OUxQJxMQORA', title: 'FNaF 1 - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Compilacion completa de jumpscares de FNaF 1' },
+    { id: 'n0JdgL-VmR0', title: 'FNaF 2 - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Todos los jumpscares de FNaF 2 incluyendo Toy y Withered' },
+    { id: 'X9QNFwyeBZ8', title: 'FNaF 3 - Springtrap Jumpscare', category: 'JUMPSCARES', desc: 'El jumpscare de Springtrap en Fazbear\'s Fright' },
+    { id: '4qAv04yp5co', title: 'FNaF 4 - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Jumpscares de Nightmare Freddy, Bonnie, Chica, Foxy y Fredbear' },
+    { id: '9TI0CHQFqdA', title: 'Security Breach - Jumpscares', category: 'JUMPSCARES', desc: 'Jumpscares de Glamrock animatronics y DJ Music Man' },
+    { id: 'HEmQ_RP-ue4', title: '200+ Jumpscares - Todos los Juegos', category: 'JUMPSCARES', desc: 'Mega compilacion de mas de 200 jumpscares de toda la franquicia' },
+    { id: 'h85S0xv4E5Q', title: 'FNaF 2 - Jumpscare Compilation Clasico', category: 'JUMPSCARES', desc: 'Compilacion clasica de FNaF 2 con Toy y Mangle' },
+    { id: 'VMJErb9-Qxo', title: 'Battington FNAF VHS Tapes', category: 'ANALOGICO', desc: 'La serie de terror analogico mas famosa de FNAF' },
+    { id: 'iOhD6pv2s-Y', title: 'FNaF 1 Ambience - 1 Hora', category: 'AMBIENTAL', desc: 'Ambientacion extendida de FNaF 1 para dormir o estudiar' },
+    { id: '5Evk6JFMzGg', title: 'FNaF 1 - Power Out Ambience', category: 'AMBIENTAL', desc: 'La ambientacion iconica cuando se acaba la energia' },
+    { id: 'YQ940SRcp-U', title: 'FNaF 3 - Office Ambience', category: 'AMBIENTAL', desc: 'Atmosfera de la oficina de Fazbear\'s Fright' },
+    { id: 'fJIhjGSD3-0', title: 'FNaF Ambience Extended', category: 'AMBIENTAL', desc: 'Coleccion extendida de ambientacion de los juegos originales' },
+    { id: 'moQp0Bu2Grs', title: 'FNaF Movie - Animatronics Jumpscare', category: 'PELICULA', desc: 'Detras de escena de los animatronicos de la pelicula' },
+    { id: 'Ff7zoYvlin4', title: 'Security Breach - Full Game Walkthrough', category: 'GAMEPLAY', desc: 'Walkthrough completo sin commentary de Security Breach' },
+    { id: 'OF-5gCadqyU', title: 'Security Breach - Full Game No Commentary', category: 'GAMEPLAY', desc: 'Juego completo mostrando todas las areas y encuentros' },
+    { id: 'ocWVd7ZXlsY', title: 'Help Wanted VR - Full Gameplay', category: 'GAMEPLAY', desc: 'Experiencia completa de Help Wanted en VR' },
+    { id: 'xYwP_pvM6u0', title: 'Security Breach Ruin - Full DLC', category: 'GAMEPLAY', desc: 'Walkthrough completo del DLC Ruin jugando como Cassie' },
+    { id: 'gWOXSh4-Iuc', title: 'FNAF - The ULTIMATE Timeline', category: 'LORE', desc: 'Game Theory explica la linea temporal completa de FNAF' },
+    { id: 'SugbaghWhqg', title: 'Inicio de la Timeline FNAF', category: 'LORE', desc: 'Explicacion del inicio de la cronologia y los primeros muertos' },
   ];
 
-  grid.innerHTML = seriesData.map(s => `
-    <div class="vhs-tape" onclick="navigateTo('games')">
-      <div class="vhs-spine">
-        <div style="font-family:'Press Start 2P',monospace;font-size:24px;color:#333;letter-spacing:3px;">◆</div>
-      </div>
-      <div class="vhs-label">${s.title} (${s.year})</div>
+  const categories = ['TODOS', 'JUMPSCARES', 'ANALOGICO', 'AMBIENTAL', 'PELICULA', 'GAMEPLAY', 'LORE'];
+
+  grid.innerHTML = `
+    <div class="videos-filters" id="videos-filters">
+      ${categories.map((cat, i) => `<button class="filter-tag ${i === 0 ? 'active' : ''}" data-vfilter="${cat}">${cat}</button>`).join('')}
     </div>
-  `).join('');
+    <div class="video-player-container" id="video-player-container" style="display:none;">
+      <div class="video-player-inner">
+        <button class="video-player-close" onclick="closeVideoPlayer()">&times;</button>
+        <div class="video-player-embed" id="video-player-embed"></div>
+        <div class="video-player-title" id="video-player-title"></div>
+      </div>
+    </div>
+    <div class="videos-list" id="videos-list">
+      ${videos.map(v => `
+        <div class="video-card" data-category="${v.category}" onclick="openVideoPlayer('${v.id}', '${v.title.replace(/'/g, "\\'")}')">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" alt="${v.title}" loading="lazy">
+            <div class="video-play">&#9654;</div>
+            <div class="video-scanlines"></div>
+          </div>
+          <div class="video-info">
+            <div class="video-category">${v.category}</div>
+            <div class="video-title">${v.title}</div>
+            <div class="video-desc">${v.desc}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  $$('#videos-filters .filter-tag').forEach(btn => {
+    btn.addEventListener('click', () => {
+      $$('#videos-filters .filter-tag').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.vfilter;
+      $$('.video-card').forEach(card => {
+        if (cat === 'TODOS' || card.dataset.category === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
 }
+
+window.openVideoPlayer = (id, title) => {
+  const container = document.getElementById('video-player-container');
+  const embed = document.getElementById('video-player-embed');
+  const titleEl = document.getElementById('video-player-title');
+  embed.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+  titleEl.textContent = title;
+  container.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeVideoPlayer = () => {
+  const container = document.getElementById('video-player-container');
+  const embed = document.getElementById('video-player-embed');
+  embed.innerHTML = '';
+  container.style.display = 'none';
+  document.body.style.overflow = '';
+};
 
 // =============================================
 // HISTORY
@@ -1392,7 +1454,7 @@ document.addEventListener('keydown', (e) => {
   }
 
   // 1-9 = navigation
-  const navKeys = ['home', 'characters', 'games', 'books', 'series', 'history', 'music', 'blog', 'admin'];
+  const navKeys = ['home', 'characters', 'games', 'books', 'videos', 'history', 'music', 'blog', 'admin'];
   const num = parseInt(e.key);
   if (num >= 1 && num <= 9) {
     e.preventDefault();
