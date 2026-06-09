@@ -3302,6 +3302,437 @@ a:hover {
 }
 
 /* =============================================
+   CHARACTER MODAL — NEW DESIGN
+   ============================================= */
+.char-modal {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.char-modal__hero {
+  display: flex;
+  gap: 28px;
+  padding: 28px;
+}
+
+.char-modal__hero-left {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.char-modal__img-frame {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: #050505;
+  overflow: hidden;
+  border: 1px solid #1e2228;
+}
+
+.char-modal__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: contrast(1.05) brightness(0.9) saturate(1.1);
+  transition: filter 0.6s, transform 0.6s;
+  padding: 10px;
+}
+
+.char-modal__img-frame:hover .char-modal__img {
+  filter: contrast(1.15) brightness(1.05) saturate(1.2);
+  transform: scale(1.05);
+}
+
+.char-modal__img-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 48px;
+  color: #00FF66;
+  opacity: 0.15;
+  background: #080808;
+}
+
+.char-modal__scanlines {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.12) 2px,
+    rgba(0,0,0,0.12) 4px
+  );
+  pointer-events: none;
+  animation: scanline-drift 8s linear infinite;
+}
+
+.char-modal__corners {
+  position: absolute;
+  top: 6px; left: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  pointer-events: none;
+}
+
+.char-modal__corners::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 18px; height: 18px;
+  border-color: #00FF66;
+  border-style: solid;
+  border-width: 2px 0 0 2px;
+  opacity: 0.5;
+  animation: corner-pulse 3s ease-in-out infinite;
+}
+
+.char-modal__corners::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 18px; height: 18px;
+  border-color: #00FF66;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  opacity: 0.5;
+  animation: corner-pulse 3s ease-in-out infinite 1.5s;
+}
+
+.char-modal__gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.char-modal__thumbs {
+  display: flex;
+  gap: 6px;
+}
+
+.char-modal__thumb {
+  width: 56px;
+  height: 56px;
+  border: 2px solid #1e2228;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.3s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.char-modal__thumb:hover {
+  transform: scale(1.08);
+}
+
+.char-modal__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+  transition: filter 0.3s;
+}
+
+.char-modal__thumb:hover img {
+  filter: brightness(0.8);
+}
+
+.char-modal__thumb.active {
+  border-color: #00FF66;
+  box-shadow: 0 0 8px rgba(0,255,102,0.3);
+}
+
+.char-modal__thumb.active img {
+  filter: brightness(1);
+}
+
+.char-modal__hero-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.char-modal__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.char-modal__tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #ccc;
+  border: 1px solid #1e2228;
+  padding: 5px 12px;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+.char-modal__tag:hover {
+  border-color: #00FF66;
+  box-shadow: 0 0 6px rgba(0,255,102,0.3);
+}
+
+.char-modal__tag--status {
+  color: #FF2222;
+  border-color: rgba(255,34,34,0.3);
+}
+
+.char-modal__tag--category {
+  color: #00FF66;
+  border-color: rgba(0,255,102,0.3);
+}
+
+.char-modal__tag--threat {
+  border-color: currentColor;
+}
+
+.char-modal__title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 16px;
+  color: #00FF66;
+  line-height: 1.6;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(0,255,102,0.5);
+  animation: title-glow 4s ease-in-out infinite;
+}
+
+.char-modal__subtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: #666;
+  letter-spacing: 1px;
+}
+
+.char-modal__info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.char-modal__info-item {
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.015);
+  border: 1px solid #14171c;
+  transition: border-color 0.3s;
+}
+
+.char-modal__info-item:hover {
+  border-color: rgba(255,255,255,0.06);
+}
+
+.char-modal__info-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7px;
+  color: #00FF66;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+  opacity: 0.6;
+}
+
+.char-modal__info-value {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.char-modal__threat-bar {
+  width: 100%;
+  height: 4px;
+  background: #14171c;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.char-modal__threat-fill {
+  height: 100%;
+  transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.char-modal__section {
+  padding: 20px 28px;
+  border-top: 1px solid #14171c;
+}
+
+.char-modal__section-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #00FF66;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.char-modal__section-icon {
+  color: #00FF66;
+  font-size: 8px;
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+.char-modal__section-content {
+  border-left: 2px solid #00FF66;
+  padding-left: 16px;
+}
+
+.char-modal__section-content p {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: #999;
+  line-height: 1.9;
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.char-modal__section-content p:last-child {
+  margin-bottom: 0;
+}
+
+.char-modal__tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.char-modal__appear-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: #888;
+  border: 1px solid #1e2228;
+  padding: 4px 10px;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+.char-modal__appear-tag:hover {
+  border-color: #00FF66;
+  color: #00FF66;
+}
+
+.char-modal__related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.char-modal__related-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 8px;
+  border: 1px solid #14171c;
+  background: rgba(255,255,255,0.01);
+  transition: all 0.3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.char-modal__related-card:hover {
+  border-color: #00FF66;
+  box-shadow: 0 0 12px rgba(0,255,102,0.2);
+  transform: translateY(-3px);
+}
+
+.char-modal__related-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0c0e12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  border: 1px solid #1e2228;
+}
+
+.char-modal__related-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0.9);
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.char-modal__related-card:hover .char-modal__related-img img {
+  filter: brightness(1.1);
+  transform: scale(1.08);
+}
+
+.char-modal__related-fallback {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 16px;
+  color: #00FF66;
+  opacity: 0.4;
+}
+
+.char-modal__related-name {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #aaa;
+  margin-bottom: 3px;
+  transition: color 0.3s;
+}
+
+.char-modal__related-card:hover .char-modal__related-name {
+  color: #ddd;
+}
+
+.char-modal__related-relation {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  color: #555;
+}
+
+.char-modal__trivia-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.char-modal__trivia-list li {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 8px;
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.7;
+}
+
+.char-modal__trivia-list li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: #00FF66;
+  opacity: 0.5;
+}
+
+.char-modal__footer {
+  padding: 20px 28px;
+  border-top: 1px solid #14171c;
+  text-align: center;
+}
+
+.char-modal__footer span {
+  display: block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7px;
+  color: rgba(255,255,255,0.1);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 2;
+}
+
+/* =============================================
    GALLERY
    ============================================= */
 .modal-gallery {
