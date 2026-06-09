@@ -75,6 +75,55 @@ window.images = {
       ]
     }
   },
-  games: {},
+  games: {
+    'fnaf-1': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/d/da/FNaF1.jpg/revision/latest?cb=20230410020858',
+      gallery: ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/d/da/FNaF1.jpg/revision/latest?cb=20230410020858']
+    },
+    'fnaf-2': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/e/e3/FNaF_2_Switch.jpg/revision/latest?cb=20210405111155',
+      gallery: ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/e/e3/FNaF_2_Switch.jpg/revision/latest?cb=20210405111155']
+    },
+    'fnaf-3': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/f/fd/FNaF_3_Switch.jpg/revision/latest?cb=20210405111619',
+      gallery: ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/f/fd/FNaF_3_Switch.jpg/revision/latest?cb=20210405111619']
+    },
+    'fnaf-4': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/5/55/FNaF_4_Switch.jpg/revision/latest?cb=20210405111240',
+      gallery: ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/5/55/FNaF_4_Switch.jpg/revision/latest?cb=20210405111240']
+    },
+    'fnaf-world': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/be/FNaFWorld-SteamHeader.jpg/revision/latest?cb=20240911155818',
+      gallery: ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/be/FNaFWorld-SteamHeader.jpg/revision/latest?cb=20240911155818']
+    },
+    'sister-location': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/c/c6/FNAFSL-NintendoSwitch.jpg/revision/latest?cb=20200619153939',
+      gallery: ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/c/c6/FNAFSL-NintendoSwitch.jpg/revision/latest?cb=20200619153939']
+    },
+    'ffps': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/1/1c/FFPS_Steam_Header.jpg/revision/latest?cb=20171207081037',
+      gallery: ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/1/1c/FFPS_Steam_Header.jpg/revision/latest?cb=20171207081037']
+    },
+    'ucn': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/d/d7/UCN-header.jpg/revision/latest?cb=20180629213315',
+      gallery: ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/d/d7/UCN-header.jpg/revision/latest?cb=20180629213315']
+    },
+    'help-wanted': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/f/fa/FNaFHW-SteamCoverArt.jpg/revision/latest?cb=20240819160806',
+      gallery: ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/f/fa/FNaFHW-SteamCoverArt.jpg/revision/latest?cb=20240819160806']
+    },
+    'security-breach': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/f/f9/Security_breach_poster.jpg/revision/latest?cb=20211202165652',
+      gallery: ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/f/f9/Security_breach_poster.jpg/revision/latest?cb=20211202165652']
+    },
+    'help-wanted-2': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/3/33/HelpWanted2_KeyArt_WithLogo.jpg/revision/latest?cb=20241117040341',
+      gallery: ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/3/33/HelpWanted2_KeyArt_WithLogo.jpg/revision/latest?cb=20241117040341']
+    },
+    'secret-of-the-mimic': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/c/cf/SecretoftheMimic_PSIcon2.jpg/revision/latest?cb=20250213015424',
+      gallery: ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/c/cf/SecretoftheMimic_PSIcon2.jpg/revision/latest?cb=20250213015424']
+    }
+  },
   books: {}
 };

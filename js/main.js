@@ -329,31 +329,67 @@ function renderGames(search = state.gamesSearch) {
     );
   }
 
-  grid.innerHTML = filtered.map(game => {
+  const statusLabels = ['REC', 'LIVE', 'SIGNAL', 'MONITOR', 'CAM', 'VIEW'];
+
+  grid.innerHTML = filtered.map((game, i) => {
     const imgUrl = getImageUrl('games', game.id);
+    const order = games.indexOf(game) + 1;
+    const camId = `CAM-${String(order).padStart(2, '0')}`;
+    const status = statusLabels[i % statusLabels.length];
+    const power = Math.floor(Math.random() * 35 + 10);
+    const powerClass = power < 25 ? 'low' : '';
+
     return `
-    <div class="arcade-cabinet" onclick="showGameModal('${game.id}')">
-      <div class="arcade-screen">
-        ${imgUrl ? `<img src="${imgUrl}" alt="${game.title}" class="game-img" loading="lazy" onerror="this.style.display='none'">` : ''}
-        <div class="arcade-title">${game.title}</div>
-        <div class="arcade-subtitle">${game.developer}</div>
-        <div class="arcade-year">${game.year}</div>
+    <div class="game-card" data-game="${game.id}" onclick="handleGameClick(this, '${game.id}')">
+      <div class="cam-corners"></div>
+      <div class="cam-ready"></div>
+      <div class="static-overlay"></div>
+      <div class="cam-scan-line"></div>
+
+      <div class="cam-indicator">
+        <span class="rec-dot"></span>
+        <span>${status}</span>
       </div>
-      <div style="font-family:'Share Tech Mono',monospace;font-size:10px;color:#888;padding:0 10px;margin-bottom:10px;">
-        ${game.description.slice(0, 120)}...
+
+      <div class="cam-status">● SYSTEM ACTIVE</div>
+
+      <div class="game-year-badge">${game.year}</div>
+      <div class="cam-label">${camId} • ${game.platform.split(',')[0].trim()}</div>
+
+      <div class="power-indicator ${powerClass}">⚡ ${power}% POWER</div>
+
+      <div class="game-content">
+        ${imgUrl ? `<img src="${imgUrl}" alt="${game.title}" class="game-img" loading="lazy" onerror="this.style.display='none'">` : ''}
+        <div class="game-title">${game.title}</div>
+        <div class="game-meta">
+          <span>${game.developer}</span>
+          <span>${game.year}</span>
+        </div>
+        <div class="game-desc">${game.description.slice(0, 150)}...</div>
+        <div class="game-neon-line"></div>
       </div>
     </div>
   `}).join('');
 
-  // Search
+  // Search listener (one-time attach)
   const searchInput = $('#games-search');
-  if (searchInput) {
+  if (searchInput && !searchInput._gamesListener) {
+    searchInput._gamesListener = true;
     searchInput.addEventListener('input', (e) => {
       state.gamesSearch = e.target.value;
       renderGames(state.gamesSearch);
     });
   }
 }
+
+window.handleGameClick = function(element, gameId) {
+  element.classList.add('jumpscare');
+  triggerDistortion();
+  setTimeout(() => {
+    element.classList.remove('jumpscare');
+    showGameModal(gameId);
+  }, 550);
+};
 
 // =============================================
 // BOOKS
@@ -763,55 +799,201 @@ window.showGameModal = (id) => {
   const game = games.find(g => g.id === id);
   if (!game) return;
 
-  window._currentGallery = getImageGallery('games', id);
-  const imgUrl = getImageUrl('games', id);
+  const imgs = getImageGallery('games', id);
+  const mainImg = imgs.length > 0 ? imgs[0] : getImageUrl('games', id);
+
+  const platformIcons = {
+    windows: '🖥', ios: '📱', android: '🤖', console: '🎮',
+    playstation: '🎮', xbox: '🎮', switch: '🎮', vr: '🥽'
+  };
+  const platformLabels = {
+    windows: 'PC', ios: 'iOS', android: 'Android', console: 'Consolas',
+    playstation: 'PlayStation', xbox: 'Xbox', switch: 'Switch', vr: 'VR'
+  };
 
   const body = $('#modal-body');
   body.innerHTML = `
-    ${imgUrl ? `
-    <div class="modal-image-section">
-      <div class="modal-image-wrapper">
-        <img src="${imgUrl}" alt="${game.title}" class="modal-img" onerror="this.style.display='none'">
-        <div class="modal-image-overlay"></div>
-      </div>
-    </div>` : ''}
+    <div class="game-modal game-modal--${id}">
 
-    <div class="doc-header" style="font-size:14px;">${game.title}</div>
-    <div class="doc-meta">
-      <div><span>AÑO:</span> ${game.year}</div>
-      <div><span>DESARROLLADOR:</span> ${game.developer}</div>
-      <div><span>PUBLICADOR:</span> ${game.publisher}</div>
-      <div><span>PLATAFORMA:</span> ${game.platform}</div>
-    </div>
-    <div class="doc-body">
-      <p>${game.description}</p>
+      <div class="game-modal__hero">
+        <div class="game-modal__hero-left">
+          <div class="game-modal__img-frame">
+            ${mainImg ? `<img src="${mainImg}" alt="${game.title}" class="game-modal__img" onerror="this.parentElement.innerHTML='<div class=\\'game-modal__img-fallback\\'>${game.title.charAt(0)}</div>'">` : `<div class="game-modal__img-fallback">${game.title.charAt(0)}</div>`}
+            <div class="game-modal__scanlines"></div>
+            <div class="game-modal__corners"></div>
+          </div>
+          ${imgs.length > 1 ? `
+            <div class="game-modal__gallery">
+              <div class="game-modal__thumbs" id="game-thumbs">
+                ${imgs.map((url, i) => `
+                  <div class="game-modal__thumb ${i === 0 ? 'active' : ''}" data-idx="${i}" onclick="window._switchGameImg(this, ${i})">
+                    <img src="${url}" alt="Thumb ${i+1}">
+                  </div>
+                `).join('')}
+              </div>
+              <div class="game-modal__gallery-nav">
+                <button class="game-modal__nav-btn" onclick="window._navGameGallery(-1)">◂ ANTERIOR</button>
+                <span class="game-modal__gallery-count"><span id="game-thumb-idx">1</span> / ${imgs.length}</span>
+                <button class="game-modal__nav-btn" onclick="window._navGameGallery(1)">SIGUIENTE ▸</button>
+              </div>
+            </div>
+          ` : ''}
+        </div>
 
-      <div style="margin:15px 0;padding:10px;border:1px solid #1C1C1C;">
-        <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#00FF66;margin-bottom:10px;">MECÁNICAS</div>
-        <div style="display:flex;flex-wrap:wrap;gap:5px;">
-          ${game.mechanics.map(m => `<span style="font-size:9px;color:#888;border:1px solid #242424;padding:2px 6px;">${m}</span>`).join('')}
+        <div class="game-modal__hero-right">
+          <div class="game-modal__tags">
+            ${game.platforms ? game.platforms.map(p => `<span class="game-modal__tag game-modal__tag--platform">${platformLabels[p] || p}</span>`).join('') : `<span class="game-modal__tag game-modal__tag--platform">${game.platform.split(',')[0].trim()}</span>`}
+            <span class="game-modal__tag game-modal__tag--year">${game.year}</span>
+          </div>
+
+          <h2 class="game-modal__title">${game.title}</h2>
+          <div class="game-modal__subtitle">${game.developer} — ${game.publisher}</div>
+
+          <div class="game-modal__meta-row">
+            <span class="game-modal__meta-badge">ORIGINAL</span>
+            <span class="game-modal__meta-badge game-modal__meta-badge--accent">${game.title}</span>
+          </div>
+
+          <div class="game-modal__threat">
+            <div class="game-modal__threat-label">PLATAFORMAS</div>
+            <div class="game-modal__threat-bar">
+              <div class="game-modal__threat-fill" style="width: ${Math.min(game.platforms ? game.platforms.length * 25 : 50, 100)}%"></div>
+            </div>
+            <div class="game-modal__threat-text">${game.platform}</div>
+          </div>
+
+          ${game.steamUrl ? `
+            <a href="${game.steamUrl}" target="_blank" rel="noopener noreferrer" class="game-modal__steam-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              COMPRAR EN STEAM
+            </a>
+          ` : ''}
         </div>
       </div>
 
-      <div style="margin:15px 0;padding:10px;border:1px solid #1C1C1C;">
-        <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#00FF66;margin-bottom:10px;">CONEXIONES</div>
-        <ul style="list-style:none;">
-          ${game.connections.map(c => `<li style="font-size:11px;color:#888;margin-bottom:5px;">> ${c}</li>`).join('')}
+      <div class="game-modal__divider"></div>
+
+      <div class="game-modal__section">
+        <div class="game-modal__section-header" data-text="INFORMACION GENERAL">
+          <span class="game-modal__section-dot"></span> INFORMACION GENERAL
+        </div>
+        <div class="game-modal__info-grid">
+          <div class="game-modal__info-cell">
+            <div class="game-modal__info-label">TITULO</div>
+            <div class="game-modal__info-value">${game.title}</div>
+          </div>
+          <div class="game-modal__info-cell">
+            <div class="game-modal__info-label">ANIO DE LANZAMIENTO</div>
+            <div class="game-modal__info-value">${game.year}</div>
+          </div>
+          <div class="game-modal__info-cell">
+            <div class="game-modal__info-label">DESARROLLADOR</div>
+            <div class="game-modal__info-value">${game.developer}</div>
+          </div>
+          <div class="game-modal__info-cell">
+            <div class="game-modal__info-label">PUBLICADOR</div>
+            <div class="game-modal__info-value">${game.publisher}</div>
+          </div>
+          <div class="game-modal__info-cell game-modal__info-cell--full">
+            <div class="game-modal__info-label">PLATAFORMAS</div>
+            <div class="game-modal__info-value">${game.platform}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-modal__section">
+        <div class="game-modal__section-header" data-text="DESCRIPCION">
+          <span class="game-modal__section-dot"></span> DESCRIPCION
+        </div>
+        <div class="game-modal__desc-full game-modal__desc-glitch">
+          <p>${game.description}</p>
+        </div>
+      </div>
+
+      <div class="game-modal__section">
+        <div class="game-modal__section-header" data-text="MECANICAS">
+          <span class="game-modal__section-dot"></span> MECANICAS
+        </div>
+        <div class="game-modal__tags game-modal__tags--wrap">
+          ${game.mechanics.map(m => `<span class="game-modal__tag">${m}</span>`).join('')}
+        </div>
+      </div>
+
+      <div class="game-modal__section">
+        <div class="game-modal__section-header" data-text="PERSONAJES PRINCIPALES">
+          <span class="game-modal__section-dot"></span> PERSONAJES PRINCIPALES
+        </div>
+        <div class="game-modal__chars-grid">
+          ${game.characters.slice(0, 12).map(c => {
+            const slug = c.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
+            const charImg = getImageUrl('characters', slug);
+            return `
+              <div class="game-modal__char-card">
+                <div class="game-modal__char-avatar">
+                  ${charImg ? `<img src="${charImg}" alt="${c}" loading="lazy">` : `<span class="char-fallback">${c.charAt(0)}</span>`}
+                </div>
+                <div class="game-modal__char-name">${c}</div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+        ${game.characters.length > 12 ? `<div class="game-modal__more-chars">+${game.characters.length - 12} personajes mas</div>` : ''}
+      </div>
+
+      <div class="game-modal__section">
+        <div class="game-modal__section-header" data-text="CONEXIONES">
+          <span class="game-modal__section-dot"></span> CONEXIONES
+        </div>
+        <ul class="game-modal__list">
+          ${game.connections.map(c => `<li class="game-modal__list-item">${c}</li>`).join('')}
         </ul>
       </div>
 
       ${game.trivia.length > 0 ? `
-        <div style="margin:15px 0;padding:10px;border:1px solid #1C1C1C;">
-          <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#00FF66;margin-bottom:10px;">DATOS DE ARCHIVO</div>
-          <ul style="list-style:none;">
-            ${game.trivia.map(t => `<li style="font-size:11px;color:#888;margin-bottom:5px;">> ${t}</li>`).join('')}
+        <div class="game-modal__section">
+          <div class="game-modal__section-header" data-text="DATOS DE ARCHIVO / CURIOSIDADES">
+            <span class="game-modal__section-dot"></span> DATOS DE ARCHIVO / CURIOSIDADES
+          </div>
+          <ul class="game-modal__list">
+            ${game.trivia.map(t => `<li class="game-modal__list-item">${t}</li>`).join('')}
           </ul>
         </div>
       ` : ''}
+
+      <div class="game-modal__footer">
+        <span>FAZBEAR ENTERTAINMENT — DOCUMENTACION INTERNA</span>
+        <span>SOLO PERSONAL AUTORIZADO — DIFUSION LIMITADA</span>
+      </div>
     </div>
   `;
 
+  const mc = body.closest('.modal-content') || body.parentElement;
+  if (mc) mc.setAttribute('data-game-modal', id);
+
+  window._gameGalleryIdx = 0;
+  window._gameGalleryImgs = imgs;
+
   $('#modal').classList.add('active');
+};
+
+window._switchGameImg = function(el, idx) {
+  const mainImg = document.querySelector('.game-modal__img');
+  if (!mainImg || !window._gameGalleryImgs || !window._gameGalleryImgs[idx]) return;
+  mainImg.src = window._gameGalleryImgs[idx];
+  document.querySelectorAll('.game-modal__thumb').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  const idxEl = document.getElementById('game-thumb-idx');
+  if (idxEl) idxEl.textContent = idx + 1;
+  window._gameGalleryIdx = idx;
+};
+
+window._navGameGallery = function(dir) {
+  if (!window._gameGalleryImgs || window._gameGalleryImgs.length < 2) return;
+  let newIdx = window._gameGalleryIdx + dir;
+  if (newIdx < 0) newIdx = window._gameGalleryImgs.length - 1;
+  if (newIdx >= window._gameGalleryImgs.length) newIdx = 0;
+  const thumbs = document.querySelectorAll('.game-modal__thumb');
+  if (thumbs[newIdx]) window._switchGameImg(thumbs[newIdx], newIdx);
 };
 
 window.showBookModal = (id) => {
@@ -958,7 +1140,7 @@ function initEasterEggs() {
   // Random glitch effect on elements (5% chance every 30 seconds)
   state.glitchTimer = setInterval(() => {
     if (Math.random() < 0.05) {
-      const cards = $$('.character-card, .dashboard-card, .arcade-cabinet');
+      const cards = $$('.character-card, .dashboard-card, .game-card');
       if (cards.length > 0) {
         const randomCard = cards[Math.floor(Math.random() * cards.length)];
         randomCard.style.animation = 'glitch 0.3s ease-in-out';
