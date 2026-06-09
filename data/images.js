@@ -904,5 +904,82 @@ window.images = {
       gallery: ['https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/c/cf/SecretoftheMimic_PSIcon2.jpg/revision/latest?cb=20250213015424']
     }
   },
-  books: {}
+  books: {
+    'silver-eyes': {
+      primary: 'https://covers.openlibrary.org/b/id/8075533-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/8075533-L.jpg']
+    },
+    'twisted-ones': {
+      primary: 'https://covers.openlibrary.org/b/id/8476464-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/8476464-L.jpg']
+    },
+    'fourth-closet': {
+      primary: 'https://covers.openlibrary.org/b/id/9320331-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/9320331-L.jpg']
+    },
+    'freddy-files': {
+      primary: 'https://covers.openlibrary.org/b/id/9322842-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/9322842-L.jpg']
+    },
+    'survival-logbook': {
+      primary: 'https://covers.openlibrary.org/b/id/8872534-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/8872534-L.jpg']
+    },
+    'fazbear-frights-1': {
+      primary: 'https://covers.openlibrary.org/b/id/9256631-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/9256631-L.jpg']
+    },
+    'fazbear-frights-2': {
+      primary: 'https://covers.openlibrary.org/b/id/9294595-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/9294595-L.jpg']
+    },
+    'fazbear-frights-3': {
+      primary: 'https://covers.openlibrary.org/b/id/10539211-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/10539211-L.jpg']
+    },
+    'fazbear-frights-4': {
+      primary: 'https://covers.openlibrary.org/b/id/10255114-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/10255114-L.jpg']
+    },
+    'fazbear-frights-5': {
+      primary: 'https://covers.openlibrary.org/b/id/10524763-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/10524763-L.jpg']
+    },
+    'fazbear-frights-6': {
+      primary: 'https://covers.openlibrary.org/b/id/10534167-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/10534167-L.jpg']
+    },
+    'fazbear-frights-7': {
+      primary: 'https://covers.openlibrary.org/b/id/13315240-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/13315240-L.jpg']
+    },
+    'fazbear-frights-8': {
+      primary: 'https://covers.openlibrary.org/b/id/11075743-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/11075743-L.jpg']
+    },
+    'fazbear-frights-9': {
+      primary: 'https://covers.openlibrary.org/b/id/12418986-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/12418986-L.jpg']
+    },
+    'fazbear-frights-10': {
+      primary: 'https://covers.openlibrary.org/b/id/11946339-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/11946339-L.jpg']
+    },
+    'fazbear-frights-11': {
+      primary: 'https://covers.openlibrary.org/b/id/14408496-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/14408496-L.jpg']
+    },
+    'fazbear-frights-12': {
+      primary: 'https://covers.openlibrary.org/b/id/14408497-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/14408497-L.jpg']
+    },
+    'tales-from-pizzaplex-1': {
+      primary: 'https://covers.openlibrary.org/b/id/12984605-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/12984605-L.jpg']
+    },
+    'tales-from-pizzaplex-2': {
+      primary: 'https://covers.openlibrary.org/b/id/14638676-L.jpg',
+      gallery: ['https://covers.openlibrary.org/b/id/14638676-L.jpg']
+    }
+  }
 };

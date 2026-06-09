@@ -59,6 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initMusicPlayer();
   initSoundToggle();
   initVhsToggle();
+  initHeaderStatus();
+  initVHSTimestamp();
+  initDatabaseCards();
 
   // Load page data
   loadPage('home');
@@ -85,8 +88,11 @@ function initLoadingScreen() {
 function initDate() {
   const now = new Date();
   const opts = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-  $('#last-recovery').textContent = `Última recuperación: ${now.toLocaleDateString('es-ES', opts)}`;
-  $('#admin-sync').textContent = now.toLocaleDateString('es-ES', opts);
+  const formatted = now.toLocaleDateString('es-ES', opts);
+  const el1 = $('#last-recovery');
+  if (el1) el1.textContent = `Última recuperación: ${formatted}`;
+  const el2 = $('#admin-sync');
+  if (el2) el2.textContent = formatted;
 }
 
 // =============================================
@@ -187,17 +193,41 @@ function triggerDistortion() {
 // HOME
 // =============================================
 function renderHome() {
-  // Stats
-  $('#stat-characters').textContent = String(characters.length).padStart(3, '0');
-  $('#stat-games').textContent = String(games.length).padStart(2, '0');
-  $('#stat-incidents').textContent = '06';
-  $('#stat-archives').textContent = String(stories.length + 50).padStart(3, '0');
-
   // Timeline
-  renderTimelineHome();
+  renderTimelineHorizontal();
+}
 
-  // Recent stories
-  renderRecentStories();
+function renderTimelineHorizontal() {
+  const container = $('#timeline-horizontal');
+  if (!container) return;
+
+  const sorted = [...games].sort((a, b) => {
+    const ay = parseInt(a.year) || 0;
+    const by = parseInt(b.year) || 0;
+    return ay - by;
+  });
+
+  container.innerHTML = `
+    <div class="tl-track">
+      <div class="tl-line"></div>
+      ${sorted.map(game => {
+        const imgUrl = getImageUrl('games', game.id);
+        return `
+        <div class="tl-item" data-game="${game.id}" onclick="handleGameClick(this, '${game.id}')">
+          <div class="tl-cover">
+            ${imgUrl ? `<img src="${imgUrl}" alt="${game.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+            <div class="tl-cover-fallback" style="display:${imgUrl ? 'none' : 'flex'}">${game.title.charAt(0)}</div>
+          </div>
+          <div class="tl-dot-wrap">
+            <div class="tl-dot"></div>
+          </div>
+          <div class="tl-year">${game.year}</div>
+          <div class="tl-title">${game.title}</div>
+        </div>
+        `;
+      }).join('')}
+    </div>
+  `;
 }
 
 function renderTimelineHome() {
@@ -433,26 +463,64 @@ function renderBooks(search = state.booksSearch) {
     );
   }
 
-  grid.innerHTML = filtered.map(book => {
+  const statusLabels = ['DOC', 'FILE', 'CASE', 'ARCHIVE', 'LOG', 'DATA'];
+
+  grid.innerHTML = filtered.map((book, i) => {
     const imgUrl = getImageUrl('books', book.id);
+    const order = books.indexOf(book) + 1;
+    const fileId = `FILE-${String(order).padStart(2, '0')}`;
+    const status = statusLabels[i % statusLabels.length];
+    const pages = Math.floor(Math.random() * 200 + 100);
+
     return `
-    <div class="book" onclick="showBookModal('${book.id}')">
-      <div class="book-spine" ${imgUrl ? `style="background-image:url('${imgUrl}');background-size:cover;background-position:center;"` : ''}>
-        ${imgUrl ? `<div class="book-img-overlay"></div>` : `<div style="font-size:40px;opacity:0.2;font-family:'Press Start 2P',monospace;color:#E6B800;">${book.title.charAt(0)}</div>`}
+    <div class="book-card" onclick="handleBookClick(this, '${book.id}')">
+      <div class="cam-corners"></div>
+      <div class="static-overlay"></div>
+      <div class="cam-scan-line"></div>
+
+      <div class="cam-indicator">
+        <span class="rec-dot"></span>
+        <span>${status}</span>
       </div>
-      <div class="book-title">${book.title}</div>
-      <div class="book-author">${book.author} (${book.year})</div>
+
+      <div class="cam-label">${fileId} • ${book.type}</div>
+
+      <div class="book-year-badge">${book.year}</div>
+
+      <div class="power-indicator">📄 ${pages} PAGES</div>
+
+      <div class="book-content">
+        ${imgUrl ? `<img src="${imgUrl}" alt="${book.title}" class="book-img" loading="lazy" onerror="this.style.display='none'">` : ''}
+        <div class="book-title">${book.title}</div>
+        <div class="book-meta">
+          <span>${book.author.split(' y ')[0]}</span>
+          <span>${book.series}</span>
+        </div>
+        <div class="book-desc">${book.description.slice(0, 150)}...</div>
+        <div class="book-neon-line"></div>
+        ${book.buyUrl ? `<a href="${book.buyUrl}" target="_blank" class="book-buy-btn" onclick="event.stopPropagation()" title="Comprar en Amazon">COMPRAR</a>` : ''}
+      </div>
     </div>
   `}).join('');
 
   const searchInput = $('#books-search');
-  if (searchInput) {
+  if (searchInput && !searchInput._booksListener) {
+    searchInput._booksListener = true;
     searchInput.addEventListener('input', (e) => {
       state.booksSearch = e.target.value;
       renderBooks(state.booksSearch);
     });
   }
 }
+
+window.handleBookClick = function(element, bookId) {
+  element.classList.add('jumpscare');
+  triggerDistortion();
+  setTimeout(() => {
+    element.classList.remove('jumpscare');
+    showBookModal(bookId);
+  }, 550);
+};
 
 // =============================================
 // SERIES
@@ -1222,55 +1290,134 @@ window.showBookModal = (id) => {
   const book = books.find(b => b.id === id);
   if (!book) return;
 
-  window._currentGallery = getImageGallery('books', id);
-  const imgUrl = getImageUrl('books', id);
+  const imgs = getImageGallery('books', id);
+  const mainImg = imgs.length > 0 ? imgs[0] : getImageUrl('books', id);
 
   const body = $('#modal-body');
   body.innerHTML = `
-    ${imgUrl ? `
-    <div class="modal-image-section">
-      <div class="modal-image-wrapper">
-        <img src="${imgUrl}" alt="${book.title}" class="modal-img" onerror="this.style.display='none'">
-        <div class="modal-image-overlay"></div>
+    <div class="game-modal game-modal--books">
+
+      <div class="game-modal__hero">
+        <div class="game-modal__hero-left">
+          <div class="game-modal__img-frame">
+            ${mainImg ? `<img src="${mainImg}" alt="${book.title}" class="game-modal__img" onerror="this.parentElement.innerHTML='<div class=\\'game-modal__img-fallback\\'>${book.title.charAt(0)}</div>'">` : `<div class="game-modal__img-fallback">${book.title.charAt(0)}</div>`}
+            <div class="game-modal__scanlines"></div>
+            <div class="game-modal__corners"></div>
+          </div>
+          ${imgs.length > 1 ? `
+            <div class="game-modal__gallery">
+              <div class="game-modal__thumbs" id="game-thumbs">
+                ${imgs.map((url, i) => `
+                  <div class="game-modal__thumb ${i === 0 ? 'active' : ''}" data-idx="${i}" onclick="window._switchGameImg(this, ${i})">
+                    <img src="${url}" alt="Thumb ${i+1}">
+                  </div>
+                `).join('')}
+              </div>
+              <div class="game-modal__gallery-nav">
+                <button class="game-modal__nav-btn" onclick="window._navGameGallery(-1)">◂ ANTERIOR</button>
+                <span class="game-modal__gallery-count"><span id="game-thumb-idx">1</span> / ${imgs.length}</span>
+                <button class="game-modal__nav-btn" onclick="window._navGameGallery(1)">SIGUIENTE ▸</button>
+              </div>
+            </div>
+          ` : ''}
+        </div>
+
+        <div class="game-modal__hero-right">
+          <div class="game-modal__tags">
+            <span class="game-modal__tag game-modal__tag--platform">${book.type}</span>
+            <span class="game-modal__tag game-modal__tag--year">${book.year}</span>
+          </div>
+
+          <h2 class="game-modal__title">${book.title}</h2>
+          <div class="game-modal__subtitle">${book.author}</div>
+
+          <div class="game-modal__meta-row">
+            <span class="game-modal__meta-badge">${book.series}</span>
+          </div>
+
+          ${book.buyUrl ? `
+            <a href="${book.buyUrl}" target="_blank" rel="noopener noreferrer" class="game-modal__steam-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              COMPRAR EN AMAZON
+            </a>
+          ` : ''}
+        </div>
       </div>
-    </div>` : ''}
 
-    <div class="doc-header" style="font-size:14px;">${book.title}</div>
-    <div class="doc-meta">
-      <div><span>AUTOR:</span> ${book.author}</div>
-      <div><span>AÑO:</span> ${book.year}</div>
-      <div><span>TIPO:</span> ${book.type}</div>
-      <div><span>SERIE:</span> ${book.series}</div>
-    </div>
-    <div class="doc-body">
-      <p>${book.description}</p>
+      <div class="game-modal__divider"></div>
 
-      ${book.characters && book.characters.length > 0 ? `
-        <div style="margin:15px 0;padding:10px;border:1px solid #1C1C1C;">
-          <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#00FF66;margin-bottom:10px;">PERSONAJES</div>
-          <div style="display:flex;flex-wrap:wrap;gap:5px;">
-            ${book.characters.map(c => `<span style="font-size:9px;color:#888;border:1px solid #242424;padding:2px 6px;">${c}</span>`).join('')}
+      <div class="game-modal__section">
+        <div class="game-modal__section-header" data-text="INFORMACION DEL LIBRO">
+          <span class="game-modal__section-dot"></span> INFORMACION DEL LIBRO
+        </div>
+        <div class="game-modal__info-grid">
+          <div class="game-modal__info-cell">
+            <div class="game-modal__info-label">TITULO</div>
+            <div class="game-modal__info-value">${book.title}</div>
+          </div>
+          <div class="game-modal__info-cell">
+            <div class="game-modal__info-label">AUTOR</div>
+            <div class="game-modal__info-value">${book.author}</div>
+          </div>
+          <div class="game-modal__info-cell">
+            <div class="game-modal__info-label">ANIO</div>
+            <div class="game-modal__info-value">${book.year}</div>
+          </div>
+          <div class="game-modal__info-cell">
+            <div class="game-modal__info-label">TIPO</div>
+            <div class="game-modal__info-value">${book.type}</div>
+          </div>
+          <div class="game-modal__info-cell game-modal__info-cell--full">
+            <div class="game-modal__info-label">DESCRIPCION</div>
+            <div class="game-modal__info-value game-modal__info-value--desc">${book.description}</div>
           </div>
         </div>
+      </div>
+
+      ${book.characters && book.characters.length > 0 ? `
+      <div class="game-modal__divider"></div>
+      <div class="game-modal__section">
+        <div class="game-modal__section-header" data-text="PERSONAJES">
+          <span class="game-modal__section-dot"></span> PERSONAJES
+        </div>
+        <div class="game-modal__char-grid">
+          ${book.characters.slice(0, 20).map(c => `
+            <div class="game-modal__char-card">
+              <div class="game-modal__char-avatar">${c.charAt(0)}</div>
+              <div class="game-modal__char-name">${c}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
       ` : ''}
 
-      <div style="margin:15px 0;padding:10px;border:1px solid #1C1C1C;">
-        <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#00FF66;margin-bottom:10px;">CONEXIONES</div>
+      <div class="game-modal__divider"></div>
+      <div class="game-modal__section">
+        <div class="game-modal__section-header" data-text="CONEXIONES">
+          <span class="game-modal__section-dot"></span> CONEXIONES
+        </div>
         <ul style="list-style:none;">
-          ${book.connections.map(c => `<li style="font-size:11px;color:#888;margin-bottom:5px;">> ${c}</li>`).join('')}
+          ${book.connections.map(c => `<li style="font-size:11px;color:#888;margin-bottom:8px;font-family:'IBM Plex Mono',monospace;">▸ ${c}</li>`).join('')}
         </ul>
       </div>
 
       ${book.trivia && book.trivia.length > 0 ? `
-        <div style="margin:15px 0;padding:10px;border:1px solid #1C1C1C;">
-          <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:#00FF66;margin-bottom:10px;">DATOS DE ARCHIVO</div>
-          <ul style="list-style:none;">
-            ${book.trivia.map(t => `<li style="font-size:11px;color:#888;margin-bottom:5px;">> ${t}</li>`).join('')}
-          </ul>
+      <div class="game-modal__divider"></div>
+      <div class="game-modal__section">
+        <div class="game-modal__section-header" data-text="DATOS DE ARCHIVO">
+          <span class="game-modal__section-dot"></span> DATOS DE ARCHIVO
         </div>
+        <ul style="list-style:none;">
+          ${book.trivia.map(t => `<li style="font-size:11px;color:#888;margin-bottom:8px;font-family:'IBM Plex Mono',monospace;">▸ ${t}</li>`).join('')}
+        </ul>
+      </div>
       ` : ''}
+
     </div>
   `;
+
+  const mc = body.closest('.modal-content') || body.parentElement;
+  if (mc) mc.setAttribute('data-game-modal', 'books');
 
   $('#modal').classList.add('active');
 };
@@ -1436,6 +1583,74 @@ function showNotification(message) {
   state.notificationTimer = setTimeout(() => {
     el.classList.remove('show');
   }, 8000);
+}
+
+// =============================================
+// HEADER STATUS BAR
+// =============================================
+function initHeaderStatus() {
+  // Generate session ID
+  const sessionId = '0x' + Math.random().toString(16).substr(2, 4).toUpperCase() + '-' + 
+                    Math.random().toString(16).substr(2, 4).toUpperCase();
+  const sessionEl = $('#hs-session-id');
+  if (sessionEl) sessionEl.textContent = sessionId;
+
+  // Update clock
+  function updateClock() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    const s = String(now.getSeconds()).padStart(2, '0');
+    const clockEl = $('#hs-clock');
+    if (clockEl) clockEl.textContent = `${h}:${m}:${s}`;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // Random sync percentage
+  const syncEl = $('#hs-sync');
+  if (syncEl) {
+    setInterval(() => {
+      const sync = Math.floor(Math.random() * 5 + 95);
+      syncEl.textContent = sync + '%';
+    }, 3000);
+  }
+}
+
+// =============================================
+// VHS TIMESTAMP
+// =============================================
+function initVHSTimestamp() {
+  const timestampEl = $('#vhs-timestamp');
+  if (!timestampEl) return;
+
+  function updateTimestamp() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    const s = String(now.getSeconds()).padStart(2, '0');
+    const ms = String(Math.floor(Math.random() * 99)).padStart(2, '0');
+    timestampEl.textContent = `${h}:${m}:${s}:${ms}`;
+  }
+  updateTimestamp();
+  setInterval(updateTimestamp, 100);
+}
+
+// =============================================
+// DATABASE CARDS NAVIGATION
+// =============================================
+function initDatabaseCards() {
+  $$('.db-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const page = card.dataset.page;
+      if (page) {
+        navigateTo(page);
+        // Scroll to top of content
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
 }
 
 // =============================================
