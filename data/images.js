@@ -714,100 +714,77 @@ window.images = {
       primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/3/3b/FNaF_HW2_-_Jack-O-Moon_-_Icono.png/revision/latest?cb=20231231000530&path-prefix=es',
       gallery: []
     },
-    'music-man': {
-      primary: '',
+    'music-man': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/7/7e/MusicMan.png/revision/latest?cb=20171216035235&path-prefix=es',
       gallery: []
     },
-    'el-chip': {
-      primary: '',
+    'el-chip': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/a/a8/ElChip.png/revision/latest?cb=20171216031727&path-prefix=es',
       gallery: []
     },
     '8-bit-baby': {
       primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/3/3c/Alpine_ui_plushsuit_8bitbaby.png/revision/latest?cb=20200530021924',
       gallery: []
     },
-    'aeronaut-toy-freddy': {
-      primary: '',
+    'aeronaut-toy-freddy': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/a/a3/Alpine_ui_shop_item_skin_toyfreddy_aeronaut_skin.png/revision/latest?cb=20210703031216',
       gallery: []
     },
-    'black-ice-frostbear': {
-      primary: '',
+    'black-ice-frostbear': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/28/BlackIceFreddyFrostbear.png/revision/latest?cb=20201204221954',
       gallery: []
     },
-    'boulder-toy-bonnie': {
-      primary: '',
+    'boulder-toy-bonnie': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/60/Alpine_ui_plushsuit_toybonnie_boulder.png/revision/latest?cb=20201120001829',
       gallery: []
     },
-    'broiler-baby': {
-      primary: '',
+    'broiler-baby': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/0/09/Alpine_ui_portrait_baby_stove.png/revision/latest?cb=20200730233032',
       gallery: []
     },
-    'clown-springtrap': {
-      primary: '',
+    'clown-springtrap': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/d/da/Alpine_ui_shop_item_skin_springtrap_clown_skin.png/revision/latest?cb=20200917232501',
       gallery: []
     },
-    'dark-water-bare-endo': {
-      primary: '',
+    'dark-water-bare-endo': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/6d/Alpine_ui_plushsuit_bareendo_darkwater.png/revision/latest?cb=20210521081531',
       gallery: []
     },
-    'easter-bonnie': {
-      primary: '',
+    'easter-bonnie': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/9/92/EasterBonnie-ARIcon.png/revision/latest?cb=20220130201931',
       gallery: []
     },
-    'firework-freddy': {
-      primary: '',
+    'firework-freddy': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/22/FNaFAR-FireworksFreddy.png/revision/latest?cb=20200626001251',
       gallery: []
     },
-    'flamethrower-bare-endo': {
-      primary: '',
+    'flamethrower-bare-endo': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/1/1b/Alpine_ui_plushsuit_bareendo_flamethrower.png/revision/latest?cb=20200723234948',
       gallery: []
     },
-    'frostbite-balloon-boy': {
-      primary: '',
+    'frostbite-balloon-boy': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/3/33/Blizzard-Balloon-Boy-Plushsuit.png/revision/latest?cb=20201217223947',
       gallery: []
     },
-    'highscore-toy-chica': {
-      primary: '',
+    'highscore-toy-chica': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/a/ab/HighscoreToyChica-ARIcon.png/revision/latest?cb=20200515185510',
       gallery: []
     },
-    'jetpack-balloon-boy': {
-      primary: '',
+    'jetpack-balloon-boy': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/9/94/JetpackBBIcon.png/revision/latest?cb=20210709012002',
       gallery: []
     },
-    'liberty-chica': {
-      primary: '',
+    'liberty-chica': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/d/d5/LibertyChicaPlushsuit.png/revision/latest?cb=20200703061208',
       gallery: []
     },
-    'magician-mangle': {
-      primary: '',
+    'magician-mangle': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/25/Alpine_ui_plushsuit_mangle_magician.png/revision/latest?cb=20200910231751',
       gallery: []
     },
-    'melted-chocolate-bonnie': {
-      primary: '',
+    'melted-chocolate-bonnie': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/a/ab/MeltedChocolateBonniePlushsuitIcon.png/revision/latest?cb=20210610123412',
       gallery: []
     },
-    'pirahna-plushtrap': {
-      primary: '',
+    'pirahna-plushtrap': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/7/71/Alpine_ui_plushsuit_plushtrap_piranha.png/revision/latest?cb=20210615051430',
       gallery: []
     },
-    'scorching-chica': {
-      primary: '',
+    'scorching-chica': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/8/83/Alpine_ui_plushsuit_chica_scorching.png/revision/latest?cb=20200806225410',
       gallery: []
     },
-    'sunked-toy-bonnie': {
-      primary: '',
+    'sunked-toy-bonnie': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/7/78/Alpine_ui_portrait_toybonnie_sunken.png/revision/latest?cb=20210528062106',
       gallery: []
     },
-    'swamp-balloon-boy': {
-      primary: '',
+    'swamp-balloon-boy': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/a/ad/ForestBB_Workshop-Icon.png/revision/latest?cb=20201126001448',
       gallery: []
     },
-    'system-error-toy-bonnie': {
-      primary: '',
+    'system-error-toy-bonnie': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/a/a1/SystemerrorToyBonnie-Icon.png/revision/latest?cb=20200521230640',
       gallery: []
     },
-    'vr-toy-freddy': {
-      primary: '',
+    'vr-toy-freddy': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/5/51/VRToyFreddy-ARIcon.png/revision/latest?cb=20200508180322',
       gallery: []
     },
     'plushbaby': {
@@ -826,12 +803,10 @@ window.images = {
       primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/Alien_Bots-Infobox.png/revision/latest/scale-to-width-down/200?cb=20260607180421',
       gallery: []
     },
-    'alpha-staff-bots': {
-      primary: '',
+    'alpha-staff-bots': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/2e/HostileStaffBots.jpg/revision/latest?cb=20220129185638&path-prefix=es',
       gallery: []
     },
-    'attendant-bots': {
-      primary: '',
+    'attendant-bots': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/1/19/AttendantBot.png/revision/latest?cb=20220127161542&path-prefix=es',
       gallery: []
     },
     'caution-bot': {
@@ -842,12 +817,10 @@ window.images = {
       primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/5/53/ComedyBot_fullbody.png/revision/latest?cb=20220102220916',
       gallery: []
     },
-    'glamrock-helpy': {
-      primary: '',
+    'glamrock-helpy': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/e/e1/Helpy_merch_render_2.png/revision/latest?cb=20251225084816',
       gallery: []
     },
-    'glamrock-mr-hippo': {
-      primary: '',
+    'glamrock-mr-hippo': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/1/1b/Glamrock_Hippo.jpg/revision/latest?cb=20220107183600&path-prefix=es',
       gallery: []
     },
     'magician-bot': {
@@ -874,12 +847,10 @@ window.images = {
       primary: '',
       gallery: []
     },
-    'little-joe': {
-      primary: '',
+    'little-joe': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/9/95/LittleJoeRender1.png/revision/latest?cb=20200816200624',
       gallery: []
     },
-    'magician-sl': {
-      primary: '',
+    'magician-sl': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/6c/MagicianRender.png/revision/latest?cb=20200816200657',
       gallery: []
     }
   },
