@@ -685,40 +685,83 @@
       <div class="section-divider"></div>
     </div>
 
-    <div class="cassette-player">
-      <div class="tape-label">CINTA #001</div>
-      <div class="tape-reel" id="tape-reel"></div>
-      <div class="audio-visualizer" id="audio-visualizer">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
-      <div class="tape-controls">
-        <button class="tape-btn" id="play-btn">▶</button>
-        <button class="tape-btn" id="stop-btn">■</button>
-        <button class="tape-btn" id="volume-btn">♫</button>
-      </div>
-      <div class="tape-info" id="tape-info">STATUS: DETENIDO</div>
-    </div>
+    <div class="music-container">
+      <div class="tape-deck">
+        <div class="tape-deck__header">
+          <div class="tape-deck__rec-dot"></div>
+          <span class="tape-deck__label">FAZBEAR AUDIO SYSTEM</span>
+          <span class="tape-deck__model">MODEL FAS-1983</span>
+        </div>
 
-    <div class="terminal" style="margin-top:30px;">
-      <div class="terminal-header">
-        <span>LISTA DE REPRODUCCIÓN — ARCHIVO AUDIO</span>
-        <span>8 CINTAS RECUPERADAS</span>
+        <div class="tape-deck__body">
+          <div class="tape-window">
+            <div class="tape-reel tape-reel--left" id="tape-reel-left">
+              <div class="tape-reel__hub"></div>
+              <div class="tape-reel__spoke"></div>
+              <div class="tape-reel__spoke tape-reel__spoke--2"></div>
+              <div class="tape-reel__spoke tape-reel__spoke--3"></div>
+            </div>
+            <div class="tape-strip"></div>
+            <div class="tape-reel tape-reel--right" id="tape-reel-right">
+              <div class="tape-reel__hub"></div>
+              <div class="tape-reel__spoke"></div>
+              <div class="tape-reel__spoke tape-reel__spoke--2"></div>
+              <div class="tape-reel__spoke tape-reel__spoke--3"></div>
+            </div>
+          </div>
+
+          <div class="tape-counter">
+            <span class="tape-counter__label">TAPE</span>
+            <span class="tape-counter__digits" id="tape-counter">001</span>
+          </div>
+        </div>
+
+        <div class="eq-container" id="eq-container">
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+            <div class="progress-head" id="progress-head"></div>
+          </div>
+          <div class="progress-time">
+            <span id="time-current">00:00</span>
+            <span id="time-total">00:00</span>
+          </div>
+        </div>
+
+        <div class="tape-controls">
+          <button class="tape-btn tape-btn--prev" id="prev-btn" title="Anterior">⏮</button>
+          <button class="tape-btn tape-btn--stop" id="stop-btn" title="Detener">⏹</button>
+          <button class="tape-btn tape-btn--play" id="play-btn" title="Reproducir">▶</button>
+          <button class="tape-btn tape-btn--next" id="next-btn" title="Siguiente">⏭</button>
+          <button class="tape-btn tape-btn--vol" id="volume-btn" title="Volumen">🔊</button>
+        </div>
+
+        <div class="tape-status" id="tape-info">
+          <span class="tape-status__dot"></span>
+          <span>DETENIDO</span>
+        </div>
       </div>
-      <div id="music-list"></div>
+
+      <div class="tracklist-panel">
+        <div class="tracklist-header">
+          <div class="tracklist-header__title">
+            <span class="tracklist-header__icon">📋</span>
+            LISTA DE REPRODUCCIÓN
+          </div>
+          <div class="tracklist-header__count">8 CINTAS</div>
+        </div>
+        <div class="tracklist" id="music-list"></div>
+      </div>
     </div>
   </section>
 

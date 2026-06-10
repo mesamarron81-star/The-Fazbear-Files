@@ -1320,23 +1320,260 @@ function stopStaticAudio() {
 function renderMusic() {
   const list = $('#music-list');
   const tracks = [
-    'CINTA #001 — ARCHIVO CENTRAL',
-    'CINTA #002 — RUIDO AMBIENTAL',
-    'CINTA #003 — FREDDY FAZBEAR\'S PIZZA',
-    'CINTA #004 — TRANSMISIÓN DESCONOCIDA',
-    'CINTA #005 — MENSAJE INTERCEPTADO',
-    'CINTA #006 — REGISTRO DE SEGURIDAD',
-    'CINTA #007 — CINTA DAÑADA',
-    'CINTA #008 — SEÑAL RECUPERADA',
+    { id: 1, title: 'CINTA #001 — ARCHIVO CENTRAL', sub: 'Freddy Fazbear\'s Pizza • 1983', duration: '3:42' },
+    { id: 2, title: 'CINTA #002 — RUIDO AMBIENTAL', sub: 'Grabación nocturna • Cam 01', duration: '4:15' },
+    { id: 3, title: 'CINTA #003 — FREDDY FAZBEAR\'S PIZZA', sub: 'Locución promocional • 1987', duration: '2:58' },
+    { id: 4, title: 'CINTA #004 — TRANSMISIÓN DESCONOCIDA', sub: 'Señal interceptada • Origen desconocido', duration: '5:03' },
+    { id: 5, title: 'CINTA #005 — MENSAJE INTERCEPTADO', sub: 'Llamada telefónica • Empleado #042', duration: '3:27' },
+    { id: 6, title: 'CINTA #006 — REGISTRO DE SEGURIDAD', sub: 'CCTV Audio • Sala de rappel', duration: '4:44' },
+    { id: 7, title: 'CINTA #007 — CINTA DAÑADA', sub: 'Audio corrupto • Datos parciales', duration: '2:19' },
+    { id: 8, title: 'CINTA #008 — SEÑAL RECUPERADA', sub: 'Fuente desconocida • Clasificada', duration: '6:11' },
   ];
 
+  window._musicTracks = tracks;
+  window._musicCurrent = -1;
+  window._musicPlaying = false;
+
   list.innerHTML = tracks.map((track, i) => `
-    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1C1C1C;font-size:11px;color:#888;cursor:pointer;transition:color 0.3s;"
-         onmouseover="this.style.color='#00FF66'" onmouseout="this.style.color='#888'">
-      <span>${track}</span>
-      <span style="color:#444;">${String(i + 1).padStart(2, '0')}:00</span>
+    <div class="track-item" data-idx="${i}" onclick="selectTrack(${i})">
+      <div class="track-item__num" id="track-num-${i}">${String(i + 1).padStart(2, '0')}</div>
+      <div class="track-item__info">
+        <div class="track-item__title">${track.title}</div>
+        <div class="track-item__sub">${track.sub}</div>
+      </div>
+      <div class="track-item__duration">${track.duration}</div>
+      <div class="track-item__glitch"></div>
     </div>
   `).join('');
+
+  // Bind controls
+  $('#play-btn').onclick = togglePlay;
+  $('#stop-btn').onclick = stopTrack;
+  $('#prev-btn').onclick = prevTrack;
+  $('#next-btn').onclick = nextTrack;
+
+  // Progress bar click
+  const progressBar = document.querySelector('.progress-bar');
+  if (progressBar) {
+    progressBar.onclick = (e) => {
+      const rect = progressBar.getBoundingClientRect();
+      const pct = (e.clientX - rect.left) / rect.width;
+      window._musicProgress = pct * 100;
+      updateProgress();
+    };
+  }
+
+  // Start progress simulation
+  window._musicProgress = 0;
+  window._musicInterval = null;
+}
+
+function selectTrack(idx) {
+  window._musicCurrent = idx;
+  window._musicPlaying = true;
+  window._musicProgress = 0;
+
+  // Update UI
+  updateTrackUI();
+  startPlayback();
+}
+
+function togglePlay() {
+  if (window._musicCurrent === -1) {
+    selectTrack(0);
+    return;
+  }
+
+  window._musicPlaying = !window._musicPlaying;
+  updatePlayButton();
+
+  if (window._musicPlaying) {
+    startPlayback();
+  } else {
+    pausePlayback();
+  }
+}
+
+function stopTrack() {
+  window._musicPlaying = false;
+  window._musicProgress = 0;
+  window._musicCurrent = -1;
+
+  updateTrackUI();
+  updatePlayButton();
+  updateProgress();
+  stopPlayback();
+}
+
+function prevTrack() {
+  if (window._musicCurrent <= 0) {
+    selectTrack(window._musicTracks.length - 1);
+  } else {
+    selectTrack(window._musicCurrent - 1);
+  }
+}
+
+function nextTrack() {
+  if (window._musicCurrent >= window._musicTracks.length - 1) {
+    selectTrack(0);
+  } else {
+    selectTrack(window._musicCurrent + 1);
+  }
+}
+
+function startPlayback() {
+  stopPlayback();
+
+  // Animate reels
+  $('#tape-reel-left')?.classList.add('playing');
+  $('#tape-reel-right')?.classList.add('playing');
+
+  // Animate EQ
+  const eq = $('#eq-container');
+  if (eq) eq.classList.add('playing');
+
+  // Update tape deck
+  const deck = document.querySelector('.tape-deck');
+  if (deck) deck.classList.add('playing');
+
+  // Update status
+  const status = $('#tape-info');
+  if (status) {
+    status.classList.add('playing');
+    status.querySelector('span:last-child').textContent = 'REPRODUCIENDO';
+  }
+
+  // Update play button
+  updatePlayButton();
+
+  // Start progress
+  window._musicInterval = setInterval(() => {
+    window._musicProgress += 0.5;
+    if (window._musicProgress >= 100) {
+      window._musicProgress = 0;
+      nextTrack();
+    }
+    updateProgress();
+  }, 150);
+}
+
+function pausePlayback() {
+  // Pause reels
+  $('#tape-reel-left')?.classList.remove('playing');
+  $('#tape-reel-right')?.classList.remove('playing');
+
+  // Pause EQ
+  const eq = $('#eq-container');
+  if (eq) eq.classList.remove('playing');
+
+  // Update status
+  const status = $('#tape-info');
+  if (status) {
+    status.classList.remove('playing');
+    status.querySelector('span:last-child').textContent = 'PAUSADO';
+  }
+
+  updatePlayButton();
+}
+
+function stopPlayback() {
+  clearInterval(window._musicInterval);
+
+  // Stop reels
+  $('#tape-reel-left')?.classList.remove('playing');
+  $('#tape-reel-right')?.classList.remove('playing');
+
+  // Stop EQ
+  const eq = $('#eq-container');
+  if (eq) eq.classList.remove('playing');
+
+  // Update deck
+  const deck = document.querySelector('.tape-deck');
+  if (deck) deck.classList.remove('playing');
+
+  // Update status
+  const status = $('#tape-info');
+  if (status) {
+    status.classList.remove('playing');
+    status.querySelector('span:last-child').textContent = 'DETENIDO';
+  }
+
+  // Reset counter
+  const counter = $('#tape-counter');
+  if (counter) counter.textContent = '000';
+
+  // Update play button
+  updatePlayButton();
+}
+
+function updateTrackUI() {
+  // Remove all active
+  document.querySelectorAll('.track-item').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.track-item__num').forEach(el => {
+    el.classList.remove('track-item__num--playing');
+    el.innerHTML = el.id.replace('track-num-', '');
+    const idx = parseInt(el.id.replace('track-num-', ''));
+    el.innerHTML = String(idx + 1).padStart(2, '0');
+  });
+
+  const idx = window._musicCurrent;
+  if (idx === -1) return;
+
+  // Set active
+  const activeItem = document.querySelector(`.track-item[data-idx="${idx}"]`);
+  if (activeItem) {
+    activeItem.classList.add('active');
+    activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // Update number to mini eq
+  const numEl = $(`#track-num-${idx}`);
+  if (numEl) {
+    numEl.innerHTML = `<div class="track-item__num--playing"><span></span><span></span><span></span></div>`;
+  }
+
+  // Update counter
+  const counter = $('#tape-counter');
+  if (counter) counter.textContent = String(idx + 1).padStart(3, '0');
+
+  // Update time
+  const track = window._musicTracks[idx];
+  const timeTotal = $('#time-total');
+  if (timeTotal && track) timeTotal.textContent = track.duration;
+}
+
+function updatePlayButton() {
+  const btn = $('#play-btn');
+  if (!btn) return;
+
+  if (window._musicPlaying) {
+    btn.textContent = '⏸';
+    btn.classList.add('playing');
+  } else {
+    btn.textContent = '▶';
+    btn.classList.remove('playing');
+  }
+}
+
+function updateProgress() {
+  const fill = $('#progress-fill');
+  const head = $('#progress-head');
+  const timeCurrent = $('#time-current');
+
+  if (fill) fill.style.width = window._musicProgress + '%';
+  if (head) head.style.left = window._musicProgress + '%';
+
+  if (timeCurrent && window._musicCurrent >= 0) {
+    const track = window._musicTracks[window._musicCurrent];
+    if (track) {
+      const parts = track.duration.split(':');
+      const totalSec = parseInt(parts[0]) * 60 + parseInt(parts[1]);
+      const currentSec = Math.floor((window._musicProgress / 100) * totalSec);
+      const min = Math.floor(currentSec / 60);
+      const sec = currentSec % 60;
+      timeCurrent.textContent = `${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
+    }
+  }
 }
 
 // =============================================
@@ -1573,7 +1810,11 @@ window.showCharacterModal = (id) => {
   `;
 
   state.galleryIndex = 0;
-  $('#modal').classList.add('active');
+  const mc = $('#modal');
+  mc.classList.add('active');
+  const mcInner = mc.querySelector('.modal-content') || mc.querySelector('[class*="modal"]');
+  if (mcInner) mcInner.scrollTop = 0;
+  window.scrollTo({ top: 0, behavior: 'instant' });
 };
 
 window._switchCharImg = (el, idx) => {
