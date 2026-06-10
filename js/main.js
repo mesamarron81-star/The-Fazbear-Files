@@ -143,6 +143,9 @@ function navigateTo(page) {
     state.currentPage = page;
   }
 
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'instant' });
+
   // Update nav
   $$('#main-nav a').forEach(a => {
     a.classList.toggle('active', a.dataset.page === page);
@@ -1373,12 +1376,14 @@ window.showGameModal = (id) => {
           ${game.characters.slice(0, 12).map(c => {
             const slug = c.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
             const charImg = getImageUrl('characters', slug);
+            const charExists = window.characters && window.characters.find(ch => ch.id === slug);
             return `
-              <div class="game-modal__char-card">
+              <div class="game-modal__char-card${charExists ? ' game-modal__char-card--link' : ''}" ${charExists ? `onclick="event.stopPropagation();$('#modal').classList.remove('active');navigateTo('characters');setTimeout(()=>showCharacterModal('${slug}'),400);"` : ''}>
                 <div class="game-modal__char-avatar">
                   ${charImg ? `<img src="${charImg}" alt="${c}" loading="lazy">` : `<span class="char-fallback">${c.charAt(0)}</span>`}
                 </div>
                 <div class="game-modal__char-name">${c}</div>
+                ${charExists ? '<div class="game-modal__char-arrow">▸</div>' : ''}
               </div>
             `;
           }).join('')}

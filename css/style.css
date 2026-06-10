@@ -3503,6 +3503,35 @@ a:hover {
   color: #ddd;
 }
 
+.game-modal__char-card--link {
+  cursor: pointer;
+}
+
+.game-modal__char-card--link:hover {
+  border-color: #FF7700;
+  box-shadow: 0 0 15px rgba(255, 119, 0, 0.3);
+}
+
+.game-modal__char-card--link:hover::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 119, 0, 0.06), transparent);
+}
+
+.game-modal__char-card--link:hover .game-modal__char-name {
+  color: #FF7700;
+}
+
+.game-modal__char-arrow {
+  font-size: 10px;
+  color: rgba(255, 119, 0, 0.3);
+  margin-top: 2px;
+  transition: all 0.3s;
+}
+
+.game-modal__char-card--link:hover .game-modal__char-arrow {
+  color: #FF7700;
+  transform: translateX(3px);
+}
+
 .game-modal__more-chars {
   font-family: 'Share Tech Mono', monospace;
   font-size: 9px;
