@@ -576,62 +576,44 @@ const videoData = [
   { id: '9TI0CHQFqdA', title: 'Security Breach - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Jumpscares de Glamrock animatronics y DJ Music Man' },
   { id: 'HEmQ_RP-ue4', title: '200+ Jumpscares - Todos los Juegos', category: 'JUMPSCARES', desc: 'Mega compilacion de mas de 200 jumpscares de toda la franquicia' },
   { id: 'h85S0xv4E5Q', title: 'FNaF 2 - Jumpscare Compilation Clasico', category: 'JUMPSCARES', desc: 'Compilacion clasica de FNaF 2 con Toy y Mangle' },
-  { id: 'a1n1_oSaJWo', title: 'FNaF Sister Location - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Jumpscares de Funtime animatronics en Circus Baby\'s' },
-  { id: 'gJow7hdclcg', title: 'FNaF 6 FFPS - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Jumpscares de Scrap Baby, Molten Freddy y Lefty' },
-  { id: 'p_r3tFQw-N8', title: 'UCN - Todos los Jumpscares + 50/20', category: 'JUMPSCARES', desc: 'Ultimate Custom Night con todos los animatronicos' },
+  { id: 'z1UWKRvMp2o', title: 'All FNAF Jumpscares 2014-2024', category: 'JUMPSCARES', desc: 'Todos los jumpscares de FNAF desde 2014 hasta 2024 en 12 minutos' },
+  { id: '-mNzN17KLU4', title: 'FNAF Movie Game ALL Jumpscare', category: 'JUMPSCARES', desc: 'Compilacion de jumpscares del juego de la pelicula FNAF' },
+  { id: 'Ujp2cqbr6KQ', title: 'FNAF 1 Jumpscare Compilation', category: 'JUMPSCARES', desc: 'Recopilacion de jumpscares del primer FNAF' },
 
-  // --- ANALOGICO / VHS ---
-  { id: 'VMJErb9-Qxo', title: 'Battington FNAF VHS Tapes', category: 'ANALOGICO', desc: 'La serie de terror analogico mas famosa de FNAF por Battington' },
-  { id: 'Ak0VdbWsYKU', title: 'FNAF VHS - Tape 1 (Battington)', category: 'ANALOGICO', desc: 'Primera cinta VHS del estilo analog horror de FNAF' },
-  { id: '5zS5Z6Qp7zQ', title: 'FNAF VHS - Tape 2 (Battington)', category: 'ANALOGICO', desc: 'Segunda cinta VHS - Los animatronicos cobran vida' },
-  { id: 'LJ3fH24kH0s', title: 'FNAF VHS - Tape 3 (Battington)', category: 'ANALOGICO', desc: 'Tercera cinta VHS - El restaurante esta embrujado' },
-  { id: 'AjkSYlDNNa0', title: 'FNAF VHS - The Tape (Squimpus)', category: 'ANALOGICO', desc: 'Serie analog horror clasica de Squimpus McGrimpus' },
-  { id: 'QtqS7hVCYXc', title: 'FNAF VHS - Foxy Tape (Squimpus)', category: 'ANALOGICO', desc: 'La cinta de Foxy - estilo found footage aterrador' },
-  { id: 'JQv0rOzQscQ', title: 'FNAF VHS - Golden Years (Walten Files)', category: 'ANALOGICO', desc: 'Estilo analog horror inspirado en FNAF con historia propia' },
+  // --- TERROR / ANALOGICO ---
+  { id: 'HJSZMFMgH04', title: 'FNAF - The Complete Tape (Analog Horror)', category: 'TERROR', desc: 'Cinta completa de terror analogico estilo VHS por Foxymations' },
+  { id: 'VMJErb9-Qxo', title: 'Battington FNAF VHS Tapes', category: 'TERROR', desc: 'Analisis de las cintas VHS de terror analogico mas famosas de FNAF' },
+  { id: '69nHymd4Q7Y', title: 'Deep Dish - Horror Short FNAF Inspired', category: 'TERROR', desc: 'Cortometraje de terror inspirado en Backrooms y Five Nights at Freddy\'s' },
 
   // --- AMBIENTAL ---
   { id: 'iOhD6pv2s-Y', title: 'FNaF 1 Ambience - 1 Hora', category: 'AMBIENTAL', desc: 'Ambientacion extendida de FNaF 1 para dormir o estudiar' },
   { id: '5Evk6JFMzGg', title: 'FNaF 1 - Power Out Ambience', category: 'AMBIENTAL', desc: 'La ambientacion iconica cuando se acaba la energia' },
   { id: 'YQ940SRcp-U', title: 'FNaF 3 - Office Ambience', category: 'AMBIENTAL', desc: 'Atmosfera de la oficina de Fazbear\'s Fright' },
   { id: 'fJIhjGSD3-0', title: 'FNaF Ambience Extended', category: 'AMBIENTAL', desc: 'Coleccion extendida de ambientacion de los juegos originales' },
-  { id: '9MbxG_30F_4', title: 'FNaF Sister Location - Ambience', category: 'AMBIENTAL', desc: 'La atmosfera inquietante de Circus Baby\'s Rental' },
-  { id: '0RjED_8MsCk', title: 'FNaF 4 - Bedroom Ambience', category: 'AMBIENTAL', desc: 'La habitacion de FNaF 4 con sonidos ambientales de noche' },
-  { id: 'IqEQBrZP5N4', title: 'FNaF Pizzeria Simulator - Ambience', category: 'AMBIENTAL', desc: 'Ambientacion de la pizzeria falsa de Henry Emily' },
 
   // --- GAMEPLAY ---
-  { id: 'Ff7zoYvlin4', title: 'Security Breach - Full Game Walkthrough', category: 'GAMEPLAY', desc: 'Walkthrough completo sin commentary de Security Breach' },
+  { id: 'Ff7zoYvlin4', title: 'Security Breach - Full Game Walkthrough', category: 'GAMEPLAY', desc: 'Walkthrough completo sin commentary de Security Breach en 1080p' },
   { id: 'OF-5gCadqyU', title: 'Security Breach - Full Game', category: 'GAMEPLAY', desc: 'Juego completo mostrando todas las areas y encuentros' },
   { id: 'ocWVd7ZXlsY', title: 'Help Wanted VR - Full Gameplay', category: 'GAMEPLAY', desc: 'Experiencia completa de Help Wanted en VR' },
   { id: 'xYwP_pvM6u0', title: 'Security Breach Ruin - Full DLC', category: 'GAMEPLAY', desc: 'Walkthrough completo del DLC Ruin jugando como Cassie' },
-  { id: 'efBXTJI2gnI', title: 'Five Nights at Freddy\'s 1 - Full Game', category: 'GAMEPLAY', desc: 'Juego completo de FNaF 1 con todas las noches' },
-  { id: 'x8x1l4YjnZ8', title: 'FNaF 2 - Full Game Gameplay', category: 'GAMEPLAY', desc: 'Juego completo de Five Nights at Freddy\'s 2' },
-  { id: 'Wxq7s4Qp2Q0', title: 'FNaF 3 - Full Game Gameplay', category: 'GAMEPLAY', desc: 'Juego completo de Five Nights at Freddy\'s 3' },
-  { id: 'BXHYhVGFQN0', title: 'FNaF 4 - Full Game Gameplay', category: 'GAMEPLAY', desc: 'Juego completo de Five Nights at Freddy\'s 4' },
+  { id: 'mfnqomb4cJ0', title: 'Five Nights at Freddy\'s 1 - Full Game', category: 'GAMEPLAY', desc: 'Juego completo de FNaF 1 con todas las noches sin comentarios' },
+  { id: 'PUHwoK2ZQzA', title: 'FNaF 1 - Full Gameplay Walkthrough', category: 'GAMEPLAY', desc: 'Partida completa del FNaF original sin comentarios' },
+  { id: 'wr7cF5qtWRQ', title: 'Security Breach - Full Game (PrestonPlayz)', category: 'GAMEPLAY', desc: 'Partida completa de Security Breach con reacciones' },
+  { id: 'X9WsssItUlI', title: 'FNAF Security Breach - Full Game 4K', category: 'GAMEPLAY', desc: 'Walkthrough en 4K de Security Breach sin comentarios' },
 
-  // --- MUSICA / FAN SONGS ---
-  { id: 's_pYPRdGTOk', title: 'Five Nights at Freddy\'s - The Living Tombstone', category: 'MUSICA', desc: 'La cancion original de FNAF que empezo todo - The Living Tombstone' },
-  { id: '8lMb7o-sAlI', title: 'It\'s Been So Long - The Living Tombstone', category: 'MUSICA', desc: 'La segunda cancion iconica de FNAF 2 por The Living Tombstone' },
-  { id: '0Z1B1Yd4_RI', title: 'Die in a Fire - The Living Tombstone', category: 'MUSICA', desc: 'Cancion de FNAF 3 - The Living Tombstone' },
-  { id: 'uQ5JLv0Pq9A', title: 'I Can\'t Fix You - The Living Tombstone', category: 'MUSICA', desc: 'Cancion de FNAF Sister Location - The Living Tombstone' },
-  { id: 'LiALxiMpsAA', title: 'Join Us for a Bite - JT Music', category: 'MUSICA', desc: 'Cancion de FNAF 1 por JT Music - rap de Five Nights' },
-  { id: 'J4Mhn3x2J5g', title: 'FNAF Rap - JT Music', category: 'MUSICA', desc: 'JT Music y su rap de Five Nights at Freddy\'s' },
-  { id: 'BjB4uG-jjqI', title: 'I Got No Time - The Living Tombstone', category: 'MUSICA', desc: 'Cancion de FNAF World por The Living Tombstone' },
-  { id: 'bkwN0_WNpmk', title: 'Five Nights at Freddy\'s Song - CG5', category: 'MUSICA', desc: 'CG5 canta sobre Five Nights at Freddy\'s' },
+  // --- MUSICA ---
+  { id: 'l18A5BOTlzE', title: 'Five Nights at Freddy\'s 1 Song', category: 'MUSICA', desc: 'La cancion original de FNAF - The Living Tombstone (oficial)' },
+  { id: 'gu1IRT5KSxY', title: 'It\'s Been So Long - FNAF 2 Song', category: 'MUSICA', desc: 'La cancion de FNAF 2 - The Living Tombstone (animada)' },
+  { id: 'Cw8nNnR6v6s', title: 'It\'s Been So Long (Live)', category: 'MUSICA', desc: 'The Living Tombstone interpreta Its Been So Long en vivo' },
+  { id: 'xB8m8r9BE0s', title: 'Five Nights at Freddy\'s - Music Video', category: 'MUSICA', desc: 'Video musical oficial de la cancion de FNAF con letra' },
 
-  // --- LORE / TEORIAS ---
-  { id: 'gWOXSh4-Iuc', title: 'FNAF - The ULTIMATE Timeline', category: 'LORE', desc: 'Game Theory explica la linea temporal completa de FNAF' },
-  { id: 'SugbaghWhqg', title: 'Inicio de la Timeline FNAF', category: 'LORE', desc: 'Explicacion del inicio de la cronologia y los primeros incidentes' },
-  { id: 'J3w9YQ5mC08', title: 'FNAF - La Historia Completa', category: 'LORE', desc: 'La historia completa de Five Nights at Freddy\'s explicada' },
-  { id: 'TQZqsp4eI48', title: 'FNAF Timeline - Explicacion 2023', category: 'LORE', desc: 'La linea temporal de Five Nights at Freddy\'s actualizada' },
-  { id: '9UFtKwBfCdQ', title: 'Identity of The Crying Child', category: 'LORE', desc: 'Teoria sobre la identidad del nino que llora en FNAF 4' },
-  { id: 'GZoY__8kX9g', title: 'FNAF - The Afton Family Story', category: 'LORE', desc: 'La historia completa de la familia Afton explicada' },
-  { id: '0DP8ts4IEag', title: 'FNAF Security Breach - Secretos y Teorias', category: 'LORE', desc: 'Todos los secretos y teorias de Security Breach' },
+  // --- LORE ---
+  { id: 'gWOXSh4-Iuc', title: 'FNAF - The ULTIMATE Timeline (Parte 1)', category: 'LORE', desc: 'Game Theory explica la linea temporal completa de FNAF' },
+  { id: 'SugbaghWhqg', title: 'Inicio de la Timeline FNAF Explicado', category: 'LORE', desc: 'Explicacion del inicio de la cronologia y los primeros incidentes' },
 
   // --- PELICULA ---
+  { id: 'f-zqS2CiZqw', title: 'Five Nights At Freddy\'s - Official Teaser', category: 'PELICULA', desc: 'El teaser trailer oficial de la pelicula por Universal Pictures' },
   { id: 'moQp0Bu2Grs', title: 'FNaF Movie - Detras de Escena', category: 'PELICULA', desc: 'Detras de escena de los animatronicos de la pelicula' },
-  { id: '0-tHiHp_QC0', title: 'Five Nights at Freddy\'s - Trailer Oficial', category: 'PELICULA', desc: 'El trailer oficial de la pelicula de Five Nights at Freddy\'s' },
-  { id: '6N5f4f4qr1Y', title: 'FNAF Movie - All Scenes animatronicos', category: 'PELICULA', desc: 'Todas las escenas de los animatronicos en la pelicula' },
-  { id: 'aFVN52N1j4Y', title: 'FNAF Movie - Ending Explicado', category: 'PELICULA', desc: 'Analisis y explicacion del final de la pelicula de FNAF' },
 ];
 
 const videosPerPage = 8;
@@ -640,7 +622,7 @@ let currentVideoFilter = 'TODOS';
 
 function renderVideos() {
   const grid = $('#videos-grid');
-  const categories = ['TODOS', 'JUMPSCARES', 'ANALOGICO', 'AMBIENTAL', 'GAMEPLAY', 'MUSICA', 'LORE', 'PELICULA'];
+  const categories = ['TODOS', 'JUMPSCARES', 'TERROR', 'AMBIENTAL', 'GAMEPLAY', 'MUSICA', 'LORE', 'PELICULA'];
 
   grid.innerHTML = `
     <div class="videos-filters" id="videos-filters">
