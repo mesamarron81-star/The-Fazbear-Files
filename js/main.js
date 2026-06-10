@@ -14,6 +14,8 @@ const state = {
   characterSearch: '',
   gamesSearch: '',
   booksSearch: '',
+  fangamesSearch: '',
+  fangamesFilter: 'all',
   soundEnabled: false,
   vhsEnabled: true,
   audioContext: null,
@@ -54,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initTabs();
   initCharacterFilters();
+  initFangameFilters();
   initAdminNav();
   initModal();
   initMusicPlayer();
@@ -179,6 +182,9 @@ function loadPage(page) {
       break;
     case 'videos':
       renderVideos();
+      break;
+    case 'fangames':
+      renderFangames();
       break;
     case 'history':
       renderHistory();
@@ -562,6 +568,264 @@ window.handleBookClick = function(element, bookId) {
     element.classList.remove('jumpscare');
     showBookModal(bookId);
   }, 550);
+};
+
+// =============================================
+// FANGAMES
+// =============================================
+function renderFangames(filter = state.fangamesFilter, search = state.fangamesSearch) {
+  const grid = $('#fangames-grid');
+  let filtered = [...fangames];
+
+  if (filter !== 'all') {
+    filtered = filtered.filter(f => f.category === filter);
+  }
+
+  if (search) {
+    const s = search.toLowerCase();
+    filtered = filtered.filter(f =>
+      f.title.toLowerCase().includes(s) ||
+      f.description.toLowerCase().includes(s) ||
+      f.developer.toLowerCase().includes(s)
+    );
+  }
+
+  const statusLabels = ['FAN', 'MOD', 'INDIE', 'DEV', 'BUILD', 'HOME'];
+
+  grid.innerHTML = filtered.map((fg, i) => {
+    const order = fangames.indexOf(fg) + 1;
+    const fanId = `FAN-${String(order).padStart(2, '0')}`;
+    const status = statusLabels[i % statusLabels.length];
+
+    const categoryLabels = {
+      'clasico': 'CLASICO',
+      'popular': 'POPULAR',
+      'reciente': 'RECIENTE',
+      'experimental': 'EXPERIMENTAL'
+    };
+
+    const statusColors = {
+      'Released': '#00FF66',
+      'In Development': '#E6B800',
+      'Cancelled': '#FF2222'
+    };
+
+    return `
+    <div class="fangame-card" onclick="handleFangameClick(this, '${fg.id}')">
+      <div class="cam-corners"></div>
+      <div class="static-overlay"></div>
+      <div class="cam-scan-line"></div>
+
+      <div class="cam-indicator">
+        <span class="rec-dot"></span>
+        <span>${status}</span>
+      </div>
+
+      <div class="cam-label">${fanId} • ${fg.developer.split('/')[0].trim().split('(')[0].trim()}</div>
+
+      <div class="fangame-year-badge">${fg.year}</div>
+
+      <div class="fangame-category-tag" style="background:${fg.status === 'Released' ? '#0A0A0A' : fg.status === 'In Development' ? '#1A1A00' : '#1A0000'};border-color:${statusColors[fg.status] || '#666'}">${fg.status.toUpperCase()}</div>
+
+      <div class="power-indicator">${categoryLabels[fg.category] || fg.category.toUpperCase()}</div>
+
+      <div class="fangame-content">
+        <div class="fangame-title">${fg.title}</div>
+        <div class="fangame-meta">
+          <span>${fg.developer}</span>
+          <span>${fg.year}</span>
+        </div>
+        <div class="fangame-desc">${fg.description.slice(0, 150)}...</div>
+        <div class="fangame-neon-line"></div>
+      </div>
+    </div>
+  `}).join('');
+
+  const searchInput = $('#fangames-search');
+  if (searchInput && !searchInput._fangamesListener) {
+    searchInput._fangamesListener = true;
+    searchInput.addEventListener('input', (e) => {
+      state.fangamesSearch = e.target.value;
+      renderFangames(state.fangamesFilter, state.fangamesSearch);
+    });
+  }
+}
+
+window.handleFangameClick = function(element, fangameId) {
+  element.classList.add('jumpscare');
+  triggerDistortion();
+  setTimeout(() => {
+    element.classList.remove('jumpscare');
+    showFangameModal(fangameId);
+  }, 550);
+};
+
+function initFangameFilters() {
+  const searchInput = $('#fangames-search');
+  if (!searchInput) return;
+
+  searchInput.addEventListener('input', (e) => {
+    state.fangamesSearch = e.target.value;
+    renderFangames(state.fangamesFilter, state.fangamesSearch);
+  });
+
+  $$('#fangames-filters .filter-tag').forEach(btn => {
+    btn.addEventListener('click', () => {
+      $$('#fangames-filters .filter-tag').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.fangamesFilter = btn.dataset.filter;
+      renderFangames(state.fangamesFilter, state.fangamesSearch);
+    });
+  });
+}
+
+window.showFangameModal = (id) => {
+  const fg = fangames.find(f => f.id === id);
+  if (!fg) return;
+
+  const body = $('#modal-body');
+  body.innerHTML = `
+    <div class="fangame-modal">
+
+      <div class="game-modal__hero">
+        <div class="game-modal__hero-left">
+          <div class="game-modal__img-frame">
+            <div class="game-modal__img-fallback">${fg.title.charAt(0)}</div>
+            <div class="game-modal__scanlines"></div>
+            <div class="game-modal__corners"></div>
+          </div>
+        </div>
+
+        <div class="game-modal__hero-right">
+          <div class="game-modal__tags">
+            <span class="game-modal__tag game-modal__tag--platform">${fg.genre}</span>
+            <span class="game-modal__tag game-modal__tag--year">${fg.year}</span>
+          </div>
+
+          <h2 class="game-modal__title">${fg.title}</h2>
+          <div class="game-modal__subtitle">${fg.developer}</div>
+
+          <div class="game-modal__meta-row">
+            <span class="game-modal__meta-badge">${fg.status.toUpperCase()}</span>
+            <span class="game-modal__meta-badge game-modal__meta-badge--accent">${fg.category.toUpperCase()}</span>
+          </div>
+
+          <div class="game-modal__threat">
+            <div class="game-modal__threat-label">PLATAFORMAS</div>
+            <div class="game-modal__threat-bar">
+              <div class="game-modal__threat-fill" style="width: ${Math.min(fg.platforms.length * 25, 100)}%"></div>
+            </div>
+            <div class="game-modal__threat-text">${fg.platforms.map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(', ')}</div>
+          </div>
+
+          ${fg.downloadUrl ? `
+            <a href="${fg.downloadUrl}" target="_blank" rel="noopener noreferrer" class="game-modal__steam-btn" style="background:#5500AA;border-color:#7700CC;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              DESCARGAR EN GAMEJOLT
+            </a>
+          ` : ''}
+        </div>
+      </div>
+
+      <div class="game-modal__divider"></div>
+
+      <div class="game-modal__section">
+        <div class="game-modal__section-header" data-text="INFORMACION GENERAL">
+          <span class="game-modal__section-dot"></span> INFORMACION GENERAL
+        </div>
+        <div class="game-modal__info-grid">
+          <div class="game-modal__info-cell">
+            <div class="game-modal__info-label">TITULO</div>
+            <div class="game-modal__info-value">${fg.title}</div>
+          </div>
+          <div class="game-modal__info-cell">
+            <div class="game-modal__info-label">ANIO DE LANZAMIENTO</div>
+            <div class="game-modal__info-value">${fg.year}</div>
+          </div>
+          <div class="game-modal__info-cell">
+            <div class="game-modal__info-label">DESARROLLADOR</div>
+            <div class="game-modal__info-value">${fg.developer}</div>
+          </div>
+          <div class="game-modal__info-cell">
+            <div class="game-modal__info-label">ESTADO</div>
+            <div class="game-modal__info-value">${fg.status}</div>
+          </div>
+          <div class="game-modal__info-cell">
+            <div class="game-modal__info-label">CATEGORIA</div>
+            <div class="game-modal__info-value">${fg.category.toUpperCase()}</div>
+          </div>
+          <div class="game-modal__info-cell">
+            <div class="game-modal__info-label">GENERO</div>
+            <div class="game-modal__info-value">${fg.genre}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-modal__section">
+        <div class="game-modal__section-header" data-text="DESCRIPCION">
+          <span class="game-modal__section-dot"></span> DESCRIPCION
+        </div>
+        <div class="game-modal__desc-full game-modal__desc-glitch">
+          <p>${fg.description}</p>
+        </div>
+      </div>
+
+      <div class="game-modal__section">
+        <div class="game-modal__section-header" data-text="MECANICAS">
+          <span class="game-modal__section-dot"></span> MECANICAS
+        </div>
+        <div class="game-modal__tags game-modal__tags--wrap">
+          ${fg.mechanics.map(m => `<span class="game-modal__tag">${m}</span>`).join('')}
+        </div>
+      </div>
+
+      ${fg.characters && fg.characters.length > 0 ? `
+      <div class="game-modal__section">
+        <div class="game-modal__section-header" data-text="PERSONAJES PRINCIPALES">
+          <span class="game-modal__section-dot"></span> PERSONAJES PRINCIPALES
+        </div>
+        <div class="game-modal__chars-grid">
+          ${fg.characters.slice(0, 12).map(c => `
+            <div class="game-modal__char-card">
+              <div class="game-modal__char-avatar">
+                <span class="char-fallback">${c.charAt(0)}</span>
+              </div>
+              <div class="game-modal__char-name">${c}</div>
+            </div>
+          `).join('')}
+        </div>
+        ${fg.characters.length > 12 ? `<div class="game-modal__more-chars">+${fg.characters.length - 12} personajes mas</div>` : ''}
+      </div>
+      ` : ''}
+
+      <div class="game-modal__section">
+        <div class="game-modal__section-header" data-text="CONEXIONES">
+          <span class="game-modal__section-dot"></span> CONEXIONES
+        </div>
+        <ul class="game-modal__list">
+          ${fg.connections.map(c => `<li class="game-modal__list-item">${c}</li>`).join('')}
+        </ul>
+      </div>
+
+      ${fg.trivia && fg.trivia.length > 0 ? `
+        <div class="game-modal__section">
+          <div class="game-modal__section-header" data-text="DATOS DE ARCHIVO / CURIOSIDADES">
+            <span class="game-modal__section-dot"></span> DATOS DE ARCHIVO / CURIOSIDADES
+          </div>
+          <ul class="game-modal__list">
+            ${fg.trivia.map(t => `<li class="game-modal__list-item">${t}</li>`).join('')}
+          </ul>
+        </div>
+      ` : ''}
+
+      <div class="game-modal__footer">
+        <span>FAZBEAR ENTERTAINMENT — ARCHIVO DE FANGAMES</span>
+        <span>CONTENIDO CREADO POR FANS — USO BAJO PROPIA RESPONSABILIDAD</span>
+      </div>
+    </div>
+  `;
+
+  $('#modal').classList.add('active');
 };
 
 // =============================================

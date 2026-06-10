@@ -2135,6 +2135,375 @@ a:hover {
 }
 
 /* =============================================
+   FANGAME CARD
+   ============================================= */
+.fangames-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin: 20px 0;
+}
+
+.fangame-card {
+  background: #0A0A0A;
+  border: 1px solid #1C1C1C;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.4s, transform 0.3s;
+  --card-accent: #BB66FF;
+  --card-glow: rgba(187, 102, 255, 0.15);
+}
+
+.fangame-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--card-accent, #BB66FF), transparent);
+  opacity: 0.6;
+  transition: opacity 0.3s, height 0.3s;
+}
+
+.fangame-card:hover::after {
+  opacity: 1;
+  height: 4px;
+}
+
+.fangame-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg at 50% 50%, transparent 0%, var(--card-glow, rgba(187,102,255,0.1)) 30%, transparent 60%);
+  animation: fangame-rotate 6s linear infinite;
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.fangame-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes fangame-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.fangame-card .static-overlay {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 2;
+}
+
+.fangame-card:hover .static-overlay {
+  opacity: 1;
+}
+
+.fangame-card .cam-scan-line {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, transparent 50%, rgba(187, 102, 255, 0.015) 50%, rgba(187, 102, 255, 0.015) 100%);
+  background-size: 100% 4px;
+  animation: scanline-move 3s linear infinite;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 1;
+}
+
+.fangame-card:hover .cam-scan-line {
+  opacity: 1;
+}
+
+@keyframes scanline-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 8px; }
+}
+
+.fangame-card .cam-corners {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.fangame-card .cam-corners::before {
+  content: '▛';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  font-size: 14px;
+  color: #1C1C1C;
+  transition: color 0.3s;
+}
+
+.fangame-card .cam-corners::after {
+  content: '▟';
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  font-size: 14px;
+  color: #1C1C1C;
+  transition: color 0.3s;
+}
+
+.fangame-card:hover .cam-corners::before,
+.fangame-card:hover .cam-corners::after {
+  color: var(--card-accent, #BB66FF);
+}
+
+.fangame-card .cam-indicator {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: #555;
+  z-index: 5;
+  transition: color 0.3s;
+}
+
+.fangame-card:hover .cam-indicator {
+  color: var(--card-accent, #BB66FF);
+}
+
+.fangame-card .cam-indicator .rec-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #555;
+  transition: background 0.3s;
+}
+
+.fangame-card:hover .rec-dot {
+  background: #FF2222;
+  box-shadow: 0 0 6px #FF2222;
+  animation: rec-blink 1s step-end infinite;
+}
+
+@keyframes rec-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.fangame-card .cam-label {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  color: #444;
+  z-index: 5;
+  transition: color 0.3s;
+}
+
+.fangame-card:hover .cam-label {
+  color: var(--card-accent, #BB66FF);
+}
+
+.fangame-year-badge {
+  position: absolute;
+  top: 40px;
+  right: 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #444;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #1C1C1C;
+  padding: 3px 8px;
+  z-index: 5;
+  transition: all 0.3s;
+}
+
+.fangame-card:hover .fangame-year-badge {
+  color: var(--card-accent, #BB66FF);
+  border-color: var(--card-accent, #BB66FF);
+  box-shadow: 0 0 10px var(--card-glow);
+}
+
+.fangame-category-tag {
+  position: absolute;
+  top: 70px;
+  right: 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #888;
+  border: 1px solid #1C1C1C;
+  padding: 2px 6px;
+  z-index: 5;
+  transition: all 0.3s;
+}
+
+.fangame-card:hover .fangame-category-tag {
+  border-color: var(--card-accent, #BB66FF);
+  color: var(--card-accent, #BB66FF);
+}
+
+.fangame-card .power-indicator {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #444;
+  z-index: 5;
+  transition: color 0.3s;
+}
+
+.fangame-card:hover .power-indicator {
+  color: var(--card-accent, #BB66FF);
+}
+
+.fangame-card .fangame-content {
+  padding: 40px 20px 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.fangame-card .fangame-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #BB66FF;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  text-shadow: 0 0 10px rgba(187, 102, 255, 0.2);
+  transition: text-shadow 0.3s;
+}
+
+.fangame-card:hover .fangame-title {
+  text-shadow: 0 0 20px rgba(187, 102, 255, 0.5), 0 0 40px rgba(187, 102, 255, 0.2);
+}
+
+.fangame-card .fangame-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.fangame-card .fangame-meta span {
+  font-size: 10px;
+  color: #555;
+  font-family: 'Share Tech Mono', monospace;
+  padding: 2px 8px;
+  border: 1px solid #1C1C1C;
+  transition: all 0.3s;
+}
+
+.fangame-card:hover .fangame-meta span {
+  color: #888;
+  border-color: rgba(187, 102, 255, 0.2);
+}
+
+.fangame-card .fangame-desc {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.7;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.fangame-card .fangame-neon-line {
+  width: 40px;
+  height: 2px;
+  background: var(--card-accent, #BB66FF);
+  margin-top: 16px;
+  opacity: 0.3;
+  transition: width 0.3s, opacity 0.3s;
+  box-shadow: 0 0 8px var(--card-glow);
+}
+
+.fangame-card:hover .fangame-neon-line {
+  width: 80px;
+  opacity: 1;
+}
+
+.fangame-card:hover {
+  border-color: var(--card-accent, #BB66FF);
+  box-shadow: 0 0 30px var(--card-glow), inset 0 0 30px rgba(187, 102, 255, 0.02);
+  transform: translateY(-4px);
+}
+
+.fangame-card.jumpscare {
+  animation: fangame-jumpscare 0.55s ease-in-out;
+}
+
+@keyframes fangame-jumpscare {
+  0% { transform: scale(1); }
+  20% { transform: scale(1.08) rotate(-2deg); }
+  40% { transform: scale(0.95) rotate(1deg); }
+  60% { transform: scale(1.03); }
+  80% { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+/* =============================================
+   FANGAME MODAL
+   ============================================= */
+.fangame-modal .game-modal__info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.fangame-modal .game-modal__info-cell {
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.015);
+  border: 1px solid #14171c;
+}
+
+.fangame-modal .game-modal__info-cell--full {
+  grid-column: 1 / -1;
+}
+
+.fangame-modal .game-modal__info-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7px;
+  color: #BB66FF;
+  letter-spacing: 2px;
+  opacity: 0.6;
+  margin-bottom: 4px;
+}
+
+.fangame-modal .game-modal__info-value {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.fangame-modal .game-modal__info-value--desc {
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.8;
+}
+
+/* =============================================
+   RESPONSIVE: FANGAMES
+   ============================================= */
+@media (max-width: 768px) {
+  .fangames-grid {
+    grid-template-columns: 1fr;
+  }
+  .fangame-card .fangame-title {
+    font-size: 9px;
+  }
+}
+
+/* =============================================
    DOCUMENT STYLES (SCANNED)
    ============================================= */
 .document {
@@ -6093,7 +6462,8 @@ body {
 
 .page > .characters-grid,
 .page > .games-grid,
-.page > .videos-grid {
+.page > .videos-grid,
+.page > .fangames-grid {
   margin-left: 24px;
   margin-right: 24px;
 }

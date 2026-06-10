@@ -852,7 +852,17 @@ window.images = {
     },
     'magician-sl': { primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/6c/MagicianRender.png/revision/latest?cb=20200816200657',
       gallery: []
-    }
+    },
+    'phone-guy': { primary: '', gallery: [] },
+    'phone-dude': { primary: '', gallery: [] },
+    'fredbear-plush': { primary: '', gallery: [] },
+    'cassie': { primary: '', gallery: [] },
+    'handunit': { primary: '', gallery: [] },
+    'edwin': { primary: '', gallery: [] },
+    'animdude': { primary: '', gallery: [] },
+    'freddy-bully': { primary: '', gallery: [] },
+    'cake-bot': { primary: '', gallery: [] },
+    'wet-floor-bot': { primary: '', gallery: [] }
   },
   games: {
     'fnaf-1': {

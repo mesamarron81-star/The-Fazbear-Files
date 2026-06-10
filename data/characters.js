@@ -5403,9 +5403,277 @@
         'Realiza trucos de magia.',
         'Aparece en Sister Location.'
       ]
+    },
+    {
+      id: 'phone-guy',
+      name: 'Phone Guy',
+      alias: 'Telefonista / Empleado de Fazbear Entertainment',
+      firstAppearance: "Five Nights at Freddy's (2014)",
+      status: 'Deceased',
+      threatLevel: 'N/A',
+      origin: "Freddy Fazbear's Pizza",
+      image: '',
+      category: 'Human',
+      description: 'El Phone Guy es el empleado anonimo de Fazbear Entertainment encargado de grabar los mensajes de orientacion para los guardias de seguridad nocturnos. Su voz es la guia principal durante las primeras noches de cada juego, proporcionando instrucciones vitales y pistas sobre el lore. Su tono amable y profesional contrasta con el horror creciente que describe.',
+      history: 'El Phone Guy fue un empleado de larga trayectoria en Fazbear Entertainment, posiblemente ocupando el cargo de gerente o supervisor de seguridad. Fue el responsable de entrenar a Mike Schmidt en FNaF 1, a Jeremy Fitzgerald en FNaF 2, y posiblemente conocia los secretos mas oscuros de la empresa. En FNaF 1, se revela que el propio Phone Guy fue atacado por los animatronicos durante su ultima noche, como se escucha en la llamada del cuarto dia. Su muerte es uno de los momentos mas iconicos de la saga. En FNaF 3, su voz se escucha en grabaciones antiguas dentro de Fazbear\'s Fright.',
+      behavior: 'No es un antagonista. Actua como guia y expositor del lore, llamando cada noche para dar instrucciones. Sus mensajes contienen pistas cruciales sobre la historia oculta de Fazbear Entertainment.',
+      appearances: ['FNaF 1', 'FNaF 2', 'FNaF 3'],
+      relationships: [
+        { name: 'William Afton', relation: 'Empleado / Desconocia sus crimenes' },
+        { name: 'Mike Schmidt', relation: 'Entrenador / Victima' },
+        { name: 'Jeremy Fitzgerald', relation: 'Entrenador' },
+        { name: 'Phone Dude', relation: 'Su voz fue usada en Fazbear\'s Fright' }
+      ],
+      trivia: [
+        'Su muerte en FNaF 1 es uno de los momentos mas memorables de la saga.',
+        'Nunca se revela su nombre real en los juegos.',
+        'Scott Cawthon presto su voz para el personaje.',
+        'Sus mensajes contienen informacion crucial sobre el funcionamiento de los animatronicos.',
+        'En FNaF 3, su voz se escucha en las grabaciones de la atraccion.'
+      ]
+    },
+    {
+      id: 'phone-dude',
+      name: 'Phone Dude',
+      alias: 'El Entusiasta / Coleccionista de Fazbear\'s Fright',
+      firstAppearance: "Five Nights at Freddy's 3 (2015)",
+      status: 'Unknown',
+      threatLevel: 'N/A',
+      origin: "Fazbear's Fright: The Horror Attraction",
+      image: '',
+      category: 'Human',
+      description: 'El Phone Dude es el entusiasta lider del equipo que construye Fazbear\'s Fright, la atraccion de terror inspirada en los crimenes de Freddy Fazbear\'s Pizza. Su actitud energica y despreocupada contrasta fuertemente con el tono sombrio de los descubrimientos que hace. Es el encargado de buscar y restaurar los artefactos originales del restaurante.',
+      history: 'El Phone Dude lidero un equipo de busqueda que recolecto reliquias de los restaurantes Freddy Fazbear\'s Pizza abandonados para crear Fazbear\'s Fright. Durante sus expediciones, encontro y trajo a Springtrap, sin saber que dentro del traje se encontraba William Afton. Se muestra emocionado por los hallazgos, especialmente por el traje de Spring Bonnie. Su paradero despues de la destruccion de Fazbear\'s Fright es desconocido.',
+      behavior: 'No es antagonista. Actua como guia en FNaF 3, llamando para compartir sus descubrimientos y el progreso de la construccion de la atraccion.',
+      appearances: ['FNaF 3'],
+      relationships: [
+        { name: 'William Afton', relation: 'Descubrio su cuerpo en Springtrap sin saberlo' },
+        { name: 'Phone Guy', relation: 'Uso sus grabaciones en la atraccion' }
+      ],
+      trivia: [
+        'Su identidad real nunca fue revelada.',
+        'Es el unico humano en FNaF 3 que hace llamadas al jugador.',
+        'Desaparece misteriosamente a mitad del juego.',
+        'Su entusiasmo contrasta con el horror de lo que descubre.'
+      ]
+    },
+    {
+      id: 'fredbear-plush',
+      name: 'Fredbear Plush',
+      alias: 'Peluche de Fredbear / El Amigo Imaginario / El Observador',
+      firstAppearance: "Five Nights at Freddy's 4 (2015)",
+      status: 'Unknown',
+      threatLevel: 'Unknown',
+      origin: 'Fredbear\'s Family Diner',
+      image: '',
+      category: 'Other',
+      description: 'El Fredbear Plush es un peluche de Fredbear que aparece en FNaF 4 como acompañante constante del Crying Child. Habla con el niño, ofreciendole consuelo y advertencias. Su naturaleza es misteriosa: podria ser una manifestacion sobrenatural, un dispositivo de vigilancia de William Afton, o la conciencia de Charlotte Emily (la Marioneta) velando por los niños.',
+      history: 'El peluche aparece a lo largo de FNaF 4 siguiendo al Crying Child a todas partes, hablandole y prometiendole reconstruirlo. En los minijuegos, sus frases claves incluyen "Te reconstruire" y "Romperas el resto de tus dias en pedazos". Su identidad es uno de los debates mas grandes del lore. La teoria mas aceptada es que esta poseido por el alma de Charlotte Emily o que es un dispositivo creado por William Afton para vigilar a su hijo. En los finales del juego, el peluche desaparece y su ultima aparicion es en el oscuro final donde pronuncia las palabras finales.',
+      behavior: 'Entidad enigmatica que observa y guia al Crying Child. No es hostil directamente, pero su presencia es inquietante y sus palabras tienen un significado profundo en el lore.',
+      appearances: ['FNaF 4'],
+      relationships: [
+        { name: 'Crying Child', relation: 'Acompañante / Protector' },
+        { name: 'William Afton', relation: 'Posiblemente creado por el' },
+        { name: 'Charlotte Emily', relation: 'Podria ser una manifestacion de su alma' },
+        { name: 'Golden Freddy', relation: 'Entidad relacionada espiritualmente' }
+      ],
+      trivia: [
+        'Sus frases cambian de color dependiendo del momento: amarillo, rojo y naranja.',
+        '"Te reconstruire" es una de las frases mas importantes del lore.',
+        'El peluche desaparece misteriosamente al final del juego.',
+        'Podria ser un dispositivo de vigilancia de William Afton.',
+        'Aparece en UCN como cameo en el escritorio.'
+      ]
+    },
+    {
+      id: 'cassie',
+      name: 'Cassie',
+      alias: 'La Amiga de Gregory / Protagonista de Ruin',
+      firstAppearance: "Five Nights at Freddy's: Security Breach - Ruin (2023)",
+      status: 'Active',
+      threatLevel: 'N/A',
+      origin: 'Pizzaplex Mega-Mall',
+      image: '',
+      category: 'Human',
+      description: 'Cassie es la protagonista del DLC Ruin de Security Breach. Es una nina que regresa al Pizzaplex en ruinas para encontrar a su amigo Gregory. Equipada con una mascara especial que le permite ver mensajes ocultos y alterar la realidad, Cassie debe navegar por el Pizzaplex destruido mientras evita a los animatronicos corruptos y descubre la verdad detras del Mimico.',
+      history: 'Cassie llego al Pizzaplex mucho despues de los eventos de Security Breach, respondiendo a un mensaje de Gregory pidiendo ayuda. El Pizzaplex esta en ruinas, parcialmente derrumbado y sumido en la oscuridad. Cassie descubre la mascara VANNI, que le otorga habilidades especiales pero tambien la conecta a una realidad distorsionada. Durante su aventura, enfrenta versiones corruptas de los Glamrocks y descubre la presencia del Mimico. Su relacion con Gregory y su valentia la convierten en una protagonista clave en la nueva era de FNaF.',
+      behavior: 'Humana protagonista. No es hostil. Depende de su mascara VANNI para progresar, resolver acertijos y sobrevivir a los encuentros con los animatronicos.',
+      appearances: ['FNaF: Security Breach - Ruin', 'FNaF: Help Wanted 2'],
+      relationships: [
+        { name: 'Gregory', relation: 'Amigo / Mision de rescate' },
+        { name: 'The Mimic', relation: 'Antagonista principal de su historia' },
+        { name: 'Vanessa/Vanny', relation: 'Su mascara VANNI esta conectada a ella' },
+        { name: 'Glamrock Freddy', relation: 'Aliado (si sobrevivio)' },
+        { name: 'Roxanne Wolf', relation: 'Enemiga (corrupta)' }
+      ],
+      trivia: [
+        'Es la primera protagonista femenina jugable en un juego principal de FNaF.',
+        'Su mascara VANNI le permite ver mensajes ocultos.',
+        'El DLC Ruin ocurre mucho despues de Security Breach.',
+        'Su busqueda de Gregory la lleva a descubrir secretos oscuros del Pizzaplex.',
+        'Aparece en Help Wanted 2 como personaje secundario.'
+      ]
+    },
+    {
+      id: 'handunit',
+      name: 'HandUnit',
+      alias: 'Unidad Manual / Asistente de Sister Location',
+      firstAppearance: "Five Nights at Freddy's: Sister Location (2016)",
+      status: 'Active',
+      threatLevel: 'N/A',
+      origin: "Circus Baby's Entertainment & Rental",
+      image: '',
+      category: 'Other',
+      description: 'HandUnit es la inteligencia artificial que guia al tecnico nocturno en Circus Baby\'s Entertainment & Rental. Con una voz alegre y profesional, proporciona instrucciones sobre como manejar a los animatronicos y navegar las instalaciones. Sin embargo, sus instrucciones son a veces deliberadamente peligrosas o incompletas, sugiriendo una agenda oculta.',
+      history: 'HandUnit fue programado por Fazbear Entertainment para asistir al personal nocturno de Circus Baby\'s Rental. Durante los eventos de Sister Location, HandUnit guia al protagonista (Michael Afton) a traves de las diferentes tareas, a menudo omitiendo informacion critica o dando instrucciones que ponen en peligro al tecnico. Su comportamiento sugiere que podria estar alineado con los intereses de William Afton o simplemente ser una IA defectuosa con protocolos corruptos.',
+      behavior: 'IA no hostil pero poco fiable. Proporciona instrucciones que pueden ser incompletas o peligrosas. Su tono alegre contrasta con las situaciones mortales que describe.',
+      appearances: ['FNaF: Sister Location'],
+      relationships: [
+        { name: 'Michael Afton', relation: 'Guia al protagonista' },
+        { name: 'Circus Baby', relation: 'Interactua con ella frecuentemente' },
+        { name: 'William Afton', relation: 'Posiblemente programado por el' }
+      ],
+      trivia: [
+        'Su personalidad alegre es intencionalmente perturbadora.',
+        'Nunca se revela quien lo programo.',
+        'Sus instrucciones a veces llevan directamente a la muerte del jugador.',
+        'Es la unica IA narrativa en Sister Location.',
+        'Su voz fue proporcionada por un actor de voz bajo el seudonimo de "HandUnit".'
+      ]
+    },
+    {
+      id: 'edwin',
+      name: 'Edwin Murray',
+      alias: 'Edwin / El Ingeniero / Creador del Mimico',
+      firstAppearance: "Five Nights at Freddy's: Secret of the Mimic (2025)",
+      status: 'Unknown',
+      threatLevel: 'N/A',
+      origin: 'Fazbear Entertainment / Murray Robotics',
+      image: '',
+      category: 'Human',
+      description: 'Edwin Murray es un brillante ingeniero roboticista que trabajo para Fazbear Entertainment. Es el creador original del Mimico (The Mimic), un endoesqueleto programado para imitar comportamientos. Su historia esta marcada por la tragedia personal y las consecuencias no intencionadas de sus creaciones. Aparece prominentemente en los libros Tales from the Pizzaplex y en Secret of the Mimic.',
+      history: 'Edwin comenzo su carrera en Fazbear Entertainment como ingeniero jefe, creando animatronicos avanzados. Despues de la muerte de su hijo David en un accidente, canalizo su dolor en la creacion del Mimico, un robot programado para imitar y aprender. Sin embargo, el Mimico interpreto tragicamente las acciones de Edwin, llevando a consecuencias desastrosas. Edwin eventualmente se distancio de Fazbear Entertainment, pero sus creaciones continuaron afectando el curso de la historia. Su legado es central en la narrativa moderna de FNaF.',
+      behavior: 'Humano no hostil. Es un personaje tragico cuyas intenciones originales eran buenas pero cuyas creaciones fueron malinterpretadas o mal utilizadas.',
+      appearances: ['FNaF: Secret of the Mimic', 'Tales from the Pizzaplex (libros)'],
+      relationships: [
+        { name: 'The Mimic', relation: 'Creador / Su creacion mas famosa' },
+        { name: 'David Murray', relation: 'Su hijo fallecido' },
+        { name: 'William Afton', relation: 'Companero de trabajo en Fazbear Entertainment' },
+        { name: 'Henry Emily', relation: 'Colega ingeniero' }
+      ],
+      trivia: [
+        'Es el creador original del Mimico.',
+        'La muerte de su hijo David fue el catalizador de los eventos de Secret of the Mimic.',
+        'Su tecnologia fue utilizada sin su consentimiento por Fazbear Entertainment.',
+        'Aparece en los libros Tales from the Pizzaplex antes de su debut en videojuegos.',
+        'Su historia es una de las mas tragicas del lore de FNaF.'
+      ]
+    },
+    {
+      id: 'animdude',
+      name: 'Animdude',
+      alias: 'Scott Cawthon / El Creador / Dios del Mundo FNaF',
+      firstAppearance: "Five Nights at Freddy's World (2016)",
+      status: 'Active',
+      threatLevel: 'N/A',
+      origin: 'Mundo FNaF',
+      image: '',
+      category: 'Other',
+      description: 'Animdude es el avatar de Scott Cawthon dentro del universo de FNaF World. Aparece como un personaje misterioso que observa y comenta sobre los eventos del juego. Representa al creador de la franquicia, apareciendo como un animatronico con forma de sol con gafas de sol. Es una figura meta que rompe la cuarta pared y reconoce la naturaleza virtual de su mundo.',
+      history: 'Animdude aparece en FNaF World como un personaje secreto y un jefe opcional. Cuando es derrotado, se revela como Scott Cawthon y agradece al jugador por jugar sus juegos. Es una entidad meta que existe fuera de las reglas normales del universo FNaF. Su presencia reconoce que FNaF World es un juego no canonico creado por Scott como un experimento de RPG. Ha aparecido en otros contextos como cameo en UCN.',
+      behavior: 'No hostil (a menos que se le busque como jefe). Es una figura meta que observa y ocasionalmente interactua con el jugador de formas que rompen la cuarta pared.',
+      appearances: ['FNaF World', 'UCN (cameo)'],
+      relationships: [
+        { name: 'Scott Cawthon', relation: 'Su representacion en el juego' },
+        { name: 'Freddy Fazbear', relation: 'Creado por el' }
+      ],
+      trivia: [
+        'Es una representacion directa de Scott Cawthon.',
+        'Aparece como un sol animatronico con gafas de sol.',
+        'Al derrotarlo, Scott agradece personalmente al jugador.',
+        'Es uno de los pocos personajes que rompe la cuarta pared.',
+        'Representa la naturaleza meta de FNaF World.'
+      ]
+    },
+    {
+      id: 'freddy-bully',
+      name: 'Freddy Bully',
+      alias: 'Hermano Mayor / El Bully de la Mascara de Freddy / Michael Afton (joven)',
+      firstAppearance: "Five Nights at Freddy's 4 (2015)",
+      status: 'Active',
+      threatLevel: 'N/A',
+      origin: 'Residencia de los Afton',
+      image: '',
+      category: 'Human',
+      description: 'El Freddy Bully es el hermano mayor del Crying Child en FNaF 4, conocido por usar una mascara de Freddy mientras el y sus amigos molestan a su hermano menor. Es el responsable indirecto del Bite of \'83, el incidente que desencadeno la tragedia de la familia Afton. La mayoria de la comunidad cree que este personaje es Michael Afton de joven.',
+      history: 'El Freddy Bully paso su tiempo molestando a su hermano menor con sus amigos (que usaban mascaras de Bonnie, Chica y Foxy). En el fatidico cumpleanos del Crying Child, los bullies lo asustaron y lo llevaron a la boca de Fredbear, resultando en el Bite of \'83 que mato al Crying Child. Este evento traumatico persiguio al Freddy Bully por el resto de su vida, llevandolo a buscar redencion. Se cree ampliamente que este personaje crecio para convertirse en Michael Afton, el protagonista de varios juegos de FNaF.',
+      behavior: 'Humano no hostil en el presente. Durante los eventos de FNaF 4, actua como antagonista que asusta a su hermano. Su culpa y remordimiento posterior lo definen como personaje tragico.',
+      appearances: ['FNaF 4', 'posiblemente Sister Location (como Michael)'],
+      relationships: [
+        { name: 'Crying Child', relation: 'Hermano menor / Victima del Bite of 83' },
+        { name: 'William Afton', relation: 'Padre' },
+        { name: 'Elizabeth Afton', relation: 'Hermana' },
+        { name: 'Michael Afton', relation: 'Identidad presumida' }
+      ],
+      trivia: [
+        'Se cree que es Michael Afton de joven.',
+        'Su accion provoco el Bite of \'83.',
+        'La culpa por la muerte de su hermano lo persiguio toda su vida.',
+        'Sus amigos usaban mascaras de Bonnie, Chica y Foxy.',
+        'Es uno de los personajes humanos mas importantes para entender la familia Afton.'
+      ]
+    },
+    {
+      id: 'cake-bot',
+      name: 'Cake Bot',
+      alias: 'Robot Pastelero / STAFF del Pizzaplex',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Pizzaplex Mega-Mall',
+      image: '',
+      category: 'Other',
+      description: 'Cake Bot es un robot de servicio encontrado en el Pizzaplex de Security Breach, especificamente en la pasteleria. Es un pequeno robot con tematica de pastel que sirve postres a los clientes. Forma parte del extenso elenco de robots STAFF del Pizzaplex, cada uno especializado en diferentes servicios.',
+      history: 'Cake Bot fue uno de los multiples robots de servicio desplegados en el Pizzaplex para atender a los clientes. Durante los eventos de Security Breach, puede ser encontrado en su estacion de trabajo, ajeno al caos que ocurre en el restaurante. No representa una amenaza directa para Gregory, pero forma parte del ecosistema de robots que pueblan el Pizzaplex.',
+      behavior: 'No hostil. Permanece en su area designada realizando tareas de servicio. Ignora al jugador a menos que sea interactuado.',
+      appearances: ['FNaF: Security Breach'],
+      relationships: [
+        { name: 'Staff Bots', relation: 'Companero robot de servicio' },
+        { name: 'Gregory', relation: 'Cliente/Visitante' }
+      ],
+      trivia: [
+        'Es uno de los muchos robots de servicio del Pizzaplex.',
+        'No representa ninguna amenaza para el jugador.',
+        'Su diseno esta tematizado como un pastel decorado.',
+        'Permanece en la zona de pasteleria del Pizzaplex.'
+      ]
+    },
+    {
+      id: 'wet-floor-bot',
+      name: 'Wet Floor Bot',
+      alias: 'Robot de Piso Mojado / Senial de Precaución',
+      firstAppearance: "Five Nights at Freddy's: Security Breach (2021)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: 'Pizzaplex Mega-Mall',
+      image: '',
+      category: 'Other',
+      description: 'Wet Floor Bot es un pequeno robot de limpieza en el Pizzaplex que lleva un letrero amarillo de "Piso Mojado". Se desliza por los pasillos limpiando y advirtiendo a los visitantes. Es uno de los robots mas iconicos de Security Breach por su diseno simple pero memorable.',
+      history: 'Wet Floor Bot fue desplegado en el Pizzaplex como parte del sistema de mantenimiento automatizado. Su funcion es simple: limpiar derrames y advertir a los clientes sobre pisos mojados. A pesar de su funcion mundana, se ha convertido en un favorito de los fans por su comportamiento persistente y su capacidad de aparecer en los momentos mas inoportunos. Durante el colapso del Pizzaplex, continuo realizando su rutina de limpieza, imperturbable ante el caos.',
+      behavior: 'No hostil. Patrulla los pasillos limpiando y mostrando su letrero. Puede ser derribado pero se levanta y continua. Su presencia es mas comica que amenazante.',
+      appearances: ['FNaF: Security Breach'],
+      relationships: [
+        { name: 'Staff Bots', relation: 'Companero robot de mantenimiento' },
+        { name: 'Gregory', relation: 'Visitante al que ignora' }
+      ],
+      trivia: [
+        'Se ha convertido en un icono comico de Security Breach.',
+        'Siempre lleva su letrero de "Piso Mojado".',
+        'Si es derribado, se levanta y continua como si nada.',
+        'Es uno de los pocos robots no hostiles del Pizzaplex.',
+        'Su diseno simple contrasta con los complejos Glamrocks.'
+      ]
     }
-
-
 ];
 
 // loaded
