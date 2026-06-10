@@ -68,6 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Load page data
   loadPage('home');
 
+  // Start color cycling
+  initColorCycling();
+
   // Start easter eggs
   setTimeout(initEasterEggs, 3000);
 
@@ -198,6 +201,35 @@ function triggerDistortion() {
   void el.offsetWidth;
   el.classList.add('active');
   setTimeout(() => el.classList.remove('active'), 500);
+}
+
+// =============================================
+// COLOR CYCLING
+// =============================================
+const themeColors = [
+  { primary: '#00FF66', glow: 'rgba(0,255,102,0.5)', glowDim: 'rgba(0,255,102,0.15)' },
+  { primary: '#00BFFF', glow: 'rgba(0,191,255,0.5)', glowDim: 'rgba(0,191,255,0.15)' },
+  { primary: '#CC66FF', glow: 'rgba(204,102,255,0.5)', glowDim: 'rgba(204,102,255,0.15)' },
+  { primary: '#FF4444', glow: 'rgba(255,68,68,0.5)', glowDim: 'rgba(255,68,68,0.15)' },
+  { primary: '#FF8C00', glow: 'rgba(255,140,0,0.5)', glowDim: 'rgba(255,140,0,0.15)' },
+  { primary: '#FF69B4', glow: 'rgba(255,105,180,0.5)', glowDim: 'rgba(255,105,180,0.15)' },
+  { primary: '#00E5FF', glow: 'rgba(0,229,255,0.5)', glowDim: 'rgba(0,229,255,0.15)' },
+  { primary: '#E6B800', glow: 'rgba(230,184,0,0.5)', glowDim: 'rgba(230,184,0,0.15)' },
+  { primary: '#FF1493', glow: 'rgba(255,20,147,0.5)', glowDim: 'rgba(255,20,147,0.15)' },
+  { primary: '#00FF66', glow: 'rgba(0,255,102,0.5)', glowDim: 'rgba(0,255,102,0.15)' },
+];
+
+let colorIndex = 0;
+
+function initColorCycling() {
+  const root = document.documentElement;
+  setInterval(() => {
+    colorIndex = (colorIndex + 1) % themeColors.length;
+    const c = themeColors[colorIndex];
+    root.style.setProperty('--theme-primary', c.primary);
+    root.style.setProperty('--theme-glow', c.glow);
+    root.style.setProperty('--theme-glow-dim', c.glowDim);
+  }, 6000);
 }
 
 // =============================================
@@ -533,33 +565,82 @@ window.handleBookClick = function(element, bookId) {
 };
 
 // =============================================
-// SERIES
+// VIDEOS
 // =============================================
+const videoData = [
+  // --- JUMPSCARES ---
+  { id: 'OUxQJxMQORA', title: 'FNaF 1 - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Compilacion completa de jumpscares de FNaF 1' },
+  { id: 'n0JdgL-VmR0', title: 'FNaF 2 - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Todos los jumpscares de FNaF 2 incluyendo Toy y Withered' },
+  { id: 'X9QNFwyeBZ8', title: 'FNaF 3 - Springtrap Jumpscare', category: 'JUMPSCARES', desc: 'El jumpscare de Springtrap en Fazbear\'s Fright' },
+  { id: '4qAv04yp5co', title: 'FNaF 4 - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Jumpscares de Nightmare Freddy, Bonnie, Chica, Foxy y Fredbear' },
+  { id: '9TI0CHQFqdA', title: 'Security Breach - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Jumpscares de Glamrock animatronics y DJ Music Man' },
+  { id: 'HEmQ_RP-ue4', title: '200+ Jumpscares - Todos los Juegos', category: 'JUMPSCARES', desc: 'Mega compilacion de mas de 200 jumpscares de toda la franquicia' },
+  { id: 'h85S0xv4E5Q', title: 'FNaF 2 - Jumpscare Compilation Clasico', category: 'JUMPSCARES', desc: 'Compilacion clasica de FNaF 2 con Toy y Mangle' },
+  { id: 'a1n1_oSaJWo', title: 'FNaF Sister Location - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Jumpscares de Funtime animatronics en Circus Baby\'s' },
+  { id: 'gJow7hdclcg', title: 'FNaF 6 FFPS - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Jumpscares de Scrap Baby, Molten Freddy y Lefty' },
+  { id: 'p_r3tFQw-N8', title: 'UCN - Todos los Jumpscares + 50/20', category: 'JUMPSCARES', desc: 'Ultimate Custom Night con todos los animatronicos' },
+
+  // --- ANALOGICO / VHS ---
+  { id: 'VMJErb9-Qxo', title: 'Battington FNAF VHS Tapes', category: 'ANALOGICO', desc: 'La serie de terror analogico mas famosa de FNAF por Battington' },
+  { id: 'Ak0VdbWsYKU', title: 'FNAF VHS - Tape 1 (Battington)', category: 'ANALOGICO', desc: 'Primera cinta VHS del estilo analog horror de FNAF' },
+  { id: '5zS5Z6Qp7zQ', title: 'FNAF VHS - Tape 2 (Battington)', category: 'ANALOGICO', desc: 'Segunda cinta VHS - Los animatronicos cobran vida' },
+  { id: 'LJ3fH24kH0s', title: 'FNAF VHS - Tape 3 (Battington)', category: 'ANALOGICO', desc: 'Tercera cinta VHS - El restaurante esta embrujado' },
+  { id: 'AjkSYlDNNa0', title: 'FNAF VHS - The Tape (Squimpus)', category: 'ANALOGICO', desc: 'Serie analog horror clasica de Squimpus McGrimpus' },
+  { id: 'QtqS7hVCYXc', title: 'FNAF VHS - Foxy Tape (Squimpus)', category: 'ANALOGICO', desc: 'La cinta de Foxy - estilo found footage aterrador' },
+  { id: 'JQv0rOzQscQ', title: 'FNAF VHS - Golden Years (Walten Files)', category: 'ANALOGICO', desc: 'Estilo analog horror inspirado en FNAF con historia propia' },
+
+  // --- AMBIENTAL ---
+  { id: 'iOhD6pv2s-Y', title: 'FNaF 1 Ambience - 1 Hora', category: 'AMBIENTAL', desc: 'Ambientacion extendida de FNaF 1 para dormir o estudiar' },
+  { id: '5Evk6JFMzGg', title: 'FNaF 1 - Power Out Ambience', category: 'AMBIENTAL', desc: 'La ambientacion iconica cuando se acaba la energia' },
+  { id: 'YQ940SRcp-U', title: 'FNaF 3 - Office Ambience', category: 'AMBIENTAL', desc: 'Atmosfera de la oficina de Fazbear\'s Fright' },
+  { id: 'fJIhjGSD3-0', title: 'FNaF Ambience Extended', category: 'AMBIENTAL', desc: 'Coleccion extendida de ambientacion de los juegos originales' },
+  { id: '9MbxG_30F_4', title: 'FNaF Sister Location - Ambience', category: 'AMBIENTAL', desc: 'La atmosfera inquietante de Circus Baby\'s Rental' },
+  { id: '0RjED_8MsCk', title: 'FNaF 4 - Bedroom Ambience', category: 'AMBIENTAL', desc: 'La habitacion de FNaF 4 con sonidos ambientales de noche' },
+  { id: 'IqEQBrZP5N4', title: 'FNaF Pizzeria Simulator - Ambience', category: 'AMBIENTAL', desc: 'Ambientacion de la pizzeria falsa de Henry Emily' },
+
+  // --- GAMEPLAY ---
+  { id: 'Ff7zoYvlin4', title: 'Security Breach - Full Game Walkthrough', category: 'GAMEPLAY', desc: 'Walkthrough completo sin commentary de Security Breach' },
+  { id: 'OF-5gCadqyU', title: 'Security Breach - Full Game', category: 'GAMEPLAY', desc: 'Juego completo mostrando todas las areas y encuentros' },
+  { id: 'ocWVd7ZXlsY', title: 'Help Wanted VR - Full Gameplay', category: 'GAMEPLAY', desc: 'Experiencia completa de Help Wanted en VR' },
+  { id: 'xYwP_pvM6u0', title: 'Security Breach Ruin - Full DLC', category: 'GAMEPLAY', desc: 'Walkthrough completo del DLC Ruin jugando como Cassie' },
+  { id: 'efBXTJI2gnI', title: 'Five Nights at Freddy\'s 1 - Full Game', category: 'GAMEPLAY', desc: 'Juego completo de FNaF 1 con todas las noches' },
+  { id: 'x8x1l4YjnZ8', title: 'FNaF 2 - Full Game Gameplay', category: 'GAMEPLAY', desc: 'Juego completo de Five Nights at Freddy\'s 2' },
+  { id: 'Wxq7s4Qp2Q0', title: 'FNaF 3 - Full Game Gameplay', category: 'GAMEPLAY', desc: 'Juego completo de Five Nights at Freddy\'s 3' },
+  { id: 'BXHYhVGFQN0', title: 'FNaF 4 - Full Game Gameplay', category: 'GAMEPLAY', desc: 'Juego completo de Five Nights at Freddy\'s 4' },
+
+  // --- MUSICA / FAN SONGS ---
+  { id: 's_pYPRdGTOk', title: 'Five Nights at Freddy\'s - The Living Tombstone', category: 'MUSICA', desc: 'La cancion original de FNAF que empezo todo - The Living Tombstone' },
+  { id: '8lMb7o-sAlI', title: 'It\'s Been So Long - The Living Tombstone', category: 'MUSICA', desc: 'La segunda cancion iconica de FNAF 2 por The Living Tombstone' },
+  { id: '0Z1B1Yd4_RI', title: 'Die in a Fire - The Living Tombstone', category: 'MUSICA', desc: 'Cancion de FNAF 3 - The Living Tombstone' },
+  { id: 'uQ5JLv0Pq9A', title: 'I Can\'t Fix You - The Living Tombstone', category: 'MUSICA', desc: 'Cancion de FNAF Sister Location - The Living Tombstone' },
+  { id: 'LiALxiMpsAA', title: 'Join Us for a Bite - JT Music', category: 'MUSICA', desc: 'Cancion de FNAF 1 por JT Music - rap de Five Nights' },
+  { id: 'J4Mhn3x2J5g', title: 'FNAF Rap - JT Music', category: 'MUSICA', desc: 'JT Music y su rap de Five Nights at Freddy\'s' },
+  { id: 'BjB4uG-jjqI', title: 'I Got No Time - The Living Tombstone', category: 'MUSICA', desc: 'Cancion de FNAF World por The Living Tombstone' },
+  { id: 'bkwN0_WNpmk', title: 'Five Nights at Freddy\'s Song - CG5', category: 'MUSICA', desc: 'CG5 canta sobre Five Nights at Freddy\'s' },
+
+  // --- LORE / TEORIAS ---
+  { id: 'gWOXSh4-Iuc', title: 'FNAF - The ULTIMATE Timeline', category: 'LORE', desc: 'Game Theory explica la linea temporal completa de FNAF' },
+  { id: 'SugbaghWhqg', title: 'Inicio de la Timeline FNAF', category: 'LORE', desc: 'Explicacion del inicio de la cronologia y los primeros incidentes' },
+  { id: 'J3w9YQ5mC08', title: 'FNAF - La Historia Completa', category: 'LORE', desc: 'La historia completa de Five Nights at Freddy\'s explicada' },
+  { id: 'TQZqsp4eI48', title: 'FNAF Timeline - Explicacion 2023', category: 'LORE', desc: 'La linea temporal de Five Nights at Freddy\'s actualizada' },
+  { id: '9UFtKwBfCdQ', title: 'Identity of The Crying Child', category: 'LORE', desc: 'Teoria sobre la identidad del nino que llora en FNAF 4' },
+  { id: 'GZoY__8kX9g', title: 'FNAF - The Afton Family Story', category: 'LORE', desc: 'La historia completa de la familia Afton explicada' },
+  { id: '0DP8ts4IEag', title: 'FNAF Security Breach - Secretos y Teorias', category: 'LORE', desc: 'Todos los secretos y teorias de Security Breach' },
+
+  // --- PELICULA ---
+  { id: 'moQp0Bu2Grs', title: 'FNaF Movie - Detras de Escena', category: 'PELICULA', desc: 'Detras de escena de los animatronicos de la pelicula' },
+  { id: '0-tHiHp_QC0', title: 'Five Nights at Freddy\'s - Trailer Oficial', category: 'PELICULA', desc: 'El trailer oficial de la pelicula de Five Nights at Freddy\'s' },
+  { id: '6N5f4f4qr1Y', title: 'FNAF Movie - All Scenes animatronicos', category: 'PELICULA', desc: 'Todas las escenas de los animatronicos en la pelicula' },
+  { id: 'aFVN52N1j4Y', title: 'FNAF Movie - Ending Explicado', category: 'PELICULA', desc: 'Analisis y explicacion del final de la pelicula de FNAF' },
+];
+
+const videosPerPage = 8;
+let videoPage = 1;
+let currentVideoFilter = 'TODOS';
+
 function renderVideos() {
   const grid = $('#videos-grid');
-  const videos = [
-    { id: 'OUxQJxMQORA', title: 'FNaF 1 - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Compilacion completa de jumpscares de FNaF 1' },
-    { id: 'n0JdgL-VmR0', title: 'FNaF 2 - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Todos los jumpscares de FNaF 2 incluyendo Toy y Withered' },
-    { id: 'X9QNFwyeBZ8', title: 'FNaF 3 - Springtrap Jumpscare', category: 'JUMPSCARES', desc: 'El jumpscare de Springtrap en Fazbear\'s Fright' },
-    { id: '4qAv04yp5co', title: 'FNaF 4 - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Jumpscares de Nightmare Freddy, Bonnie, Chica, Foxy y Fredbear' },
-    { id: '9TI0CHQFqdA', title: 'Security Breach - Jumpscares', category: 'JUMPSCARES', desc: 'Jumpscares de Glamrock animatronics y DJ Music Man' },
-    { id: 'HEmQ_RP-ue4', title: '200+ Jumpscares - Todos los Juegos', category: 'JUMPSCARES', desc: 'Mega compilacion de mas de 200 jumpscares de toda la franquicia' },
-    { id: 'h85S0xv4E5Q', title: 'FNaF 2 - Jumpscare Compilation Clasico', category: 'JUMPSCARES', desc: 'Compilacion clasica de FNaF 2 con Toy y Mangle' },
-    { id: 'VMJErb9-Qxo', title: 'Battington FNAF VHS Tapes', category: 'ANALOGICO', desc: 'La serie de terror analogico mas famosa de FNAF' },
-    { id: 'iOhD6pv2s-Y', title: 'FNaF 1 Ambience - 1 Hora', category: 'AMBIENTAL', desc: 'Ambientacion extendida de FNaF 1 para dormir o estudiar' },
-    { id: '5Evk6JFMzGg', title: 'FNaF 1 - Power Out Ambience', category: 'AMBIENTAL', desc: 'La ambientacion iconica cuando se acaba la energia' },
-    { id: 'YQ940SRcp-U', title: 'FNaF 3 - Office Ambience', category: 'AMBIENTAL', desc: 'Atmosfera de la oficina de Fazbear\'s Fright' },
-    { id: 'fJIhjGSD3-0', title: 'FNaF Ambience Extended', category: 'AMBIENTAL', desc: 'Coleccion extendida de ambientacion de los juegos originales' },
-    { id: 'moQp0Bu2Grs', title: 'FNaF Movie - Animatronics Jumpscare', category: 'PELICULA', desc: 'Detras de escena de los animatronicos de la pelicula' },
-    { id: 'Ff7zoYvlin4', title: 'Security Breach - Full Game Walkthrough', category: 'GAMEPLAY', desc: 'Walkthrough completo sin commentary de Security Breach' },
-    { id: 'OF-5gCadqyU', title: 'Security Breach - Full Game No Commentary', category: 'GAMEPLAY', desc: 'Juego completo mostrando todas las areas y encuentros' },
-    { id: 'ocWVd7ZXlsY', title: 'Help Wanted VR - Full Gameplay', category: 'GAMEPLAY', desc: 'Experiencia completa de Help Wanted en VR' },
-    { id: 'xYwP_pvM6u0', title: 'Security Breach Ruin - Full DLC', category: 'GAMEPLAY', desc: 'Walkthrough completo del DLC Ruin jugando como Cassie' },
-    { id: 'gWOXSh4-Iuc', title: 'FNAF - The ULTIMATE Timeline', category: 'LORE', desc: 'Game Theory explica la linea temporal completa de FNAF' },
-    { id: 'SugbaghWhqg', title: 'Inicio de la Timeline FNAF', category: 'LORE', desc: 'Explicacion del inicio de la cronologia y los primeros muertos' },
-  ];
-
-  const categories = ['TODOS', 'JUMPSCARES', 'ANALOGICO', 'AMBIENTAL', 'PELICULA', 'GAMEPLAY', 'LORE'];
+  const categories = ['TODOS', 'JUMPSCARES', 'ANALOGICO', 'AMBIENTAL', 'GAMEPLAY', 'MUSICA', 'LORE', 'PELICULA'];
 
   grid.innerHTML = `
     <div class="videos-filters" id="videos-filters">
@@ -572,39 +653,77 @@ function renderVideos() {
         <div class="video-player-title" id="video-player-title"></div>
       </div>
     </div>
-    <div class="videos-list" id="videos-list">
-      ${videos.map(v => `
-        <div class="video-card" data-category="${v.category}" onclick="openVideoPlayer('${v.id}', '${v.title.replace(/'/g, "\\'")}')">
-          <div class="video-thumb">
-            <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" alt="${v.title}" loading="lazy">
-            <div class="video-play">&#9654;</div>
-            <div class="video-scanlines"></div>
-          </div>
-          <div class="video-info">
-            <div class="video-category">${v.category}</div>
-            <div class="video-title">${v.title}</div>
-            <div class="video-desc">${v.desc}</div>
-          </div>
-        </div>
-      `).join('')}
-    </div>
+    <div class="videos-list" id="videos-list"></div>
+    <div class="videos-pagination" id="videos-pagination"></div>
   `;
+
+  videoPage = 1;
+  currentVideoFilter = 'TODOS';
+  renderVideoPage();
 
   $$('#videos-filters .filter-tag').forEach(btn => {
     btn.addEventListener('click', () => {
       $$('#videos-filters .filter-tag').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const cat = btn.dataset.vfilter;
-      $$('.video-card').forEach(card => {
-        if (cat === 'TODOS' || card.dataset.category === cat) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      currentVideoFilter = btn.dataset.vfilter;
+      videoPage = 1;
+      renderVideoPage();
     });
   });
 }
+
+function renderVideoPage() {
+  const list = $('#videos-list');
+  const pagination = $('#videos-pagination');
+  if (!list) return;
+
+  const filtered = currentVideoFilter === 'TODOS'
+    ? videoData
+    : videoData.filter(v => v.category === currentVideoFilter);
+
+  const totalPages = Math.ceil(filtered.length / videosPerPage);
+  const start = (videoPage - 1) * videosPerPage;
+  const pageVideos = filtered.slice(start, start + videosPerPage);
+
+  list.innerHTML = pageVideos.map(v => `
+    <div class="video-card" data-category="${v.category}" onclick="openVideoPlayer('${v.id}', '${v.title.replace(/'/g, "\\'")}')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" alt="${v.title}" loading="lazy">
+        <div class="video-play">&#9654;</div>
+        <div class="video-scanlines"></div>
+      </div>
+      <div class="video-info">
+        <div class="video-category">${v.category}</div>
+        <div class="video-title">${v.title}</div>
+        <div class="video-desc">${v.desc}</div>
+      </div>
+    </div>
+  `).join('');
+
+  // Pagination
+  if (totalPages <= 1) {
+    pagination.innerHTML = '';
+    return;
+  }
+
+  let pagHtml = '<div class="videos-pagination-inner">';
+  pagHtml += `<button class="video-page-btn" onclick="changeVideoPage(${videoPage - 1})" ${videoPage <= 1 ? 'disabled' : ''}>&#9664; ANTERIOR</button>`;
+  pagHtml += `<span class="video-page-info">${videoPage} / ${totalPages}</span>`;
+  pagHtml += `<button class="video-page-btn" onclick="changeVideoPage(${videoPage + 1})" ${videoPage >= totalPages ? 'disabled' : ''}>SIGUIENTE &#9654;</button>`;
+  pagHtml += '</div>';
+  pagination.innerHTML = pagHtml;
+}
+
+window.changeVideoPage = function(page) {
+  const filtered = currentVideoFilter === 'TODOS'
+    ? videoData
+    : videoData.filter(v => v.category === currentVideoFilter);
+  const totalPages = Math.ceil(filtered.length / videosPerPage);
+  if (page < 1 || page > totalPages) return;
+  videoPage = page;
+  renderVideoPage();
+  document.getElementById('videos-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
 
 window.openVideoPlayer = (id, title) => {
   const container = document.getElementById('video-player-container');
