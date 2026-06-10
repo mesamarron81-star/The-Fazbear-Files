@@ -62,6 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeaderStatus();
   initVHSTimestamp();
   initDatabaseCards();
+  initHeroIndicators();
+  initCameraMap();
 
   // Load page data
   loadPage('home');
@@ -163,8 +165,8 @@ function loadPage(page) {
     case 'books':
       renderBooks();
       break;
-    case 'series':
-      renderSeries();
+    case 'videos':
+      renderVideos();
       break;
     case 'history':
       renderHistory();
@@ -525,32 +527,94 @@ window.handleBookClick = function(element, bookId) {
 // =============================================
 // SERIES
 // =============================================
-function renderSeries() {
-  const grid = $('#series-grid');
-  const seriesData = [
-    { id: 'fnaf-1', title: 'FNaF 1', year: '2014' },
-    { id: 'fnaf-2', title: 'FNaF 2', year: '2014' },
-    { id: 'fnaf-3', title: 'FNaF 3', year: '2015' },
-    { id: 'fnaf-4', title: 'FNaF 4', year: '2015' },
-    { id: 'fnaf-sl', title: 'Sister Location', year: '2016' },
-    { id: 'fnaf-ps', title: 'Pizzeria Simulator', year: '2017' },
-    { id: 'fnaf-ucn', title: 'Ultimate Custom Night', year: '2018' },
-    { id: 'fnaf-vr', title: 'Help Wanted', year: '2019' },
-    { id: 'fnaf-sb', title: 'Security Breach', year: '2021' },
-    { id: 'fnaf-hw2', title: 'Help Wanted 2', year: '2023' },
-    { id: 'fnaf-movie', title: 'La Película', year: '2023' },
-    { id: 'fnaf-sotm', title: 'Secret of the Mimic', year: '2026' },
+function renderVideos() {
+  const grid = $('#videos-grid');
+  const videos = [
+    { id: 'OUxQJxMQORA', title: 'FNaF 1 - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Compilacion completa de jumpscares de FNaF 1' },
+    { id: 'n0JdgL-VmR0', title: 'FNaF 2 - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Todos los jumpscares de FNaF 2 incluyendo Toy y Withered' },
+    { id: 'X9QNFwyeBZ8', title: 'FNaF 3 - Springtrap Jumpscare', category: 'JUMPSCARES', desc: 'El jumpscare de Springtrap en Fazbear\'s Fright' },
+    { id: '4qAv04yp5co', title: 'FNaF 4 - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Jumpscares de Nightmare Freddy, Bonnie, Chica, Foxy y Fredbear' },
+    { id: '9TI0CHQFqdA', title: 'Security Breach - Jumpscares', category: 'JUMPSCARES', desc: 'Jumpscares de Glamrock animatronics y DJ Music Man' },
+    { id: 'HEmQ_RP-ue4', title: '200+ Jumpscares - Todos los Juegos', category: 'JUMPSCARES', desc: 'Mega compilacion de mas de 200 jumpscares de toda la franquicia' },
+    { id: 'h85S0xv4E5Q', title: 'FNaF 2 - Jumpscare Compilation Clasico', category: 'JUMPSCARES', desc: 'Compilacion clasica de FNaF 2 con Toy y Mangle' },
+    { id: 'VMJErb9-Qxo', title: 'Battington FNAF VHS Tapes', category: 'ANALOGICO', desc: 'La serie de terror analogico mas famosa de FNAF' },
+    { id: 'iOhD6pv2s-Y', title: 'FNaF 1 Ambience - 1 Hora', category: 'AMBIENTAL', desc: 'Ambientacion extendida de FNaF 1 para dormir o estudiar' },
+    { id: '5Evk6JFMzGg', title: 'FNaF 1 - Power Out Ambience', category: 'AMBIENTAL', desc: 'La ambientacion iconica cuando se acaba la energia' },
+    { id: 'YQ940SRcp-U', title: 'FNaF 3 - Office Ambience', category: 'AMBIENTAL', desc: 'Atmosfera de la oficina de Fazbear\'s Fright' },
+    { id: 'fJIhjGSD3-0', title: 'FNaF Ambience Extended', category: 'AMBIENTAL', desc: 'Coleccion extendida de ambientacion de los juegos originales' },
+    { id: 'moQp0Bu2Grs', title: 'FNaF Movie - Animatronics Jumpscare', category: 'PELICULA', desc: 'Detras de escena de los animatronicos de la pelicula' },
+    { id: 'Ff7zoYvlin4', title: 'Security Breach - Full Game Walkthrough', category: 'GAMEPLAY', desc: 'Walkthrough completo sin commentary de Security Breach' },
+    { id: 'OF-5gCadqyU', title: 'Security Breach - Full Game No Commentary', category: 'GAMEPLAY', desc: 'Juego completo mostrando todas las areas y encuentros' },
+    { id: 'ocWVd7ZXlsY', title: 'Help Wanted VR - Full Gameplay', category: 'GAMEPLAY', desc: 'Experiencia completa de Help Wanted en VR' },
+    { id: 'xYwP_pvM6u0', title: 'Security Breach Ruin - Full DLC', category: 'GAMEPLAY', desc: 'Walkthrough completo del DLC Ruin jugando como Cassie' },
+    { id: 'gWOXSh4-Iuc', title: 'FNAF - The ULTIMATE Timeline', category: 'LORE', desc: 'Game Theory explica la linea temporal completa de FNAF' },
+    { id: 'SugbaghWhqg', title: 'Inicio de la Timeline FNAF', category: 'LORE', desc: 'Explicacion del inicio de la cronologia y los primeros muertos' },
   ];
 
-  grid.innerHTML = seriesData.map(s => `
-    <div class="vhs-tape" onclick="navigateTo('games')">
-      <div class="vhs-spine">
-        <div style="font-family:'Press Start 2P',monospace;font-size:24px;color:#333;letter-spacing:3px;">◆</div>
-      </div>
-      <div class="vhs-label">${s.title} (${s.year})</div>
+  const categories = ['TODOS', 'JUMPSCARES', 'ANALOGICO', 'AMBIENTAL', 'PELICULA', 'GAMEPLAY', 'LORE'];
+
+  grid.innerHTML = `
+    <div class="videos-filters" id="videos-filters">
+      ${categories.map((cat, i) => `<button class="filter-tag ${i === 0 ? 'active' : ''}" data-vfilter="${cat}">${cat}</button>`).join('')}
     </div>
-  `).join('');
+    <div class="video-player-container" id="video-player-container" style="display:none;">
+      <div class="video-player-inner">
+        <button class="video-player-close" onclick="closeVideoPlayer()">&times;</button>
+        <div class="video-player-embed" id="video-player-embed"></div>
+        <div class="video-player-title" id="video-player-title"></div>
+      </div>
+    </div>
+    <div class="videos-list" id="videos-list">
+      ${videos.map(v => `
+        <div class="video-card" data-category="${v.category}" onclick="openVideoPlayer('${v.id}', '${v.title.replace(/'/g, "\\'")}')">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" alt="${v.title}" loading="lazy">
+            <div class="video-play">&#9654;</div>
+            <div class="video-scanlines"></div>
+          </div>
+          <div class="video-info">
+            <div class="video-category">${v.category}</div>
+            <div class="video-title">${v.title}</div>
+            <div class="video-desc">${v.desc}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  $$('#videos-filters .filter-tag').forEach(btn => {
+    btn.addEventListener('click', () => {
+      $$('#videos-filters .filter-tag').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.vfilter;
+      $$('.video-card').forEach(card => {
+        if (cat === 'TODOS' || card.dataset.category === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
 }
+
+window.openVideoPlayer = (id, title) => {
+  const container = document.getElementById('video-player-container');
+  const embed = document.getElementById('video-player-embed');
+  const titleEl = document.getElementById('video-player-title');
+  embed.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+  titleEl.textContent = title;
+  container.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeVideoPlayer = () => {
+  const container = document.getElementById('video-player-container');
+  const embed = document.getElementById('video-player-embed');
+  embed.innerHTML = '';
+  container.style.display = 'none';
+  document.body.style.overflow = '';
+};
 
 // =============================================
 // HISTORY
@@ -1607,7 +1671,7 @@ document.addEventListener('keydown', (e) => {
   }
 
   // 1-9 = navigation
-  const navKeys = ['home', 'characters', 'games', 'books', 'series', 'history', 'music', 'blog', 'admin'];
+  const navKeys = ['home', 'characters', 'games', 'books', 'videos', 'history', 'music', 'blog', 'admin'];
   const num = parseInt(e.key);
   if (num >= 1 && num <= 9) {
     e.preventDefault();
@@ -1615,6 +1679,158 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-console.log('%c⚠ THE FAZBEAR FILES ⚠', 'font-size:24px;color:#FF2222;font-weight:bold;');
+// =============================================
+// HERO COMMAND CENTER - REAL-TIME INDICATORS
+// =============================================
+function initHeroIndicators() {
+  const uptimeEl = $('#hero-uptime');
+  const powerEl = $('#hero-power');
+  const startTime = Date.now();
+
+  function updateUptime() {
+    if (!uptimeEl) return;
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    const h = String(Math.floor(elapsed / 3600)).padStart(2, '0');
+    const m = String(Math.floor((elapsed % 3600) / 60)).padStart(2, '0');
+    const s = String(elapsed % 60).padStart(2, '0');
+    uptimeEl.textContent = h + ':' + m + ':' + s;
+  }
+
+  function updatePower() {
+    if (!powerEl) return;
+    const power = Math.floor(Math.random() * 6 + 82);
+    powerEl.textContent = power + '%';
+    const fill = document.querySelector('.hero-indicator:nth-child(3) .hero-indicator__fill');
+    if (fill) fill.style.width = power + '%';
+  }
+
+  updateUptime();
+  setInterval(updateUptime, 1000);
+  setInterval(updatePower, 5000);
+}
+
+// =============================================
+// INTERACTIVE CAMERA MAP
+// =============================================
+var cameraData = {
+  'cam-01': {
+    name: 'CAM-01 / PARTS & SERVICE',
+    status: 'online', statusLabel: 'ONLINE',
+    activity: 'Hace 5 min', signal: '94%', resolution: '480p',
+    animatronics: ['ENDO-01', 'ENDO-02'],
+    animatronicStatus: ['safe', 'safe']
+  },
+  'cam-02': {
+    name: 'CAM-02 / SHOW STAGE',
+    status: 'online', statusLabel: 'ONLINE',
+    activity: 'Hace 2 min', signal: '98%', resolution: '720p',
+    animatronics: ['FREDDY', 'BONNIE', 'CHICA'],
+    animatronicStatus: ['alert', 'alert', 'alert']
+  },
+  'cam-03': {
+    name: 'CAM-03 / DINING AREA',
+    status: 'online', statusLabel: 'ONLINE',
+    activity: 'Hace 1 min', signal: '99%', resolution: '720p',
+    animatronics: [],
+    animatronicStatus: []
+  },
+  'cam-04': {
+    name: 'CAM-04 / BACKSTAGE',
+    status: 'offline', statusLabel: 'OFFLINE',
+    activity: 'Desconocida', signal: '0%', resolution: 'N/A',
+    animatronics: [],
+    animatronicStatus: []
+  },
+  'cam-05': {
+    name: 'CAM-05 / OFFICE',
+    status: 'online', statusLabel: 'ONLINE',
+    activity: 'En vivo', signal: '100%', resolution: '1080p',
+    animatronics: [],
+    animatronicStatus: []
+  },
+  'cam-06': {
+    name: 'CAM-06 / PRIZE CORNER',
+    status: 'warning', statusLabel: 'ALERTA',
+    activity: 'Hace 30 seg', signal: '72%', resolution: '720p',
+    animatronics: ['MANGLE'],
+    animatronicStatus: ['alert']
+  },
+  'cam-07': {
+    name: 'CAM-07 / ARCADE',
+    status: 'online', statusLabel: 'ONLINE',
+    activity: 'Hace 8 min', signal: '91%', resolution: '720p',
+    animatronics: [],
+    animatronicStatus: []
+  },
+  'cam-08': {
+    name: 'CAM-08 / KITCHEN',
+    status: 'offline', statusLabel: 'OFFLINE',
+    activity: 'Desconocida', signal: '0%', resolution: 'N/A',
+    animatronics: [],
+    animatronicStatus: []
+  }
+};
+
+window.selectCamera = function(camId) {
+  var cam = cameraData[camId];
+  if (!cam) return;
+
+  var nameEl = $('#cam-info-name');
+  var statusEl = $('#cam-info-status');
+  var activityEl = $('#cam-info-activity');
+  var signalEl = $('#cam-info-signal');
+  var animEl = $('#cam-info-animatronics');
+
+  if (nameEl) nameEl.textContent = cam.name;
+
+  if (statusEl) {
+    statusEl.textContent = cam.statusLabel;
+    statusEl.className = 'cam-info-card__status cam-info-card__status--' + cam.status;
+  }
+
+  if (activityEl) {
+    activityEl.textContent = cam.activity;
+    activityEl.className = 'cam-info-card__value';
+    if (cam.status === 'online') activityEl.classList.add('cam-info-card__value--green');
+    else if (cam.status === 'offline') activityEl.classList.add('cam-info-card__value--red');
+    else activityEl.classList.add('cam-info-card__value--yellow');
+  }
+
+  if (signalEl) signalEl.textContent = cam.signal;
+
+  if (animEl) {
+    if (cam.animatronics.length === 0) {
+      animEl.innerHTML = '<span class="cam-animatronic-tag cam-animatronic-tag--safe">NINGUNO DETECTADO</span>';
+    } else {
+      animEl.innerHTML = cam.animatronics.map(function(a, i) {
+        var cls = cam.animatronicStatus[i] === 'safe' ? 'cam-animatronic-tag--safe' : '';
+        return '<span class="cam-animatronic-tag ' + cls + '">' + a + '</span>';
+      }).join('');
+    }
+  }
+
+  // Highlight selected dot
+  $$('.cam-dot').forEach(function(dot) {
+    dot.style.opacity = dot.dataset.cam === camId ? '1' : '0.5';
+  });
+  setTimeout(function() {
+    $$('.cam-dot').forEach(function(dot) { dot.style.opacity = '1'; });
+  }, 2000);
+};
+
+// Initialize camera map
+function initCameraMap() {
+  $$('.cam-dot').forEach(function(dot) {
+    dot.addEventListener('mouseenter', function() {
+      var camId = dot.dataset.cam;
+      if (camId) selectCamera(camId);
+    });
+  });
+
+  // Default selection
+  selectCamera('cam-02');
+}
+
+console.log('%cTHE FAZBEAR FILES', 'font-size:24px;color:#FF2222;font-weight:bold;');
 console.log('%cAcceso no autorizado detectado.', 'font-size:14px;color:#00FF66;');
 console.log('%cEste sistema contiene material clasificado de Fazbear Entertainment.', 'font-size:12px;color:#888;');
