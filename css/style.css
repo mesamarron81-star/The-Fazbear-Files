@@ -514,6 +514,10 @@ a:hover {
 /* =============================================
    HORIZONTAL TIMELINE (FRANCHISE)
    ============================================= */
+
+/* =============================================
+   HORIZONTAL TIMELINE (FRANCHISE)
+   ============================================= */
 .timeline-horizontal {
   position: relative;
   padding: 40px 0 60px;
@@ -4780,22 +4784,6 @@ body::after {
   letter-spacing: 2px;
 }
 
-.db-card-btn {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 11px;
-  color: #00FF66;
-  letter-spacing: 1px;
-  padding: 6px 12px;
-  border: 1px solid rgba(0, 255, 102, 0.4);
-  transition: all 0.2s;
-}
-
-.db-card:hover .db-card-btn {
-  background: rgba(0, 255, 102, 0.1);
-  border-color: #00FF66;
-  box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
-}
-
 .db-card-glitch {
   position: absolute;
   inset: 0;
@@ -4808,6 +4796,41 @@ body::after {
 .db-card:hover .db-card-glitch {
   opacity: 1;
   animation: card-glitch 0.3s ease-in-out;
+}
+
+/* --- Preview thumbnails grid --- */
+.db-card-previews {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  width: 110px;
+  height: 80px;
+  z-index: 3;
+  opacity: 0.35;
+  pointer-events: none;
+  transition: opacity 0.4s;
+  overflow: hidden;
+  border-top: 1px solid rgba(0,255,102,0.1);
+  border-left: 1px solid rgba(0,255,102,0.1);
+}
+
+.db-card:hover .db-card-previews {
+  opacity: 0.7;
+}
+
+.db-card-previews img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6) saturate(0.5) contrast(1.1);
+  transition: filter 0.4s;
+}
+
+.db-card:hover .db-card-previews img {
+  filter: brightness(0.8) saturate(0.8) contrast(1.15);
 }
 
 @keyframes card-glitch {

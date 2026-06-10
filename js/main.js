@@ -101,6 +101,15 @@ function initDate() {
 // NAVIGATION
 // =============================================
 function initNavigation() {
+  // Logo click -> home
+  const logo = document.querySelector('.logo');
+  if (logo) {
+    logo.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateTo('home');
+    });
+  }
+
   const links = $$('#main-nav a');
   links.forEach(link => {
     link.addEventListener('click', (e) => {
@@ -195,7 +204,6 @@ function triggerDistortion() {
 // HOME
 // =============================================
 function renderHome() {
-  // Timeline
   renderTimelineHorizontal();
 }
 
