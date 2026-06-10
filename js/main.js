@@ -1736,8 +1736,43 @@ window.showCharacterModal = (id) => {
         <div class="char-modal__section-title">
           <span class="char-modal__section-icon">&#9679;</span> APARICIONES
         </div>
-        <div class="char-modal__tags-row">
-          ${appearances.map(a => `<span class="char-modal__appear-tag">${a}</span>`).join('')}
+        <div class="char-modal__appearances-row">
+          ${appearances.map(a => {
+            const matchGame = window.games ? window.games.find(g => {
+              const title = g.title.toLowerCase();
+              const search = a.toLowerCase();
+              return title.includes(search) || search.includes(title) ||
+                     (g.id === 'fnaf-1' && (search.includes('fnaf 1') || search.includes('five nights at freddy\'s') && !search.includes('2') && !search.includes('3') && !search.includes('4') && !search.includes('world') && !search.includes('sister') && !search.includes('pizzeria') && !search.includes('ultimate') && !search.includes('vr') && !search.includes('security') && !search.includes('help wanted') && !search.includes('secret'))) ||
+                     (g.id === 'fnaf-2' && (search.includes('fnaf 2') || search.includes('fna 2'))) ||
+                     (g.id === 'fnaf-3' && (search.includes('fnaf 3') || search.includes('fna 3'))) ||
+                     (g.id === 'fnaf-4' && (search.includes('fnaf 4') || search.includes('fna 4'))) ||
+                     (g.id === 'fnaf-world' && search.includes('fnaf world')) ||
+                     (g.id === 'sister-location' && (search.includes('sister location') || search.includes('sl'))) ||
+                     (g.id === 'ffps' && (search.includes('pizzeria simulator') || search.includes('ffps') || search.includes('fazbear\'s pizzeria'))) ||
+                     (g.id === 'ucn' && (search.includes('ultimate custom night') || search.includes('ucn'))) ||
+                     (g.id === 'help-wanted' && (search.includes('help wanted') && !search.includes('2'))) ||
+                     (g.id === 'security-breach' && (search.includes('security breach') || search.includes('sb'))) ||
+                     (g.id === 'help-wanted-2' && search.includes('help wanted 2')) ||
+                     (g.id === 'secret-of-the-mimic' && search.includes('secret'));
+            }) : null;
+            const gId = matchGame ? matchGame.id : null;
+            const gImg = gId ? getImageUrl('games', gId) : null;
+            return `
+              <div class="char-appear-card${gId ? ' char-appear-card--linked' : ''}" ${gId ? `onclick="event.stopPropagation();navigateTo('games');setTimeout(()=>handleGameClick(null,'${gId}'),400);"` : ''}>
+                ${gImg ? `
+                  <div class="char-appear-card__cover">
+                    <img src="${gImg}" alt="${a}" loading="lazy" onerror="this.style.display='none'">
+                    <div class="char-appear-card__scanlines"></div>
+                    ${gId ? '<div class="char-appear-card__play">▶</div>' : ''}
+                  </div>
+                ` : `<div class="char-appear-card__icon">🎮</div>`}
+                <div class="char-appear-card__info">
+                  <div class="char-appear-card__title">${a}</div>
+                  ${matchGame ? `<div class="char-appear-card__year">${matchGame.year}</div>` : ''}
+                </div>
+              </div>
+            `;
+          }).join('')}
         </div>
       </div>
 

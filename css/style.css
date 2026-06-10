@@ -7775,6 +7775,137 @@ body {
   color: #00FF66;
 }
 
+/* Character Appearances - Game Cards */
+.char-modal__appearances-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+
+.char-modal__appearances-row::-webkit-scrollbar { height: 4px; }
+.char-modal__appearances-row::-webkit-scrollbar-track { background: #0a0a0a; }
+.char-modal__appearances-row::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
+
+.char-appear-card {
+  flex-shrink: 0;
+  width: 130px;
+  background: #111;
+  border: 1px solid #1C1C1C;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.char-appear-card--linked {
+  cursor: pointer;
+}
+
+.char-appear-card--linked:hover {
+  border-color: #FF7700;
+  box-shadow: 0 0 15px rgba(255, 119, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.char-appear-card__cover {
+  position: relative;
+  height: 70px;
+  overflow: hidden;
+  background: #1C1C1C;
+}
+
+.char-appear-card__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7) saturate(0.9);
+  transition: all 0.3s;
+}
+
+.char-appear-card--linked:hover .char-appear-card__cover img {
+  filter: brightness(1) saturate(1.1);
+  transform: scale(1.05);
+}
+
+.char-appear-card__scanlines {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.15) 2px,
+    rgba(0,0,0,0.15) 4px
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.char-appear-card--linked:hover .char-appear-card__scanlines {
+  opacity: 1;
+}
+
+.char-appear-card__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 119, 0, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #fff;
+  opacity: 0;
+  transition: all 0.3s;
+  box-shadow: 0 0 15px rgba(255, 119, 0, 0.5);
+}
+
+.char-appear-card--linked:hover .char-appear-card__play {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.char-appear-card__icon {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  background: #0a0a0a;
+}
+
+.char-appear-card__info {
+  padding: 8px 10px;
+}
+
+.char-appear-card__title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: #aaa;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.char-appear-card--linked:hover .char-appear-card__title {
+  color: #FF7700;
+}
+
+.char-appear-card__year {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #FF7700;
+  margin-top: 3px;
+  opacity: 0.7;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .folders-grid {
