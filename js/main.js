@@ -628,26 +628,113 @@ window.closeVideoPlayer = () => {
 // HISTORY
 // =============================================
 function renderHistory() {
-  const container = $('#timeline-full');
+  const grid = $('#folders-grid');
+  const detailView = $('#history-detail-view');
+  const foldersView = $('#history-folders-view');
+  if (!grid) return;
+
+  if (detailView) detailView.style.display = 'none';
+  if (foldersView) foldersView.style.display = 'block';
+
+  const sevColors = {
+    'CRÍTICO': '#FF1744', 'ALTO': '#FF6D00', 'MEDIO': '#FFD600'
+  };
+
+  grid.innerHTML = window.incidents.map(inc => {
+    const sevColor = sevColors[inc.severity] || '#FF1744';
+    return `
+      <div class="folder-card" data-incident="${inc.id}" onclick="openIncident('${inc.id}')">
+        <div class="folder-tab"></div>
+        <div class="folder-body">
+          <div class="folder-label">
+            <div class="folder-label-title">${inc.title}</div>
+          </div>
+          <div class="folder-year">${inc.year}</div>
+          <div class="folder-severity" style="color:${sevColor};border-color:${sevColor};">${inc.severity}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const backBtn = $('#folders-back');
+  if (backBtn) {
+    backBtn.onclick = () => {
+      detailView.style.display = 'none';
+      foldersView.style.display = 'block';
+    };
+  }
+}
+
+function openIncident(id) {
+  const inc = window.incidents.find(i => i.id === id);
+  if (!inc) return;
+
+  const foldersView = $('#history-folders-view');
+  const detailView = $('#history-detail-view');
+  const timelineEl = $('#detail-timeline');
+  const incidentEl = $('#detail-incident');
+
+  foldersView.style.display = 'none';
+  detailView.style.display = 'block';
+
   const sorted = [...timeline].sort((a, b) => {
     const ay = parseInt(a.year) || 0;
     const by = parseInt(b.year) || 0;
     return ay - by;
   });
 
-  container.innerHTML = sorted.map((item, i) => {
+  const incYear = parseInt(inc.year) || 0;
+
+  timelineEl.innerHTML = sorted.map(item => {
+    const itemYear = parseInt(item.year) || 0;
+    const isNear = Math.abs(itemYear - incYear) <= 5;
+    const catColors = {
+      'Incident': '#FF1744', 'Game': '#00FF66', 'History': '#00BCD4',
+      'Birth': '#E6B800', 'Death': '#9C27B0'
+    };
+    const color = catColors[item.category] || '#00FF66';
     return `
-      <div class="timeline-item" style="${i % 2 === 0 ? '' : 'margin-left:50%;'}">
-        <div class="timeline-dot" style="${i % 2 === 0 ? 'left:-6px;' : 'right:-6px;'}"></div>
-        <div class="timeline-content">
-          <div class="timeline-year">${item.year}</div>
-          <h4 style="color:#E6B800;margin:5px 0;font-family:'Share Tech Mono',monospace;">${item.title}</h4>
-          <p style="color:#888;font-size:11px;">${item.description}</p>
-          <span style="font-size:8px;color:#555;font-family:'Press Start 2P',monospace;margin-top:5px;display:inline-block;">${item.category}</span>
+      <div class="hdt-item">
+        <div class="hdt-dot" style="background:${color};box-shadow:0 0 10px ${color}80;"></div>
+        <div class="hdt-connector"></div>
+        <div class="hdt-card${isNear ? ' highlight' : ''}">
+          <div class="hdt-year" style="color:${color};">${item.year}</div>
+          <div class="hdt-title">${item.title}</div>
+          <div class="hdt-desc">${item.description}</div>
         </div>
       </div>
     `;
   }).join('');
+
+  const sevColors = {
+    'CRÍTICO': '#FF1744', 'ALTO': '#FF6D00', 'MEDIO': '#FFD600'
+  };
+  const sevColor = sevColors[inc.severity] || '#FF1744';
+
+  incidentEl.innerHTML = `
+    <div class="hdi-image">
+      <img src="${inc.image}" alt="${inc.title}" loading="lazy" onerror="this.style.display='none'">
+      <div class="hdi-image-overlay"></div>
+      <div class="hdi-cam-label">CAM-${inc.id.slice(0,4).toUpperCase()}</div>
+      <div class="hdi-rec"><span class="hdi-rec-dot"></span> REC</div>
+    </div>
+    <div class="hdi-body">
+      <div class="hdi-meta">
+        <span class="hdi-year">${inc.year}</span>
+        <span class="hdi-severity" style="color:${sevColor};border-color:${sevColor};">${inc.severity}</span>
+        <span class="hdi-class">${inc.classification}</span>
+      </div>
+      <div class="hdi-title">${inc.title}</div>
+      <div class="hdi-desc">${inc.description}</div>
+      <div class="hdi-footer">
+        <div class="hdi-location"><span class="hdi-loc-icon">&#9673;</span> ${inc.location}</div>
+        <div class="hdi-victims">${inc.victims > 0 ? `<span class="hdi-victims-count">${inc.victims}</span> víctimas` : 'Sin víctimas directas'}</div>
+      </div>
+      <div class="hdi-animatronics">
+        ${inc.animatronics.map(a => `<span class="hdi-anim-tag">${a}</span>`).join('')}
+      </div>
+    </div>
+  `;
 }
 
 // =============================================
