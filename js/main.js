@@ -677,27 +677,29 @@ function openIncident(id) {
   foldersView.style.display = 'none';
   detailView.style.display = 'block';
 
-  const sorted = [...timeline].sort((a, b) => {
+  const incYear = parseInt(inc.year) || 0;
+  const catColors = {
+    'Incident': '#FF1744', 'Game': '#00FF66', 'History': '#00BCD4',
+    'Birth': '#E6B800', 'Death': '#9C27B0'
+  };
+
+  const relatedTimelineIds = inc.relatedTimeline || [];
+  const relatedEvents = timeline.filter(t => relatedTimelineIds.includes(t.id));
+  const sorted = relatedEvents.sort((a, b) => {
     const ay = parseInt(a.year) || 0;
     const by = parseInt(b.year) || 0;
     return ay - by;
   });
 
-  const incYear = parseInt(inc.year) || 0;
-
   timelineEl.innerHTML = sorted.map(item => {
     const itemYear = parseInt(item.year) || 0;
-    const isNear = Math.abs(itemYear - incYear) <= 5;
-    const catColors = {
-      'Incident': '#FF1744', 'Game': '#00FF66', 'History': '#00BCD4',
-      'Birth': '#E6B800', 'Death': '#9C27B0'
-    };
+    const isCurrent = Math.abs(itemYear - incYear) <= 2;
     const color = catColors[item.category] || '#00FF66';
     return `
       <div class="hdt-item">
         <div class="hdt-dot" style="background:${color};box-shadow:0 0 10px ${color}80;"></div>
         <div class="hdt-connector"></div>
-        <div class="hdt-card${isNear ? ' highlight' : ''}">
+        <div class="hdt-card${isCurrent ? ' highlight' : ''}">
           <div class="hdt-year" style="color:${color};">${item.year}</div>
           <div class="hdt-title">${item.title}</div>
           <div class="hdt-desc">${item.description}</div>
@@ -706,10 +708,62 @@ function openIncident(id) {
     `;
   }).join('');
 
+  if (sorted.length === 0) {
+    timelineEl.innerHTML = '<div style="color:#555;font-size:11px;padding:20px;text-align:center;font-family:Press Start 2P,monospace;">NO SE ENCONTRARON EVENTOS RELACIONADOS</div>';
+  }
+
   const sevColors = {
     'CRÍTICO': '#FF1744', 'ALTO': '#FF6D00', 'MEDIO': '#FFD600'
   };
   const sevColor = sevColors[inc.severity] || '#FF1744';
+
+  const animatronicCards = inc.animatronics.map(animId => {
+    const char = window.characters.find(c => c.id === animId);
+    if (!char) {
+      return `
+        <div class="hdi-anim-card">
+          <div class="hdi-anim-avatar hdi-anim-avatar-fallback">${animId.charAt(0).toUpperCase()}</div>
+          <div class="hdi-anim-info">
+            <div class="hdi-anim-name">${animId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</div>
+            <div class="hdi-anim-status" style="color:#555;">Sin datos</div>
+          </div>
+        </div>
+      `;
+    }
+    const charImg = getImageUrl('characters', animId);
+    const statusColors = { 'Haunted': '#FF1744', 'Active': '#00FF66', 'Unknown': '#FFD600', 'Deactivated': '#666' };
+    const sColor = statusColors[char.status] || '#888';
+    return `
+      <div class="hdi-anim-card" onclick="event.stopPropagation();navigateTo('characters');setTimeout(()=>showCharacterModal('${animId}'),400);" style="cursor:pointer;">
+        <div class="hdi-anim-avatar">
+          ${charImg ? `<img src="${charImg}" alt="${char.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+          <div class="hdi-anim-avatar-fallback" style="display:${charImg ? 'none' : 'flex'}">${char.name.charAt(0)}</div>
+        </div>
+        <div class="hdi-anim-info">
+          <div class="hdi-anim-name">${char.name}</div>
+          <div class="hdi-anim-status" style="color:${sColor};">${char.status}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const relatedGameCards = (inc.relatedGames || []).map(gId => {
+    const game = window.games.find(g => g.id === gId);
+    if (!game) return '';
+    const gameImg = getImageUrl('games', gId);
+    return `
+      <div class="hdi-game-card" onclick="event.stopPropagation();navigateTo('games');setTimeout(()=>handleGameClick(null,'${gId}'),400);" style="cursor:pointer;">
+        <div class="hdi-game-cover">
+          ${gameImg ? `<img src="${gameImg}" alt="${game.title}" onerror="this.style.display='none'">` : ''}
+          <div class="hdi-game-scanlines"></div>
+        </div>
+        <div class="hdi-game-info">
+          <div class="hdi-game-title">${game.title}</div>
+          <div class="hdi-game-year">${game.year}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
 
   incidentEl.innerHTML = `
     <div class="hdi-image">
@@ -730,8 +784,13 @@ function openIncident(id) {
         <div class="hdi-location"><span class="hdi-loc-icon">&#9673;</span> ${inc.location}</div>
         <div class="hdi-victims">${inc.victims > 0 ? `<span class="hdi-victims-count">${inc.victims}</span> víctimas` : 'Sin víctimas directas'}</div>
       </div>
-      <div class="hdi-animatronics">
-        ${inc.animatronics.map(a => `<span class="hdi-anim-tag">${a}</span>`).join('')}
+      <div class="hdi-section-label">ANIMATRÓNICOS INVOLUCRADOS</div>
+      <div class="hdi-anim-grid">
+        ${animatronicCards}
+      </div>
+      <div class="hdi-section-label">JUEGOS RELACIONADOS</div>
+      <div class="hdi-games-row">
+        ${relatedGameCards}
       </div>
     </div>
   `;

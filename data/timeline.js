@@ -145,7 +145,9 @@ window.incidents = [
     image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/c/c6/Los_cuatro_periodicos_juntos.png/revision/latest?cb=20150121171319&path-prefix=es',
     location: 'Freddy Fazbear\'s Pizza (Original)',
     victims: 5,
-    animatronics: ['Freddy', 'Bonnie', 'Chica', 'Foxy', 'Golden Freddy']
+    animatronics: ['freddy-fazbear', 'bonnie', 'chica', 'foxy', 'golden-freddy'],
+    relatedGames: ['fnaf-1', 'fnaf-2', 'fnaf-3'],
+    relatedTimeline: ['missing-children-incident', 'fnaf1-location-closes', 'fazbears-fright', 'pizzeria-simulator-fire']
   },
   {
     id: 'bite-83',
@@ -157,7 +159,9 @@ window.incidents = [
     image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/9/92/FNaF4_MinigameN6.png/revision/latest?cb=20151005205607&path-prefix=es',
     location: 'Fredbear\'s Family Diner',
     victims: 1,
-    animatronics: ['Fredbear']
+    animatronics: ['fredbear'],
+    relatedGames: ['fnaf-4'],
+    relatedTimeline: ['fredbears-opening', 'bite-of-83', 'charlotte-death']
   },
   {
     id: 'bite-87',
@@ -169,7 +173,9 @@ window.incidents = [
     image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/1/15/FNaF2_-_Office_%28Mangle_-_Textura%29.png/revision/latest?cb=20141216200133&path-prefix=es',
     location: 'Freddy Fazbear\'s Pizza (Nueva Ubicación)',
     victims: 1,
-    animatronics: ['Mangle']
+    animatronics: ['mangle'],
+    relatedGames: ['fnaf-2'],
+    relatedTimeline: ['fnaf2-location-opens', 'bite-of-87']
   },
   {
     id: 'elizabeth-death',
@@ -181,7 +187,9 @@ window.incidents = [
     image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/e/e4/FNaF_SL_-_Teaser_11_%28Cancelled_-_Iluminado%29.png/revision/latest?cb=20160816160848&path-prefix=es',
     location: 'Circus Baby\'s Pizza World',
     victims: 1,
-    animatronics: ['Circus Baby']
+    animatronics: ['circus-baby'],
+    relatedGames: ['sister-location'],
+    relatedTimeline: ['elizabeth-afton-death', 'sister-location-events']
   },
   {
     id: 'fazbears-fright-fire',
@@ -193,7 +201,9 @@ window.incidents = [
     image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/b3/Fazbear%27s_Fright_-_Office.png/revision/latest?cb=20150622041536&path-prefix=es',
     location: 'Fazbear\'s Fright: The Horror Attraction',
     victims: 0,
-    animatronics: ['Springtrap']
+    animatronics: ['springtrap'],
+    relatedGames: ['fnaf-3'],
+    relatedTimeline: ['fazbears-fright']
   },
   {
     id: 'pizzeria-simulator-fire',
@@ -205,7 +215,9 @@ window.incidents = [
     image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/68/Springtrap_-_Cinem%C3%A1tica_final_%28FFPS%29.gif/revision/latest?cb=20171209090626&path-prefix=es',
     location: 'Freddy Fazbear\'s Pizza Place (Falsa)',
     victims: 0,
-    animatronics: ['Scrap Baby', 'Molten Freddy', 'Scraptrap']
+    animatronics: ['scrap-baby', 'molten-freddy', 'springtrap'],
+    relatedGames: ['ffps'],
+    relatedTimeline: ['pizzeria-simulator-fire', 'michael-afton-redemption']
   },
   {
     id: 'glitchtrap-emergence',
@@ -217,7 +229,9 @@ window.incidents = [
     image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/d/d7/Helpwantedglitchtrap.png/revision/latest?cb=20190501221727&path-prefix=es',
     location: 'Fazbear Entertainment Virtual',
     victims: 0,
-    animatronics: ['Glitchtrap']
+    animatronics: ['glitchtrap'],
+    relatedGames: ['help-wanted'],
+    relatedTimeline: ['help-wanted-digital']
   },
   {
     id: 'pizzaplex-incidents',
@@ -229,7 +243,9 @@ window.incidents = [
     image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/e/e0/Helpwantedloading.png/revision/latest?cb=20190501224654&path-prefix=es',
     location: 'Freddy Fazbear\'s Mega Pizzaplex',
     victims: 0,
-    animatronics: ['Glamrock Freddy', 'Glamrock Chica', 'Roxanne Wolf', 'Montgomery Gator']
+    animatronics: ['glamrock-freddy', 'glamrock-chica', 'roxanne-wolf', 'montgomery-gator'],
+    relatedGames: ['security-breach'],
+    relatedTimeline: ['pizzaplex-construction', 'security-breach-events', 'ruin-dlc']
   }
 ];
 

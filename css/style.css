@@ -6447,7 +6447,7 @@ body {
 
 .hdi-image {
   position: relative;
-  height: 220px;
+  height: 320px;
   overflow: hidden;
   background: #111;
 }
@@ -6632,19 +6632,160 @@ body {
 
 .hdi-victims-count { color: #FF1744; font-size: 10px; }
 
-.hdi-animatronics {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-top: 10px;
+.hdi-section-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #555;
+  letter-spacing: 1px;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #1C1C1C;
 }
 
-.hdi-anim-tag {
+.hdi-anim-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hdi-anim-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #111;
+  border: 1px solid #1C1C1C;
+  padding: 6px 10px;
+  transition: all 0.3s;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.hdi-anim-card:hover {
+  border-color: #00FF66;
+  box-shadow: 0 0 12px rgba(0, 255, 102, 0.15);
+  transform: translateX(3px);
+}
+
+.hdi-anim-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #1C1C1C;
+  border: 1px solid #333;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.hdi-anim-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hdi-anim-avatar-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #00FF66;
+  background: #1C1C1C;
+}
+
+.hdi-anim-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hdi-anim-name {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: #ccc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}
+
+.hdi-anim-status {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  letter-spacing: 0.5px;
+}
+
+.hdi-games-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.hdi-game-card {
+  flex-shrink: 0;
+  width: 120px;
+  background: #111;
+  border: 1px solid #1C1C1C;
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.hdi-game-card:hover {
+  border-color: #00FF66;
+  box-shadow: 0 0 12px rgba(0, 255, 102, 0.15);
+  transform: translateY(-3px);
+}
+
+.hdi-game-cover {
+  position: relative;
+  height: 65px;
+  overflow: hidden;
+  background: #1C1C1C;
+}
+
+.hdi-game-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+  transition: filter 0.3s;
+}
+
+.hdi-game-card:hover .hdi-game-cover img {
+  filter: brightness(1);
+}
+
+.hdi-game-scanlines {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px);
+  pointer-events: none;
+}
+
+.hdi-game-info {
+  padding: 6px 8px;
+}
+
+.hdi-game-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: #ccc;
+  line-height: 1.2;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hdi-game-year {
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
   color: #00FF66;
-  border: 1px solid #00FF6640;
-  padding: 3px 8px;
 }
 
 /* Responsive */
