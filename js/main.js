@@ -62,6 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeaderStatus();
   initVHSTimestamp();
   initDatabaseCards();
+  initHeroIndicators();
+  initCameraMap();
 
   // Load page data
   loadPage('home');
@@ -1677,6 +1679,158 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-console.log('%c⚠ THE FAZBEAR FILES ⚠', 'font-size:24px;color:#FF2222;font-weight:bold;');
+// =============================================
+// HERO COMMAND CENTER - REAL-TIME INDICATORS
+// =============================================
+function initHeroIndicators() {
+  const uptimeEl = $('#hero-uptime');
+  const powerEl = $('#hero-power');
+  const startTime = Date.now();
+
+  function updateUptime() {
+    if (!uptimeEl) return;
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    const h = String(Math.floor(elapsed / 3600)).padStart(2, '0');
+    const m = String(Math.floor((elapsed % 3600) / 60)).padStart(2, '0');
+    const s = String(elapsed % 60).padStart(2, '0');
+    uptimeEl.textContent = h + ':' + m + ':' + s;
+  }
+
+  function updatePower() {
+    if (!powerEl) return;
+    const power = Math.floor(Math.random() * 6 + 82);
+    powerEl.textContent = power + '%';
+    const fill = document.querySelector('.hero-indicator:nth-child(3) .hero-indicator__fill');
+    if (fill) fill.style.width = power + '%';
+  }
+
+  updateUptime();
+  setInterval(updateUptime, 1000);
+  setInterval(updatePower, 5000);
+}
+
+// =============================================
+// INTERACTIVE CAMERA MAP
+// =============================================
+var cameraData = {
+  'cam-01': {
+    name: 'CAM-01 / PARTS & SERVICE',
+    status: 'online', statusLabel: 'ONLINE',
+    activity: 'Hace 5 min', signal: '94%', resolution: '480p',
+    animatronics: ['ENDO-01', 'ENDO-02'],
+    animatronicStatus: ['safe', 'safe']
+  },
+  'cam-02': {
+    name: 'CAM-02 / SHOW STAGE',
+    status: 'online', statusLabel: 'ONLINE',
+    activity: 'Hace 2 min', signal: '98%', resolution: '720p',
+    animatronics: ['FREDDY', 'BONNIE', 'CHICA'],
+    animatronicStatus: ['alert', 'alert', 'alert']
+  },
+  'cam-03': {
+    name: 'CAM-03 / DINING AREA',
+    status: 'online', statusLabel: 'ONLINE',
+    activity: 'Hace 1 min', signal: '99%', resolution: '720p',
+    animatronics: [],
+    animatronicStatus: []
+  },
+  'cam-04': {
+    name: 'CAM-04 / BACKSTAGE',
+    status: 'offline', statusLabel: 'OFFLINE',
+    activity: 'Desconocida', signal: '0%', resolution: 'N/A',
+    animatronics: [],
+    animatronicStatus: []
+  },
+  'cam-05': {
+    name: 'CAM-05 / OFFICE',
+    status: 'online', statusLabel: 'ONLINE',
+    activity: 'En vivo', signal: '100%', resolution: '1080p',
+    animatronics: [],
+    animatronicStatus: []
+  },
+  'cam-06': {
+    name: 'CAM-06 / PRIZE CORNER',
+    status: 'warning', statusLabel: 'ALERTA',
+    activity: 'Hace 30 seg', signal: '72%', resolution: '720p',
+    animatronics: ['MANGLE'],
+    animatronicStatus: ['alert']
+  },
+  'cam-07': {
+    name: 'CAM-07 / ARCADE',
+    status: 'online', statusLabel: 'ONLINE',
+    activity: 'Hace 8 min', signal: '91%', resolution: '720p',
+    animatronics: [],
+    animatronicStatus: []
+  },
+  'cam-08': {
+    name: 'CAM-08 / KITCHEN',
+    status: 'offline', statusLabel: 'OFFLINE',
+    activity: 'Desconocida', signal: '0%', resolution: 'N/A',
+    animatronics: [],
+    animatronicStatus: []
+  }
+};
+
+window.selectCamera = function(camId) {
+  var cam = cameraData[camId];
+  if (!cam) return;
+
+  var nameEl = $('#cam-info-name');
+  var statusEl = $('#cam-info-status');
+  var activityEl = $('#cam-info-activity');
+  var signalEl = $('#cam-info-signal');
+  var animEl = $('#cam-info-animatronics');
+
+  if (nameEl) nameEl.textContent = cam.name;
+
+  if (statusEl) {
+    statusEl.textContent = cam.statusLabel;
+    statusEl.className = 'cam-info-card__status cam-info-card__status--' + cam.status;
+  }
+
+  if (activityEl) {
+    activityEl.textContent = cam.activity;
+    activityEl.className = 'cam-info-card__value';
+    if (cam.status === 'online') activityEl.classList.add('cam-info-card__value--green');
+    else if (cam.status === 'offline') activityEl.classList.add('cam-info-card__value--red');
+    else activityEl.classList.add('cam-info-card__value--yellow');
+  }
+
+  if (signalEl) signalEl.textContent = cam.signal;
+
+  if (animEl) {
+    if (cam.animatronics.length === 0) {
+      animEl.innerHTML = '<span class="cam-animatronic-tag cam-animatronic-tag--safe">NINGUNO DETECTADO</span>';
+    } else {
+      animEl.innerHTML = cam.animatronics.map(function(a, i) {
+        var cls = cam.animatronicStatus[i] === 'safe' ? 'cam-animatronic-tag--safe' : '';
+        return '<span class="cam-animatronic-tag ' + cls + '">' + a + '</span>';
+      }).join('');
+    }
+  }
+
+  // Highlight selected dot
+  $$('.cam-dot').forEach(function(dot) {
+    dot.style.opacity = dot.dataset.cam === camId ? '1' : '0.5';
+  });
+  setTimeout(function() {
+    $$('.cam-dot').forEach(function(dot) { dot.style.opacity = '1'; });
+  }, 2000);
+};
+
+// Initialize camera map
+function initCameraMap() {
+  $$('.cam-dot').forEach(function(dot) {
+    dot.addEventListener('mouseenter', function() {
+      var camId = dot.dataset.cam;
+      if (camId) selectCamera(camId);
+    });
+  });
+
+  // Default selection
+  selectCamera('cam-02');
+}
+
+console.log('%cTHE FAZBEAR FILES', 'font-size:24px;color:#FF2222;font-weight:bold;');
 console.log('%cAcceso no autorizado detectado.', 'font-size:14px;color:#00FF66;');
 console.log('%cEste sistema contiene material clasificado de Fazbear Entertainment.', 'font-size:12px;color:#888;');

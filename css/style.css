@@ -272,182 +272,7 @@ a:hover {
 /* =============================================
    HEADER
    ============================================= */
-#main-header {
-  background: #0A0A0A;
-  border-bottom: 2px solid #1C1C1C;
-  padding: 15px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.8);
-}
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 96%;
-  margin: 0 auto;
-  padding: 0 2%;
-}
-
-.header-left {
-  flex: 1;
-}
-
-.header-title {
-  font-family: 'Orbitron', monospace;
-  font-size: 16px;
-  font-weight: 700;
-  color: #00FF66;
-  text-shadow: 0 0 20px rgba(0, 255, 102, 0.3);
-  margin-bottom: 5px;
-  letter-spacing: 4px;
-}
-
-.header-subtitle {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 10px;
-  color: #666;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-.header-right {
-  text-align: right;
-  flex-shrink: 0;
-}
-
-.header-status {
-  font-size: 10px;
-  color: #888;
-  margin-bottom: 3px;
-  font-family: 'Share Tech Mono', monospace;
-}
-
-.header-status .recording {
-  width: 6px;
-  height: 6px;
-}
-
-.header-case {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 9px;
-  color: #FF2222;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  border: 1px solid #FF2222;
-  display: inline-block;
-  padding: 2px 6px;
-  margin-top: 2px;
-  animation: flicker-slow 4s infinite;
-}
-
-.header-classified {
-  font-size: 8px;
-  color: #E6B800;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-top: 3px;
-  font-family: 'Share Tech Mono', monospace;
-}
-
-.header-restricted {
-  font-size: 7px;
-  color: #FF2222;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  border: 1px solid #FF2222;
-  display: inline-block;
-  padding: 1px 4px;
-  margin-top: 3px;
-  font-family: 'Press Start 2P', monospace;
-}
-
-.header-restricted-inactive {
-  font-size: 7px;
-  color: #444;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  border: 1px solid #444;
-  display: inline-block;
-  padding: 1px 4px;
-  margin-top: 3px;
-  font-family: 'Press Start 2P', monospace;
-}
-
-.last-recovery {
-  font-size: 8px;
-  color: #555;
-  margin-top: 5px;
-  font-family: 'Share Tech Mono', monospace;
-}
-
-/* =============================================
-   NAVIGATION
-   ============================================= */
-#main-nav {
-  background: #0D0D0D;
-  border-bottom: 1px solid #1C1C1C;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-#main-nav ul {
-  list-style: none;
-  display: flex;
-  max-width: 96%;
-  margin: 0 auto;
-  padding: 0 2%;
-}
-
-#main-nav ul li {
-  position: relative;
-}
-
-#main-nav ul li a {
-  display: block;
-  padding: 10px 15px;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 11px;
-  color: #666;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: all 0.3s;
-  border-bottom: 2px solid transparent;
-}
-
-#main-nav ul li a:hover,
-#main-nav ul li a.active {
-  color: #00FF66;
-  background: rgba(0, 255, 102, 0.05);
-  border-bottom-color: #00FF66;
-  text-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
-}
-
-#main-nav ul li a.active::before {
-  content: '> ';
-  color: #00FF66;
-}
-
-#main-nav ul li a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
-  background: #00FF66;
-  transition: width 0.3s;
-}
-
-#main-nav ul li a:hover::after,
-#main-nav ul li a.active::after {
-  width: 80%;
+.site-header {
 }
 
 /* =============================================
@@ -2682,7 +2507,6 @@ a:hover {
   .characters-grid {
     grid-template-columns: 1fr;
   }
-Sebas
   .game-group-grid {
     grid-template-columns: 1fr;
   }
@@ -2690,7 +2514,6 @@ Sebas
     grid-template-columns: 1fr;
   }
 
- main
   #main-nav ul li a {
     font-size: 9px;
     padding: 8px 10px;
@@ -5270,7 +5093,704 @@ body::after {
 
 /* --- Monitor Section --- */
 .home-monitor {
-  padding: 40px 24px;
+  padding: 0 24px 40px;
+}
+
+/* =============================================
+   HERO COMMAND CENTER — NEW DESIGN
+   ============================================= */
+.hero-command {
+  position: relative;
+  padding: 60px 24px 50px;
+  margin: 0 24px 40px;
+  border: 1px solid #1a1a1a;
+  background: #050505;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CRT animated background */
+.hero-crt-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 102, 0.015) 2px,
+      rgba(0, 255, 102, 0.015) 4px
+    );
+  pointer-events: none;
+  animation: hero-crt-scroll 12s linear infinite;
+}
+
+@keyframes hero-crt-scroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 200px; }
+}
+
+/* Scanning line */
+.hero-scanline {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(0, 255, 102, 0.04),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: hero-scan-move 4s linear infinite;
+}
+
+@keyframes hero-scan-move {
+  0% { top: -60px; }
+  100% { top: calc(100% + 60px); }
+}
+
+/* Static noise */
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  pointer-events: none;
+  animation: vhs-noise 0.15s steps(3) infinite;
+}
+
+/* Vignette */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.6) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Content */
+.hero-command__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Status bar pills */
+.hero-command__status-bar {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.hero-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border: 1px solid;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero-status-pill--ok {
+  color: #00FF66;
+  border-color: rgba(0, 255, 102, 0.3);
+  background: rgba(0, 255, 102, 0.03);
+}
+
+.hero-status-pill--cam {
+  color: #00BFFF;
+  border-color: rgba(0, 191, 255, 0.3);
+  background: rgba(0, 191, 255, 0.03);
+}
+
+.hero-status-pill--warn {
+  color: #FF2222;
+  border-color: rgba(255, 34, 34, 0.3);
+  background: rgba(255, 34, 34, 0.03);
+  animation: hero-warn-pulse 2s ease-in-out infinite;
+}
+
+@keyframes hero-warn-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.hero-led {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00FF66;
+  box-shadow: 0 0 6px #00FF66;
+  animation: led-pulse 1.6s ease-in-out infinite;
+}
+
+.hero-led--cam {
+  background: #00BFFF;
+  box-shadow: 0 0 6px #00BFFF;
+}
+
+.hero-led--warn {
+  background: #FF2222;
+  box-shadow: 0 0 6px #FF2222;
+}
+
+/* Title with glitch */
+.hero-command__title {
+  font-family: 'VT323', monospace;
+  font-size: 3.5rem;
+  color: #00FF66;
+  letter-spacing: 8px;
+  margin: 0 0 8px;
+  text-shadow: 0 0 30px rgba(0, 255, 102, 0.4), 0 0 60px rgba(0, 255, 102, 0.15);
+  position: relative;
+  display: inline-block;
+  animation: hero-title-glow 4s ease-in-out infinite;
+}
+
+.hero-command__title::before,
+.hero-command__title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-command__title::before {
+  color: #FF2222;
+  opacity: 0;
+  animation: hero-glitch-1 6s ease-in-out infinite;
+}
+
+.hero-command__title::after {
+  color: #00BFFF;
+  opacity: 0;
+  animation: hero-glitch-2 6s ease-in-out infinite;
+}
+
+.hero-command__title:hover::before {
+  animation: hero-glitch-1-active 0.3s steps(2) infinite;
+}
+
+.hero-command__title:hover::after {
+  animation: hero-glitch-2-active 0.3s steps(2) infinite;
+}
+
+@keyframes hero-title-glow {
+  0%, 100% { text-shadow: 0 0 20px rgba(0,255,102,0.3), 0 0 40px rgba(0,255,102,0.1); }
+  50% { text-shadow: 0 0 40px rgba(0,255,102,0.5), 0 0 80px rgba(0,255,102,0.2); }
+}
+
+@keyframes hero-glitch-1 {
+  0%, 92% { opacity: 0; transform: translate(0); }
+  93% { opacity: 0.6; transform: translate(-3px, 1px); clip-path: inset(20% 0 40% 0); }
+  94% { opacity: 0.4; transform: translate(3px, -1px); clip-path: inset(60% 0 10% 0); }
+  95% { opacity: 0; transform: translate(0); }
+}
+
+@keyframes hero-glitch-2 {
+  0%, 94% { opacity: 0; transform: translate(0); }
+  95% { opacity: 0.5; transform: translate(2px, 2px); clip-path: inset(40% 0 20% 0); }
+  96% { opacity: 0.3; transform: translate(-2px, -1px); clip-path: inset(10% 0 60% 0); }
+  97% { opacity: 0; transform: translate(0); }
+}
+
+@keyframes hero-glitch-1-active {
+  0% { opacity: 0.6; transform: translate(-3px, 1px); clip-path: inset(20% 0 40% 0); }
+  50% { opacity: 0.4; transform: translate(3px, -1px); clip-path: inset(60% 0 10% 0); }
+  100% { opacity: 0.6; transform: translate(-2px, 2px); clip-path: inset(30% 0 30% 0); }
+}
+
+@keyframes hero-glitch-2-active {
+  0% { opacity: 0.5; transform: translate(2px, 2px); clip-path: inset(40% 0 20% 0); }
+  50% { opacity: 0.3; transform: translate(-2px, -1px); clip-path: inset(10% 0 60% 0); }
+  100% { opacity: 0.5; transform: translate(1px, -2px); clip-path: inset(50% 0 15% 0); }
+}
+
+.hero-title-bracket {
+  color: #333;
+  font-size: 2.5rem;
+}
+
+/* Subtitle */
+.hero-command__subtitle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  color: #666;
+  letter-spacing: 3px;
+  margin: 0 0 6px;
+  text-transform: uppercase;
+}
+
+.hero-command__desc {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: #555;
+  margin: 0 0 32px;
+  line-height: 1.6;
+}
+
+/* Indicators grid */
+.hero-command__indicators {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.hero-indicator {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #1a1a1a;
+  padding: 16px 12px;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+.hero-indicator:hover {
+  border-color: rgba(0, 255, 102, 0.3);
+}
+
+.hero-indicator__value {
+  font-family: 'VT323', monospace;
+  font-size: 1.6rem;
+  color: #00FF66;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+.hero-indicator__label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: #555;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.hero-indicator__bar {
+  height: 3px;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+.hero-indicator__fill {
+  height: 100%;
+  background: #00FF66;
+  transition: width 1s ease;
+  box-shadow: 0 0 6px rgba(0, 255, 102, 0.4);
+}
+
+.hero-indicator__fill--danger {
+  background: #FF2222;
+  box-shadow: 0 0 6px rgba(255, 34, 34, 0.4);
+}
+
+.hero-indicator__fill--alt {
+  background: linear-gradient(90deg, #00FF66, #00BFFF);
+}
+
+/* Action buttons */
+.hero-command__actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  border: 1px solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  transition: left 0.5s;
+}
+
+.hero-btn:hover::before {
+  left: 100%;
+}
+
+.hero-btn--primary {
+  color: #00FF66;
+  border-color: rgba(0, 255, 102, 0.4);
+  background: rgba(0, 255, 102, 0.05);
+}
+
+.hero-btn--primary:hover {
+  background: rgba(0, 255, 102, 0.12);
+  border-color: #00FF66;
+  box-shadow: 0 0 20px rgba(0, 255, 102, 0.2);
+  transform: translateY(-2px);
+}
+
+.hero-btn--secondary {
+  color: #FF2222;
+  border-color: rgba(255, 34, 34, 0.4);
+  background: rgba(255, 34, 34, 0.05);
+}
+
+.hero-btn--secondary:hover {
+  background: rgba(255, 34, 34, 0.12);
+  border-color: #FF2222;
+  box-shadow: 0 0 20px rgba(255, 34, 34, 0.2);
+  transform: translateY(-2px);
+}
+
+.hero-btn--ghost {
+  color: #888;
+  border-color: #333;
+  background: transparent;
+}
+
+.hero-btn--ghost:hover {
+  color: #00FF66;
+  border-color: #00FF66;
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
+  transform: translateY(-2px);
+}
+
+.hero-btn-icon {
+  font-size: 8px;
+}
+
+/* Terminal preview */
+.hero-command__terminal {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #1a1a1a;
+  padding: 16px 20px;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-terminal-line {
+  margin-bottom: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: #888;
+  line-height: 1.5;
+}
+
+.hero-prompt {
+  color: #00FF66;
+}
+
+.hero-terminal-output {
+  color: #555;
+  font-size: 11px;
+  margin-left: 12px;
+}
+
+.hero-cursor-line {
+  margin-top: 8px;
+}
+
+.hero-typed-cursor {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  background: #00FF66;
+  margin-left: 3px;
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+/* =============================================
+   CAMERA MAP — INTERACTIVE FLOOR PLAN
+   ============================================= */
+.camera-map-section {
+  padding: 0 24px 40px;
+}
+
+.camera-map-panel {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #1a1a1a;
+  overflow: hidden;
+}
+
+.camera-map-titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 1px solid #1a1a1a;
+  background: rgba(0, 255, 102, 0.02);
+}
+
+.camera-map-title {
+  font-family: 'VT323', monospace;
+  font-size: 1rem;
+  color: #00FF66;
+  letter-spacing: 2px;
+}
+
+.camera-map-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: #00FF66;
+  letter-spacing: 1px;
+}
+
+.camera-map-body {
+  padding: 24px;
+  display: flex;
+  gap: 24px;
+}
+
+/* Floor plan SVG container */
+.camera-map-floor {
+  flex: 1;
+  position: relative;
+  background: #080808;
+  border: 1px solid #1a1a1a;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.camera-map-floor svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+/* Camera dots */
+.cam-dot {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cam-dot circle.cam-dot-ring {
+  fill: none;
+  stroke: #00FF66;
+  stroke-width: 1.5;
+  opacity: 0.4;
+  transition: all 0.3s;
+}
+
+.cam-dot circle.cam-dot-core {
+  fill: #00FF66;
+  transition: all 0.3s;
+}
+
+.cam-dot:hover circle.cam-dot-ring {
+  opacity: 1;
+  r: 14;
+  stroke-width: 2;
+}
+
+.cam-dot:hover circle.cam-dot-core {
+  r: 5;
+  filter: drop-shadow(0 0 8px #00FF66);
+}
+
+.cam-dot.cam-dot--offline circle.cam-dot-core {
+  fill: #FF2222;
+}
+
+.cam-dot.cam-dot--offline circle.cam-dot-ring {
+  stroke: #FF2222;
+}
+
+.cam-dot.cam-dot--warning circle.cam-dot-core {
+  fill: #E6B800;
+}
+
+.cam-dot.cam-dot--warning circle.cam-dot-ring {
+  stroke: #E6B800;
+}
+
+/* Camera info panel (sidebar) */
+.camera-map-info {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cam-info-card {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #1a1a1a;
+  padding: 16px;
+}
+
+.cam-info-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.cam-info-card__name {
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  color: #00FF66;
+  letter-spacing: 1px;
+}
+
+.cam-info-card__status {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  padding: 3px 8px;
+  border: 1px solid;
+  letter-spacing: 1px;
+}
+
+.cam-info-card__status--online {
+  color: #00FF66;
+  border-color: rgba(0, 255, 102, 0.4);
+}
+
+.cam-info-card__status--offline {
+  color: #FF2222;
+  border-color: rgba(255, 34, 34, 0.4);
+}
+
+.cam-info-card__status--warning {
+  color: #E6B800;
+  border-color: rgba(230, 184, 0, 0.4);
+}
+
+.cam-info-card__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.5);
+}
+
+.cam-info-card__row:last-child {
+  border-bottom: none;
+}
+
+.cam-info-card__label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: #555;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.cam-info-card__value {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #888;
+}
+
+.cam-info-card__value--green {
+  color: #00FF66;
+}
+
+.cam-info-card__value--red {
+  color: #FF2222;
+}
+
+.cam-info-card__value--yellow {
+  color: #E6B800;
+}
+
+/* Animatronics detected */
+.cam-animatronics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.cam-animatronic-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  color: #FF2222;
+  border: 1px solid rgba(255, 34, 34, 0.3);
+  padding: 2px 8px;
+  letter-spacing: 1px;
+  background: rgba(255, 34, 34, 0.05);
+}
+
+.cam-animatronic-tag--safe {
+  color: #00FF66;
+  border-color: rgba(0, 255, 102, 0.3);
+  background: rgba(0, 255, 102, 0.05);
+}
+
+/* Camera map legend */
+.camera-map-legend {
+  display: flex;
+  gap: 20px;
+  padding: 12px 18px;
+  border-top: 1px solid #1a1a1a;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.camera-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: #666;
+  letter-spacing: 1px;
+}
+
+.camera-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.camera-legend-dot--online {
+  background: #00FF66;
+  box-shadow: 0 0 4px #00FF66;
+}
+
+.camera-legend-dot--offline {
+  background: #FF2222;
+  box-shadow: 0 0 4px #FF2222;
+}
+
+.camera-legend-dot--warning {
+  background: #E6B800;
+  box-shadow: 0 0 4px #E6B800;
 }
 
 .hm-panel {
@@ -5447,12 +5967,21 @@ body {
   padding-top: 110px;
 }
 
-.page {
-  display: none;
+.page > .section-title-wrapper:first-child {
+  padding: 0 24px;
 }
 
-.page.active {
-  display: block;
+.page > .search-box,
+.page > .filter-tags {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.page > .characters-grid,
+.page > .games-grid,
+.page > .videos-grid {
+  margin-left: 24px;
+  margin-right: 24px;
 }
 
 /* --- Responsive --- */
@@ -5497,6 +6026,64 @@ body {
   .vhs-headline {
     font-size: 1rem;
     letter-spacing: 2px;
+  }
+
+  .hero-command {
+    margin: 0 12px 24px;
+    padding: 40px 16px 30px;
+    min-height: auto;
+  }
+
+  .hero-command__title {
+    font-size: 2rem;
+    letter-spacing: 4px;
+  }
+
+  .hero-title-bracket {
+    font-size: 1.5rem;
+  }
+
+  .hero-command__status-bar {
+    gap: 8px;
+  }
+
+  .hero-status-pill {
+    font-size: 8px;
+    padding: 4px 10px;
+  }
+
+  .hero-command__indicators {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-command__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .camera-map-body {
+    flex-direction: column;
+  }
+
+  .camera-map-info {
+    width: 100%;
+  }
+
+  .camera-map-legend {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .cam-info-card__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
 

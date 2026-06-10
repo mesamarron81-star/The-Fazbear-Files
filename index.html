@@ -83,25 +83,7 @@
   </div>
 </header>
 
-Sebas
-<!-- NAVIGATION -->
-<nav id="main-nav">
-  <ul>
-    <li><a href="#home" class="active" data-page="home">INICIO</a></li>
-    <li><a href="#characters" data-page="characters">ANIMATRÓNICOS</a></li>
-    <li><a href="#games" data-page="games">JUEGOS</a></li>
-    <li><a href="#books" data-page="books">LIBROS</a></li>
-    <li><a href="#videos" data-page="videos">VIDEOS</a></li>
-    <li><a href="#history" data-page="history">HISTORIA</a></li>
-    <li><a href="#music" data-page="music">CANCIONES</a></li>
-    <li><a href="#blog" data-page="blog">BLOG</a></li>
-    <li><a href="#admin" data-page="admin">ADMIN</a></li>
-  </ul>
-</nav>
-
 <!-- MAIN CONTENT -->
-
-main
 <main class="container">
 
   <section id="page-home" class="page active">
@@ -236,44 +218,70 @@ main
       </footer>
     </div>
 
-    <section class="classified-intro vhs-section">
-      <div class="classified-border vhs-border" role="button" tabindex="0">
-        <div class="classified-corner classified-corner-tl"></div>
-        <div class="classified-corner classified-corner-tr"></div>
-        <div class="classified-corner classified-corner-bl"></div>
-        <div class="classified-corner classified-corner-br"></div>
-        <div class="classified-header vhs-header">
-          <span class="classified-warn-icon">&#x26A0;</span>
-          <span>SISTEMA DE SEGURIDAD &mdash; MONITOREO EN VIVO &middot; NIVEL DE AMENAZA: ROJO</span>
-          <span class="classified-warn-icon">&#x26A0;</span>
+    <!-- NEW HERO: SECURITY COMMAND CENTER -->
+    <section class="hero-command" id="hero-command">
+      <div class="hero-crt-bg"></div>
+      <div class="hero-scanline"></div>
+      <div class="hero-noise"></div>
+      <div class="hero-vignette"></div>
+
+      <div class="hero-command__content">
+        <div class="hero-command__status-bar">
+          <span class="hero-status-pill hero-status-pill--ok"><span class="hero-led"></span> SISTEMA ACTIVO</span>
+          <span class="hero-status-pill hero-status-pill--cam"><span class="hero-led hero-led--cam"></span> 12 CAMARAS ONLINE</span>
+          <span class="hero-status-pill hero-status-pill--warn"><span class="hero-led hero-led--warn"></span> AMENAZA: ALTA</span>
         </div>
-        <div class="vhs-frame">
-          <div class="vhs-frame-inner">
-            <div class="vhs-img" style="background-image:url('https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4f/UTLR.png')"></div>
-            <div class="vhs-tracking"></div>
-            <div class="vhs-scanlines"></div>
-            <div class="vhs-tint"></div>
-            <div class="vhs-grain"></div>
-            <div class="vhs-bars"></div>
-            <div class="vhs-corner-label vhs-corner-label-tl">REC <span class="vhs-rec-dot">&#x25CF;</span></div>
-            <div class="vhs-corner-label vhs-corner-label-tr"><span id="vhs-timestamp">00:00:00:00</span></div>
-            <div class="vhs-corner-label vhs-corner-label-bl">CAM-01 / FREDDYS</div>
-            <div class="vhs-corner-label vhs-corner-label-br">CH-01</div>
-            <div class="vhs-headline">
-              <span class="vhs-headline-bracket">&#x258C;</span>
-              <span>SISTEMA DE SEGURIDAD ACTIVO</span>
-              <span class="vhs-headline-bracket">&#x2590;</span>
-            </div>
+
+        <h1 class="hero-command__title" data-text="THE FAZBEAR FILES">
+          <span class="hero-title-bracket">&#x258C;</span>
+          THE FAZBEAR FILES
+          <span class="hero-title-bracket">&#x2590;</span>
+        </h1>
+
+        <p class="hero-command__subtitle">ARCHIVO CENTRAL DE SEGURIDAD &middot; FAZBEAR ENTERTAINMENT</p>
+        <p class="hero-command__desc">Monitoreo en tiempo real de todas las instalaciones. Acceso restringido a personal autorizado.</p>
+
+        <div class="hero-command__indicators">
+          <div class="hero-indicator">
+            <div class="hero-indicator__value" id="hero-cam-count">12</div>
+            <div class="hero-indicator__label">CAMARAS</div>
+            <div class="hero-indicator__bar"><div class="hero-indicator__fill" style="width:100%"></div></div>
+          </div>
+          <div class="hero-indicator">
+            <div class="hero-indicator__value" id="hero-threat-level">ALTO</div>
+            <div class="hero-indicator__label">NIVEL DE AMENAZA</div>
+            <div class="hero-indicator__bar"><div class="hero-indicator__fill hero-indicator__fill--danger" style="width:78%"></div></div>
+          </div>
+          <div class="hero-indicator">
+            <div class="hero-indicator__value" id="hero-power">85%</div>
+            <div class="hero-indicator__label">ENERGIA</div>
+            <div class="hero-indicator__bar"><div class="hero-indicator__fill" style="width:85%"></div></div>
+          </div>
+          <div class="hero-indicator">
+            <div class="hero-indicator__value" id="hero-uptime">00:00:00</div>
+            <div class="hero-indicator__label">TIEMPO ACTIVO</div>
+            <div class="hero-indicator__bar"><div class="hero-indicator__fill hero-indicator__fill--alt" style="width:100%"></div></div>
           </div>
         </div>
-        <blockquote class="classified-quote vhs-quote">
-          <p>&ldquo;Has accedido al sistema de seguridad de Freddy Fazbear's Pizza. Los animatronicos estan activos. Monitorea las cámaras y sobrevive hasta el amanecer.&rdquo;</p>
-          <p class="classified-quote-sub">Cada noche trae nuevos peligros. Documenta todo. No confies en nadie.</p>
-          <p class="classified-quote-sub">Se han reportado incidentes en todas las ubicaciones. Procede bajo tu propio riesgo.</p>
-        </blockquote>
-        <div class="classified-footer vhs-footer">
-          <span>&mdash; Fazbear Entertainment &middot; Sistema de Seguridad v3.1</span>
-          <span class="classified-stamp vhs-stamp">MONITOREAR</span>
+
+        <div class="hero-command__actions">
+          <a href="#games" class="hero-btn hero-btn--primary" data-page="games">
+            <span class="hero-btn-icon">&#x25B6;</span> MONITOREAR CÁMARAS
+          </a>
+          <a href="#characters" class="hero-btn hero-btn--secondary" data-page="characters">
+            <span class="hero-btn-icon">&#x26A0;</span> VER ANIMATRÓNICOS
+          </a>
+          <a href="#history" class="hero-btn hero-btn--ghost" data-page="history">
+            <span class="hero-btn-icon">&#x25A0;</span> ARCHIVO HISTÓRICO
+          </a>
+        </div>
+
+        <div class="hero-command__terminal">
+          <div class="hero-terminal-line"><span class="hero-prompt">&gt;</span> fazbear_archive.exe --init security.db</div>
+          <div class="hero-terminal-line"><span class="hero-prompt">&gt;</span> establecerConexion --camara 01</div>
+          <div class="hero-terminal-line hero-terminal-output">[CONEXION ESTABLECIDA] Señal debil. Estabilizando...</div>
+          <div class="hero-terminal-line hero-terminal-output">[CAMARA-01] "Freddy Fazbear's Pizza" — Animatronicos activos.</div>
+          <div class="hero-terminal-line hero-terminal-output hero-cursor-line">[SISTEMA] Listo. Bienvenido, guardia de seguridad.<span class="hero-typed-cursor"></span></div>
         </div>
       </div>
     </section>
@@ -319,6 +327,163 @@ main
               <div class="hero-line output">[ARCHIVO] Personajes documentados: 213 &middot; Juegos: 12 &middot; Libros: 19</div>
               <div class="hero-line output cursor-line">[SISTEMA] Listo. Bienvenido, guardia de seguridad.<span class="typed-cursor"></span></div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE CAMERA MAP -->
+    <section class="camera-map-section">
+      <div class="camera-map-panel">
+        <div class="camera-map-titlebar">
+          <span class="camera-map-title">&#x25A0; MAPA INTERACTIVO DE CAMARAS</span>
+          <span class="camera-map-status"><span class="hm-rec-dot"></span> EN LINEA</span>
+        </div>
+        <div class="camera-map-body">
+          <div class="camera-map-floor" id="camera-map-floor">
+            <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" id="camera-map-svg">
+              <!-- Floor plan outlines -->
+              <rect x="40" y="30" width="720" height="440" fill="none" stroke="#1a3a1a" stroke-width="2" rx="2"/>
+              <!-- Main Hall -->
+              <rect x="300" y="200" width="200" height="120" fill="none" stroke="#1a3a1a" stroke-width="1.5" rx="1"/>
+              <text x="400" y="265" text-anchor="middle" fill="#333" font-family="Share Tech Mono, monospace" font-size="10" letter-spacing="2">SHOW STAGE</text>
+              <!-- Parts & Service -->
+              <rect x="60" y="40" width="180" height="140" fill="none" stroke="#1a3a1a" stroke-width="1.5" rx="1"/>
+              <text x="150" y="115" text-anchor="middle" fill="#333" font-family="Share Tech Mono, monospace" font-size="9" letter-spacing="1">PARTS &amp; SERVICE</text>
+              <!-- Dining Area -->
+              <rect x="60" y="200" width="220" height="120" fill="none" stroke="#1a3a1a" stroke-width="1.5" rx="1"/>
+              <text x="170" y="265" text-anchor="middle" fill="#333" font-family="Share Tech Mono, monospace" font-size="9" letter-spacing="1">DINING AREA</text>
+              <!-- Prize Corner -->
+              <rect x="60" y="340" width="180" height="120" fill="none" stroke="#1a3a1a" stroke-width="1.5" rx="1"/>
+              <text x="150" y="405" text-anchor="middle" fill="#333" font-family="Share Tech Mono, monospace" font-size="9" letter-spacing="1">PRIZE CORNER</text>
+              <!-- Backstage -->
+              <rect x="520" y="40" width="230" height="140" fill="none" stroke="#1a3a1a" stroke-width="1.5" rx="1"/>
+              <text x="635" y="115" text-anchor="middle" fill="#333" font-family="Share Tech Mono, monospace" font-size="9" letter-spacing="1">BACKSTAGE</text>
+              <!-- Office -->
+              <rect x="520" y="200" width="230" height="120" fill="none" stroke="#1a3a1a" stroke-width="1.5" rx="1"/>
+              <text x="635" y="265" text-anchor="middle" fill="#333" font-family="Share Tech Mono, monospace" font-size="9" letter-spacing="1">OFFICE</text>
+              <!-- Arcade -->
+              <rect x="520" y="340" width="230" height="120" fill="none" stroke="#1a3a1a" stroke-width="1.5" rx="1"/>
+              <text x="635" y="405" text-anchor="middle" fill="#333" font-family="Share Tech Mono, monospace" font-size="9" letter-spacing="1">ARCADE</text>
+              <!-- Kitchen -->
+              <rect x="300" y="340" width="200" height="120" fill="none" stroke="#1a3a1a" stroke-width="1.5" rx="1"/>
+              <text x="400" y="405" text-anchor="middle" fill="#333" font-family="Share Tech Mono, monospace" font-size="9" letter-spacing="1">KITCHEN</text>
+              <!-- Hallways -->
+              <line x1="240" y1="180" x2="300" y2="180" stroke="#1a3a1a" stroke-width="1" stroke-dasharray="4,4"/>
+              <line x1="500" y1="180" x2="520" y2="180" stroke="#1a3a1a" stroke-width="1" stroke-dasharray="4,4"/>
+              <line x1="240" y1="320" x2="300" y2="320" stroke="#1a3a1a" stroke-width="1" stroke-dasharray="4,4"/>
+              <line x1="500" y1="320" x2="520" y2="320" stroke="#1a3a1a" stroke-width="1" stroke-dasharray="4,4"/>
+              <line x1="400" y1="140" x2="400" y2="200" stroke="#1a3a1a" stroke-width="1" stroke-dasharray="4,4"/>
+              <line x1="400" y1="320" x2="400" y2="340" stroke="#1a3a1a" stroke-width="1" stroke-dasharray="4,4"/>
+
+              <!-- Camera dots -->
+              <g class="cam-dot" data-cam="cam-01" onclick="selectCamera('cam-01')">
+                <circle class="cam-dot-ring" cx="150" cy="110" r="10"/>
+                <circle class="cam-dot-core" cx="150" cy="110" r="3"/>
+              </g>
+              <g class="cam-dot" data-cam="cam-02" onclick="selectCamera('cam-02')">
+                <circle class="cam-dot-ring" cx="400" cy="260" r="10"/>
+                <circle class="cam-dot-core" cx="400" cy="260" r="3"/>
+              </g>
+              <g class="cam-dot" data-cam="cam-03" onclick="selectCamera('cam-03')">
+                <circle class="cam-dot-ring" cx="170" cy="260" r="10"/>
+                <circle class="cam-dot-core" cx="170" cy="260" r="3"/>
+              </g>
+              <g class="cam-dot cam-dot--offline" data-cam="cam-04" onclick="selectCamera('cam-04')">
+                <circle class="cam-dot-ring" cx="635" cy="110" r="10"/>
+                <circle class="cam-dot-core" cx="635" cy="110" r="3"/>
+              </g>
+              <g class="cam-dot" data-cam="cam-05" onclick="selectCamera('cam-05')">
+                <circle class="cam-dot-ring" cx="635" cy="260" r="10"/>
+                <circle class="cam-dot-core" cx="635" cy="260" r="3"/>
+              </g>
+              <g class="cam-dot cam-dot--warning" data-cam="cam-06" onclick="selectCamera('cam-06')">
+                <circle class="cam-dot-ring" cx="150" cy="400" r="10"/>
+                <circle class="cam-dot-core" cx="150" cy="400" r="3"/>
+              </g>
+              <g class="cam-dot" data-cam="cam-07" onclick="selectCamera('cam-07')">
+                <circle class="cam-dot-ring" cx="635" cy="400" r="10"/>
+                <circle class="cam-dot-core" cx="635" cy="400" r="3"/>
+              </g>
+              <g class="cam-dot cam-dot--offline" data-cam="cam-08" onclick="selectCamera('cam-08')">
+                <circle class="cam-dot-ring" cx="400" cy="400" r="10"/>
+                <circle class="cam-dot-core" cx="400" cy="400" r="3"/>
+              </g>
+
+              <!-- Scan line overlay -->
+              <rect x="0" y="0" width="800" height="500" fill="url(#scanPattern)" opacity="0.15" pointer-events="none"/>
+              <defs>
+                <pattern id="scanPattern" patternUnits="userSpaceOnUse" width="800" height="4">
+                  <rect width="800" height="1" fill="transparent"/>
+                  <rect y="1" width="800" height="1" fill="rgba(0,255,102,0.08)"/>
+                </pattern>
+              </defs>
+            </svg>
+          </div>
+
+          <div class="camera-map-info" id="camera-map-info">
+            <div class="cam-info-card">
+              <div class="cam-info-card__header">
+                <span class="cam-info-card__name" id="cam-info-name">CAM-02 / SHOW STAGE</span>
+                <span class="cam-info-card__status cam-info-card__status--online" id="cam-info-status">ONLINE</span>
+              </div>
+              <div class="cam-info-card__row">
+                <span class="cam-info-card__label">ULTIMA ACTIVIDAD</span>
+                <span class="cam-info-card__value cam-info-card__value--green" id="cam-info-activity">Hace 2 min</span>
+              </div>
+              <div class="cam-info-card__row">
+                <span class="cam-info-card__label">SEÑAL</span>
+                <span class="cam-info-card__value" id="cam-info-signal">98%</span>
+              </div>
+              <div class="cam-info-card__row">
+                <span class="cam-info-card__label">RESOLUCION</span>
+                <span class="cam-info-card__value">720p</span>
+              </div>
+              <div class="cam-info-card__row">
+                <span class="cam-info-card__label">ANIMATRONICOS</span>
+              </div>
+              <div class="cam-animatronics" id="cam-info-animatronics">
+                <span class="cam-animatronic-tag">FREDDY</span>
+                <span class="cam-animatronic-tag">BONNIE</span>
+                <span class="cam-animatronic-tag">CHICA</span>
+              </div>
+            </div>
+
+            <div class="cam-info-card">
+              <div class="cam-info-card__header">
+                <span class="cam-info-card__name">RESUMEN</span>
+              </div>
+              <div class="cam-info-card__row">
+                <span class="cam-info-card__label">TOTAL CAMARAS</span>
+                <span class="cam-info-card__value cam-info-card__value--green">8</span>
+              </div>
+              <div class="cam-info-card__row">
+                <span class="cam-info-card__label">ONLINE</span>
+                <span class="cam-info-card__value cam-info-card__value--green">6</span>
+              </div>
+              <div class="cam-info-card__row">
+                <span class="cam-info-card__label">OFFLINE</span>
+                <span class="cam-info-card__value cam-info-card__value--red">2</span>
+              </div>
+              <div class="cam-info-card__row">
+                <span class="cam-info-card__label">ALERTAS</span>
+                <span class="cam-info-card__value cam-info-card__value--yellow">1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="camera-map-legend">
+          <div class="camera-legend-item">
+            <div class="camera-legend-dot camera-legend-dot--online"></div>
+            <span>ONLINE</span>
+          </div>
+          <div class="camera-legend-item">
+            <div class="camera-legend-dot camera-legend-dot--offline"></div>
+            <span>OFFLINE</span>
+          </div>
+          <div class="camera-legend-item">
+            <div class="camera-legend-dot camera-legend-dot--warning"></div>
+            <span>ALERTA</span>
           </div>
         </div>
       </div>
