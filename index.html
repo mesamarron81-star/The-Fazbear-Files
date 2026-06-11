@@ -61,14 +61,61 @@
       <span class="logo-icon">&#x258C;</span>THE FAZBEAR FILES<span class="logo-icon">&#x2590;</span>
     </a>
     <nav class="nav-menu" id="main-nav">
-      <a href="#characters" class="nav-link" data-page="characters">PERSONAJES</a>
-      <a href="#games" class="nav-link" data-page="games">JUEGOS</a>
-      <a href="#fnaf-ar" class="nav-link" data-page="fnaf-ar">FNAF AR</a>
-      <a href="#books" class="nav-link" data-page="books">LIBROS</a>
-      <a href="#videos" class="nav-link" data-page="videos">VÍDEOS</a>
-      <a href="#fangames" class="nav-link" data-page="fangames">FANGAMES</a>
-      <a href="#history" class="nav-link" data-page="history">HISTORIA</a>
-      <a href="#music" class="nav-link" data-page="music">MUSICA</a>
+      <div class="nav-dropdown" data-nav-group="camaras">
+        <button class="nav-link nav-trigger" type="button" aria-expanded="false">
+          CAMARAS <span class="nav-chevron">▾</span>
+        </button>
+        <div class="nav-dropdown-panel" role="menu">
+          <a href="#games" class="nav-link nav-dropdown-link" data-page="games" role="menuitem">
+            <span class="nav-link-code">CAM-01</span>JUEGOS
+          </a>
+          <a href="#fnaf-ar" class="nav-link nav-dropdown-link" data-page="fnaf-ar" role="menuitem">
+            <span class="nav-link-code">CAM-AR</span>FNAF AR
+          </a>
+          <a href="#fangames" class="nav-link nav-dropdown-link" data-page="fangames" role="menuitem">
+            <span class="nav-link-code">CAM-FG</span>FANGAMES
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown" data-nav-group="animatronicos">
+        <button class="nav-link nav-trigger" type="button" aria-expanded="false">
+          ANIMATRONICOS <span class="nav-chevron">▾</span>
+        </button>
+        <div class="nav-dropdown-panel" role="menu">
+          <a href="#characters" class="nav-link nav-dropdown-link" data-page="characters" role="menuitem">
+            <span class="nav-link-code">ROSTER</span>PERSONAJES
+          </a>
+          <a href="#books" class="nav-link nav-dropdown-link" data-page="books" role="menuitem">
+            <span class="nav-link-code">FILES</span>LIBROS
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown" data-nav-group="noches">
+        <button class="nav-link nav-trigger" type="button" aria-expanded="false">
+          NOCHES <span class="nav-chevron">▾</span>
+        </button>
+        <div class="nav-dropdown-panel" role="menu">
+          <a href="#videos" class="nav-link nav-dropdown-link" data-page="videos" role="menuitem">
+            <span class="nav-link-code">REC</span>VIDEOS
+          </a>
+          <a href="#music" class="nav-link nav-dropdown-link" data-page="music" role="menuitem">
+            <span class="nav-link-code">AUDIO</span>MUSICA
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown" data-nav-group="lore">
+        <button class="nav-link nav-trigger" type="button" aria-expanded="false">
+          LORE <span class="nav-chevron">▾</span>
+        </button>
+        <div class="nav-dropdown-panel" role="menu">
+          <a href="#history" class="nav-link nav-dropdown-link" data-page="history" role="menuitem">
+            <span class="nav-link-code">1983</span>HISTORIA
+          </a>
+        </div>
+      </div>
     </nav>
   </div>
 </header>

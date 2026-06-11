@@ -67,6 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initDatabaseCards();
   initHeroIndicators();
   initCameraMap();
+  initNavDropdowns();
+  initScrollReveal();
 
   // Load page data
   loadPage('home');
@@ -122,6 +124,7 @@ function initNavigation() {
       e.preventDefault();
       const page = link.dataset.page;
       navigateTo(page);
+      closeNavDropdowns();
     });
   });
 
@@ -156,6 +159,7 @@ function navigateTo(page) {
   $$('#main-nav a').forEach(a => {
     a.classList.toggle('active', a.dataset.page === page);
   });
+  updateActiveNavGroup(page);
 
   // Update hash
   if (location.hash !== `#${page}`) {
@@ -202,6 +206,88 @@ function loadPage(page) {
       renderBlog();
       break;
   }
+
+  requestAnimationFrame(revealPageElements);
+}
+
+function initNavDropdowns() {
+  const dropdowns = $$('#main-nav .nav-dropdown');
+  if (!dropdowns.length) return;
+
+  dropdowns.forEach(dropdown => {
+    const trigger = dropdown.querySelector('.nav-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.contains('is-open');
+      closeNavDropdowns();
+      dropdown.classList.toggle('is-open', !isOpen);
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeNavDropdowns();
+        trigger.focus();
+      }
+    });
+  });
+
+  document.addEventListener('click', closeNavDropdowns);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeNavDropdowns();
+  });
+
+  updateActiveNavGroup(state.currentPage);
+}
+
+function closeNavDropdowns() {
+  $$('#main-nav .nav-dropdown').forEach(dropdown => {
+    dropdown.classList.remove('is-open');
+    const trigger = dropdown.querySelector('.nav-trigger');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+  });
+}
+
+function updateActiveNavGroup(page) {
+  $$('#main-nav .nav-dropdown').forEach(dropdown => {
+    const hasActivePage = !!dropdown.querySelector(`[data-page="${page}"]`);
+    dropdown.classList.toggle('is-active', hasActivePage);
+  });
+}
+
+function initScrollReveal() {
+  if (!('IntersectionObserver' in window)) {
+    revealPageElements(true);
+    return;
+  }
+
+  state.revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      state.revealObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.16, rootMargin: '0px 0px -40px 0px' });
+
+  revealPageElements();
+}
+
+function revealPageElements(showImmediately = false) {
+  const targets = $$('.page.active .db-card, .page.active .character-card, .page.active .game-card, .page.active .book-card, .page.active .video-card, .page.active .folder-card, .page.active .fangame-card, .page.active .dashboard-card');
+  targets.forEach((el, index) => {
+    if (el.classList.contains('is-visible')) return;
+    el.classList.add('reveal-target');
+    el.style.transitionDelay = `${Math.min(index * 45, 360)}ms`;
+
+    if (showImmediately || !state.revealObserver) {
+      el.classList.add('is-visible');
+      return;
+    }
+
+    state.revealObserver.observe(el);
+  });
 }
 
 // =============================================
