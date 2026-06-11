@@ -2322,7 +2322,6 @@ window.showCharacterModal = (id) => {
   mc.classList.add('active');
   const mcInner = mc.querySelector('.modal-content') || mc.querySelector('[class*="modal"]');
   if (mcInner) mcInner.scrollTop = 0;
-  window.scrollTo({ top: 0, behavior: 'instant' });
 };
 
 window._switchCharImg = (el, idx) => {
