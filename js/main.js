@@ -41,6 +41,73 @@ function getImageGallery(type, id) {
   } catch (e) { return []; }
 }
 
+function normalizeCharacterKey(value) {
+  return String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/&/g, 'and')
+    .replace(/\([^)]*\)/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function findCharacterByName(value) {
+  if (!window.characters || !value) return null;
+  const key = normalizeCharacterKey(value);
+  const aliases = {
+    freddy: 'freddy-fazbear',
+    puppet: 'the-puppet',
+    marionette: 'the-puppet',
+    'the-marionette': 'the-puppet',
+    'phantom-balloon-boy': 'phantom-balloon-boy',
+    'phantom-bb': 'phantom-balloon-boy',
+    'scraptrap-william-afton': 'scraptrap',
+    'vanny': 'vanessa-vanny',
+    'vanessa': 'vanessa-vanny',
+    'vanny-vanessa': 'vanessa-vanny',
+    'roxy': 'roxanne-wolf',
+    'sun': 'daycare-attendant',
+    'moon': 'daycare-attendant',
+    'sundrop': 'daycare-attendant',
+    'moondrop': 'daycare-attendant',
+    'eclipse': 'eclipse',
+    'the-blob': 'the-blob',
+    blob: 'the-blob',
+    'staff-bot': 'staff-bots',
+    'staff-bots': 'staff-bots',
+    'map-bot': 'map-bots',
+    'map-bots': 'map-bots',
+    'm-x-e-s': 'mxes',
+    mxes: 'mxes',
+    'new-animatronics': 'the-mimic',
+    carnival: 'carnival-freddy',
+    'masked-freddy': 'freddy-fazbear',
+    'masked-bonnie': 'bonnie',
+    'masked-chica': 'chica',
+    'masked-foxy': 'foxy',
+  };
+  const directId = aliases[key] || key;
+  return window.characters.find(ch => {
+    const id = normalizeCharacterKey(ch.id);
+    const name = normalizeCharacterKey(ch.name);
+    const alias = normalizeCharacterKey(ch.alias || '');
+    return id === directId || name === key || alias.split('-').join(' ').includes(key.split('-').join(' '));
+  }) || null;
+}
+
+function openCharacterFromName(value) {
+  const char = findCharacterByName(value);
+  if (!char) return false;
+  const modal = $('#modal');
+  if (modal) modal.classList.remove('active');
+  navigateTo('characters');
+  setTimeout(() => showCharacterModal(char.id), 350);
+  return true;
+}
+
+window.openCharacterFromName = openCharacterFromName;
+
 // =============================================
 // DOM REFS
 // =============================================
@@ -906,13 +973,13 @@ window.showFangameModal = (id) => {
         </div>
         <div class="game-modal__chars-grid">
           ${fg.characters.slice(0, 20).map(c => {
-            const slug = c.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
-            const charImg = getImageUrl('characters', slug);
-            const charData = characters.find(ch => ch.id === slug || ch.name.toLowerCase() === c.toLowerCase());
+            const charData = findCharacterByName(c);
+            const charId = charData ? charData.id : normalizeCharacterKey(c);
+            const charImg = charData ? getImageUrl('characters', charData.id) : getImageUrl('characters', charId);
             const charDesc = charData ? charData.description : '';
             const charRole = charData ? (charData.trait || 'Animatronico') : 'Animatronico';
             return `
-              <div class="game-modal__char-card" onclick="event.stopPropagation(); window.showCharacterFromFangame('${slug}')" title="${charDesc || c}">
+              <div class="game-modal__char-card${charData ? ' game-modal__char-card--link' : ''}" ${charData ? `onclick="event.stopPropagation(); window.openCharacterFromName('${c.replace(/'/g, "\\'")}')"` : ''} title="${charDesc || c}">
                 <div class="game-modal__char-avatar">
                   ${charImg ? `<img src="${charImg}" alt="${c}" loading="lazy" onerror="this.parentElement.innerHTML='<span class=\\'char-fallback\\'>${c.charAt(0)}</span>'">` : `<span class="char-fallback">${c.charAt(0)}</span>`}
                   <div class="game-modal__char-role">${charRole}</div>
@@ -921,6 +988,7 @@ window.showFangameModal = (id) => {
                   <div class="game-modal__char-name">${c}</div>
                   ${charDesc ? `<div class="game-modal__char-desc">${charDesc.slice(0, 80)}${charDesc.length > 80 ? '...' : ''}</div>` : ''}
                 </div>
+                ${charData ? '<div class="game-modal__char-arrow">▸</div>' : ''}
               </div>
             `;
           }).join('')}
@@ -969,13 +1037,13 @@ window.showCharacterFromFangame = function(charId) {
   const modal = $('#modal');
   if (modal) modal.classList.remove('active');
   setTimeout(() => {
-    const char = characters.find(c => c.id === charId || c.name.toLowerCase().replace(/ /g, '-') === charId);
+    const char = findCharacterByName(charId);
     if (char) {
       window.showCharacterModal(char.id);
     } else {
-      window.showSection('personajes');
+      navigateTo('characters');
       setTimeout(() => {
-        const searchInput = $('#characters-search');
+        const searchInput = $('#character-search');
         if (searchInput) {
           searchInput.value = charId.replace(/-/g, ' ');
           searchInput.dispatchEvent(new Event('input'));
@@ -989,9 +1057,9 @@ window.navigateToCharacters = function(fangameId) {
   const modal = $('#modal');
   if (modal) modal.classList.remove('active');
   setTimeout(() => {
-    window.showSection('personajes');
+    navigateTo('characters');
     setTimeout(() => {
-      const searchInput = $('#characters-search');
+      const searchInput = $('#character-search');
       if (searchInput) {
         const fg = fangames.find(f => f.id === fangameId);
         if (fg && fg.characters && fg.characters.length > 0) {
@@ -2487,16 +2555,16 @@ window.showGameModal = (id) => {
         </div>
         <div class="game-modal__chars-grid">
           ${game.characters.slice(0, 12).map(c => {
-            const slug = c.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
-            const charImg = getImageUrl('characters', slug);
-            const charExists = window.characters && window.characters.find(ch => ch.id === slug);
+            const charData = findCharacterByName(c);
+            const charId = charData ? charData.id : normalizeCharacterKey(c);
+            const charImg = charData ? getImageUrl('characters', charData.id) : getImageUrl('characters', charId);
             return `
-              <div class="game-modal__char-card${charExists ? ' game-modal__char-card--link' : ''}" ${charExists ? `onclick="event.stopPropagation();$('#modal').classList.remove('active');navigateTo('characters');setTimeout(()=>showCharacterModal('${slug}'),400);"` : ''}>
+              <div class="game-modal__char-card${charData ? ' game-modal__char-card--link' : ''}" ${charData ? `onclick="event.stopPropagation();openCharacterFromName('${c.replace(/'/g, "\\'")}')"` : ''}>
                 <div class="game-modal__char-avatar">
                   ${charImg ? `<img src="${charImg}" alt="${c}" loading="lazy">` : `<span class="char-fallback">${c.charAt(0)}</span>`}
                 </div>
                 <div class="game-modal__char-name">${c}</div>
-                ${charExists ? '<div class="game-modal__char-arrow">▸</div>' : ''}
+                ${charData ? '<div class="game-modal__char-arrow">▸</div>' : ''}
               </div>
             `;
           }).join('')}
@@ -3505,11 +3573,19 @@ function renderPersonalityResult() {
     Object.keys(a).forEach(k => { totals[k] = (totals[k] || 0) + a[k]; });
   });
   const max = Object.entries(totals).sort((a, b) => b[1] - a[1])[0][0];
-  const charMap = { fear: 'goldenFreddy', aggression: 'foxy', curiosity: 'bonnie', survival: 'chica' };
-  const result = window.quizData.personality.results[charMap[max] || 'freddy'];
+  const charIdMap = { fear: 'golden-freddy', aggression: 'foxy', curiosity: 'bonnie', survival: 'chica' };
+  const resultKey = { fear: 'goldenFreddy', aggression: 'foxy', curiosity: 'bonnie', survival: 'chica' }[max] || 'freddy';
+  const result = window.quizData.personality.results[resultKey];
+  const charId = charIdMap[max] || 'freddy';
+  const charData = findCharacterByName(charId) || findCharacterByName(result.name);
+  const finalCharId = charData ? charData.id : charId;
+  const charImg = getImageUrl('characters', finalCharId);
   el.innerHTML = `
     <div class="quiz-result">
-      <div class="quiz-result__emoji">${result.emoji}</div>
+      <div class="quiz-result__char-img" onclick="openCharacterFromName('${finalCharId}')" style="cursor:pointer;">
+        ${charImg ? `<img src="${charImg}" alt="${result.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+        <span class="quiz-result__char-fallback" style="${charImg ? 'display:none' : ''}">${result.name.charAt(0)}</span>
+      </div>
       <div class="quiz-result__title">ERES: ${result.name}</div>
       <div class="quiz-result__desc">${result.description}</div>
       <div class="quiz-result__lore"><strong>LORE:</strong> ${result.lore}</div>
