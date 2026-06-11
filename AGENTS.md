@@ -1,6 +1,75 @@
 # AGENTS.md — Proyecto FNAF: The Fazbear Files
 
-## Session: Videojuegos + Modal + Imágenes
+## Session: Fangames — Imágenes, Modal y Enlaces
+
+### Goal
+Mejorar la sección de Fangames: agregar imágenes de portada y personajes, crear sección de personajes dentro del modal de fangames con imágenes/descripciones/roles, implementar enlaces bidireccionales entre Fangames ↔ Characters, y aplicar mejoras visuales.
+
+### Constraints & Preferences
+- **SOLO la sección de Fangames puede ser modificada** — no se modifican otras secciones
+- Cada fangame DEBE tener imágenes de portada
+- Cada animatrónico dentro de fangames DEBE tener imágenes
+- Sin imágenes genéricas, sin imágenes rotas, sin placeholders vacíos
+- Navegación bidireccional: fangame → detalle de personaje, personaje → fangame
+- Las tarjetas de personajes dentro de fangames deben mostrar: nombre, imagen, descripción, rol
+- Visual: tarjetas, thumbnails, efectos hover, animaciones suaves, responsive
+- Todas las descripciones en español
+
+### Done
+- **27 imágenes de portada de fangames** agregadas a `data/images.js` desde FNAF Fangame Wiki
+- **33 imágenes de personajes de fangames** agregadas a `data/images.js` incluyendo:
+  - FNaC: Candy, Cindy, Penguin, Old Candy
+  - POPGOES: Popgoes, Blackrabbit, Stone, Manora
+  - TJOC: Ignited Freddy, Bonnie, Chica, Foxy, Golden Freddy
+  - ONaF: Flumpty, Birthday Boy Blam, Golden Flumpty
+- **Modal de fangames mejorado** (`js/main.js:843-930`):
+  - Sección "PERSONAJES Y ANIMATRONICOS" con tarjetas de personajes
+  - Imágenes de personajes con fallback a initial letter
+  - Badge de rol por personaje (`game-modal__char-role`)
+  - Descripción del personaje (`game-modal__char-desc`)
+  - Click en personaje abre detalle en sección de Personajes
+  - Botón "VER TODOS LOS PERSONAJES EN LA SECCION DE PERSONAJES"
+- **Enlaces bidireccionales** (`js/main.js:937-965`):
+  - `showCharacterFromFangame(charId)` — Abre detalle de personaje desde modal de fangame
+  - `navigateToCharacters(fangameId)` — Navega a sección de Personajes filtrada por fangame
+- **CSS mejorado** (`css/style.css:4529-4620`):
+  - `.game-modal__char-role` — Badge de rol con color accent
+  - `.game-modal__char-desc` — Descripción con line-clamp
+  - `.game-modal__char-nav` — Botón de navegación con hover effects
+  - `.game-modal__char-info` — Contenedor de información del personaje
+
+### Fangame Image Coverage
+| Status | Count | IDs |
+|--------|-------|-----|
+| ✅ With Image | 35 | fnac-1..4, fnac-remastered, onaflumpty-1..3, popgoes, popgoes-evergreen, popgoes-arcade, tjoc, tjoc-reborn, tjoc-story-mode, fnaf-plus, dayshift, dayshift-2, final-nights, super-fnaf, fredbears-fright, sinister-turmoil, fnaf-treasure-island, jolly, jolly-4, jrs, babys-nightmare-circus, obligus-casa, banshee, fnaw-rewritten, bubbas-diner, graveyard-shift, dormitabis, fnab-fan-game, post-shift-2, animators-hell |
+| ❌ No Image | 6 | tyke-and-sons, trtf, frickbears, after-hours-cody, fnaf-blood-gears, fnaw-friedrichs |
+
+### Character Image Coverage
+| Category | With Image | Total |
+|----------|-----------|-------|
+| FNaC Characters | 7 | 22 |
+| POPGOES Characters | 5 | 6 |
+| TJOC Characters | 5 | 5 |
+| ONaF Characters | 3 | 6 |
+| Other Fangames | 13 | 26 |
+| **Total** | **33** | **65** |
+
+### Relevant Files
+- `index.html` — Fangames grid section
+- `css/style.css` — .fangame-card, .fangame-modal, .game-modal__char-* styles
+- `js/main.js` — renderFangames(), showFangameModal(), showCharacterFromFangame(), navigateToCharacters()
+- `data/fangames.js` — 41 fangames con datos y URLs corregidas
+- `data/images.js` — window.images.fangames + fangame character images
+- `data/characters.js` — ~401 personajes (253 originales + 83 FNaF AR + 65 fangame)
+
+### Known Issues
+- 6 fangames sin imágenes (tyke-and-sons, trtf, frickbears, after-hours-cody, fnaf-blood-gears, fnaw-friedrichs)
+- 32 personajes de fangames sin imágenes específicas (usan fallback a initial letter)
+- Texto en games.js tiene encoding roto (?? en vez de acentos) — preexistente
+
+---
+
+## Session: Videojuegos + Modal + Imágenes (Original)
 
 ### Goal
 Implementar sección de videojuegos con temática FNAF (cámaras de seguridad), modal mejorado con colores por juego, e imágenes de portada desde la wiki Fandom.

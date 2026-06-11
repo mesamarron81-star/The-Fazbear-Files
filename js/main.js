@@ -901,20 +901,37 @@ window.showFangameModal = (id) => {
 
       ${fg.characters && fg.characters.length > 0 ? `
       <div class="game-modal__section">
-        <div class="game-modal__section-header" data-text="PERSONAJES PRINCIPALES">
-          <span class="game-modal__section-dot"></span> PERSONAJES PRINCIPALES
+        <div class="game-modal__section-header" data-text="PERSONAJES Y ANIMATRONICOS">
+          <span class="game-modal__section-dot"></span> PERSONAJES Y ANIMATRONICOS
         </div>
         <div class="game-modal__chars-grid">
-          ${fg.characters.slice(0, 12).map(c => `
-            <div class="game-modal__char-card">
-              <div class="game-modal__char-avatar">
-                <span class="char-fallback">${c.charAt(0)}</span>
+          ${fg.characters.slice(0, 20).map(c => {
+            const slug = c.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
+            const charImg = getImageUrl('characters', slug);
+            const charData = characters.find(ch => ch.id === slug || ch.name.toLowerCase() === c.toLowerCase());
+            const charDesc = charData ? charData.description : '';
+            const charRole = charData ? (charData.trait || 'Animatronico') : 'Animatronico';
+            return `
+              <div class="game-modal__char-card" onclick="event.stopPropagation(); window.showCharacterFromFangame('${slug}')" title="${charDesc || c}">
+                <div class="game-modal__char-avatar">
+                  ${charImg ? `<img src="${charImg}" alt="${c}" loading="lazy" onerror="this.parentElement.innerHTML='<span class=\\'char-fallback\\'>${c.charAt(0)}</span>'">` : `<span class="char-fallback">${c.charAt(0)}</span>`}
+                  <div class="game-modal__char-role">${charRole}</div>
+                </div>
+                <div class="game-modal__char-info">
+                  <div class="game-modal__char-name">${c}</div>
+                  ${charDesc ? `<div class="game-modal__char-desc">${charDesc.slice(0, 80)}${charDesc.length > 80 ? '...' : ''}</div>` : ''}
+                </div>
               </div>
-              <div class="game-modal__char-name">${c}</div>
-            </div>
-          `).join('')}
+            `;
+          }).join('')}
         </div>
-        ${fg.characters.length > 12 ? `<div class="game-modal__more-chars">+${fg.characters.length - 12} personajes mas</div>` : ''}
+        ${fg.characters.length > 20 ? `<div class="game-modal__more-chars">+${fg.characters.length - 20} personajes mas</div>` : ''}
+        <div class="game-modal__char-nav">
+          <button class="game-modal__nav-btn" onclick="event.stopPropagation(); window.navigateToCharacters('${fg.id}')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            VER TODOS LOS PERSONAJES EN LA SECCION DE PERSONAJES
+          </button>
+        </div>
       </div>
       ` : ''}
 
@@ -946,6 +963,44 @@ window.showFangameModal = (id) => {
   `;
 
   openModal();
+};
+
+window.showCharacterFromFangame = function(charId) {
+  const modal = $('#modal');
+  if (modal) modal.classList.remove('active');
+  setTimeout(() => {
+    const char = characters.find(c => c.id === charId || c.name.toLowerCase().replace(/ /g, '-') === charId);
+    if (char) {
+      window.showCharacterModal(char.id);
+    } else {
+      window.showSection('personajes');
+      setTimeout(() => {
+        const searchInput = $('#characters-search');
+        if (searchInput) {
+          searchInput.value = charId.replace(/-/g, ' ');
+          searchInput.dispatchEvent(new Event('input'));
+        }
+      }, 300);
+    }
+  }, 300);
+};
+
+window.navigateToCharacters = function(fangameId) {
+  const modal = $('#modal');
+  if (modal) modal.classList.remove('active');
+  setTimeout(() => {
+    window.showSection('personajes');
+    setTimeout(() => {
+      const searchInput = $('#characters-search');
+      if (searchInput) {
+        const fg = fangames.find(f => f.id === fangameId);
+        if (fg && fg.characters && fg.characters.length > 0) {
+          searchInput.value = fg.characters[0].split(' ')[0];
+          searchInput.dispatchEvent(new Event('input'));
+        }
+      }
+    }, 300);
+  }, 300);
 };
 
 // =============================================
