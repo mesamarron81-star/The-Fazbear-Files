@@ -330,8 +330,14 @@ function renderCharacters(filter = state.currentFilter, search = state.character
   const grid = $('#characters-grid');
   let filtered = [...characters];
 
+  const arCharacterIds = ['freddy-fazbear','bonnie','chica','foxy','golden-freddy','toy-freddy','toy-bonnie','toy-chica','mangle','balloon-boy','shadow-bonnie','springtrap','jack-o-chica','jack-o-bonnie','plushtrap','circus-baby','ballora','funtime-freddy','bon-bon','freddy-frostbear','8bit-baby','endo-01'];
+
   if (filter !== 'all') {
-    filtered = filtered.filter(c => c.category === filter);
+    if (filter === 'AR') {
+      filtered = filtered.filter(c => arCharacterIds.includes(c.id));
+    } else {
+      filtered = filtered.filter(c => c.category === filter);
+    }
   }
 
   if (search) {
