@@ -1,0 +1,93 @@
+window.mapLocations = [
+  {
+    id: 'loc-freddys-original',
+    name: "Freddy Fazbear's Pizza (Original)",
+    type: 'pizzeria',
+    year: '~1983-1993',
+    status: 'closed',
+    danger: 'extremo',
+    description: 'La ubicación original de Freddy Fazbear\'s Pizza, donde ocurrieron la mayoría de los incidentes. Aquí William Afton asesinó a los cinco niños y donde los animatrónicos permanecieron activos.',
+    events: ['Incidente de los Niños Desaparecidos', 'The Bite of \'87 (referencia)', 'Noches de Mike Schmidt'],
+    animatronics: ['Freddy Fazbear', 'Bonnie', 'Chica', 'Foxy', 'Golden Freddy', 'The Puppet'],
+    secrets: ['Golden Freddy aparece en cámara 1A', 'Los niños están enterrados en los animatrónicos', 'Las grabaciones de Phone Guy revelan el lore'],
+    position: { x: 30, y: 40 }
+  },
+  {
+    id: 'loc-freddys-new',
+    name: "Freddy Fazbear's Pizza (Nueva Ubicación)",
+    type: 'pizzeria',
+    year: '1987',
+    status: 'closed',
+    danger: 'alto',
+    description: 'La nueva ubicación construida en 1987 con los Toy Animatronics. Aquí ocurrió el Bite of \'87 y trabajó Jeremy Fitzgerald.',
+    events: ['The Bite of \'87', 'Noches de Jeremy Fitzgerald', 'Cierre definitivo'],
+    animatronics: ['Toy Freddy', 'Toy Bonnie', 'Toy Chica', 'Mangle', 'Balloon Boy', 'The Puppet'],
+    secrets: ['Mangle se mueve por el techo', 'JJ aparece bajo la mesa', 'Los Paper Pals son un misterio'],
+    position: { x: 55, y: 35 }
+  },
+  {
+    id: 'loc-fredbears',
+    name: "Fredbear's Family Diner",
+    type: 'diner',
+    year: '~1970-1983',
+    status: 'closed',
+    danger: 'medio',
+    description: 'El primer restaurante de la franquicia. Aquí ocurrió el Bite of \'83 y el asesinato de Charlotte Emily.',
+    events: ['Apertura del primer local', 'Asesinato de Charlotte', 'The Bite of \'83'],
+    animatronics: ['Fredbear', 'Spring Bonnie'],
+    secrets: ['El Crying Child tiene miedo de Fredbear', 'William Afton operaba desde aquí', 'La Marioneta fue creada para proteger a los niños'],
+    position: { x: 20, y: 25 }
+  },
+  {
+    id: 'loc-fazbears-fright',
+    name: "Fazbear's Fright: The Horror Attraction",
+    type: 'attraction',
+    year: '~2023',
+    status: 'destroyed',
+    danger: 'alto',
+    description: 'Atracción de terror inspirada en las leyendas de Freddy\'s. Recuperaron el traje de Springtrap pero la atracción se incendió.',
+    events: ['Recuperación de Springtrap', 'Incendio de la atracción', 'Última noche'],
+    animatronics: ['Springtrap', 'Phantom animatronics'],
+    secrets: ['Springtrap contenía el cuerpo de William Afton', 'Los Phantom son visiones de los animatrónicos destruidos', 'El incendio fue provocado'],
+    position: { x: 75, y: 30 }
+  },
+  {
+    id: 'loc-sister-location',
+    name: "Circus Baby's Entertainment and Rental",
+    type: 'bunker',
+    year: '~2024',
+    status: 'abandoned',
+    danger: 'extremo',
+    description: 'Bunker subterráneo secreto donde William Afton experimentó con los animatrónicos Funtime. Aquí trabajó Michael Afton.',
+    events: ['Trabajo de Michael como técnico', 'Escape de Ennard', 'Descubrimiento del destino de Elizabeth'],
+    animatronics: ['Circus Baby', 'Ballora', 'Funtime Freddy', 'Funtime Foxy', 'Ennard'],
+    secrets: ['El bunker está debajo de la casa de los Afton', 'La Sala de Scooping vaciaba los animatrónicos', 'Los niños eran "puestos" dentro de los animatrónicos'],
+    position: { x: 45, y: 60 }
+  },
+  {
+    id: 'loc-pizzeria-simulator',
+    name: "Freddy Fazbear's Pizza Place (Falsa)",
+    type: 'pizzeria',
+    year: '~2025',
+    status: 'destroyed',
+    danger: 'extremo',
+    description: 'La pizzería falsa creada por Henry para ejecutar su plan final. Todos los animatrónicos fueron atraídos y destruidos con fuego.',
+    events: ['Plan final de Henry', 'Incendio de liberación', 'Muerte de Henry y Michael'],
+    animatronics: ['Scrap Baby', 'Molten Freddy', 'Scraptrap', 'The Puppet'],
+    secrets: ['Henry grabó un mensaje final para todos', 'Las almas fueron finalmente liberadas', 'El edificio fue completamente destruido'],
+    position: { x: 60, y: 55 }
+  },
+  {
+    id: 'loc-pizzaplex',
+    name: "Freddy Fazbear's Mega Pizzaplex",
+    type: 'pizzaplex',
+    year: '~2027-2030',
+    status: 'active',
+    danger: 'alto',
+    description: 'Enorme centro comercial temático construido sobre los restos de la ubicación original. Aquí ocurren los eventos de Security Breach.',
+    events: ['Construcción sobre los restos', 'Noche de Gregory', 'Aparición de Burntrap', 'Eventos de Ruin'],
+    animatronics: ['Glamrock Freddy', 'Glamrock Chica', 'Roxy', 'Monty', 'Burntrap', 'The Blob'],
+    secrets: ['El bunker de Afton está debajo', 'El Mimic controla a los animatrónicos', 'Vanessa fue poseída por Glitchtrap'],
+    position: { x: 40, y: 45 }
+  }
+];

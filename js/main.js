@@ -207,6 +207,18 @@ function loadPage(page) {
     case 'quiz':
       renderQuiz();
       break;
+    case 'timeline':
+      renderTimelineFull();
+      break;
+    case 'map':
+      renderMap();
+      break;
+    case 'simulator':
+      renderSimulator();
+      break;
+    case 'gallery':
+      renderGallery();
+      break;
     case 'history':
       renderHistory();
       break;
@@ -2547,7 +2559,7 @@ document.addEventListener('keydown', (e) => {
   }
 
   // 1-9 = navigation
-  const navKeys = ['home', 'characters', 'games', 'books', 'videos', 'fangames', 'secrets', 'quiz', 'history'];
+  const navKeys = ['home', 'characters', 'games', 'books', 'videos', 'fangames', 'secrets', 'quiz', 'timeline'];
   const num = parseInt(e.key);
   if (num >= 1 && num <= 9) {
     e.preventDefault();
@@ -3110,6 +3122,485 @@ function showTriviaResult() {
 
   $('#trivia-result').innerHTML = html;
   $('#trivia-result').classList.add('active');
+}
+
+// =============================================
+// TIMELINE FULL
+// =============================================
+function renderTimelineFull() {
+  var container = $('#timeline-full-container');
+  if (!container) return;
+
+  var items = window.timelineFull || [];
+  var eras = window.eras || [];
+
+  // Render era filters
+  var eraFilters = $('#timeline-era-filters');
+  if (eraFilters) {
+    var html = '<span class="filter-label">ERA:</span>';
+    html += '<button class="anomaly-filter-btn active" onclick="filterTimelineEra(\'all\')">TODAS</button>';
+    eras.forEach(function(e) {
+      html += '<button class="anomaly-filter-btn" onclick="filterTimelineEra(\'' + e.id + '\')" style="border-color:' + e.color + ';color:' + e.color + '">' + e.name + '</button>';
+    });
+    eraFilters.innerHTML = html;
+  }
+
+  // Render category filters
+  var catFilters = $('#timeline-cat-filters');
+  if (catFilters) {
+    var cats = [{id:'canon',label:'Canon'},{id:'teoria',label:'Teorías'},{id:'fanon',label:'Fanon'}];
+    var html = '<span class="filter-label">CATEGORÍA:</span>';
+    html += '<button class="anomaly-filter-btn active" onclick="filterTimelineCat(\'all\')">TODAS</button>';
+    cats.forEach(function(c) {
+      html += '<button class="anomaly-filter-btn" onclick="filterTimelineCat(\'' + c.id + '\')">' + c.label.toUpperCase() + '</button>';
+    });
+    catFilters.innerHTML = html;
+  }
+
+  window._timelineEraFilter = 'all';
+  window._timelineCatFilter = 'all';
+  filterTimeline();
+}
+
+function filterTimelineEra(era) {
+  window._timelineEraFilter = era;
+  $$('#timeline-era-filters .anomaly-filter-btn').forEach(function(btn) {
+    var filter = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
+    btn.classList.toggle('active', filter === era);
+  });
+  filterTimeline();
+}
+
+function filterTimelineCat(cat) {
+  window._timelineCatFilter = cat;
+  $$('#timeline-cat-filters .anomaly-filter-btn').forEach(function(btn) {
+    var filter = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
+    btn.classList.toggle('active', filter === cat);
+  });
+  filterTimeline();
+}
+
+function filterTimeline() {
+  var items = window.timelineFull || [];
+  var era = window._timelineEraFilter || 'all';
+  var cat = window._timelineCatFilter || 'all';
+
+  var filtered = items.filter(function(item) {
+    if (era !== 'all' && item.era !== era) return false;
+    if (cat !== 'all' && item.category !== cat) return false;
+    return true;
+  });
+
+  filtered.sort(function(a, b) { return a.year.localeCompare(b.year); });
+
+  var container = $('#timeline-full-container');
+  if (!container) return;
+
+  var catColors = { canon: '#00FF66', teoria: '#FFD700', fanon: '#8B2DE6' };
+  var catLabels = { canon: 'CANON', teoria: 'TEORÍA', fanon: 'FANON' };
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<div class="anomaly-empty">NO SE ENCONTRARON EVENTOS</div>';
+    return;
+  }
+
+  var html = '<div class="timeline-full-list">';
+  filtered.forEach(function(item) {
+    var color = catColors[item.category] || '#888';
+    html += '<div class="timeline-full-item" onclick="showTimelineDetail(\'' + item.id + '\')" style="border-left-color:' + color + '">' +
+      '<div class="tfi-year">' + item.year + '</div>' +
+      '<div class="tfi-content">' +
+        '<div class="tfi-cat" style="color:' + color + '">' + (catLabels[item.category] || item.category) + '</div>' +
+        '<div class="tfi-title">' + item.title + '</div>' +
+        '<div class="tfi-certainty">Certeza: ' + item.certainty + '%</div>' +
+      '</div>' +
+    '</div>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function showTimelineDetail(id) {
+  var items = window.timelineFull || [];
+  var item = items.find(function(i) { return i.id === id; });
+  if (!item) return;
+
+  var catColors = { canon: '#00FF66', teoria: '#FFD700', fanon: '#8B2DE6' };
+  var catLabels = { canon: 'CANON', teoria: 'TEORÍA', fanon: 'FANON' };
+  var color = catColors[item.category] || '#888';
+
+  var panel = $('#timeline-detail-panel');
+  if (!panel) return;
+
+  var connHtml = '';
+  if (item.connections && item.connections.length > 0) {
+    connHtml = '<div class="anomaly-section"><h3 style="color:' + color + '">CONEXIONES</h3><div class="anomaly-connections">';
+    item.connections.forEach(function(c) {
+      var linked = items.find(function(i) { return i.id === c; });
+      var label = linked ? linked.title : c;
+      connHtml += '<span class="anomaly-conn-badge" onclick="showTimelineDetail(\'' + c + '\')">' + label + '</span>';
+    });
+    connHtml += '</div></div>';
+  }
+
+  var filesHtml = '';
+  if (item.files && item.files.length > 0) {
+    filesHtml = '<div class="anomaly-section"><h3 style="color:' + color + '">ARCHIVOS ASOCIADOS</h3><ul class="anomaly-theories">';
+    item.files.forEach(function(f) { filesHtml += '<li>📄 ' + f + '</li>'; });
+    filesHtml += '</ul></div>';
+  }
+
+  var html = '<div style="padding:20px;">' +
+    '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">' +
+      '<h2 style="font-family:\'Orbitron\',sans-serif;color:#DDD;font-size:18px;">' + item.title + '</h2>' +
+      '<button onclick="$(\'#timeline-detail-panel\').style.display=\'none\'" style="background:none;border:1px solid #555;color:#888;padding:5px 10px;cursor:pointer;font-family:\'Share Tech Mono\',monospace;font-size:11px;">CERRAR</button>' +
+    '</div>' +
+    '<div style="font-family:\'Press Start 2P\',monospace;font-size:10px;color:' + color + ';margin-bottom:10px;">' + item.year + ' · ' + (catLabels[item.category] || item.category) + ' · CERTeza: ' + item.certainty + '%</div>' +
+    '<div class="anomaly-section"><p style="font-family:\'IBM Plex Mono\',monospace;font-size:12px;color:#999;line-height:1.8;">' + item.description + '</p></div>' +
+    connHtml + filesHtml +
+  '</div>';
+
+  panel.innerHTML = html;
+  panel.style.display = 'block';
+}
+
+// =============================================
+// MAP
+// =============================================
+function renderMap() {
+  var wrapper = $('#map-svg-wrapper');
+  var infoPanel = $('#map-info-panel');
+  if (!wrapper) return;
+
+  var locations = window.mapLocations || [];
+
+  var statusColors = { closed: '#FF4444', destroyed: '#666', abandoned: '#FF8C00', active: '#00FF66' };
+  var dangerColors = { extremo: '#FF2222', alto: '#FF8C00', medio: '#FFD700', bajo: '#00FF66' };
+
+  // Build SVG map
+  var svg = '<svg viewBox="0 0 100 80" style="width:100%;height:auto;background:rgba(0,0,0,0.5);border:1px solid rgba(0,191,255,0.2);border-radius:4px;">';
+
+  // Grid lines
+  for (var x = 0; x <= 100; x += 10) {
+    svg += '<line x1="' + x + '" y1="0" x2="' + x + '" y2="80" stroke="rgba(0,191,255,0.05)" stroke-width="0.2"/>';
+  }
+  for (var y = 0; y <= 80; y += 10) {
+    svg += '<line x1="0" y1="' + y + '" x2="100" y2="' + y + '" stroke="rgba(0,191,255,0.05)" stroke-width="0.2"/>';
+  }
+
+  // Location dots
+  locations.forEach(function(loc) {
+    var color = statusColors[loc.status] || '#888';
+    svg += '<circle cx="' + loc.position.x + '" cy="' + loc.position.y + '" r="2" fill="' + color + '" stroke="' + color + '" stroke-width="0.5" opacity="0.8" style="cursor:pointer;" onclick="showMapLocation(\'' + loc.id + '\')">';
+      '<animate attributeName="r" values="2;2.5;2" dur="2s" repeatCount="indefinite"/>';
+    svg += '</circle>';
+    svg += '<text x="' + loc.position.x + '" y="' + (loc.position.y - 4) + '" fill="' + color + '" font-size="2.5" font-family="Share Tech Mono" text-anchor="middle">' + loc.name.split('(')[0].trim().substring(0, 20) + '</text>';
+  });
+
+  svg += '</svg>';
+  wrapper.innerHTML = svg;
+
+  // Default info
+  if (infoPanel) {
+    infoPanel.innerHTML = '<div style="padding:20px;font-family:\'Share Tech Mono\',monospace;color:#666;font-size:12px;text-align:center;">Haz clic en un punto del mapa para ver los detalles de la ubicación</div>';
+  }
+}
+
+function showMapLocation(id) {
+  var locations = window.mapLocations || [];
+  var loc = locations.find(function(l) { return l.id === id; });
+  if (!loc) return;
+
+  var infoPanel = $('#map-info-panel');
+  if (!infoPanel) return;
+
+  var statusLabels = { closed: 'CERRADO', destroyed: 'DESTRUIDO', abandoned: 'ABANDONADO', active: 'ACTIVO' };
+  var dangerLabels = { extremo: 'EXTREMO', alto: 'ALTO', medio: 'MEDIO', bajo: 'BAJO' };
+  var dangerColors = { extremo: '#FF2222', alto: '#FF8C00', medio: '#FFD700', bajo: '#00FF66' };
+
+  var html = '<div style="padding:20px;">' +
+    '<h3 style="font-family:\'Orbitron\',sans-serif;color:#DDD;font-size:16px;margin-bottom:10px;">' + loc.name + '</h3>' +
+    '<div style="display:flex;gap:8px;margin-bottom:15px;flex-wrap:wrap;">' +
+      '<span class="anomaly-tag anomaly-tag-game">' + (statusLabels[loc.status] || loc.status) + '</span>' +
+      '<span class="anomaly-tag" style="color:' + (dangerColors[loc.danger] || '#888') + ';border-color:' + (dangerColors[loc.danger] || '#888') + '33;background:' + (dangerColors[loc.danger] || '#888') + '11">PELIGRO: ' + (dangerLabels[loc.danger] || loc.danger) + '</span>' +
+      '<span class="anomaly-tag anomaly-tag-type">' + loc.year + '</span>' +
+    '</div>' +
+    '<div class="anomaly-section"><p style="font-family:\'IBM Plex Mono\',monospace;font-size:12px;color:#999;line-height:1.8;">' + loc.description + '</p></div>' +
+    '<div class="anomaly-section"><h3 style="color:#00BFFF">EVENTOS</h3><ul class="anomaly-theories">';
+  loc.events.forEach(function(e) { html += '<li>' + e + '</li>'; });
+  html += '</ul></div>' +
+    '<div class="anomaly-section"><h3 style="color:#00BFFF">ANIMATRÓNICOS</h3><div style="display:flex;gap:6px;flex-wrap:wrap;">';
+  loc.animatronics.forEach(function(a) {
+    html += '<span class="anomaly-conn-badge">' + a + '</span>';
+  });
+  html += '</div></div>' +
+    '<div class="anomaly-section"><h3 style="color:#00BFFF">SECRETOS</h3><ul class="anomaly-theories">';
+  loc.secrets.forEach(function(s) { html += '<li>' + s + '</li>'; });
+  html += '</ul></div></div>';
+
+  infoPanel.innerHTML = html;
+}
+
+// =============================================
+// SIMULATOR
+// =============================================
+var simState = { running: false, power: 100, time: 0, night: 1, leftDoor: false, rightDoor: false, leftLight: false, rightLight: false, camActive: false, animatronicPositions: {} };
+
+function renderSimulator() {
+  // Reset state
+  simState = { running: false, power: 100, time: 0, night: 1, leftDoor: false, rightDoor: false, leftLight: false, rightLight: false, camActive: false, animatronicPositions: {} };
+  $('#sim-start-screen').style.display = 'block';
+  $('#sim-game').style.display = 'none';
+  $('#sim-result').style.display = 'none';
+}
+
+function startSimulator() {
+  simState.running = true;
+  simState.power = 100;
+  simState.time = 0;
+  simState.leftDoor = false;
+  simState.rightDoor = false;
+  simState.leftLight = false;
+  simState.rightLight = false;
+  simState.camActive = false;
+
+  $('#sim-start-screen').style.display = 'none';
+  $('#sim-game').style.display = 'block';
+  $('#sim-result').style.display = 'none';
+
+  updateSimDisplay();
+  simTick();
+}
+
+function simTick() {
+  if (!simState.running) return;
+
+  // Time progression (1 tick = 1 game minute, ~1 real second)
+  simState.time++;
+  var hour = Math.floor(simState.time / 5) + 12;
+  if (hour >= 24) hour -= 24;
+  var ampm = hour >= 12 ? 'AM' : 'AM';
+  var displayHour = hour > 12 ? hour - 12 : hour;
+  if (displayHour === 0) displayHour = 12;
+
+  // Power drain
+  var drain = 1;
+  if (simState.leftDoor) drain += 1;
+  if (simState.rightDoor) drain += 1;
+  if (simState.leftLight) drain += 1;
+  if (simState.rightLight) drain += 1;
+  if (simState.camActive) drain += 1;
+  simState.power = Math.max(0, simState.power - drain);
+
+  // Random animatronic movement
+  if (Math.random() < 0.15) {
+    var configs = window.simulatorConfig.animatronics;
+    var rand = configs[Math.floor(Math.random() * configs.length)];
+    simState.animatronicPositions[rand.id] = Math.floor(Math.random() * 11);
+  }
+
+  // Check for jumpscares
+  var leftNear = [2, 4, 5];
+  var rightNear = [6, 8, 9];
+  var configs = window.simulatorConfig.animatronics;
+
+  configs.forEach(function(anim) {
+    var pos = simState.animatronicPositions[anim.id] || 0;
+    if (leftNear.includes(pos) && !simState.leftDoor && Math.random() < 0.3) {
+      simJumpscare(anim.name);
+    }
+    if (rightNear.includes(pos) && !simState.rightDoor && Math.random() < 0.3) {
+      simJumpscare(anim.name);
+    }
+  });
+
+  // Win condition
+  if (simState.time >= 30) {
+    simWin();
+    return;
+  }
+
+  // Lose condition
+  if (simState.power <= 0) {
+    simJumpscare('Freddy Fazbear');
+    return;
+  }
+
+  updateSimDisplay();
+
+  setTimeout(simTick, 1000);
+}
+
+function updateSimDisplay() {
+  var hour = Math.floor(simState.time / 5) + 12;
+  if (hour >= 24) hour -= 24;
+  var displayHour = hour > 12 ? hour - 12 : hour;
+  if (displayHour === 0) displayHour = 12;
+  var ampm = hour >= 12 ? 'PM' : 'AM';
+
+  var timeEl = $('#sim-time');
+  if (timeEl) timeEl.textContent = displayHour + ':00 ' + ampm;
+
+  var nightEl = $('#sim-night');
+  if (nightEl) nightEl.textContent = 'NOCHE ' + simState.night;
+
+  var powerEl = $('#sim-power');
+  if (powerEl) powerEl.textContent = Math.max(0, simState.power);
+
+  var powerFill = $('#sim-power-fill');
+  if (powerFill) {
+    powerFill.style.width = Math.max(0, simState.power) + '%';
+    powerFill.style.background = simState.power > 50 ? '#00FF66' : simState.power > 25 ? '#FFD700' : '#FF4444';
+  }
+}
+
+function toggleSimCameras() {
+  simState.camActive = !simState.camActive;
+  var cams = $('#sim-cameras');
+  if (cams) cams.style.display = simState.camActive ? 'block' : 'none';
+}
+
+function openSimDoor(side) {
+  if (side === 'left') { simState.leftDoor = true; }
+  else { simState.rightDoor = true; }
+}
+
+function closeSimDoor(side) {
+  if (side === 'left') { simState.leftDoor = false; }
+  else { simState.rightDoor = false; }
+}
+
+function simJumpscare(animName) {
+  simState.running = false;
+  var result = $('#sim-result');
+  if (result) {
+    result.innerHTML = '<div class="quiz-result-card" style="border-color:#FF4444;">' +
+      '<div class="quiz-result-emoji" style="font-size:80px;">💀</div>' +
+      '<div class="quiz-result-name" style="color:#FF4444;">JUMPSCARE</div>' +
+      '<div class="quiz-result-desc">' + animName + ' te atrapó. La energía se agotó o no cerraste la puerta a tiempo.</div>' +
+      '<button class="quiz-restart-btn" onclick="renderSimulator()">🔄 INTENTAR DE NUEVO</button>' +
+    '</div>';
+    result.style.display = 'block';
+  }
+  $('#sim-game').style.display = 'none';
+}
+
+function simWin() {
+  simState.running = false;
+  var result = $('#sim-result');
+  if (result) {
+    result.innerHTML = '<div class="quiz-result-card" style="border-color:#00FF66;">' +
+      '<div class="quiz-result-emoji" style="font-size:80px;">⏰</div>' +
+      '<div class="quiz-result-name" style="color:#00FF66;">6:00 AM</div>' +
+      '<div class="quiz-result-desc">¡Sobreviviste la noche ' + simState.night + '! Energía restante: ' + Math.max(0, simState.power) + '%</div>' +
+      '<button class="quiz-restart-btn" onclick="simState.night++;startSimulator()">🔄 SIGUIENTE NOCHE</button>' +
+    '</div>';
+    result.style.display = 'block';
+  }
+  $('#sim-game').style.display = 'none';
+}
+
+// =============================================
+// GALLERY
+// =============================================
+function renderGallery() {
+  var gallery = window.galleryData;
+  if (!gallery) return;
+
+  // Render style filters
+  var styleFilters = $('#gallery-filters-style');
+  if (styleFilters) {
+    var html = '<span class="filter-label">ESTILO:</span>';
+    html += '<button class="anomaly-filter-btn active" onclick="filterGallery(\'style\',\'all\')">TODOS</button>';
+    gallery.styles.forEach(function(s) {
+      html += '<button class="anomaly-filter-btn" onclick="filterGallery(\'style\',\'' + s + '\')">' + s.toUpperCase() + '</button>';
+    });
+    styleFilters.innerHTML = html;
+  }
+
+  // Render character filters
+  var charFilters = $('#gallery-filters-char');
+  if (charFilters) {
+    var html = '<span class="filter-label">PERSONAJE:</span>';
+    html += '<button class="anomaly-filter-btn active" onclick="filterGallery(\'char\',\'all\')">TODOS</button>';
+    gallery.characters.forEach(function(c) {
+      html += '<button class="anomaly-filter-btn" onclick="filterGallery(\'char\',\'' + c + '\')">' + c.toUpperCase() + '</button>';
+    });
+    charFilters.innerHTML = html;
+  }
+
+  window._galleryStyleFilter = 'all';
+  window._galleryCharFilter = 'all';
+  filterGalleryRender();
+}
+
+function filterGallery(type, value) {
+  if (type === 'style') window._galleryStyleFilter = value;
+  else window._galleryCharFilter = value;
+
+  var filterId = type === 'style' ? 'gallery-filters-style' : 'gallery-filters-char';
+  $$('#' + filterId + ' .anomaly-filter-btn').forEach(function(btn) {
+    var filter = btn.getAttribute('onclick').match(/'([^']+)'/g);
+    var filterVal = filter ? filter[filter.length - 1].replace(/'/g, '') : 'all';
+    btn.classList.toggle('active', filterVal === value);
+  });
+
+  filterGalleryRender();
+}
+
+function filterGalleryRender() {
+  var gallery = window.galleryData;
+  if (!gallery) return;
+
+  var filtered = gallery.featured.filter(function(item) {
+    if (window._galleryStyleFilter !== 'all' && item.style !== window._galleryStyleFilter) return false;
+    if (window._galleryCharFilter !== 'all' && item.character !== window._galleryCharFilter) return false;
+    return true;
+  });
+
+  var grid = $('#gallery-grid');
+  if (!grid) return;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="anomaly-empty">NO SE ENCONTRARON OBRAS CON ESTOS CRITERIOS</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(function(item) {
+    return '<div class="anomaly-card" onclick="showGalleryModal(\'' + item.id + '\')">' +
+      '<div class="anomaly-card-header">' +
+        '<div class="anomaly-card-id">' + item.artist + '</div>' +
+        '<div class="anomaly-card-title">' + item.title + '</div>' +
+        '<div class="anomaly-card-meta">' +
+          '<span class="anomaly-tag anomaly-tag-game">' + item.game + '</span>' +
+          '<span class="anomaly-tag anomaly-tag-type">' + item.style + '</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="anomaly-card-body">' +
+        '<div class="anomaly-card-desc">👤 ' + item.character + ' · ❤️ ' + item.likes + ' likes · 📅 ' + item.date + '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function showGalleryModal(id) {
+  var gallery = window.galleryData;
+  if (!gallery) return;
+  var item = gallery.featured.find(function(i) { return i.id === id; });
+  if (!item) return;
+
+  var html = '<div class="anomaly-modal-hero"><div class="anomaly-modal-info">' +
+    '<h2>' + item.title + '</h2>' +
+    '<div class="anomaly-modal-tags">' +
+      '<span class="anomaly-tag anomaly-tag-game">' + item.game + '</span>' +
+      '<span class="anomaly-tag anomaly-tag-type">' + item.style + '</span>' +
+    '</div>' +
+    '<p style="font-family:\'Share Tech Mono\',monospace;font-size:11px;color:#666;">Artista: ' + item.artist + ' · ❤️ ' + item.likes + ' likes</p>' +
+  '</div></div>' +
+  '<div class="anomaly-section"><h3>DESCRIPCIÓN</h3><p>Fan art de ' + item.character + ' del juego ' + item.game + ', creado en estilo ' + item.style + ' por ' + item.artist + '.</p></div>';
+
+  $('#modal-body').innerHTML = html;
+  $('#modal').classList.add('active');
 }
 
 console.log('%cTHE FAZBEAR FILES', 'font-size:24px;color:#FF2222;font-weight:bold;');

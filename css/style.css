@@ -8625,6 +8625,151 @@ body {
 }
 
 /* =============================================
+   TIMELINE FULL
+   ============================================= */
+.timeline-controls { margin-bottom: 20px; }
+.timeline-full-list { display: flex; flex-direction: column; gap: 8px; }
+.timeline-full-item {
+  display: flex; gap: 15px; align-items: flex-start;
+  background: rgba(10,10,15,0.95); border: 1px solid rgba(255,255,255,0.08);
+  border-left: 3px solid #888; padding: 15px; border-radius: 3px;
+  cursor: pointer; transition: all 0.3s;
+}
+.timeline-full-item:hover { border-color: rgba(255,255,255,0.2); transform: translateX(5px); }
+.tfi-year {
+  font-family: 'Press Start 2P', monospace; font-size: 9px; color: #888;
+  min-width: 70px; padding-top: 3px;
+}
+.tfi-content { flex: 1; }
+.tfi-cat {
+  font-family: 'Share Tech Mono', monospace; font-size: 9px;
+  margin-bottom: 4px; text-transform: uppercase;
+}
+.tfi-title {
+  font-family: 'Orbitron', sans-serif; font-size: 13px; color: #DDD; margin-bottom: 4px;
+}
+.tfi-certainty {
+  font-family: 'Share Tech Mono', monospace; font-size: 10px; color: #555;
+}
+.timeline-detail-panel {
+  position: fixed; top: 80px; right: 20px; width: 400px; max-height: calc(100vh - 100px);
+  background: rgba(10,10,15,0.98); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px; overflow-y: auto; z-index: 100;
+  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+@media (max-width: 768px) {
+  .timeline-detail-panel { right: 10px; left: 10px; width: auto; }
+}
+
+/* =============================================
+   MAP
+   ============================================= */
+.map-container { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+.map-svg-wrapper { min-height: 400px; }
+.map-info-panel {
+  background: rgba(10,10,15,0.95); border: 1px solid rgba(0,191,255,0.2);
+  border-radius: 4px; min-height: 400px; overflow-y: auto;
+}
+@media (max-width: 768px) {
+  .map-container { grid-template-columns: 1fr; }
+}
+
+/* =============================================
+   SIMULATOR
+   ============================================= */
+.sim-container { text-align: center; }
+.sim-start-screen {
+  padding: 60px 20px; background: rgba(10,10,15,0.95);
+  border: 1px solid rgba(0,255,102,0.2); border-radius: 4px;
+}
+.sim-start-screen h2 {
+  font-family: 'Press Start 2P', monospace; font-size: 16px; color: #00FF66;
+  margin-bottom: 15px; text-shadow: 0 0 20px rgba(0,255,102,0.5);
+}
+.sim-start-screen p {
+  font-family: 'Share Tech Mono', monospace; font-size: 12px; color: #666; margin-bottom: 25px;
+}
+.sim-start-btn {
+  display: inline-block; background: rgba(0,255,102,0.15); border: 1px solid #00FF66;
+  color: #00FF66; font-family: 'Press Start 2P', monospace; font-size: 12px;
+  padding: 15px 30px; cursor: pointer; transition: all 0.3s; border-radius: 3px;
+}
+.sim-start-btn:hover { background: rgba(0,255,102,0.3); box-shadow: 0 0 20px rgba(0,255,102,0.4); }
+.sim-game {
+  background: #000; border: 1px solid rgba(0,255,102,0.2); border-radius: 4px;
+  position: relative; overflow: hidden;
+}
+.sim-office {
+  height: 350px; background: linear-gradient(180deg, #0a0a0f 0%, #111 100%);
+  position: relative; display: flex; align-items: center; justify-content: center;
+}
+.sim-office-view {
+  width: 60%; height: 100%; background: rgba(0,255,102,0.02);
+  border: 1px solid rgba(0,255,102,0.1); display: flex;
+  align-items: center; justify-content: center;
+  font-family: 'Share Tech Mono', monospace; font-size: 12px; color: #333;
+}
+.sim-left-door, .sim-right-door {
+  position: absolute; top: 20%; width: 40px; height: 60%;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: flex-end; justify-content: center; padding-bottom: 10px;
+}
+.sim-left-door { left: 5%; }
+.sim-right-door { right: 5%; }
+.sim-door-light {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+}
+.sim-cameras {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 60px;
+  background: rgba(0,0,0,0.95); padding: 10px; overflow-y: auto;
+}
+.sim-cam-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px;
+}
+.sim-cam-cell {
+  background: rgba(0,255,102,0.03); border: 1px solid rgba(0,255,102,0.15);
+  padding: 8px; font-family: 'Share Tech Mono', monospace; font-size: 9px;
+  color: #00FF66; text-align: center; cursor: pointer; border-radius: 2px;
+}
+.sim-cam-cell:hover { background: rgba(0,255,102,0.1); }
+.sim-hud {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 20px; background: rgba(0,0,0,0.9);
+  border-top: 1px solid rgba(0,255,102,0.2);
+}
+.sim-hud-left, .sim-hud-right { display: flex; gap: 10px; align-items: center; }
+.sim-time {
+  font-family: 'Press Start 2P', monospace; font-size: 14px; color: #00FF66;
+}
+.sim-night {
+  font-family: 'Share Tech Mono', monospace; font-size: 10px; color: #666;
+}
+.sim-power-bar { width: 150px; }
+.sim-power-label {
+  font-family: 'Share Tech Mono', monospace; font-size: 10px; color: #888; margin-bottom: 4px;
+}
+.sim-power-fill {
+  height: 4px; background: #00FF66; border-radius: 2px; transition: width 0.5s, background 0.5s;
+}
+.sim-cam-toggle, .sim-left-btn, .sim-right-btn {
+  background: rgba(0,255,102,0.08); border: 1px solid rgba(0,255,102,0.2);
+  color: #00FF66; font-family: 'Share Tech Mono', monospace; font-size: 10px;
+  padding: 6px 10px; cursor: pointer; border-radius: 2px; transition: all 0.2s;
+}
+.sim-cam-toggle:hover, .sim-left-btn:hover, .sim-right-btn:hover {
+  background: rgba(0,255,102,0.2);
+}
+
+/* =============================================
+   GALLERY
+   ============================================= */
+.gallery-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+/* =============================================
    PRINT
    ============================================= */
 @media print {
