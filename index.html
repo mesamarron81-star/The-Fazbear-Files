@@ -761,77 +761,30 @@
   <section id="page-history" class="page">
     <div class="section-title-wrapper">
       <div class="section-title">ARCHIVO HISTÓRICO</div>
-      <div class="section-sub">CRONOLOGÍA DE INCIDENTES — DOCUMENTACIÓN COMPLETA</div>
+      <div class="section-sub">CRONOLOGÍA DE LA FRANQUICIA — DOCUMENTACIÓN COMPLETA</div>
       <div class="section-divider"></div>
     </div>
 
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="timeline">LÍNEA TEMPORAL</button>
-      <button class="tab-btn" data-tab="incidents">INCIDENTES</button>
-      <button class="tab-btn" data-tab="documents">DOCUMENTOS</button>
+    <div id="history-folders-view">
+      <div class="folders-grid" id="folders-grid"></div>
     </div>
 
-    <div class="tab-content active" id="tab-timeline">
-      <div class="timeline" id="timeline-full"></div>
-    </div>
-
-    <div class="tab-content" id="tab-incidents">
-      <div class="dashboard-grid" id="incidents-grid">
-        <div class="dashboard-card">
-          <div class="card-header"><span>INCIDENTE DE LOS NIÑOS DESAPARECIDOS</span><span class="card-badge">CLASSIFIED</span></div>
-          <p>Entre 1985 y 1987, cinco niños desaparecieron en Freddy Fazbear's Pizza. Sus cuerpos nunca fueron encontrados, pero se cree que fueron escondidos dentro de los trajes de los animatrónicos. Este incidente llevó al cierre temporal de la ubicación original.</p>
+    <div id="history-detail-view" style="display:none;">
+      <button class="folders-back" id="folders-back">&#9664; VOLVER A CARPETAS</button>
+      <div class="history-detail-layout">
+        <div class="history-detail-timeline">
+          <div class="hdt-header">
+            <span class="hdt-icon">&#9679;</span>
+            <span>LÍNEA TEMPORAL</span>
+          </div>
+          <div class="hdt-timeline" id="detail-timeline"></div>
         </div>
-        <div class="dashboard-card">
-          <div class="card-header"><span>LA MORDIDA DEL '83</span><span class="card-badge">INCIDENT</span></div>
-          <p>En 1983, un niño pequeño (el hijo menor de William Afton) fue introducido en la boca de Fredbear durante una fiesta de cumpleaños. El mecanismo de mordida se activó, causando la muerte del niño. Este evento llevó al cierre de Fredbear's Family Diner.</p>
-        </div>
-        <div class="dashboard-card">
-          <div class="card-header"><span>LA MORDIDA DEL '87</span><span class="card-badge">INCIDENT</span></div>
-          <p>En 1987, un animatrónic mordió a un empleado no identificado, causando la pérdida de su lóbulo frontal. Este incidente llevó a la política de que los animatrónicos no pudieran moverse durante el día, y resultó en el cierre de la segunda ubicación de Freddy Fazbear's Pizza.</p>
-        </div>
-        <div class="dashboard-card">
-          <div class="card-header"><span>INCENDIO DE FAZBEAR'S FRIGHT</span><span class="card-badge">ARCHIVED</span></div>
-          <p>En 2023, la atracción de terror Fazbear's Fright, que había recuperado varios artefactos de las antiguas pizzerías, fue destruida por un incendio de origen desconocido. Se cree que Springtrap sobrevivió al incendio.</p>
-        </div>
-        <div class="dashboard-card">
-          <div class="card-header"><span>INCENDIO DE PIZZERIA SIMULATOR</span><span class="card-badge">CLASSIFIED</span></div>
-          <p>En una instalación falsa de Freddy Fazbear's Pizza operada por Michael Afton, se produjo un incendio masivo que destruyó a varios animatrónicos poseídos, incluyendo a Scrap Baby, Molten Freddy y Scraptrap. Henry Emily también pereció en el incendio.</p>
-        </div>
-        <div class="dashboard-card">
-          <div class="card-header"><span>PIZZAPLEX — INCIDENTES</span><span class="card-badge">RESTRICTED</span></div>
-          <p>El Megaplex de Freddy Fazbear, abierto en la década de 2020, ha experimentado múltiples incidentes de seguridad. Desaparecieron niños dentro de las instalaciones y se reportaron comportamientos anómalos en los animatrónicos Glamrock.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="tab-content" id="tab-documents">
-      <div class="document" style="margin-bottom:20px;">
-        <div class="doc-stamp restricted">RESTRICTED</div>
-        <div class="doc-header">INFORME INTERNO: COMPORTAMIENTO ANIMATRÓNICO</div>
-        <div class="doc-meta">
-          <div><span>REF:</span> FAZ-INT-001-87</div>
-          <div><span>FECHA:</span> 08/11/1987</div>
-          <div><span>CLASIFICACIÓN:</span> RESTRINGIDO</div>
-          <div><span>DESTINATARIO:</span> SÓLO PERSONAL AUTORIZADO</div>
-        </div>
-        <div class="doc-body">
-          <p>Se ha observado que los animatrónicos de la ubicación de Freddy Fazbear's Pizza presentan comportamientos erráticos durante los turnos nocturnos. Específicamente, se ha reportado que Bonnie, Chica y Foxy se desplazan de sus posiciones iniciales sin causa aparente.</p>
-          <p>Freddy Fazbear permanece mayormente estático durante la noche, pero se vuelve significativamente más activo a medida que avanza la madrugada. Se recomienda a los guardias de seguridad mantener las puertas cerradas y monitorear constantemente los niveles de energía.</p>
-          <p>NOTE: Se ha reportado la aparición de una figura dorada no identificada en las cámaras de seguridad. Personal no autorizado no debe mencionar este avistamiento.</p>
-        </div>
-      </div>
-
-      <div class="document">
-        <div class="doc-stamp confidential">CONFIDENTIAL</div>
-        <div class="doc-header">NOTAS DE INVESTIGACIÓN: WILLIAM AFTON</div>
-        <div class="doc-meta">
-          <div><span>REF:</span> FAZ-PERS-002</div>
-          <div><span>FECHA:</span> 20/06/1985</div>
-          <div><span>CLASIFICACIÓN:</span> CONFIDENCIAL</div>
-        </div>
-        <div class="doc-body">
-          <p>El empleado William Afton ha sido vinculado a múltiples incidentes de seguridad en varias ubicaciones de Fazbear Entertainment. Su paradero actual es desconocido. Se cree que podría estar utilizando los trajes de los animatrónicos para acceder a áreas restringidas.</p>
-          <p>Se recomienda que cualquier avistamiento de una figura morada dentro de las instalaciones sea reportado inmediatamente a la gerencia. NO intentar confrontar.</p>
+        <div class="history-detail-info">
+          <div class="hdi-header">
+            <span class="hdi-icon">&#9888;</span>
+            <span>INCIDENTE SELECCIONADO</span>
+          </div>
+          <div class="hdi-content" id="detail-incident"></div>
         </div>
       </div>
     </div>
@@ -844,40 +797,83 @@
       <div class="section-divider"></div>
     </div>
 
-    <div class="cassette-player">
-      <div class="tape-label">CINTA #001</div>
-      <div class="tape-reel" id="tape-reel"></div>
-      <div class="audio-visualizer" id="audio-visualizer">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
-      <div class="tape-controls">
-        <button class="tape-btn" id="play-btn">▶</button>
-        <button class="tape-btn" id="stop-btn">■</button>
-        <button class="tape-btn" id="volume-btn">♫</button>
-      </div>
-      <div class="tape-info" id="tape-info">STATUS: DETENIDO</div>
-    </div>
+    <div class="music-container">
+      <div class="tape-deck">
+        <div class="tape-deck__header">
+          <div class="tape-deck__rec-dot"></div>
+          <span class="tape-deck__label">FAZBEAR AUDIO SYSTEM</span>
+          <span class="tape-deck__model">MODEL FAS-1983</span>
+        </div>
 
-    <div class="terminal" style="margin-top:30px;">
-      <div class="terminal-header">
-        <span>LISTA DE REPRODUCCIÓN — ARCHIVO AUDIO</span>
-        <span>8 CINTAS RECUPERADAS</span>
+        <div class="tape-deck__body">
+          <div class="tape-window">
+            <div class="tape-reel tape-reel--left" id="tape-reel-left">
+              <div class="tape-reel__hub"></div>
+              <div class="tape-reel__spoke"></div>
+              <div class="tape-reel__spoke tape-reel__spoke--2"></div>
+              <div class="tape-reel__spoke tape-reel__spoke--3"></div>
+            </div>
+            <div class="tape-strip"></div>
+            <div class="tape-reel tape-reel--right" id="tape-reel-right">
+              <div class="tape-reel__hub"></div>
+              <div class="tape-reel__spoke"></div>
+              <div class="tape-reel__spoke tape-reel__spoke--2"></div>
+              <div class="tape-reel__spoke tape-reel__spoke--3"></div>
+            </div>
+          </div>
+
+          <div class="tape-counter">
+            <span class="tape-counter__label">TAPE</span>
+            <span class="tape-counter__digits" id="tape-counter">001</span>
+          </div>
+        </div>
+
+        <div class="eq-container" id="eq-container">
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+            <div class="progress-head" id="progress-head"></div>
+          </div>
+          <div class="progress-time">
+            <span id="time-current">00:00</span>
+            <span id="time-total">00:00</span>
+          </div>
+        </div>
+
+        <div class="tape-controls">
+          <button class="tape-btn tape-btn--prev" id="prev-btn" title="Anterior">⏮</button>
+          <button class="tape-btn tape-btn--stop" id="stop-btn" title="Detener">⏹</button>
+          <button class="tape-btn tape-btn--play" id="play-btn" title="Reproducir">▶</button>
+          <button class="tape-btn tape-btn--next" id="next-btn" title="Siguiente">⏭</button>
+          <button class="tape-btn tape-btn--vol" id="volume-btn" title="Volumen">🔊</button>
+        </div>
+
+        <div class="tape-status" id="tape-info">
+          <span class="tape-status__dot"></span>
+          <span>DETENIDO</span>
+        </div>
       </div>
-      <div id="music-list"></div>
+
+      <div class="tracklist-panel">
+        <div class="tracklist-header">
+          <div class="tracklist-header__title">
+            <span class="tracklist-header__icon">📋</span>
+            LISTA DE REPRODUCCIÓN
+          </div>
+          <div class="tracklist-header__count">8 CINTAS</div>
+        </div>
+        <div class="tracklist" id="music-list"></div>
+      </div>
     </div>
   </section>
 

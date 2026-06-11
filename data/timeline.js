@@ -134,4 +134,119 @@ window.timeline = [
   }
 ];
 
+window.incidents = [
+  {
+    id: 'missing-children',
+    title: 'Incidente de los Niños Desaparecidos',
+    year: '1985',
+    severity: 'CRÍTICO',
+    classification: 'CLASSIFIED',
+    description: 'William Afton asesinó a cinco niños en Freddy Fazbear\'s Pizza y escondió sus cuerpos dentro de los trajes de los animatrónicos. Las almas poseyeron a Freddy, Bonnie, Chica, Foxy y Golden Freddy. El caso, que tuvo lugar el 26 de junio, llevó a la desaparición de exactamente cinco niños. Tras la detención del sospechoso, los cuerpos nunca fueron recuperados.',
+    image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/c/c6/Los_cuatro_periodicos_juntos.png/revision/latest?cb=20150121171319&path-prefix=es',
+    location: 'Freddy Fazbear\'s Pizza (Original)',
+    victims: 5,
+    animatronics: ['freddy-fazbear', 'bonnie', 'chica', 'foxy', 'golden-freddy'],
+    relatedGames: ['fnaf-1', 'fnaf-2', 'fnaf-3'],
+    relatedTimeline: ['missing-children-incident', 'fnaf1-location-closes', 'fazbears-fright', 'pizzeria-simulator-fire']
+  },
+  {
+    id: 'bite-83',
+    title: 'La Mordida del \'83',
+    year: '1983',
+    severity: 'CRÍTICO',
+    classification: 'CLASSIFIED',
+    description: 'Durante una fiesta de cumpleaños en Fredbear\'s Family Diner, el hermano mayor de la familia Afton colocó al Crying Child dentro de la boca de Fredbear. El mecanismo de mordida se activó, aplastando el cráneo del niño y causando su muerte. Este hecho causó controversia y el cierre del local.',
+    image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/9/92/FNaF4_MinigameN6.png/revision/latest?cb=20151005205607&path-prefix=es',
+    location: 'Fredbear\'s Family Diner',
+    victims: 1,
+    animatronics: ['fredbear'],
+    relatedGames: ['fnaf-4'],
+    relatedTimeline: ['fredbears-opening', 'bite-of-83', 'charlotte-death']
+  },
+  {
+    id: 'bite-87',
+    title: 'La Mordida del \'87',
+    year: '1987',
+    severity: 'ALTO',
+    classification: 'INCIDENT',
+    description: 'Un animatrónic mordió violentamente a una persona, provocándole que perdiera su lóbulo frontal, pero sobrevivió. Este evento provocó que el restaurante perdiera toda su reputación una vez más, resultando en el cierre definitivo de la ubicación de 1987.',
+    image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/1/15/FNaF2_-_Office_%28Mangle_-_Textura%29.png/revision/latest?cb=20141216200133&path-prefix=es',
+    location: 'Freddy Fazbear\'s Pizza (Nueva Ubicación)',
+    victims: 1,
+    animatronics: ['mangle'],
+    relatedGames: ['fnaf-2'],
+    relatedTimeline: ['fnaf2-location-opens', 'bite-of-87']
+  },
+  {
+    id: 'elizabeth-death',
+    title: 'Muerte de Elizabeth Afton',
+    year: '~1985',
+    severity: 'CRÍTICO',
+    classification: 'CLASSIFIED',
+    description: 'El Incidente de Circus Baby fue un suceso ocurrido en Circus Baby\'s Pizza World. Durante la gran apertura, Circus Baby atrajo y atacó a una pequeña niña (Elizabeth Afton), introduciéndole dentro de su interior y asesinándola en el acto. Esto provocó la cancelación de la apertura.',
+    image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/e/e4/FNaF_SL_-_Teaser_11_%28Cancelled_-_Iluminado%29.png/revision/latest?cb=20160816160848&path-prefix=es',
+    location: 'Circus Baby\'s Pizza World',
+    victims: 1,
+    animatronics: ['circus-baby'],
+    relatedGames: ['sister-location'],
+    relatedTimeline: ['elizabeth-afton-death', 'sister-location-events']
+  },
+  {
+    id: 'fazbears-fright-fire',
+    title: 'Incendio de Fazbear\'s Fright',
+    year: '~2023',
+    severity: 'ALTO',
+    classification: 'ARCHIVED',
+    description: 'La atracción de terror Fazbear\'s Fright fue destruida por un incendio de origen desconocido durante la última noche. La atracción había recuperado varios artefactos de las antiguas pizzerías, incluyendo el traje de Springtrap. El incidente destruyó toda la atracción.',
+    image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/b3/Fazbear%27s_Fright_-_Office.png/revision/latest?cb=20150622041536&path-prefix=es',
+    location: 'Fazbear\'s Fright: The Horror Attraction',
+    victims: 0,
+    animatronics: ['springtrap'],
+    relatedGames: ['fnaf-3'],
+    relatedTimeline: ['fazbears-fright']
+  },
+  {
+    id: 'pizzeria-simulator-fire',
+    title: 'Incendio de Pizzeria Simulator',
+    year: '~2025',
+    severity: 'CRÍTICO',
+    classification: 'TOP SECRET',
+    description: 'Henry Emily ejecutó su plan final. Llamó a todos los animatrónicos poseídos a la pizzería falsa, incluyendo a Scrap Baby, Molten Freddy y Scraptrap. Les dijo que fueron llamados y encerrados para ser destruidos. Activó una trampa ardiente que consumió el edificio, matándolo a él y liberando todas las almas atrapadas.',
+    image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/68/Springtrap_-_Cinem%C3%A1tica_final_%28FFPS%29.gif/revision/latest?cb=20171209090626&path-prefix=es',
+    location: 'Freddy Fazbear\'s Pizza Place (Falsa)',
+    victims: 0,
+    animatronics: ['scrap-baby', 'molten-freddy', 'springtrap'],
+    relatedGames: ['ffps'],
+    relatedTimeline: ['pizzeria-simulator-fire', 'michael-afton-redemption']
+  },
+  {
+    id: 'glitchtrap-emergence',
+    title: 'Surgimiento de Glitchtrap',
+    year: '~2026',
+    severity: 'ALTO',
+    classification: 'RESTRICTED',
+    description: 'La conciencia digital de William Afton se manifestó como Glitchtrap dentro del videojuego de realidad virtual de Fazbear Entertainment. Comenzó a poseer a los empleados, incluyendo a Vanessa, quien se convirtió en su herramienta como Vanny.',
+    image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/d/d7/Helpwantedglitchtrap.png/revision/latest?cb=20190501221727&path-prefix=es',
+    location: 'Fazbear Entertainment Virtual',
+    victims: 0,
+    animatronics: ['glitchtrap'],
+    relatedGames: ['help-wanted'],
+    relatedTimeline: ['help-wanted-digital']
+  },
+  {
+    id: 'pizzaplex-incidents',
+    title: 'Incidentes del Pizzaplex',
+    year: '~2030',
+    severity: 'MEDIO',
+    classification: 'RESTRICTED',
+    description: 'El Freddy Fazbear\'s Mega Pizzaplex, construido sobre los restos de la ubicación original, experimentó múltiples incidentes. Gregory fue atrapado durante la noche y perseguido por Vanessa/Vanny. Los animatrónicos Glamrock mostraron comportamientos anómalos bajo la influencia de Glitchtrap.',
+    image: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/e/e0/Helpwantedloading.png/revision/latest?cb=20190501224654&path-prefix=es',
+    location: 'Freddy Fazbear\'s Mega Pizzaplex',
+    victims: 0,
+    animatronics: ['glamrock-freddy', 'glamrock-chica', 'roxanne-wolf', 'montgomery-gator'],
+    relatedGames: ['security-breach'],
+    relatedTimeline: ['pizzaplex-construction', 'security-breach-events', 'ruin-dlc']
+  }
+];
+
 // loaded

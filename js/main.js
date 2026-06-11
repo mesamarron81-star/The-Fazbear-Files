@@ -161,6 +161,9 @@ function navigateTo(page) {
     state.currentPage = page;
   }
 
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'instant' });
+
   // Update nav
   $$('#main-nav a').forEach(a => {
     a.classList.toggle('active', a.dataset.page === page);
@@ -1069,26 +1072,172 @@ window.closeVideoPlayer = () => {
 // HISTORY
 // =============================================
 function renderHistory() {
-  const container = $('#timeline-full');
-  const sorted = [...timeline].sort((a, b) => {
+  const grid = $('#folders-grid');
+  const detailView = $('#history-detail-view');
+  const foldersView = $('#history-folders-view');
+  if (!grid) return;
+
+  if (detailView) detailView.style.display = 'none';
+  if (foldersView) foldersView.style.display = 'block';
+
+  const sevColors = {
+    'CRÍTICO': '#FF1744', 'ALTO': '#FF6D00', 'MEDIO': '#FFD600'
+  };
+
+  grid.innerHTML = window.incidents.map(inc => {
+    const sevColor = sevColors[inc.severity] || '#FF1744';
+    return `
+      <div class="folder-card" data-incident="${inc.id}" onclick="openIncident('${inc.id}')">
+        <div class="folder-tab"></div>
+        <div class="folder-body">
+          <div class="folder-label">
+            <div class="folder-label-title">${inc.title}</div>
+          </div>
+          <div class="folder-year">${inc.year}</div>
+          <div class="folder-severity" style="color:${sevColor};border-color:${sevColor};">${inc.severity}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const backBtn = $('#folders-back');
+  if (backBtn) {
+    backBtn.onclick = () => {
+      detailView.style.display = 'none';
+      foldersView.style.display = 'block';
+    };
+  }
+}
+
+function openIncident(id) {
+  const inc = window.incidents.find(i => i.id === id);
+  if (!inc) return;
+
+  const foldersView = $('#history-folders-view');
+  const detailView = $('#history-detail-view');
+  const timelineEl = $('#detail-timeline');
+  const incidentEl = $('#detail-incident');
+
+  foldersView.style.display = 'none';
+  detailView.style.display = 'block';
+
+  const incYear = parseInt(inc.year) || 0;
+  const catColors = {
+    'Incident': '#FF1744', 'Game': '#00FF66', 'History': '#00BCD4',
+    'Birth': '#E6B800', 'Death': '#9C27B0'
+  };
+
+  const relatedTimelineIds = inc.relatedTimeline || [];
+  const relatedEvents = timeline.filter(t => relatedTimelineIds.includes(t.id));
+  const sorted = relatedEvents.sort((a, b) => {
     const ay = parseInt(a.year) || 0;
     const by = parseInt(b.year) || 0;
     return ay - by;
   });
 
-  container.innerHTML = sorted.map((item, i) => {
+  timelineEl.innerHTML = sorted.map(item => {
+    const itemYear = parseInt(item.year) || 0;
+    const isCurrent = Math.abs(itemYear - incYear) <= 2;
+    const color = catColors[item.category] || '#00FF66';
     return `
-      <div class="timeline-item" style="${i % 2 === 0 ? '' : 'margin-left:50%;'}">
-        <div class="timeline-dot" style="${i % 2 === 0 ? 'left:-6px;' : 'right:-6px;'}"></div>
-        <div class="timeline-content">
-          <div class="timeline-year">${item.year}</div>
-          <h4 style="color:#E6B800;margin:5px 0;font-family:'Share Tech Mono',monospace;">${item.title}</h4>
-          <p style="color:#888;font-size:11px;">${item.description}</p>
-          <span style="font-size:8px;color:#555;font-family:'Press Start 2P',monospace;margin-top:5px;display:inline-block;">${item.category}</span>
+      <div class="hdt-item">
+        <div class="hdt-dot" style="background:${color};box-shadow:0 0 10px ${color}80;"></div>
+        <div class="hdt-connector"></div>
+        <div class="hdt-card${isCurrent ? ' highlight' : ''}">
+          <div class="hdt-year" style="color:${color};">${item.year}</div>
+          <div class="hdt-title">${item.title}</div>
+          <div class="hdt-desc">${item.description}</div>
         </div>
       </div>
     `;
   }).join('');
+
+  if (sorted.length === 0) {
+    timelineEl.innerHTML = '<div style="color:#555;font-size:11px;padding:20px;text-align:center;font-family:Press Start 2P,monospace;">NO SE ENCONTRARON EVENTOS RELACIONADOS</div>';
+  }
+
+  const sevColors = {
+    'CRÍTICO': '#FF1744', 'ALTO': '#FF6D00', 'MEDIO': '#FFD600'
+  };
+  const sevColor = sevColors[inc.severity] || '#FF1744';
+
+  const animatronicCards = inc.animatronics.map(animId => {
+    const char = window.characters.find(c => c.id === animId);
+    if (!char) {
+      return `
+        <div class="hdi-anim-card">
+          <div class="hdi-anim-avatar hdi-anim-avatar-fallback">${animId.charAt(0).toUpperCase()}</div>
+          <div class="hdi-anim-info">
+            <div class="hdi-anim-name">${animId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</div>
+            <div class="hdi-anim-status" style="color:#555;">Sin datos</div>
+          </div>
+        </div>
+      `;
+    }
+    const charImg = getImageUrl('characters', animId);
+    const statusColors = { 'Haunted': '#FF1744', 'Active': '#00FF66', 'Unknown': '#FFD600', 'Deactivated': '#666' };
+    const sColor = statusColors[char.status] || '#888';
+    return `
+      <div class="hdi-anim-card" onclick="event.stopPropagation();navigateTo('characters');setTimeout(()=>showCharacterModal('${animId}'),400);" style="cursor:pointer;">
+        <div class="hdi-anim-avatar">
+          ${charImg ? `<img src="${charImg}" alt="${char.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+          <div class="hdi-anim-avatar-fallback" style="display:${charImg ? 'none' : 'flex'}">${char.name.charAt(0)}</div>
+        </div>
+        <div class="hdi-anim-info">
+          <div class="hdi-anim-name">${char.name}</div>
+          <div class="hdi-anim-status" style="color:${sColor};">${char.status}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  const relatedGameCards = (inc.relatedGames || []).map(gId => {
+    const game = window.games.find(g => g.id === gId);
+    if (!game) return '';
+    const gameImg = getImageUrl('games', gId);
+    return `
+      <div class="hdi-game-card" onclick="event.stopPropagation();navigateTo('games');setTimeout(()=>handleGameClick(null,'${gId}'),400);" style="cursor:pointer;">
+        <div class="hdi-game-cover">
+          ${gameImg ? `<img src="${gameImg}" alt="${game.title}" onerror="this.style.display='none'">` : ''}
+          <div class="hdi-game-scanlines"></div>
+        </div>
+        <div class="hdi-game-info">
+          <div class="hdi-game-title">${game.title}</div>
+          <div class="hdi-game-year">${game.year}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  incidentEl.innerHTML = `
+    <div class="hdi-image">
+      <img src="${inc.image}" alt="${inc.title}" loading="lazy" onerror="this.style.display='none'">
+      <div class="hdi-image-overlay"></div>
+      <div class="hdi-cam-label">CAM-${inc.id.slice(0,4).toUpperCase()}</div>
+      <div class="hdi-rec"><span class="hdi-rec-dot"></span> REC</div>
+    </div>
+    <div class="hdi-body">
+      <div class="hdi-meta">
+        <span class="hdi-year">${inc.year}</span>
+        <span class="hdi-severity" style="color:${sevColor};border-color:${sevColor};">${inc.severity}</span>
+        <span class="hdi-class">${inc.classification}</span>
+      </div>
+      <div class="hdi-title">${inc.title}</div>
+      <div class="hdi-desc">${inc.description}</div>
+      <div class="hdi-footer">
+        <div class="hdi-location"><span class="hdi-loc-icon">&#9673;</span> ${inc.location}</div>
+        <div class="hdi-victims">${inc.victims > 0 ? `<span class="hdi-victims-count">${inc.victims}</span> víctimas` : 'Sin víctimas directas'}</div>
+      </div>
+      <div class="hdi-section-label">ANIMATRÓNICOS INVOLUCRADOS</div>
+      <div class="hdi-anim-grid">
+        ${animatronicCards}
+      </div>
+      <div class="hdi-section-label">JUEGOS RELACIONADOS</div>
+      <div class="hdi-games-row">
+        ${relatedGameCards}
+      </div>
+    </div>
+  `;
 }
 
 // =============================================
@@ -1247,23 +1396,260 @@ function stopStaticAudio() {
 function renderMusic() {
   const list = $('#music-list');
   const tracks = [
-    'CINTA #001 — ARCHIVO CENTRAL',
-    'CINTA #002 — RUIDO AMBIENTAL',
-    'CINTA #003 — FREDDY FAZBEAR\'S PIZZA',
-    'CINTA #004 — TRANSMISIÓN DESCONOCIDA',
-    'CINTA #005 — MENSAJE INTERCEPTADO',
-    'CINTA #006 — REGISTRO DE SEGURIDAD',
-    'CINTA #007 — CINTA DAÑADA',
-    'CINTA #008 — SEÑAL RECUPERADA',
+    { id: 1, title: 'CINTA #001 — ARCHIVO CENTRAL', sub: 'Freddy Fazbear\'s Pizza • 1983', duration: '3:42' },
+    { id: 2, title: 'CINTA #002 — RUIDO AMBIENTAL', sub: 'Grabación nocturna • Cam 01', duration: '4:15' },
+    { id: 3, title: 'CINTA #003 — FREDDY FAZBEAR\'S PIZZA', sub: 'Locución promocional • 1987', duration: '2:58' },
+    { id: 4, title: 'CINTA #004 — TRANSMISIÓN DESCONOCIDA', sub: 'Señal interceptada • Origen desconocido', duration: '5:03' },
+    { id: 5, title: 'CINTA #005 — MENSAJE INTERCEPTADO', sub: 'Llamada telefónica • Empleado #042', duration: '3:27' },
+    { id: 6, title: 'CINTA #006 — REGISTRO DE SEGURIDAD', sub: 'CCTV Audio • Sala de rappel', duration: '4:44' },
+    { id: 7, title: 'CINTA #007 — CINTA DAÑADA', sub: 'Audio corrupto • Datos parciales', duration: '2:19' },
+    { id: 8, title: 'CINTA #008 — SEÑAL RECUPERADA', sub: 'Fuente desconocida • Clasificada', duration: '6:11' },
   ];
 
+  window._musicTracks = tracks;
+  window._musicCurrent = -1;
+  window._musicPlaying = false;
+
   list.innerHTML = tracks.map((track, i) => `
-    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1C1C1C;font-size:11px;color:#888;cursor:pointer;transition:color 0.3s;"
-         onmouseover="this.style.color='#00FF66'" onmouseout="this.style.color='#888'">
-      <span>${track}</span>
-      <span style="color:#444;">${String(i + 1).padStart(2, '0')}:00</span>
+    <div class="track-item" data-idx="${i}" onclick="selectTrack(${i})">
+      <div class="track-item__num" id="track-num-${i}">${String(i + 1).padStart(2, '0')}</div>
+      <div class="track-item__info">
+        <div class="track-item__title">${track.title}</div>
+        <div class="track-item__sub">${track.sub}</div>
+      </div>
+      <div class="track-item__duration">${track.duration}</div>
+      <div class="track-item__glitch"></div>
     </div>
   `).join('');
+
+  // Bind controls
+  $('#play-btn').onclick = togglePlay;
+  $('#stop-btn').onclick = stopTrack;
+  $('#prev-btn').onclick = prevTrack;
+  $('#next-btn').onclick = nextTrack;
+
+  // Progress bar click
+  const progressBar = document.querySelector('.progress-bar');
+  if (progressBar) {
+    progressBar.onclick = (e) => {
+      const rect = progressBar.getBoundingClientRect();
+      const pct = (e.clientX - rect.left) / rect.width;
+      window._musicProgress = pct * 100;
+      updateProgress();
+    };
+  }
+
+  // Start progress simulation
+  window._musicProgress = 0;
+  window._musicInterval = null;
+}
+
+function selectTrack(idx) {
+  window._musicCurrent = idx;
+  window._musicPlaying = true;
+  window._musicProgress = 0;
+
+  // Update UI
+  updateTrackUI();
+  startPlayback();
+}
+
+function togglePlay() {
+  if (window._musicCurrent === -1) {
+    selectTrack(0);
+    return;
+  }
+
+  window._musicPlaying = !window._musicPlaying;
+  updatePlayButton();
+
+  if (window._musicPlaying) {
+    startPlayback();
+  } else {
+    pausePlayback();
+  }
+}
+
+function stopTrack() {
+  window._musicPlaying = false;
+  window._musicProgress = 0;
+  window._musicCurrent = -1;
+
+  updateTrackUI();
+  updatePlayButton();
+  updateProgress();
+  stopPlayback();
+}
+
+function prevTrack() {
+  if (window._musicCurrent <= 0) {
+    selectTrack(window._musicTracks.length - 1);
+  } else {
+    selectTrack(window._musicCurrent - 1);
+  }
+}
+
+function nextTrack() {
+  if (window._musicCurrent >= window._musicTracks.length - 1) {
+    selectTrack(0);
+  } else {
+    selectTrack(window._musicCurrent + 1);
+  }
+}
+
+function startPlayback() {
+  stopPlayback();
+
+  // Animate reels
+  $('#tape-reel-left')?.classList.add('playing');
+  $('#tape-reel-right')?.classList.add('playing');
+
+  // Animate EQ
+  const eq = $('#eq-container');
+  if (eq) eq.classList.add('playing');
+
+  // Update tape deck
+  const deck = document.querySelector('.tape-deck');
+  if (deck) deck.classList.add('playing');
+
+  // Update status
+  const status = $('#tape-info');
+  if (status) {
+    status.classList.add('playing');
+    status.querySelector('span:last-child').textContent = 'REPRODUCIENDO';
+  }
+
+  // Update play button
+  updatePlayButton();
+
+  // Start progress
+  window._musicInterval = setInterval(() => {
+    window._musicProgress += 0.5;
+    if (window._musicProgress >= 100) {
+      window._musicProgress = 0;
+      nextTrack();
+    }
+    updateProgress();
+  }, 150);
+}
+
+function pausePlayback() {
+  // Pause reels
+  $('#tape-reel-left')?.classList.remove('playing');
+  $('#tape-reel-right')?.classList.remove('playing');
+
+  // Pause EQ
+  const eq = $('#eq-container');
+  if (eq) eq.classList.remove('playing');
+
+  // Update status
+  const status = $('#tape-info');
+  if (status) {
+    status.classList.remove('playing');
+    status.querySelector('span:last-child').textContent = 'PAUSADO';
+  }
+
+  updatePlayButton();
+}
+
+function stopPlayback() {
+  clearInterval(window._musicInterval);
+
+  // Stop reels
+  $('#tape-reel-left')?.classList.remove('playing');
+  $('#tape-reel-right')?.classList.remove('playing');
+
+  // Stop EQ
+  const eq = $('#eq-container');
+  if (eq) eq.classList.remove('playing');
+
+  // Update deck
+  const deck = document.querySelector('.tape-deck');
+  if (deck) deck.classList.remove('playing');
+
+  // Update status
+  const status = $('#tape-info');
+  if (status) {
+    status.classList.remove('playing');
+    status.querySelector('span:last-child').textContent = 'DETENIDO';
+  }
+
+  // Reset counter
+  const counter = $('#tape-counter');
+  if (counter) counter.textContent = '000';
+
+  // Update play button
+  updatePlayButton();
+}
+
+function updateTrackUI() {
+  // Remove all active
+  document.querySelectorAll('.track-item').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.track-item__num').forEach(el => {
+    el.classList.remove('track-item__num--playing');
+    el.innerHTML = el.id.replace('track-num-', '');
+    const idx = parseInt(el.id.replace('track-num-', ''));
+    el.innerHTML = String(idx + 1).padStart(2, '0');
+  });
+
+  const idx = window._musicCurrent;
+  if (idx === -1) return;
+
+  // Set active
+  const activeItem = document.querySelector(`.track-item[data-idx="${idx}"]`);
+  if (activeItem) {
+    activeItem.classList.add('active');
+    activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // Update number to mini eq
+  const numEl = $(`#track-num-${idx}`);
+  if (numEl) {
+    numEl.innerHTML = `<div class="track-item__num--playing"><span></span><span></span><span></span></div>`;
+  }
+
+  // Update counter
+  const counter = $('#tape-counter');
+  if (counter) counter.textContent = String(idx + 1).padStart(3, '0');
+
+  // Update time
+  const track = window._musicTracks[idx];
+  const timeTotal = $('#time-total');
+  if (timeTotal && track) timeTotal.textContent = track.duration;
+}
+
+function updatePlayButton() {
+  const btn = $('#play-btn');
+  if (!btn) return;
+
+  if (window._musicPlaying) {
+    btn.textContent = '⏸';
+    btn.classList.add('playing');
+  } else {
+    btn.textContent = '▶';
+    btn.classList.remove('playing');
+  }
+}
+
+function updateProgress() {
+  const fill = $('#progress-fill');
+  const head = $('#progress-head');
+  const timeCurrent = $('#time-current');
+
+  if (fill) fill.style.width = window._musicProgress + '%';
+  if (head) head.style.left = window._musicProgress + '%';
+
+  if (timeCurrent && window._musicCurrent >= 0) {
+    const track = window._musicTracks[window._musicCurrent];
+    if (track) {
+      const parts = track.duration.split(':');
+      const totalSec = parseInt(parts[0]) * 60 + parseInt(parts[1]);
+      const currentSec = Math.floor((window._musicProgress / 100) * totalSec);
+      const min = Math.floor(currentSec / 60);
+      const sec = currentSec % 60;
+      timeCurrent.textContent = `${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
+    }
+  }
 }
 
 // =============================================
@@ -1426,8 +1812,43 @@ window.showCharacterModal = (id) => {
         <div class="char-modal__section-title">
           <span class="char-modal__section-icon">&#9679;</span> APARICIONES
         </div>
-        <div class="char-modal__tags-row">
-          ${appearances.map(a => `<span class="char-modal__appear-tag">${a}</span>`).join('')}
+        <div class="char-modal__appearances-row">
+          ${appearances.map(a => {
+            const matchGame = window.games ? window.games.find(g => {
+              const title = g.title.toLowerCase();
+              const search = a.toLowerCase();
+              return title.includes(search) || search.includes(title) ||
+                     (g.id === 'fnaf-1' && (search.includes('fnaf 1') || search.includes('five nights at freddy\'s') && !search.includes('2') && !search.includes('3') && !search.includes('4') && !search.includes('world') && !search.includes('sister') && !search.includes('pizzeria') && !search.includes('ultimate') && !search.includes('vr') && !search.includes('security') && !search.includes('help wanted') && !search.includes('secret'))) ||
+                     (g.id === 'fnaf-2' && (search.includes('fnaf 2') || search.includes('fna 2'))) ||
+                     (g.id === 'fnaf-3' && (search.includes('fnaf 3') || search.includes('fna 3'))) ||
+                     (g.id === 'fnaf-4' && (search.includes('fnaf 4') || search.includes('fna 4'))) ||
+                     (g.id === 'fnaf-world' && search.includes('fnaf world')) ||
+                     (g.id === 'sister-location' && (search.includes('sister location') || search.includes('sl'))) ||
+                     (g.id === 'ffps' && (search.includes('pizzeria simulator') || search.includes('ffps') || search.includes('fazbear\'s pizzeria'))) ||
+                     (g.id === 'ucn' && (search.includes('ultimate custom night') || search.includes('ucn'))) ||
+                     (g.id === 'help-wanted' && (search.includes('help wanted') && !search.includes('2'))) ||
+                     (g.id === 'security-breach' && (search.includes('security breach') || search.includes('sb'))) ||
+                     (g.id === 'help-wanted-2' && search.includes('help wanted 2')) ||
+                     (g.id === 'secret-of-the-mimic' && search.includes('secret'));
+            }) : null;
+            const gId = matchGame ? matchGame.id : null;
+            const gImg = gId ? getImageUrl('games', gId) : null;
+            return `
+              <div class="char-appear-card${gId ? ' char-appear-card--linked' : ''}" ${gId ? `onclick="event.stopPropagation();navigateTo('games');setTimeout(()=>handleGameClick(null,'${gId}'),400);"` : ''}>
+                ${gImg ? `
+                  <div class="char-appear-card__cover">
+                    <img src="${gImg}" alt="${a}" loading="lazy" onerror="this.style.display='none'">
+                    <div class="char-appear-card__scanlines"></div>
+                    ${gId ? '<div class="char-appear-card__play">▶</div>' : ''}
+                  </div>
+                ` : `<div class="char-appear-card__icon">🎮</div>`}
+                <div class="char-appear-card__info">
+                  <div class="char-appear-card__title">${a}</div>
+                  ${matchGame ? `<div class="char-appear-card__year">${matchGame.year}</div>` : ''}
+                </div>
+              </div>
+            `;
+          }).join('')}
         </div>
       </div>
 
@@ -1500,7 +1921,11 @@ window.showCharacterModal = (id) => {
   `;
 
   state.galleryIndex = 0;
-  $('#modal').classList.add('active');
+  const mc = $('#modal');
+  mc.classList.add('active');
+  const mcInner = mc.querySelector('.modal-content') || mc.querySelector('[class*="modal"]');
+  if (mcInner) mcInner.scrollTop = 0;
+  window.scrollTo({ top: 0, behavior: 'instant' });
 };
 
 window._switchCharImg = (el, idx) => {
@@ -1668,12 +2093,14 @@ window.showGameModal = (id) => {
           ${game.characters.slice(0, 12).map(c => {
             const slug = c.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
             const charImg = getImageUrl('characters', slug);
+            const charExists = window.characters && window.characters.find(ch => ch.id === slug);
             return `
-              <div class="game-modal__char-card">
+              <div class="game-modal__char-card${charExists ? ' game-modal__char-card--link' : ''}" ${charExists ? `onclick="event.stopPropagation();$('#modal').classList.remove('active');navigateTo('characters');setTimeout(()=>showCharacterModal('${slug}'),400);"` : ''}>
                 <div class="game-modal__char-avatar">
                   ${charImg ? `<img src="${charImg}" alt="${c}" loading="lazy">` : `<span class="char-fallback">${c.charAt(0)}</span>`}
                 </div>
                 <div class="game-modal__char-name">${c}</div>
+                ${charExists ? '<div class="game-modal__char-arrow">▸</div>' : ''}
               </div>
             `;
           }).join('')}
