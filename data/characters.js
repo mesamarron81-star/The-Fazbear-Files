@@ -5673,7 +5673,4090 @@
         'Es uno de los pocos robots no hostiles del Pizzaplex.',
         'Su diseno simple contrasta con los complejos Glamrocks.'
       ]
+    },
+    // --- FANGAME CHARACTERS: Five Nights at Candy's ---
+    {
+      id: 'candy-the-cat',
+      name: 'Candy the Cat',
+      alias: 'Candy / El Gato Animado de Candy',
+      firstAppearance: "Five Nights at Candy's (2015)",
+      status: 'Haunted',
+      threatLevel: 'Medium',
+      origin: "Candy's Burgers & Fries",
+      image: '',
+      category: 'Other',
+      description: 'Candy the Cat es el protagonista animatronico del restaurante Candy\'s Burgers & Fries. Es un gato antropomorfo de color morado con una gran sonrisa y ojos brillantes. Su diseno esta fuertemente inspirado en Freddy Fazbear pero con una estetica felina distintiva que lo convirtio en un icono de los fangames.',
+      history: 'Candy fue creado para el restaurante Candy\'s Burgers & Fries, un establecimiento mas pequeno que Freddy Fazbear\'s Pizza. Tras incidentes similares a los de Fazbear Entertainment, Candy quedo abandonado en el local. Fue poseido por el alma de un nino, volviendose hostil durante la noche. Su historia se expandio a traves de tres juegos de la serie Five Nights at Candy\'s.',
+      behavior: 'Se mueve por el lado izquierdo del restaurante, apareciendo y desapareciendo de las camaras de forma erraticas. Cambia de posicion rapidamente y requiere atencion constante del guardia de seguridad.',
+      appearances: ["Five Nights at Candy's", "Five Nights at Candy's 2", "Five Nights at Candy's 3"],
+      relationships: [
+        { name: 'Cindy the Cat', relation: 'Hermana / Companera de escenario' },
+        { name: 'Chester the Cheetah', relation: 'Companero animatronico' },
+        { name: 'Vinnie', relation: 'Companero animatronico' },
+        { name: 'Freddy Fazbear', relation: 'Inspiracion de diseno (competidor)' }
+      ],
+      trivia: [
+        'Es el personaje principal del fangame mas popular de FNaF.',
+        'Su diseno esta inspirado en Freddy Fazbear con un estilo felino unico.',
+        "La serie Candy's es considerada la mas fiel al estilo original de FNaF.",
+        'Aparece en tres juegos principales de su serie.',
+        "Su restaurante es competencia directa de Freddy Fazbear's Pizza."
+      ]
+    },
+    {
+      id: 'cindy-the-cat',
+      name: 'Cindy the Cat',
+      alias: 'Cindy / La Gata Cantante',
+      firstAppearance: "Five Nights at Candy's (2015)",
+      status: 'Haunted',
+      threatLevel: 'Medium',
+      origin: "Candy's Burgers & Fries",
+      image: '',
+      category: 'Other',
+      description: 'Cindy the Cat es una gata animatronica de color azul clara, hermana de Candy the Cat y corista principal del restaurante Candy\'s Burgers & Fries. Su diseno es similar al de Candy pero con rasgos femeninos y una paleta de colores diferente.',
+      history: 'Cindy fue construida como la contraparte femenina de Candy para el espectaculo infantil de Candy\'s Burgers & Fries. Despues del cierre del restaurante, compartio el mismo destino que su hermano, siendo poseida por un alma infantil. Su comportamiento es tan impredecible como el de Candy, aunque tiende a ser ligeramente menos agresiva.',
+      behavior: 'Se desplaza por el lado derecho del restaurante. Es rapida pero mas predecible que Candy, siguiendo rutas establecidas. Puede ser vigilada con las camaras adecuadas.',
+      appearances: ["Five Nights at Candy's", "Five Nights at Candy's 2", "Five Nights at Candy's 3"],
+      relationships: [
+        { name: 'Candy the Cat', relation: 'Hermano / Companero de escenario' },
+        { name: 'Chester the Cheetah', relation: 'Companera animatronica' },
+        { name: 'Vinnie', relation: 'Companera animatronica' },
+        { name: 'Chica', relation: 'Contraparte similar en FNaF' }
+      ],
+      trivia: [
+        'Es la hermana de Candy the Cat.',
+        'Su color azul claro la distingue de Candy.',
+        'Actua como la corista del restaurante.',
+        'Aparece en los tres juegos de la serie.'
+      ]
+    },
+    {
+      id: 'chester',
+      name: 'Chester the Cheetah',
+      alias: 'Chester / El Guepardo del Reparto',
+      firstAppearance: "Five Nights at Candy's (2015)",
+      status: 'Haunted',
+      threatLevel: 'Low',
+      origin: "Candy's Burgers & Fries",
+      image: '',
+      category: 'Other',
+      description: 'Chester the Cheetah es un guepardo animatronico que forma parte del elenco de Candy\'s Burgers & Fries. Es el miembro mas rapido del grupo y suele encargarse de las entregas y el reparto. Su diseno presenta manchas distintivas y una sonrisa amplia.',
+      history: 'Chester fue disenado como el animatronico de reparto de Candy\'s Burgers & Fries, llevando comida a los clientes. Tras la tragedia del restaurante, fue poseido al igual que sus companeros. Su velocidad se refleja en su comportamiento nocturno, moviendose rapidamente entre areas. Es considerado menos peligroso que Candy o Cindy pero aun asi representa una amenaza.',
+      behavior: 'Es el mas rapido del grupo, moviendose velozmente por los pasillos. Su aparicion es repentina y puede tomar desprevenido al guardia. Sin embargo, es mas facil de ahuyentar que otros.',
+      appearances: ["Five Nights at Candy's", "Five Nights at Candy's 2"],
+      relationships: [
+        { name: 'Candy the Cat', relation: 'Companero animatronico' },
+        { name: 'Cindy the Cat', relation: 'Companera animatronica' },
+        { name: 'Vinnie', relation: 'Companero animatronico' },
+        { name: 'Foxy', relation: 'Similar en velocidad y comportamiento' }
+      ],
+      trivia: [
+        'Es el animatronico mas rapido de Candy\'s Burgers & Fries.',
+        'Su diseno esta basado en un guepardo por su velocidad.',
+        'No aparece en Candy\'s 3.',
+        'Es conocido por su sonrisa amplia y sus manchas distintivas.'
+      ]
+    },
+    {
+      id: 'vinnie',
+      name: 'Vinnie',
+      alias: 'Vinnie / El Conejo de Candy',
+      firstAppearance: "Five Nights at Candy's (2015)",
+      status: 'Haunted',
+      threatLevel: 'Medium',
+      origin: "Candy's Burgers & Fries",
+      image: '',
+      category: 'Other',
+      description: 'Vinnie es un conejo animatronico de color marron claro que forma parte del elenco de Candy\'s Burgers & Fries. Es el equivalente de Bonnie en el universo de Candy, tocando un instrumento musical y siendo un miembro activo del espectaculo.',
+      history: 'Vinnie fue creado como el guitarrista del grupo animatronico de Candy\'s Burgers & Fries. Despues del cierre del restaurante, fue poseido por un alma infantil. Su comportamiento agresivo lo convierte en una de las mayores amenazas del establecimiento. Su legado continuo en las secuelas donde su aspecto se torno mas deteriorado.',
+      behavior: 'Extremadamente agresivo, se mueve por ambos lados del restaurante. Es comparable a Bonnie en su persistencia y velocidad. Aparece frecuentemente en las camaras y ataca sin previo aviso.',
+      appearances: ["Five Nights at Candy's", "Five Nights at Candy's 2", "Five Nights at Candy's 3"],
+      relationships: [
+        { name: 'Candy the Cat', relation: 'Companero de banda' },
+        { name: 'Bonnie', relation: 'Contraparte directa en FNaF' },
+        { name: 'Chester the Cheetah', relation: 'Companero animatronico' }
+      ],
+      trivia: [
+        'Es el equivalente de Bonnie en la serie Candy.',
+        'Su nombre es una abreviacion de "Vinnie the Bunny".',
+        'Aparece en los tres juegos de la serie.',
+        'Su agresividad es comparable a la de Bonnie.'
+      ]
+    },
+    {
+      id: 'the-rat',
+      name: 'The Rat',
+      alias: 'La Rata / Rata de Candy',
+      firstAppearance: "Five Nights at Candy's (2015)",
+      status: 'Haunted',
+      threatLevel: 'Low',
+      origin: "Candy's Burgers & Fries",
+      image: '',
+      category: 'Other',
+      description: 'The Rat es un animatronico con forma de rata grande y deteriorada que aparece en Candy\'s Burgers & Fries. Su diseno es mucho menos amigable que el de los otros animatronicos, con una apariencia sucia y desgastada que lo hace parecer una plaga animatronica.',
+      history: 'The Rat fue un personaje secundario en Candy\'s Burgers & Fries, posiblemente parte de una atraccion o espectaculo secundario. Abandonado y deteriorado, su apariencia empeoro con el tiempo. Fue poseido por un alma infantil, aunque su amenaza es menor debido a su movilidad limitada.',
+      behavior: 'Aparece esporadicamente en las camaras pero rara vez ataca. Su presencia es mas atmosferica que peligrosa, aunque puede asustar al guardia con apariciones repentinas.',
+      appearances: ["Five Nights at Candy's", "Five Nights at Candy's 2"],
+      relationships: [
+        { name: 'The Penguin', relation: 'Companero secundario' },
+        { name: 'Candy the Cat', relation: 'Habita el mismo establecimiento' }
+      ],
+      trivia: [
+        'Su diseno esta intencionadamente deteriorado.',
+        'Es uno de los pocos animatronicos de aspecto no infantil.',
+        'Su amenaza es mas psicologica que fisica.',
+        'No aparece en Candy\'s 3.'
+      ]
+    },
+    {
+      id: 'the-penguin',
+      name: 'The Penguin',
+      alias: 'El Pinguino / Pinguino de Candy',
+      firstAppearance: "Five Nights at Candy's (2015)",
+      status: 'Haunted',
+      threatLevel: 'Low',
+      origin: "Candy's Burgers & Fries",
+      image: '',
+      category: 'Other',
+      description: 'The Penguin es un pinguino animatronico de aspecto desgastado que habita en los rincones de Candy\'s Burgers & Fries. Su diseno simple pero inquietante lo convierte en un personaje memorable del elenco secundario.',
+      history: 'The Penguin fue parte de la decoracion animatronica de Candy\'s Burgers & Fries. Al igual que The Rat, fue abandonado y su condicion se deterioro. Poseido por un alma infantil, deambula por el restaurante sin un proposito claro. Su comportamiento es erratico pero poco agresivo.',
+      behavior: 'Se desliza silenciosamente por los pasillos. Es dificil de detectar en las camaras pero raramente representa una amenaza directa. Su presencia es mas inquietante que peligrosa.',
+      appearances: ["Five Nights at Candy's"],
+      relationships: [
+        { name: 'The Rat', relation: 'Companero secundario' },
+        { name: 'Candy the Cat', relation: 'Habita el mismo establecimiento' }
+      ],
+      trivia: [
+        'Su diseno es simple en comparacion con otros animatronicos.',
+        'Aparece solo en el primer Candy\'s.',
+        'Es uno de los personajes mas recordados del fangame.',
+        'Su comportamiento erratico lo hace impredecible.'
+      ]
+    },
+    // --- FANGAME CHARACTERS: POPGOES ---
+    {
+      id: 'popgoes-weasel',
+      name: 'Popgoes the Weasel',
+      alias: 'Popgoes / La Comadreja Protagonista',
+      firstAppearance: 'POPGOES (2016)',
+      status: 'Haunted',
+      threatLevel: 'Medium',
+      origin: 'POPGOES Pizza',
+      image: '',
+      category: 'Other',
+      description: 'Popgoes the Weasel es la comadreja animatronica protagonista del restaurante POPGOES Pizza. Es un personaje de colores brillantes con una sonrisa amigable y un diseno alegre. Su personalidad extrovertida contrasta con la oscuridad que esconde su verdadera naturaleza.',
+      history: 'Popgoes fue creado para POPGOES Pizza, un restaurante que intentaba competir con Freddy Fazbear\'s Pizza. Despues de una serie de desapariciones, el restaurante cerro y Popgoes fue abandonado. Fue poseido por un espiritu vengativo, volviendose hostil. Su historia esta conectada con el misterio de los asesinatos originales de Fazbear Entertainment de una forma unica y retorcida.',
+      behavior: 'Popgoes es metodico y pacientemente acecha al guardia. Aparece en las camaras y se mueve siguiendo patrones que el jugador debe aprender para sobrevivir. Su comportamiento se vuelve mas agresivo a medida que avanza la noche.',
+      appearances: ['POPGOES', 'POPGOES Arcade'],
+      relationships: [
+        { name: 'Saffron the Cat', relation: 'Companera animatronica' },
+        { name: 'Blake the Badger', relation: 'Companero animatronico' },
+        { name: 'Stone the Crow', relation: 'Companero animatronico' },
+        { name: 'Simon', relation: 'Antagonista / Contraparte oscura' },
+        { name: 'Freddy Fazbear', relation: 'Inspiracion de diseno' }
+      ],
+      trivia: [
+        'POPGOES es considerado uno de los fangames mas innovadores de FNaF.',
+        'Su diseno alegre contrasta con la oscuridad de su historia.',
+        'El juego incluye mecanicas unicas como el sistema de reset.',
+        'Popgoes tiene una contraparte maligna llamada Simon.',
+        'El juego fue creado por Kane Carter.'
+      ]
+    },
+    {
+      id: 'saffron-cat',
+      name: 'Saffron the Cat',
+      alias: 'Saffron / La Gata Naranja',
+      firstAppearance: 'POPGOES (2016)',
+      status: 'Haunted',
+      threatLevel: 'Medium',
+      origin: 'POPGOES Pizza',
+      image: '',
+      category: 'Other',
+      description: 'Saffron the Cat es una gata animatronica de color naranja que forma parte del elenco de POPGOES Pizza. Es la contraparte felina del grupo y una de las animatronicas mas agresivas del reparto. Su diseno presenta detalles felinos realisticos mezclados con una estetica infantil.',
+      history: 'Saffron fue disenada como la animatronica felina de POPGOES Pizza, actuando como la solista del grupo. Tras el cierre del restaurante, fue poseida por un alma infantil. Su comportamiento agresivo la convierte en una de las mayores amenazas para el guardia nocturno. Su historia personal esta entrelazada con los secretos del restaurante.',
+      behavior: 'Extremadamente agresiva y rapida. Se mueve por los conductos de ventilacion y aparece repentinamente en las camaras. Es una de las animatronicas mas dificiles de manejar durante la noche.',
+      appearances: ['POPGOES', 'POPGOES Arcade'],
+      relationships: [
+        { name: 'Popgoes the Weasel', relation: 'Companera de escenario' },
+        { name: 'Blake the Badger', relation: 'Companera animatronica' },
+        { name: 'Stone the Crow', relation: 'Companera animatronica' },
+        { name: 'Chica', relation: 'Contraparte similar en FNaF' }
+      ],
+      trivia: [
+        'Es la animatronica mas agresiva de POPGOES.',
+        'Su color naranja la hace facilmente identificable.',
+        'Aparece tanto en POPGOES como en POPGOES Arcade.',
+        'Su diseno felino es uno de los mas detallados del juego.'
+      ]
+    },
+    {
+      id: 'blake-badger',
+      name: 'Blake the Badger',
+      alias: 'Blake / El Tejon Animado',
+      firstAppearance: 'POPGOES (2016)',
+      status: 'Haunted',
+      threatLevel: 'Medium',
+      origin: 'POPGOES Pizza',
+      image: '',
+      category: 'Other',
+      description: 'Blake the Badger es un tejon animatronico de color gris y blanco que forma parte del elenco de POPGOES Pizza. Su diseno robusto y su expresion seria le dan una apariencia imponente. Es conocido por su comportamiento estoico y su presencia constante.',
+      history: 'Blake fue construido como el animatronico fuerte y silencioso del grupo de POPGOES Pizza. Despues del cierre del restaurante, fue poseido por un espiritu. Su comportamiento es meticuloso y calculador, moviendose con proposito. Rara vez se apresura, prefiriendo acechar pacientemente a su objetivo.',
+      behavior: 'Lento pero implacable. Blake se mueve siguiendo rutas fijas y es predecible una vez que el jugador aprende sus patrones. Sin embargo, es imposible de detener una vez que comienza a moverse hacia la oficina.',
+      appearances: ['POPGOES', 'POPGOES Arcade'],
+      relationships: [
+        { name: 'Popgoes the Weasel', relation: 'Companero de escenario' },
+        { name: 'Saffron the Cat', relation: 'Companera animatronica' },
+        { name: 'Stone the Crow', relation: 'Companero animatronico' },
+        { name: 'Freddy Fazbear', relation: 'Similar en comportamiento' }
+      ],
+      trivia: [
+        'Es el animatronico mas robusto del grupo POPGOES.',
+        'Su comportamiento es lento pero implacable.',
+        'Es uno de los personajes mas populares de POPGOES.',
+        'Su diseno esta inspirado en tejones europeos.'
+      ]
+    },
+    {
+      id: 'stone-crow',
+      name: 'Stone the Crow',
+      alias: 'Stone / El Cuervo de POPGOES',
+      firstAppearance: 'POPGOES (2016)',
+      status: 'Haunted',
+      threatLevel: 'Medium',
+      origin: 'POPGOES Pizza',
+      image: '',
+      category: 'Other',
+      description: 'Stone the Crow es un cuervo animatronico de color negro que forma parte del elenco de POPGOES Pizza. Su diseno oscuro y su mirada penetrante lo convierten en uno de los personajes mas inquietantes del juego. Es el animatronico mas enigmatico del grupo.',
+      history: 'Stone fue disenado como el animatronico misterioso de POPGOES Pizza, a menudo asociado con la sabiduria y la observacion. Tras el cierre, fue poseido por un alma atormentada. Su comportamiento refleja su naturaleza aviar, apareciendo en lugares elevados y observando desde las sombras. Es el guardia silencioso de los secretos del restaurante.',
+      behavior: 'Aparece en lugares inesperados, a menudo en angulos de camara que el jugador no esta vigilando. Prefiere las alturas y los espacios oscuros. Su ataque es rapido y silencioso.',
+      appearances: ['POPGOES', 'POPGOES Arcade'],
+      relationships: [
+        { name: 'Popgoes the Weasel', relation: 'Companero de escenario' },
+        { name: 'Saffron the Cat', relation: 'Companera animatronica' },
+        { name: 'Blake the Badger', relation: 'Companero animatronico' },
+        { name: 'Foxy', relation: 'Similar en comportamiento sigiloso' }
+      ],
+      trivia: [
+        'Es el animatronico mas enigmatico de POPGOES.',
+        'Su diseno oscuro contrasta con los colores brillantes del resto.',
+        'Aparece en lugares elevados y oscuros.',
+        'Su comportamiento refleja la naturaleza de un cuervo.'
+      ]
+    },
+    {
+      id: 'simon',
+      name: 'Simon',
+      alias: 'Simon / Blackrabbit / El Conejo Negro',
+      firstAppearance: 'POPGOES (2016)',
+      status: 'Haunted',
+      threatLevel: 'High',
+      origin: 'POPGOES Pizza',
+      image: '',
+      category: 'Other',
+      description: 'Simon es la contraparte maligna de Popgoes, conocido como Blackrabbit, el conejo negro. Es el antagonista principal de POPGOES y representa la oscuridad que acecha bajo la superficie del restaurante. Su diseno es aterrador, con una sonrisa grotesca y ojos rojos brillantes.',
+      history: 'Simon fue originalmente un prototipo de Popgoes que salio mal, un experimento fallido que fue sellado en el sotano de POPGOES Pizza. Con el tiempo, desarrollo conciencia propia y un odio profundo hacia todo lo que su contraparte representaba. Es la manifestacion fisica de los pecados del restaurante. Su liberacion durante los eventos de POPGOES desencadena el verdadero terror del juego. Es considerado uno de los antagonistas mas aterradores de los fangames de FNaF.',
+      behavior: 'Extremadamente agresivo y erratico. Simon no sigue los patrones normales de los animatronicos. Aparece en cualquier camara en cualquier momento y su ataque es casi siempre letal. Requiere reflejos rapidos para sobrevivir a sus encuentros.',
+      appearances: ['POPGOES', 'POPGOES Arcade'],
+      relationships: [
+        { name: 'Popgoes the Weasel', relation: 'Contraparte / Version corrupta' },
+        { name: 'Saffron the Cat', relation: 'Antagonista' },
+        { name: 'William Afton', relation: 'Similar en maldad y proposito' },
+        { name: 'Springtrap', relation: 'Comparable en nivel de amenaza' }
+      ],
+      trivia: [
+        'Es el antagonista principal de POPGOES.',
+        'Su diseno esta inspirado en Springtrap y los conejos malvados.',
+        'Es conocido como Blackrabbit, el conejo negro.',
+        'Originalmente era un prototipo fallido de Popgoes.',
+        'Su nivel de amenaza es el mas alto del juego.'
+      ]
+    },
+    // --- FANGAME CHARACTERS: The Joy of Creation ---
+    {
+      id: 'ignited-freddy',
+      name: 'Ignited Freddy',
+      alias: 'Ignited Freddy / Freddy Ardiente de TJOC',
+      firstAppearance: 'The Joy of Creation: Reborn (2015)',
+      status: 'Haunted',
+      threatLevel: 'High',
+      origin: 'Casa del Protagonista (Realidad Alterna)',
+      image: '',
+      category: 'Other',
+      description: 'Ignited Freddy es una version ardiente y deformada de Freddy Fazbear del fangame The Joy of Creation. Su cuerpo esta carbonizado y en llamas, con ojos brillantes y una mandibula desencajada. Es una de las representaciones mas aterradoras de Freddy en cualquier medio.',
+      history: 'Ignited Freddy es una manifestacion de la culpa y el trauma del protagonista de The Joy of Creation. No es un animatronico fisico sino una entidad sobrenatural que aparece en la casa del protagonista. Su forma ardiente representa la furia y el dolor de las almas que fueron quemadas en el incendio de Fazbear\'s Pizza. Es parte de una pesadilla viviente de la que el protagonista no puede escapar.',
+      behavior: 'Extremadamente agresivo y rapido. Ignited Freddy aparece en las ventanas y puertas de la casa, obligando al jugador a sellar las entradas rapidamente. Su presencia va acompanada de efectos visuales y de sonido que aumentan la tension.',
+      appearances: ['The Joy of Creation: Reborn'],
+      relationships: [
+        { name: 'The Creation', relation: 'Parte de la misma entidad / Manifestacion' },
+        { name: 'Freddy Fazbear', relation: 'Version distorsionada' },
+        { name: 'Ignited Bonnie', relation: 'Manifestacion similar' },
+        { name: 'Ignited Chica', relation: 'Manifestacion similar' },
+        { name: 'Ignited Foxy', relation: 'Manifestacion similar' }
+      ],
+      trivia: [
+        'Es la version mas aterradora de Freddy en un fangame.',
+        'Su forma ardiente simboliza el incendio de Fazbear\'s Pizza.',
+        'Aparece en The Joy of Creation: Reborn.',
+        'No es un animatronico fisico sino una entidad sobrenatural.',
+        'El juego TJOC es conocido por su terror psicologico.'
+      ]
+    },
+    {
+      id: 'creation',
+      name: 'The Creation',
+      alias: 'The Creation / La Creacion / Entidad Suprema de TJOC',
+      firstAppearance: 'The Joy of Creation: Story Mode (2016)',
+      status: 'Unknown',
+      threatLevel: 'High',
+      origin: 'Dimension de TJOC',
+      image: '',
+      category: 'Other',
+      description: 'The Creation es la entidad antagonista principal de The Joy of Creation: Story Mode. Es una amalgama grotesca de partes de animatronicos fusionadas en una sola forma monstruosa. Su apariencia es la de un cuerpo masivo y deforme compuesto de multiples miembros y cabezas.',
+      history: 'The Creation es el resultado de la fusion de multiples almas atormentadas y restos de animatronicos. Fue creado por el trauma y el dolor acumulado de las victimas de Fazbear Entertainment. Esta entidad busca extender su influencia y atrapar a mas almas en su pesadilla eterna. Es la manifestacion fisica de todo el sufrimiento causado por la franquicia FNaF en el universo de TJOC.',
+      behavior: 'The Creation acecha al jugador a traves de la casa, apareciendo en lugares imposibles. Puede manifestarse en multiples formas y ataca de maneras impredecibles. Su presencia distorsiona la realidad misma dentro del juego.',
+      appearances: ['The Joy of Creation: Story Mode'],
+      relationships: [
+        { name: 'Ignited Freddy', relation: 'Parte de su forma / Manifestacion' },
+        { name: 'The Puppet', relation: 'Similar en proposito de reunir almas' },
+        { name: 'Golden Freddy', relation: 'Similar entidad sobrenatural' }
+      ],
+      trivia: [
+        'Es el jefe final de The Joy of Creation: Story Mode.',
+        'Su forma esta compuesta por partes de multiples animatronicos.',
+        'Representa la culminacion del trauma y el dolor.',
+        'Es una de las entidades mas poderosas de los fangames.',
+        'Su diseno esta inspirado en Ennard y Molten Freddy.'
+      ]
+    },
+    // --- FANGAME CHARACTERS: One Night at Flumpty's ---
+    {
+      id: 'flumpty',
+      name: 'Flumpty Bumpty',
+      alias: 'Flumpty / El Huevo con Cara',
+      firstAppearance: "One Night at Flumpty's (2015)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Flumpty's Establecimiento",
+      image: '',
+      category: 'Other',
+      description: 'Flumpty Bumpty es un huevo con cara, piernas y brazos, protagonista del fangame One Night at Flumpty\'s. Es un personaje absurdo y aterrador a la vez, con una sonrisa permanente y ojos desorbitados. Su diseno simple contrasta con el terror que inspira.',
+      history: 'Flumpty Bumpty fue creado por Jonochrome como el personaje principal de su serie de fangames. No tiene un origen claro dentro de la narrativa del juego, simplemente existe en su propio establecimiento. Flumpty es consciente de su naturaleza absurda y a menudo rompe la cuarta pared. Su comportamiento impredecible y su falta de logica lo convierten en un antagonista unico en el mundo de los fangames de FNaF.',
+      behavior: 'Flumpty se mueve erraticamente por el establecimiento. A veces mira fijamente las camaras, otras veces se mueve sin previo aviso. Es completamente impredecible y no sigue las reglas de los animatronicos tradicionales.',
+      appearances: ["One Night at Flumpty's", "One Night at Flumpty's 2", "One Night at Flumpty's 3"],
+      relationships: [
+        { name: 'The Redman', relation: 'Companero / Habitante del establecimiento' },
+        { name: 'The Beaver', relation: 'Companero / Habitante del establecimiento' },
+        { name: 'Eyesaur', relation: 'Companero / Habitante del establecimiento' },
+        { name: 'Golden Flumpty', relation: 'Contraparte dorada' }
+      ],
+      trivia: [
+        'Es un huevo con cara, uno de los disenos mas absurdos de FNaF.',
+        'Rompe la cuarta pared frecuentemente.',
+        'El juego ONAF es conocido por su humor negro y terror absurdo.',
+        'Fue creado por Jonochrome.',
+        'Su sonrisa permanente es inquietante a pesar de su diseno simple.'
+      ]
+    },
+    {
+      id: 'redman',
+      name: 'The Redman',
+      alias: 'Redman / El Hombre Rojo',
+      firstAppearance: "One Night at Flumpty's (2015)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Flumpty's Establecimiento",
+      image: '',
+      category: 'Other',
+      description: 'The Redman es un personaje misterioso de One Night at Flumpty\'s, representado como una figura humana completamente roja con una sonrisa blanca. No se sabe nada sobre su origen o proposito, lo que lo convierte en uno de los personajes mas enigmaticos del juego.',
+      history: 'The Redman aparece en One Night at Flumpty\'s sin ninguna explicacion o historia de fondo. Simplemente existe en el establecimiento de Flumpty, deambulando sin un proposito claro. Su presencia es inquietante precisamente porque no hay contexto para el. Es una figura surrealista que anade al tono absurdo y terrorifico del juego.',
+      behavior: 'The Redman aparece en las camaras y se mueve lentamente hacia la oficina. No parpadea y mantiene su sonrisa constante. Es facil de detectar pero dificil de ignorar, ya que su presencia aumenta la tension psicologica.',
+      appearances: ["One Night at Flumpty's", "One Night at Flumpty's 2", "One Night at Flumpty's 3"],
+      relationships: [
+        { name: 'Flumpty Bumpty', relation: 'Companero / Habitante' },
+        { name: 'The Beaver', relation: 'Companero / Habitante' },
+        { name: 'Eyesaur', relation: 'Companero / Habitante' }
+      ],
+      trivia: [
+        'No tiene historia de fondo conocida.',
+        'Su diseno es simple pero efectivamente inquietante.',
+        'Aparece en los tres juegos de ONAF.',
+        'Es uno de los personajes mas enigmaticos de los fangames.',
+        'Su sonrisa constante es su rasgo mas distintivo.'
+      ]
+    },
+    {
+      id: 'beaver',
+      name: 'The Beaver',
+      alias: 'Beaver / El Castor Animado',
+      firstAppearance: "One Night at Flumpty's (2015)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Flumpty's Establecimiento",
+      image: '',
+      category: 'Other',
+      description: 'The Beaver es un castor animatronico de aspecto desgastado que habita en el establecimiento de Flumpty. Su diseno es clasico de castor, con dos grandes dientes frontales y una cola ancha, pero con un aire deteriorado que lo hace parecer abandonado.',
+      history: 'The Beaver es uno de los residentes del establecimiento de Flumpty. A diferencia de otros fangames, no hay una historia tragica detras de el, simplemente existe como parte del elenco surrealista de ONAF. Su comportamiento es tipico de los animatronicos de FNaF, pero con el giro absurdo caracteristico de la serie Flumpty.',
+      behavior: 'The Beaver se mueve por los pasillos del establecimiento, apareciendo en las camaras de forma intermitente. Es mas predecible que Flumpty pero aun asi representa una amenaza constante.',
+      appearances: ["One Night at Flumpty's", "One Night at Flumpty's 2", "One Night at Flumpty's 3"],
+      relationships: [
+        { name: 'Flumpty Bumpty', relation: 'Anfitrion del establecimiento' },
+        { name: 'The Redman', relation: 'Companero residente' },
+        { name: 'Eyesaur', relation: 'Companero residente' }
+      ],
+      trivia: [
+        'Su diseno clasico de castor contrasta con lo absurdo del juego.',
+        'Aparece en los tres juegos de la serie.',
+        'Es uno de los animatronicos mas tradicionales de ONAF.',
+        'A pesar de su apariencia, es tan peligroso como los demas.'
+      ]
+    },
+    {
+      id: 'eyesaur',
+      name: 'Eyesaur',
+      alias: 'Eyesaur / El Ojo Gigante',
+      firstAppearance: "One Night at Flumpty's 2 (2016)",
+      status: 'Active',
+      threatLevel: 'Medium',
+      origin: "Flumpty's Establecimiento",
+      image: '',
+      category: 'Other',
+      description: 'Eyesaur es una criatura gigante compuesta unicamente por un ojo enorme con patas delgadas. Es uno de los personajes mas absurdos y creativos de One Night at Flumpty\'s, llevando el terror surrealista a su maxima expresion. Su unico proposito es mirar fijamente.',
+      history: 'Eyesaur aparecio por primera vez en One Night at Flumpty\'s 2, anadiendose al ya de por si extrano elenco del juego. No tiene historia ni origen, simplemente existe como otra manifestacion del mundo absurdo de Flumpty. Su presencia es puramente terrorifica, aprovechando el miedo primal a ser observado.',
+      behavior: 'Eyesaur se acerca lentamente a la oficina, mirando fijamente a traves de las ventanas y puertas. No parpadea. Su unica accion es observar, pero su mirada constante es psicologicamente perturbadora.',
+      appearances: ["One Night at Flumpty's 2", "One Night at Flumpty's 3"],
+      relationships: [
+        { name: 'Flumpty Bumpty', relation: 'Anfitrion del establecimiento' },
+        { name: 'The Redman', relation: 'Companero residente' },
+        { name: 'The Beaver', relation: 'Companero residente' }
+      ],
+      trivia: [
+        'Es literalmente solo un ojo gigante con patas.',
+        'Aparece por primera vez en ONAF 2.',
+        'Es el personaje mas absurdo de toda la serie ONAF.',
+        'Su unica funcion es mirar fijamente al jugador.',
+        'Representa el terror surrealista en su maxima expresion.'
+      ]
+    },
+    // --- FANGAME CHARACTERS: Dayshift at Freddy's ---
+    {
+      id: 'joe-dayshift',
+      name: 'Joe',
+      alias: 'Joe / Empleado del Turno Diurno',
+      firstAppearance: "Dayshift at Freddy's (2015)",
+      status: 'Active',
+      threatLevel: 'N/A',
+      origin: "Freddy Fazbear's Pizza (Universo DSaF)",
+      image: '',
+      category: 'Other',
+      description: 'Joe es el protagonista de Dayshift at Freddy\'s, un empleado del turno diurno que trabaja en Freddy Fazbear\'s Pizza. Es un personaje sarcastico y rebelde que no tolera las tonterias de los animatronicos ni de su jefe. Su actitud despreocupada y su humor negro lo convierten en un protagonista unico.',
+      history: 'Joe comenzo a trabajar en Freddy Fazbear\'s Pizza en el turno diurno, un puesto que generalmente se considera mas seguro que el turno nocturno. Sin embargo, pronto descubre que los animatronicos son tan peligrosos de dia como de noche. A lo largo del juego, Joe interactua con los animatronicos, clientes y empleados, usando su ingenio y su falta de miedo para sobrevivir. Su historia es una comedia negra que parodia los eventos tragicos de FNaF.',
+      behavior: 'No es un animatronico ni una amenaza. Joe es un humano que interactua con los personajes del juego de forma dialogada. Sus acciones dependen de las decisiones del jugador.',
+      appearances: ["Dayshift at Freddy's", "Dayshift at Freddy's 2"],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Companero de trabajo / Victima de sus bromas' },
+        { name: 'Bonnie', relation: 'Companero de trabajo / Constante dolor de cabeza' },
+        { name: 'William Afton', relation: 'Jefe / Antagonista' },
+        { name: 'Phone Guy', relation: 'Colega / Fuente de informacion' }
+      ],
+      trivia: [
+        'Es el protagonista de Dayshift at Freddy\'s, un fangame de comedia.',
+        'Su humor sarcastico lo distingue de otros protagonistas.',
+        'El juego parodia los eventos de FNaF desde una perspectiva comica.',
+        "Dayshift at Freddy's fue creado por doggo.",
+        'Joe es uno de los pocos protagonistas que se enfrenta activamente a los animatronicos.'
+      ]
+    },
+    // --- FANGAME CHARACTERS: Final Nights ---
+    {
+      id: 'vlad-final',
+      name: 'Vlad',
+      alias: 'Vlad / Animadronico Principal de Final Nights',
+      firstAppearance: 'Final Nights (2016)',
+      status: 'Haunted',
+      threatLevel: 'Medium',
+      origin: 'Establecimiento de Final Nights',
+      image: '',
+      category: 'Other',
+      description: 'Vlad es el animatronico principal del fangame Final Nights, un personaje con un diseno vampirico que combina elementos de horror clasico con la estetica de FNaF. Su apariencia incluye colmillos afilados y una capa oscura que le dan un aspecto siniestro.',
+      history: 'Vlad fue creado para un restaurante tematico de terror que intentaba capitalizar el exito de Freddy Fazbear\'s Pizza. Tras una serie de incidentes, el restaurante cerro y Vlad quedo abandonado. Fue poseido por el alma de una victima, volviendose hostil. Su historia esta conectada con los oscuros secretos del establecimiento de Final Nights.',
+      behavior: 'Vlad se mueve sigilosamente por el restaurante, apareciendo en las camaras de forma repentina. Su ataque es rapido y silencioso, similar al de un depredador nocturno. Requiere atencion constante del guardia.',
+      appearances: ['Final Nights', 'Final Nights 2'],
+      relationships: [
+        { name: 'Flick', relation: 'Companero animatronico' },
+        { name: 'Freddy Fazbear', relation: 'Inspiracion de diseno' },
+        { name: 'Foxy', relation: 'Similar en comportamiento sigiloso' }
+      ],
+      trivia: [
+        'Su diseno vampirico es unico entre los fangames de FNaF.',
+        'Aparece en Final Nights y su secuela.',
+        'El juego Final Nights tiene una tematica mas oscura que otros fangames.',
+        'Su nombre hace referencia a los vampiros de la cultura popular.'
+      ]
+    },
+    {
+      id: 'flick',
+      name: 'Flick',
+      alias: 'Flick / Animadronico Secundario de Final Nights',
+      firstAppearance: 'Final Nights (2016)',
+      status: 'Haunted',
+      threatLevel: 'Low',
+      origin: 'Establecimiento de Final Nights',
+      image: '',
+      category: 'Other',
+      description: 'Flick es un animatronico secundario de Final Nights, menos amenazante que Vlad pero igualmente inquietante. Su diseno es mas pequeno y rapido, recordando a un duende o criatura mitologica menor.',
+      history: 'Flick fue creado como el companero secundario de Vlad en el restaurante tematico de Final Nights. Tras el cierre, fue poseido por un alma infantil. Aunque menos peligroso que Vlad, su naturaleza rapida y erraticas lo convierte en una molestia constante para el guardia de seguridad.',
+      behavior: 'Rapido y erratico. Flick corre por los pasillos y aparece en las camaras por breves instantes. Es dificil de seguir pero facil de ahuyentar. Su amenaza principal es la distraccion que causa.',
+      appearances: ['Final Nights', 'Final Nights 2'],
+      relationships: [
+        { name: 'Vlad', relation: 'Companero animatronico principal' },
+        { name: 'Bonnie', relation: 'Similar en comportamiento rapido' }
+      ],
+      trivia: [
+        'Es el animatronico secundario de Final Nights.',
+        'Su comportamiento es rapido y erratico.',
+        'Es menos peligroso que Vlad pero mas molesto.',
+        'Su diseno recuerda a una criatura mitologica pequena.'
+      ]
+    },
+    // --- FANGAME CHARACTERS: JOLLY ---
+    {
+      id: 'jolly',
+      name: 'Jolly the Bee',
+      alias: 'Jolly / La Abeja Protagonista de JOLLY',
+      firstAppearance: "JOLLY (2017)",
+      status: 'Haunted',
+      threatLevel: 'Medium',
+      origin: "Jolly's Beehive",
+      image: '',
+      category: 'Other',
+      description: 'Jolly the Bee es una abeja animatronica protagonista del fangame JOLLY. Es un personaje de apariencia amigable con rayas amarillas y negras y alas translucidas, pero su sonrisa esconde una naturaleza siniestra. Su diseno esta inspirado en una colmena antropomorfa.',
+      history: 'Jolly fue creada como la mascota principal de Jolly\'s Beehive, un restaurante infantil con tematica de abejas. Despues de una serie de eventos tragicos, el restaurante cerro y Jolly fue abandonada. Fue poseida por un espiritu vengativo, volviendose hostil contra cualquier adulto que entre al establecimiento. Su historia se explora en JOLLY y su secuela JOLLY 2.',
+      behavior: 'Jolly zumba alrededor del restaurante, apareciendo en las camaras de forma intermitente. Su movimiento es fluido pero impredecible, similar al vuelo erratico de una abeja. Es dificil de rastrear en las camaras.',
+      appearances: ['JOLLY', 'JOLLY 2'],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Inspiracion de diseno' },
+        { name: 'Mangle', relation: 'Similar en movimiento erratico' }
+      ],
+      trivia: [
+        'Es el unico personaje principal con tematica de abeja en los fangames.',
+        'Su nombre es un juego de palabras con "jolly" (alegre).',
+        'El juego JOLLY fue creado por un desarrollador independiente.',
+        'Su diseno combina elementos infantiles con terror.',
+        'Aparece en dos juegos de su serie.'
+      ]
+    },
+    // --- FANGAME CHARACTERS: JR's ---
+    {
+      id: 'paulbear',
+      name: 'Paulbear',
+      alias: 'Paulbear / El Oso Guia Espiritual de JR',
+      firstAppearance: "JR's (2016)",
+      status: 'Mysterious',
+      threatLevel: 'Low',
+      origin: "JR's Diner",
+      image: '',
+      category: 'Other',
+      description: 'Paulbear es un oso animatronico misterioso que actua como guia espiritual en JR\'s Diner. Su diseno es el de un oso antiguo y desgastado, con una expresion serena pero triste. Es un personaje enigmatico que parece saber mas de lo que revela.',
+      history: 'Paulbear fue creado para JR\'s Diner, un restaurante que precedio a Freddy Fazbear\'s Pizza. Es considerado un animatronico proto-Fazbear, un prototipo de lo que luego serian los animatronicos modernos. Su proposito original era entretener a los ninos, pero con el tiempo adquirio una conciencia espiritual. Se dice que Paulbear observa y guia a las almas perdidas que vagan por el restaurante. Es uno de los pocos animatronicos que no es hostil, sino mas bien un guardian.',
+      behavior: 'No es hostil. Paulbear observa desde las sombras y ocasionalmente aparece en las camaras para observar al guardia. Su presencia es calmada y no representa una amenaza directa.',
+      appearances: ["JR's"],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Predecesor / Prototipo' },
+        { name: 'Henry Emily', relation: 'Posiblemente creado por el' },
+        { name: 'The Puppet', relation: 'Similar rol de guia espiritual' }
+      ],
+      trivia: [
+        'Es considerado un prototipo de Freddy Fazbear.',
+        'JR\'s Diner es el restaurante que precedio a Fazbear\'s Pizza.',
+        'Paulbear no es hostil, actua como guardian espiritual.',
+        'Su nombre es una combinacion de "Paul" y "bear".',
+        'Es uno de los animatronicos mas enigmaticos de los fangames.'
+      ]
+    },
+    // --- FANGAME CHARACTERS: Bubba's Diner ---
+    {
+      id: 'bubba',
+      name: 'Bubba',
+      alias: 'Bubba / El Cerdo Animado de Bubba',
+      firstAppearance: "Bubba's Diner (2016)",
+      status: 'Haunted',
+      threatLevel: 'Medium',
+      origin: "Bubba's Diner",
+      image: '',
+      category: 'Other',
+      description: 'Bubba es un cerdo animatronico protagonista del fangame Bubba\'s Diner. Es un personaje de tamano grande con una apariencia amigable pero siniestra, con una sonrisa permanente y ojos curiosos. Su diseno esta inspirado en los cerdos de granja pero con un estilo animatronico clasico.',
+      history: 'Bubba fue creado como la mascota principal de Bubba\'s Diner, un restaurante familiar con tematica de granja. Tras una serie de incidentes similares a los de Fazbear Entertainment, el restaurante cerro y Bubba quedo abandonado. Fue poseido por un alma infantil, volviendose hostil durante la noche. Su historia es un reflejo de la tragica narrativa de FNaF pero en un entorno de granja.',
+      behavior: 'Bubba se mueve lentamente por el restaurante, pero su tamano hace que sea imposible de ignorar. Aparece en las camaras de forma constante y se acerca a la oficina de manera implacable.',
+      appearances: ["Bubba's Diner"],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Inspiracion de diseno' },
+        { name: 'Chica', relation: 'Similar tematica de comida' },
+        { name: 'Paulbear', relation: 'Animatronico contemporaneo' }
+      ],
+      trivia: [
+        'Es el protagonista de Bubba\'s Diner, un fangame con tematica de granja.',
+        'Su diseno esta basado en un cerdo de granja.',
+        'El juego sigue la formula clasica de FNaF.',
+        'Bubba es uno de los pocos animatronicos porcinos de la escena fangame.',
+        'Su restaurante compite directamente con Fazbear\'s Pizza.'
+      ]
+    },
+    // --- FANGAME CHARACTERS: Tyke and Sons ---
+    {
+      id: 'chipomat',
+      name: 'Chipomat',
+      alias: 'Chipomat / Robot de Tyke and Sons',
+      firstAppearance: "Tyke and Sons Lumber Co. (2018)",
+      status: 'Active',
+      threatLevel: 'Low',
+      origin: "Tyke and Sons Lumber Co.",
+      image: '',
+      category: 'Other',
+      description: 'Chipomat es un robot de servicio creado por Tyke and Sons Lumber Co., una empresa maderera que tambien incursiono en la creacion de animatronicos. Su diseno es mas industrial que infantil, con piezas mecanicas visibles y una apariencia funcional.',
+      history: 'Chipomat fue construido por Tyke and Sons Lumber Co. como parte de su linea de entretenimiento infantil, aunque su diseno reflecta el origen industrial de la compania. A diferencia de otros animatronicos, Chipomat no fue poseido por un alma, sino que funciona gracias a un sistema de IA defectuoso. Su comportamiento erratico se debe a fallos de programacion mas que a influencia sobrenatural.',
+      behavior: 'Chipomat realiza tareas repetitivas de forma mecanica. A veces malinterpreta sus ordenes y termina en lugares donde no deberia estar. Es mas una molestia que una amenaza real.',
+      appearances: ["Tyke and Sons Lumber Co."],
+      relationships: [
+        { name: 'Freddy Fazbear', relation: 'Competidor en el mercado' },
+        { name: 'HandUnit', relation: 'Similar IA defectuosa' }
+      ],
+      trivia: [
+        'Es uno de los pocos animatronicos no poseidos por almas.',
+        'Su comportamiento erratico se debe a fallos de programacion.',
+        'Tyke and Sons es una empresa maderera que diversifico su negocio.',
+        'Chipomat tiene un diseno mas industrial que los animatronicos tipicos.',
+        'Representa la incursion corporativa en el mercado del entretenimiento.'
+      ]
+    },
+    // --- ADDITIONAL FANGAME CHARACTERS ---
+    {
+      id: 'candy-fursuit',
+      name: 'The Fursuit',
+      alias: 'Traje de Candy / Persona dentro del Traje',
+      firstAppearance: "Five Nights at Candy's (2015)",
+      status: 'Unknown',
+      threatLevel: 'High',
+      origin: "Candy's Burgers & Fries",
+      image: '',
+      category: 'Other',
+      description: 'The Fursuit es una persona desconocida que usa un traje de Candy the Cat en Five Nights at Candy\'s. A diferencia de los Springlock suits de FNaF, este traje es simplemente un disfraz, pero quien lo usa tiene intenciones siniestras. Es el equivalente en Candy\'s del asesino original.',
+      history: 'The Fursuit aparece en los eventos detras de escena de Candy\'s Burgers & Fries. Se cree que es la persona responsable de los incidentes que llevaron al cierre del restaurante. A diferencia de William Afton, este personaje nunca es identificado ni capturado. Su identidad sigue siendo un misterio incluso despues de los eventos de los juegos.',
+      behavior: 'Hostil pero raramente visto directamente. Se mueve por las areas de servicio del restaurante, evitando las camaras de seguridad. Su presencia se insinua a traves de eventos y mensajes en el juego.',
+      appearances: ["Five Nights at Candy's", "Five Nights at Candy's 2"],
+      relationships: [
+        { name: 'Candy the Cat', relation: 'Usa su traje' },
+        { name: 'William Afton', relation: 'Equivalente funcional' }
+      ],
+      trivia: [
+        'Es el equivalente del asesino en la serie Candy.',
+        'Nunca se revela su identidad verdadera.',
+        'Usa un traje de Candy the Cat.',
+        'Es el antagonista humano de la serie.',
+        'Su existencia anade una capa de misterio a la narrativa.'
+      ]
+    },
+    {
+      id: 'golden-candy',
+      name: 'Golden Candy',
+      alias: 'Golden Candy / Candy Dorado',
+      firstAppearance: "Five Nights at Candy's 2 (2016)",
+      status: 'Haunted',
+      threatLevel: 'High',
+      origin: "Candy's Burgers & Fries (Sucursal)",
+      image: '',
+      category: 'Other',
+      description: 'Golden Candy es una version dorada y misteriosa de Candy the Cat que aparece en Five Nights at Candy\'s 2. Similar a Golden Freddy en FNaF, es una entidad enigmatica que aparece de forma inexplicable. Su cuerpo brilla con un tono dorado metalico.',
+      history: 'Golden Candy es un animatronico fantasma que existe en los margenes de la realidad de Candy\'s. Se cree que es la manifestacion de un espiritu particularmente poderoso, posiblemente la primera victima de Candy\'s Burgers & Fries. Aparece solo en condiciones especificas y su presencia siempre presagia peligro extremo.',
+      behavior: 'Aparece repentinamente en la oficina, causando un game over instantaneo si no se maneja correctamente. No aparece en las camaras y su unica senial es una distorsion visual o auditiva.',
+      appearances: ["Five Nights at Candy's 2"],
+      relationships: [
+        { name: 'Candy the Cat', relation: 'Contraparte dorada' },
+        { name: 'Golden Freddy', relation: 'Equivalente en FNaF' },
+        { name: 'Shadow Candy', relation: 'Otra entidad misteriosa similar' }
+      ],
+      trivia: [
+        'Es el equivalente de Golden Freddy en la serie Candy.',
+        'Aparece solo en Candy\'s 2.',
+        'Causa game over instantaneo si aparece en la oficina.',
+        'Su origen es desconocido.',
+        'Es uno de los personajes mas misteriosos de la serie.'
+      ]
+    },
+    {
+      id: 'shadow-candy',
+      name: 'Shadow Candy',
+      alias: 'Shadow Candy / Candy Sombra',
+      firstAppearance: "Five Nights at Candy's 2 (2016)",
+      status: 'Haunted',
+      threatLevel: 'Medium',
+      origin: "Candy's Burgers & Fries (Sucursal)",
+      image: '',
+      category: 'Other',
+      description: 'Shadow Candy es una entidad oscura que aparece como una version sombria y distorsionada de Candy the Cat en Five Nights at Candy\'s 2. Su cuerpo es negro con ojos brillantes, similar a Shadow Bonnie en la saga principal de FNaF.',
+      history: 'Shadow Candy es una manifestacion de energia negativa acumulada en Candy\'s Burgers & Fries. No se sabe si es un espiritu independiente o una parte fragmentada de otra alma. Su aparicion es erratico y su proposito es desconocido, aunque se cree que esta relacionado con los eventos tragicos del restaurante.',
+      behavior: 'Aparece brevemente en las camaras antes de desaparecer. No ataca directamente pero su presencia indica que el peligro esta cerca. Es mas un presagio que una amenaza directa.',
+      appearances: ["Five Nights at Candy's 2"],
+      relationships: [
+        { name: 'Candy the Cat', relation: 'Version sombria' },
+        { name: 'Golden Candy', relation: 'Entidad misteriosa similar' },
+        { name: 'Shadow Bonnie', relation: 'Equivalente en FNaF' }
+      ],
+      trivia: [
+        'Es el equivalente de Shadow Bonnie en la serie Candy.',
+        'Su cuerpo es completamente negro con ojos brillantes.',
+        'No ataca directamente sino que presagia peligro.',
+        'Aparece solo en Candy\'s 2.',
+        'Su origen y proposito son desconocidos.'
+      ]
+    },
+    {
+      id: 'golden-flumpty',
+      name: 'Golden Flumpty',
+      alias: 'Golden Flumpty / Flumpty Dorado',
+      firstAppearance: "One Night at Flumpty's 2 (2016)",
+      status: 'Active',
+      threatLevel: 'High',
+      origin: "Flumpty's Establecimiento",
+      image: '',
+      category: 'Other',
+      description: 'Golden Flumpty es una version dorada y aun mas aterradora de Flumpty Bumpty que aparece en One Night at Flumpty\'s 2. Es un huevo dorado con la misma sonrisa perturbadora pero con un brillo metalico que lo hace parecer casi divino.',
+      history: 'Golden Flumpty aparecio por primera vez en One Night at Flumpty\'s 2 como un personaje secreto extremadamente dificil de invocar. Su existencia es un misterio incluso dentro del absurdo universo de ONAF. Se cree que es una manifestacion superior de Flumpty, posiblemente su forma verdadera o una version mejorada. Derrotarlo es necesario para obtener el verdadero final del juego.',
+      behavior: 'Golden Flumpty es extremadamente agresivo y rapido. Aparece en todas las camaras simultaneamente y se mueve a una velocidad imposible. Requiere reflejos sobrehumanos para sobrevivir a sus ataques.',
+      appearances: ["One Night at Flumpty's 2", "One Night at Flumpty's 3"],
+      relationships: [
+        { name: 'Flumpty Bumpty', relation: 'Version dorada / Forma superior' },
+        { name: 'The Redman', relation: 'Companero residente' }
+      ],
+      trivia: [
+        'Es la version dorada de Flumpty Bumpty.',
+        'Aparece como personaje secreto en ONAF 2.',
+        'Es extremadamente dificil de invocar y derrotar.',
+        'Su brillo dorado contrasta con el humor absurdo del juego.',
+        'Derrotarlo es necesario para el verdadero final.'
+      ]
+    },
+    {
+      id: 'monster-rat',
+      name: 'Monster Rat',
+      alias: 'Monster Rat / Rata Monstruosa de Candy',
+      firstAppearance: "Five Nights at Candy's 3 (2017)",
+      status: 'Haunted',
+      threatLevel: 'High',
+      origin: "Candy's Burgers & Fries (Abandonado)",
+      image: '',
+      category: 'Other',
+      description: 'Monster Rat es una version monstruosa y deformada de The Rat que aparece en Five Nights at Candy\'s 3. Su cuerpo esta grotescamente distorsionado, con multiples extremidades y una mandibula desencajada. Es el resultado de la fusion de multiples almas en un solo cuerpo animatronico.',
+      history: 'Monster Rat fue creado cuando multiples espiritus se fusionaron en el cuerpo deteriorado de The Rat, creando una entidad caotica y violenta. Aparece en Candy\'s 3 como uno de los antagonistas principales, acechando al jugador a traves del restaurante abandonado. Su existencia es un testimonio del dolor y la furia acumulada de las almas atrapadas en Candy\'s.',
+      behavior: 'Extremadamente agresivo y erratico. Monster Rat se mueve por los conductos y pasillos, apareciendo en lugares inesperados. Su tamano y velocidad lo convierten en una de las mayores amenazas del juego.',
+      appearances: ["Five Nights at Candy's 3"],
+      relationships: [
+        { name: 'The Rat', relation: 'Forma base / Transformacion' },
+        { name: 'Monster Penguin', relation: 'Contraparte monstruosa similar' },
+        { name: 'Candy the Cat', relation: 'Habita el mismo restaurante' },
+        { name: 'The Creation', relation: 'Similar entidad fusionada' }
+      ],
+      trivia: [
+        'Es una version monstruosa de The Rat.',
+        'Aparece en Candy\'s 3 como antagonista principal.',
+        'Su cuerpo esta deformado por la fusion de almas.',
+        'Es uno de los enemigos mas dificiles de Candy\'s 3.',
+        'Representa la ira acumulada de las almas del restaurante.'
+      ]
+    },
+    {
+      id: 'monster-penguin',
+      name: 'Monster Penguin',
+      alias: 'Monster Penguin / Pinguino Monstruoso de Candy',
+      firstAppearance: "Five Nights at Candy's 3 (2017)",
+      status: 'Haunted',
+      threatLevel: 'High',
+      origin: "Candy's Burgers & Fries (Abandonado)",
+      image: '',
+      category: 'Other',
+      description: 'Monster Penguin es la version monstruosa de The Penguin en Five Nights at Candy\'s 3. Al igual que Monster Rat, su cuerpo esta distorsionado y agrandado, con un pico desproporcionado y ojos multiples. Es una amalgama de pesadilla.',
+      history: 'Monster Penguin se formo cuando espiritus adicionales se unieron al cuerpo de The Penguin, transformandolo en una bestia grotesca. Junto con Monster Rat, acecha los pasillos del Candy\'s abandonado en Candy\'s 3. Su origen esta ligado a los mismos eventos tragicos que crearon a Monster Rat.',
+      behavior: 'Lento pero implacable. Monster Penguin patrulla areas especificas del restaurante y es dificil de esquivar debido a su gran tamano. Su ataque es devastador si logra alcanzar al jugador.',
+      appearances: ["Five Nights at Candy's 3"],
+      relationships: [
+        { name: 'The Penguin', relation: 'Forma base / Transformacion' },
+        { name: 'Monster Rat', relation: 'Contraparte monstruosa' },
+        { name: 'Candy the Cat', relation: 'Habita el mismo restaurante' }
+      ],
+      trivia: [
+        'Es una version monstruosa de The Penguin.',
+        'Aparece en Candy\'s 3 como enemigo.',
+        'Su pico desproporcionado es su rasgo mas distintivo.',
+        'Es lento pero devastador si alcanza al jugador.',
+        'Representa la transformacion corrupta de los animatronicos originales.'
+      ]
     }
+  },
+  {
+    id: 'ar-freddy-fazbear',
+    name: 'Freddy Fazbear (AR)',
+    alias: 'Freddy Fazbear - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version animatronica de Freddy Fazbear en el juego de realidad aumentada FNaF AR: Special Delivery. Los jugadores deben sobrevivir a encuentros con animatronicos que aparecen en el mundo real.',
+    history: 'FNaF AR: Special Delivery fue lanzado en 2019 por Illumix. Los animatronicos aparecen en la realidad aumentada del jugador, atacando a traves de mecanicas de combate en tiempo real.',
+    behavior: 'Los animatronicos de FNaF AR aparecen aleatoriamente en la ubicacion del jugador. Deben ser combatidos usando una mascara de Freddy o componentes electronicos. Cada animatronico tiene patron de ataque unico.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Freddy Fazbear', relation: 'Version AR del animatronico original' }
+    ],
+    trivia: [
+      'FNaF AR fue desarrollado por Illumix',
+      'El juego utiliza tecnologia de realidad aumentada'
+    ]
+  },
+  {
+    id: 'ar-bonnie',
+    name: 'Bonnie (AR)',
+    alias: 'Bonnie - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version animatronica de Bonnie en FNaF AR. Es uno de los animatronicos mas agresivos del juego, atacando con rapidez y ferocidad.',
+    history: 'Bonnie fue uno de los primeros animatronicos disponibles en FNaF AR. Su diseno mantiene el aspecto original pero con efectos de realidad aumentada que lo hacen mas intimidante.',
+    behavior: 'Bonnie ataca rapidamente una vez detectado. Utiliza un patron de emboscada que requiere reflejos rapidos para contrarrestarlo con la mascara de Freddy.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Bonnie', relation: 'Version AR del animatronico original' }
+    ],
+    trivia: [
+      'Bonnie es uno de los animatronicos mas comunes en FNaF AR',
+      'Su ataque es uno de los mas rapidos del juego'
+    ]
+  },
+  {
+    id: 'ar-chica',
+    name: 'Chica (AR)',
+    alias: 'Chica - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version animatronica de Chica en FNaF AR. Aparece con su caracteristico babero y es conocida por sus ataques con pizza electrificada.',
+    history: 'Chica llego a FNaF AR como parte de la rotacion inicial de animatronicos. Su diseno incluye efectos de partículas que simulan grasa de pizza electrificada.',
+    behavior: 'Chica ataca lanzando piezas de pizza electrificada. Los jugadores deben esquivar sus proyectiles y contraatacar con componentes electronicos.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Chica', relation: 'Version AR del animatronico original' }
+    ],
+    trivia: [
+      'Chica fue uno de los primeros animatronicos disponibles en el juego',
+      'Sus ataques con pizza son unico en la franquicia'
+    ]
+  },
+  {
+    id: 'ar-foxy',
+    name: 'Foxy (AR)',
+    alias: 'Foxy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version animatronica de Foxy en FNaF AR. Conserva su gancho y parche, atacando con emboscadas rapidas y letales.',
+    history: 'Foxy fue introducido en actualizaciones posteriores de FNaF AR. Su diseno en RA mantiene el aspecto pirata pero con efectos de distorsion digital.',
+    behavior: 'Foxy aparece en emboscadas repentinas. Su ataque es extremadamente rapido y requiere tiempo de reaccion minimo para activar la defensa correcta.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Foxy', relation: 'Version AR del animatronico original' }
+    ],
+    trivia: [
+      'Foxy tiene uno de los tiempos de ataque mas rapidos en FNaF AR',
+      'Su gancho es visible en su modelo de realidad aumentada'
+    ]
+  },
+  {
+    id: 'ar-golden-freddy',
+    name: 'Golden Freddy (AR)',
+    alias: 'Golden Freddy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Golden Freddy, una de las apariciones mas raras y peligrosas del juego. Su出现 es unpredicta y devastadora.',
+    history: 'Golden Freddy es un animatronico legendario en FNaF AR, apareciendo solo en condiciones especificas. Su rareza lo convierte en un objetivo codiciado por los jugadores.',
+    behavior: 'Golden Freddy aparece aleatoriamente y su ataque es instantaneo si no se reacciona a tiempo. Requiere una combinacion de defensas para ser derrotado.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Golden Freddy', relation: 'Version AR del animatronico legendario' }
+    ],
+    trivia: [
+      'Golden Freddy es uno de los animatronicos mas raros en FNaF AR',
+      'Su aparicion es siempre una sorpresa para el jugador'
+    ]
+  },
+  {
+    id: 'ar-toy-freddy',
+    name: 'Toy Freddy (AR)',
+    alias: 'Toy Freddy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Toy Freddy, manteniendo su apariencia moderna y amigable pero con comportamiento hostil en realidad aumentada.',
+    history: 'Toy Freddy llego a FNaF AR como parte de una actualizacion tematica. Su diseno es mas colorido que su version original pero igualmente amenazante.',
+    behavior: 'Toy Freddy es relativamente perezoso pero se vuelve agresivo cuando se le provoca. Sus ataques son predecibles pero requieren timing preciso.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Toy Freddy', relation: 'Version AR del animatronico Toy' }
+    ],
+    trivia: [
+      'Toy Freddy es uno de los animatronicos mas faciles de derrotar en FNaF AR',
+      'Su diseno moderno es popular entre los jugadores'
+    ]
+  },
+  {
+    id: 'ar-toy-bonnie',
+    name: 'Toy Bonnie (AR)',
+    alias: 'Toy Bonnie - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Toy Bonnie, un conejo azul celeste con movimientos rapidos y ataques sorpresa en realidad aumentada.',
+    history: 'Toy Bonnie fue introducido junto con otros animatronicos Toy en una actualizacion de FNaF AR. Su velocidad lo convierte en un oponente desafiante.',
+    behavior: 'Toy Bonnie se mueve rapidamente y ataca sin previo aviso. Los jugadores deben estar atentos a sus senales de audio para prepararse.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Toy Bonnie', relation: 'Version AR del animatronico Toy' }
+    ],
+    trivia: [
+      'Toy Bonnie es uno de los animatronicos mas rapidos en FNaF AR',
+      'Su color azul celeste es facilmente identificable'
+    ]
+  },
+  {
+    id: 'ar-toy-chica',
+    name: 'Toy Chica (AR)',
+    alias: 'Toy Chica - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Toy Chica, manteniendo su apariencia femenina y su pico desmontable pero con ataques electrificados en RA.',
+    history: 'Toy Chica fue uno de los animatronicos mas populares en FNaF AR. Su diseno incluye efectos de partículas que simulan electricidad.',
+    behavior: 'Toy Chica ataca con descargas electricas. Los jugadores deben usar la mascara de Freddy en el momento correcto para repeler sus ataques.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Toy Chica', relation: 'Version AR del animatronico Toy' }
+    ],
+    trivia: [
+      'Toy Chica puede quitarse el pico en su modelo de RA',
+      'Sus ataques electricos son unicos en la franquicia'
+    ]
+  },
+  {
+    id: 'ar-mangle',
+    name: 'Mangle (AR)',
+    alias: 'Mangle - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Mangle, con su forma desmontada y caotica intacta pero con efectos de distorsion digital en realidad aumentada.',
+    history: 'Mangle fue introducido en FNaF AR como un animatronico dificil. Su forma fragmentada lo hace impredecible en combate.',
+    behavior: 'Mangle se mueve de manera erratico y ataca desde multiples angulos. Su comportamiento caotico requiere adaptacion constante del jugador.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Mangle', relation: 'Version AR del animatronico desmontado' }
+    ],
+    trivia: [
+      'Mangle es uno de los animatronicos mas dificiles de predecir en FNaF AR',
+      'Su forma fragmentada es fiel al original'
+    ]
+  },
+  {
+    id: 'ar-balloon-boy',
+    name: 'Balloon Boy (AR)',
+    alias: 'Balloon Boy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Balloon Boy, con su globo caracteristico y risa inquietante pero sin capacidad de ataque directo.',
+    history: 'Balloon Boy fue incluido en FNaF AR como un animatronico de apoyo. Su funcion principal es sabotea las defensas del jugador.',
+    behavior: 'Balloon Boy no ataca directamente pero sabotea la mascara de Freddy y otros componentes. Los jugadores deben priorizar eliminarlo.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Balloon Boy', relation: 'Version AR del animatronico de apoyo' }
+    ],
+    trivia: [
+      'Balloon Boy no puede atacar directamente al jugador',
+      'Su risa es uno de los sonidos mas reconocibles de FNaF AR'
+    ]
+  },
+  {
+    id: 'ar-the-puppet',
+    name: 'The Puppet (AR)',
+    alias: 'The Puppet - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de The Puppet, la entidad mas poderosa de la franquicia apareciendo en realidad aumentada con ataques devastadores.',
+    history: 'The Puppet fue introducido como un jefe final en FNaF AR. Su poder en RA es equivalente al del original, siendo una amenaza extrema.',
+    behavior: 'The Puppet ataca con una combinacion de proyectiles y movimientos rapidos. Requiere todas las defensas disponibles para ser derrotado.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'The Puppet', relation: 'Version AR de la entidad mas poderosa' }
+    ],
+    trivia: [
+      'The Puppet es uno de los jefes mas dificiles en FNaF AR',
+      'Su caja de musica es visible en su modelo de RA'
+    ]
+  },
+  {
+    id: 'ar-withered-freddy',
+    name: 'Withered Freddy (AR)',
+    alias: 'Withered Freddy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Withered Freddy, con su estado deteriorado y partes del endoesqueleto expuestas en realidad aumentada.',
+    history: 'Withered Freddy fue introducido en FNaF AR como parte de una actualizacion de animatronicos clasicos. Su diseno mantuvo su aspecto desgastado.',
+    behavior: 'Withered Freddy ataca con fuerza bruta pero es relativamente lento. Los jugadores pueden usar la mascara de Freddy para repelerlo.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Withered Freddy', relation: 'Version AR del animatronico deteriorado' }
+    ],
+    trivia: [
+      'Withered Freddy tiene partes visibles de su endoesqueleto en RA',
+      'Su ataque es potente pero predecible'
+    ]
+  },
+  {
+    id: 'ar-withered-bonnie',
+    name: 'Withered Bonnie (AR)',
+    alias: 'Withered Bonnie - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Withered Bonnie, sin cara pero con ojos rojos brillantes y movimientos rapidos en realidad aumentada.',
+    history: 'Withered Bonnie fue introducido en FNaF AR como uno de los animatronicos mas aterradores. Su falta de cara lo hace instantaneamente reconocible.',
+    behavior: 'Withered Bonnie es agresivo y rapido. Ataca sin previo aviso y requiere reaccion instantanea para ser contrarrestado.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Withered Bonnie', relation: 'Version AR del animatronico sin cara' }
+    ],
+    trivia: [
+      'Withered Bonnie es uno de los animatronicos mas aterradores en FNaF AR',
+      'Sus ojos rojos brillantes son visibles en la oscuridad'
+    ]
+  },
+  {
+    id: 'ar-withered-chica',
+    name: 'Withered Chica (AR)',
+    alias: 'Withered Chica - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Withered Chica, con sus manos arrancadas y mandibula colgando en su modelo de realidad aumentada.',
+    history: 'Withered Chica fue incluida en FNaF AR manteniendo su estado deteriorado. Su diseno es fiel al original con efectos de RA adicionales.',
+    behavior: 'Withered Chica ataca con la mandibula abierta y es persistente pero predecible. Los jugadores deben mantener la distancia.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Withered Chica', relation: 'Version AR del animatronico deteriorado' }
+    ],
+    trivia: [
+      'Withered Chica tiene la mandibula visible en su modelo de RA',
+      'Su ataque es potente pero requiere tiempo de carga'
+    ]
+  },
+  {
+    id: 'ar-withered-foxy',
+    name: 'Withered Foxy (AR)',
+    alias: 'Withered Foxy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Withered Foxy, con su traje externo removido y capacidad de correr intacta en realidad aumentada.',
+    history: 'Withered Foxy fue introducido como uno de los animatronicos mas rapidos de FNaF AR. Su velocidad lo hace especialmente peligroso.',
+    behavior: 'Withered Foxy corre hacia el jugador a toda velocidad. Su ataque es instantaneo y requiere defensa inmediata para ser bloqueado.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Withered Foxy', relation: 'Version AR del animatronico deteriorado' }
+    ],
+    trivia: [
+      'Withered Foxy es uno de los animatronicos mas rapidos en FNaF AR',
+      'Su endoesqueleto expuesto es visible en su modelo'
+    ]
+  },
+  {
+    id: 'ar-springtrap',
+    name: 'Springtrap (AR)',
+    alias: 'Springtrap - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Springtrap, con el cadaver de William Afton visible en su interior y ataques devastadores en realidad aumentada.',
+    history: 'Springtrap fue introducido como el jefe mas dificil de FNaF AR. Su poder en RA es equivalente al del original, siendo una amenaza extrema.',
+    behavior: 'Springtrap combina velocidad y fuerza en sus ataques. Utiliza multiples patrones que requieren memorizacion y reflejos rapidos.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Springtrap', relation: 'Version AR del animatronico con William Afton' }
+    ],
+    trivia: [
+      'Springtrap es considerado el jefe mas dificil en FNaF AR',
+      'Su cadaver visible es fiel al diseno original'
+    ]
+  },
+  {
+    id: 'ar-phantom-freddy',
+    name: 'Phantom Freddy (AR)',
+    alias: 'Phantom Freddy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Phantom Freddy, una alucinacion ardiente que aparece en realidad aumentada para desorientar al jugador.',
+    history: 'Phantom Freddy fue introducido como un animatronico de apoyo en FNaF AR. Su funcion principal es interrumpir la jugabilidad.',
+    behavior: 'Phantom Freddy aparece aleatoriamente y causa una alucinacion que desactiva temporalmente las defensas del jugador.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Phantom Freddy', relation: 'Version AR de la alucinacion' }
+    ],
+    trivia: [
+      'Phantom Freddy no puede atacar directamente',
+      'Su efecto de alucinacion es unico en FNaF AR'
+    ]
+  },
+  {
+    id: 'ar-phantom-chica',
+    name: 'Phantom Chica (AR)',
+    alias: 'Phantom Chica - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Phantom Chica, una alucinacion chamuscada que interfiere con los sistemas del jugador en realidad aumentada.',
+    history: 'Phantom Chica fue incluida en FNaF AR como un animatronico de interferencia. Su babero LET\'S EAT!!! es visible incluso en su forma chamuscada.',
+    behavior: 'Phantom Chica aparece en las camaras y causa una alucinacion que desactiva la ventilacion temporalmente.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Phantom Chica', relation: 'Version AR de la alucinacion' }
+    ],
+    trivia: [
+      'Phantom Chica desactiva la ventilacion con su aparicion',
+      'Su babero es visible a pesar de las quemaduras'
+    ]
+  },
+  {
+    id: 'ar-phantom-foxy',
+    name: 'Phantom Foxy (AR)',
+    alias: 'Phantom Foxy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Phantom Foxy, una alucinacion que aparece en la oficina para desorientar al jugador con un jump scare repentino.',
+    history: 'Phantom Foxy fue introducido en FNaF AR como un animatronico de interrupcion. Su jump scare es rapido pero no letal.',
+    behavior: 'Phantom Foxy aparece en la oficina y causa una alucinacion que bloquea la vision del jugador temporalmente.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Phantom Foxy', relation: 'Version AR de la alucinacion' }
+    ],
+    trivia: [
+      'Phantom Foxy causa una interrupcion visual temporal',
+      'Su jump scare no es letal pero es perturbador'
+    ]
+  },
+  {
+    id: 'ar-phantom-balloon-boy',
+    name: 'Phantom Balloon Boy (AR)',
+    alias: 'Phantom Balloon Boy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Phantom Balloon Boy, una alucinacion que sabotea las defensas del jugador con su risa inquietante.',
+    history: 'Phantom Balloon Boy fue incluido en FNaF AR como un animatronico de sabotaje. Su risa es uno de los sonidos mas molestos del juego.',
+    behavior: 'Phantom Balloon Boy aparece y sabotea la mascara de Freddy temporalmente, dejando al jugador vulnerable.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Phantom Balloon Boy', relation: 'Version AR de la alucinacion' }
+    ],
+    trivia: [
+      'Phantom Balloon Boy sabotea la mascara de Freddy',
+      'Su risa es inconfundible y perturbadora'
+    ]
+  },
+  {
+    id: 'ar-phantom-mangle',
+    name: 'Phantom Mangle (AR)',
+    alias: 'Phantom Mangle - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Phantom Mangle, una alucinacion que causa interferencia electronica en los sistemas del jugador.',
+    history: 'Phantom Mangle fue introducido en FNaF AR como un animatronico de interferencia. Su forma fragmentada es especialmente inquietante en RA.',
+    behavior: 'Phantom Mangle causa interferencia electronica que interfiere con los componentes del jugador temporalmente.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Phantom Mangle', relation: 'Version AR de la alucinacion' }
+    ],
+    trivia: [
+      'Phantom Mangle causa interferencia en los componentes',
+      'Su forma fragmentada es fiel al original'
+    ]
+  },
+  {
+    id: 'ar-phantom-puppet',
+    name: 'Phantom Puppet (AR)',
+    alias: 'Phantom Puppet - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Phantom Puppet, una alucinacion que aparece en las camaras para interrumpir la jugabilidad.',
+    history: 'Phantom Puppet fue incluido en FNaF AR como un animatronico de interrupcion. Su caja de musica es visible incluso en su forma alucinada.',
+    behavior: 'Phantom Puppet aparece en las camaras y causa una interrupcion que obliga al jugador a reactivar las defensas.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Phantom Puppet', relation: 'Version AR de la alucinacion' }
+    ],
+    trivia: [
+      'Phantom Puppet interrumpe la jugabilidad temporalmente',
+      'Su caja de musica es visible en su modelo'
+    ]
+  },
+  {
+    id: 'ar-circus-baby',
+    name: 'Circus Baby (AR)',
+    alias: 'Circus Baby - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Circus Baby, con su apariencia de payaso y ataques con cuchillos electrificados en realidad aumentada.',
+    history: 'Circus Baby fue introducido en FNaF AR como uno de los animatronicos mas peligrosos. Su diseno mantuvo su apariencia de payaso pero con efectos de RA.',
+    behavior: 'Circus Baby ataca con cuchillos electrificados y tiene multiples patrones de ataque que requieren memorizacion.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Circus Baby', relation: 'Version AR del animatronico de Sister Location' }
+    ],
+    trivia: [
+      'Circus Baby es uno de los animatronicos mas peligrosos en FNaF AR',
+      'Sus cuchillos electrificados son unicos en la franquicia'
+    ]
+  },
+  {
+    id: 'ar-ballora',
+    name: 'Ballora (AR)',
+    alias: 'Ballora - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Ballora, con sus movimientos de baile y ataques con barras de ballet electrificadas en realidad aumentada.',
+    history: 'Ballora fue introducido en FNaF AR como un animatronico elegante pero mortal. Su diseno mantuvo su vestido de bailarina con efectos de RA.',
+    behavior: 'Ballora ataca con movimientos de baile que esconden ataques letales. Los jugadores deben prestar atencion a su musica para anticipar sus movimientos.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Ballora', relation: 'Version AR del animatronico bailarina' }
+    ],
+    trivia: [
+      'Ballora es uno de los animatronicos mas elegantes en FNaF AR',
+      'Su musica es una senal de peligro inminente'
+    ]
+  },
+  {
+    id: 'ar-funtime-freddy',
+    name: 'Funtime Freddy (AR)',
+    alias: 'Funtime Freddy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Funtime Freddy, con su estilo divertido pero comportamiento erratico y ataques con Bon-Bon en realidad aumentada.',
+    history: 'Funtime Freddy fue introducido en FNaF AR como uno de los animatronicos mas impredecibles. Su Bon-Bon es parte integral de sus ataques.',
+    behavior: 'Funtime Freddy ataca con Bon-Bon y tiene multiples patrones que cambian aleatoriamente. Los jugadores deben adaptarse rapidamente.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Funtime Freddy', relation: 'Version AR del animatronico divertido' }
+    ],
+    trivia: [
+      'Funtime Freddy y Bon-Bon atacan juntos en FNaF AR',
+      'Su comportamiento erratico lo hace impredecible'
+    ]
+  },
+  {
+    id: 'ar-funtime-foxy',
+    name: 'Funtime Foxy (AR)',
+    alias: 'Funtime Foxy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Funtime Foxy, con su apariencia de payaso y ataques con proyectiles en realidad aumentada.',
+    history: 'Funtime Foxy fue incluido en FNaF AR manteniendo su diseno de payaso pero con efectos de partículas adicionales.',
+    behavior: 'Funtime Foxy ataca con proyectiles y tiene un patron de movimiento predecible pero rapido.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Funtime Foxy', relation: 'Version AR del animatronico payaso' }
+    ],
+    trivia: [
+      'Funtime Foxy es uno de los animatronicos mas coloridos en FNaF AR',
+      'Sus proyectiles son faciles de esquivar con practica'
+    ]
+  },
+  {
+    id: 'ar-ennard',
+    name: 'Ennard (AR)',
+    alias: 'Ennard - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Ennard, una amalgama de cables y mecanismos con ataques devastadores en realidad aumentada.',
+    history: 'Ennard fue introducido como uno de los jefes mas dificiles de FNaF AR. Su forma fragmentada lo hace especialmente peligroso.',
+    behavior: 'Ennard ataca con multiples tentaculos de cables y tiene patrones complejos que requieren memorizacion y reflejos.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Ennard', relation: 'Version AR de la amalgama de animatronicos' }
+    ],
+    trivia: [
+      'Ennard es uno de los jefes mas dificiles en FNaF AR',
+      'Su forma de cables es fiel al diseno original'
+    ]
+  },
+  {
+    id: 'ar-nightmare-freddy',
+    name: 'Nightmare Freddy (AR)',
+    alias: 'Nightmare Freddy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Nightmare Freddy, con su forma de pesadilla y Freddles que lo acompañan en realidad aumentada.',
+    history: 'Nightmare Freddy fue introducido en FNaF AR como parte de una actualizacion de animatronicos de pesadilla. Su diseno es aterrador en RA.',
+    behavior: 'Nightmare Freddy ataca junto con sus Freddles. Los jugadores deben eliminar los Freddles primero para debilitarlo.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Nightmare Freddy', relation: 'Version AR del animatronico de pesadilla' }
+    ],
+    trivia: [
+      'Los Freddles son parte integral del ataque de Nightmare Freddy',
+      'Su forma de pesadilla es especialmente aterradora en RA'
+    ]
+  },
+  {
+    id: 'ar-nightmare-bonnie',
+    name: 'Nightmare Bonnie (AR)',
+    alias: 'Nightmare Bonnie - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Nightmare Bonnie, con garras afiladas y movimientos rapidos en su forma de pesadilla en realidad aumentada.',
+    history: 'Nightmare Bonnie fue introducido en FNaF AR como uno de los animatronicos mas agresivos de la actualizacion de pesadilla.',
+    behavior: 'Nightmare Bonnie ataca con garras y es extremadamente rapido. Los jugadores deben usar la mascara de Freddy en el momento exacto.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Nightmare Bonnie', relation: 'Version AR del animatronico de pesadilla' }
+    ],
+    trivia: [
+      'Nightmare Bonnie tiene uno de los ataques mas rapidos en FNaF AR',
+      'Sus garras son visibles en su modelo de RA'
+    ]
+  },
+  {
+    id: 'ar-nightmare-chica',
+    name: 'Nightmare Chica (AR)',
+    alias: 'Nightmare Chica - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Nightmare Chica, con su pico de dientes afilados y su taza de Nightmare Cupcake en realidad aumentada.',
+    history: 'Nightmare Chica fue incluida en FNaF AR manteniendo su forma aterradora pero con efectos de RA que la hacen mas intimidante.',
+    behavior: 'Nightmare Chica ataca con su pico y su Cupcake. Los jugadores deben esquivar ambos proyectiles para sobrevivir.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Nightmare Chica', relation: 'Version AR del animatronico de pesadilla' }
+    ],
+    trivia: [
+      'Nightmare Cupcake es un proyectil adicional en sus ataques',
+      'Su pico de dientes es uno de los disenos mas aterradores'
+    ]
+  },
+  {
+    id: 'ar-nightmare-foxy',
+    name: 'Nightmare Foxy (AR)',
+    alias: 'Nightmare Foxy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Nightmare Foxy, con su forma de pesadilla y capacidad de ocultarse antes de emboscar en realidad aumentada.',
+    history: 'Nightmare Foxy fue introducido en FNaF AR como un animatronico de emboscada. Su capacidad de ocultarse lo hace especialmente peligroso.',
+    behavior: 'Nightmare Foxy se oculta antes de atacar repentinamente. Los jugadores deben detectarlo antes de que pueda emboscarlos.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Nightmare Foxy', relation: 'Version AR del animatronico de pesadilla' }
+    ],
+    trivia: [
+      'Nightmare Foxy se oculta antes de atacar',
+      'Su emboscada es una de las mas letales en FNaF AR'
+    ]
+  },
+  {
+    id: 'ar-nightmare-fredbear',
+    name: 'Nightmare Fredbear (AR)',
+    alias: 'Nightmare Fredbear - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Nightmare Fredbear, la forma de pesadilla mas poderosa con ataques devastadores en realidad aumentada.',
+    history: 'Nightmare Fredbear fue introducido como uno de los jefes finales de FNaF AR. Su poder es equivalente al de Springtrap.',
+    behavior: 'Nightmare Fredbear combina velocidad, fuerza y patrones complejos. Requiere todas las habilidades del jugador para ser derrotado.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Nightmare Fredbear', relation: 'Version AR de la forma de pesadilla mas poderosa' }
+    ],
+    trivia: [
+      'Nightmare Fredbear es uno de los jefes mas dificiles en FNaF AR',
+      'Su forma de pesadilla es la mas aterradora de la franquicia'
+    ]
+  },
+  {
+    id: 'ar-nightmare',
+    name: 'Nightmare (AR)',
+    alias: 'Nightmare - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Nightmare, una entidad oscura sin forma definida con ataques devastadores en realidad aumentada.',
+    history: 'Nightmare fue introducido como el jefe final absoluto de FNaF AR. Su forma oscura lo hace practicamente invencible.',
+    behavior: 'Nightmare ataca con patrones impredecibles y requiere reflejos sobrehumanos para ser derrotado.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Nightmare', relation: 'Version AR de la entidad oscura final' }
+    ],
+    trivia: [
+      'Nightmare es el jefe mas dificil en FNaF AR',
+      'Su forma oscura es unica en la franquicia'
+    ]
+  },
+  {
+    id: 'ar-plushtrap',
+    name: 'Plushtrap (AR)',
+    alias: 'Plushtrap - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Plushtrap, un conejo de peluche con dientes afilados que ataca con emboscadas rapidas en realidad aumentada.',
+    history: 'Plushtrap fue introducido en FNaF AR como un mini-jefe. Su forma pequena pero peligrosa lo hace un oponente unico.',
+    behavior: 'Plushtrap se mueve rapidamente y ataca con emboscadas. Los jugadores deben usar la linterna para detectarlo a tiempo.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Plushtrap', relation: 'Version AR del conejo de peluche' }
+    ],
+    trivia: [
+      'Plushtrap es un mini-jefe en FNaF AR',
+      'Su tamaño pequeno lo hace dificil de detectar'
+    ]
+  },
+  {
+    id: 'ar-nightmarionne',
+    name: 'Nightmarionne (AR)',
+    alias: 'Nightmarionne - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Nightmarionne, una version de pesadilla de The Puppet con tentaculos y ataques devastadores en realidad aumentada.',
+    history: 'Nightmarionne fue introducido en FNaF AR como un animatronico legendario. Su forma de pesadilla lo hace especialmente peligroso.',
+    behavior: 'Nightmarionne ataca con tentaculos y tiene patrones complejos. Los jugadores deben memorizar sus movimientos para sobrevivir.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Nightmarionne', relation: 'Version AR de la forma de pesadilla de The Puppet' }
+    ],
+    trivia: [
+      'Nightmarionne es uno de los animatronicos mas raros en FNaF AR',
+      'Sus tentaculos son visibles en su modelo de RA'
+    ]
+  },
+  {
+    id: 'ar-jack-o-bonnie',
+    name: 'Jack-O-Bonnie (AR)',
+    alias: 'Jack-O-Bonnie - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Jack-O-Bonnie, un conejo tematico de Halloween con llamas naranjas y ataques de fuego en realidad aumentada.',
+    history: 'Jack-O-Bonnie fue introducido en FNaF AR como parte de un evento de Halloween. Su tema lo hace unico entre los animatronicos.',
+    behavior: 'Jack-O-Bonnie ataca con proyectiles de fuego. Los jugadores deben esquivar sus llamas y contraatacar con componentes.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Jack-O-Bonnie', relation: 'Version AR tematica de Halloween' }
+    ],
+    trivia: [
+      'Jack-O-Bonnie es un animatronico exclusivo de eventos en FNaF AR',
+      'Sus llamas naranjas son visualmente distintivas'
+    ]
+  },
+  {
+    id: 'ar-jack-o-chica',
+    name: 'Jack-O-Chica (AR)',
+    alias: 'Jack-O-Chica - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Jack-O-Chica, una gallina tematica de Halloween con llamas naranjas y ataques de fuego en realidad aumentada.',
+    history: 'Jack-O-Chica fue introducida en FNaF AR junto con Jack-O-Bonnie como parte del evento de Halloween.',
+    behavior: 'Jack-O-Chica ataca con proyectiles de fuego similar a Jack-O-Bonnie. Los jugadores deben manejar ambos ataques simultaneamente.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Jack-O-Chica', relation: 'Version AR tematica de Halloween' }
+    ],
+    trivia: [
+      'Jack-O-Chica aparece junto con Jack-O-Bonnie en eventos',
+      'Sus llamas son identicas a las de Jack-O-Bonnie'
+    ]
+  },
+  {
+    id: 'ar-freddy-frostbear',
+    name: 'Freddy Frostbear (AR)',
+    alias: 'Freddy Frostbear - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Freddy Frostbear, un oso de hielo con ataques de congelacion en realidad aumentada.',
+    history: 'Freddy Frostbear fue introducido en FNaF AR como parte de un evento invernal. Su tema de hielo lo hace unico.',
+    behavior: 'Freddy Frostbear ataca con proyectiles de hielo que ralentizan al jugador. Los jugadores deben mantenerse calientes para contrarrestarlo.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Freddy Frostbear', relation: 'Version AR tematica invernal' }
+    ],
+    trivia: [
+      'Freddy Frostbear es exclusivo de eventos en FNaF AR',
+      'Sus ataques de hielo son unicos en la franquicia'
+    ]
+  },
+  {
+    id: 'ar-endo-01',
+    name: 'Endo-01 (AR)',
+    alias: 'Endo-01 - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Endo-01, un endoesqueleto basico sin traje que ataca con fuerza bruta en realidad aumentada.',
+    history: 'Endo-01 fue introducido en FNaF AR como un enemigo basico. Su simplicidad lo hace facil de derrotar pero util para farmear.',
+    behavior: 'Endo-01 ataca con fuerza bruta pero es lento y predecible. Los jugadores pueden derrotarlo facilmente con la mascara de Freddy.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Endo-01', relation: 'Version AR del endoesqueleto basico' }
+    ],
+    trivia: [
+      'Endo-01 es uno de los enemigos mas faciles en FNaF AR',
+      'Su simplicidad lo hace ideal para principiantes'
+    ]
+  },
+  {
+    id: 'ar-endo-02',
+    name: 'Endo-02 (AR)',
+    alias: 'Endo-02 - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Endo-02, un endoesqueleto mejorado sin traje con movimientos mas rapidos en realidad aumentada.',
+    history: 'Endo-02 fue introducido como una version mejorada de Endo-01. Su velocidad lo hace mas amenazante que su predecesor.',
+    behavior: 'Endo-02 es mas rapido que Endo-01 pero sigue siendo predecible. Los jugadores deben ajustar su timing para derrotarlo.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Endo-02', relation: 'Version AR del endoesqueleto mejorado' }
+    ],
+    trivia: [
+      'Endo-02 es una version mejorada de Endo-01',
+      'Su velocidad es notablemente mayor'
+    ]
+  },
+  {
+    id: 'ar-bare-endo',
+    name: 'Bare Endo (AR)',
+    alias: 'Bare Endo - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Version AR de Bare Endo, un endoesqueleto desnudo sin ningun rasgo distintivo que ataca con fuerza basica en realidad aumentada.',
+    history: 'Bare Endo fue introducido en FNaF AR como el enemigo mas basico del juego. Su simplicidad extrema lo hace ideal para principiantes.',
+    behavior: 'Bare Endo ataca con fuerza bruta basica y es el enemigo mas facil del juego. Los jugadores novatos pueden practicar con el.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Bare Endo', relation: 'Version AR del endoesqueleto desnudo' }
+    ],
+    trivia: [
+      'Bare Endo es el enemigo mas basico en FNaF AR',
+      'Su simplicidad lo hace ideal para practicar'
+    ]
+  },
+  {
+    id: 'ar-firework-freddy',
+    name: 'Firework Freddy',
+    alias: 'Firework Freddy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Freddy con tema de fuegos artificiales, atacando con proyectiles pirotecnicos en realidad aumentada.',
+    history: 'Firework Freddy fue introducido como una skin exclusiva de evento. Su tema lo hace popular entre los jugadores.',
+    behavior: 'Firework Freddy ataca con proyectiles pirotecnicos que explotan. Los jugadores deben esquivar las explosiones.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Freddy Fazbear', relation: 'Skin tematica de Freddy' }
+    ],
+    trivia: [
+      'Firework Freddy es una skin exclusiva de evento',
+      'Sus proyectiles pirotecnicos son visualmente impresionantes'
+    ]
+  },
+  {
+    id: 'ar-shamrock-freddy',
+    name: 'Shamrock Freddy',
+    alias: 'Shamrock Freddy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Freddy con tema irlandes, atacando con proyectiles de trebol en realidad aumentada.',
+    history: 'Shamrock Freddy fue introducido como una skin exclusiva de San Patricio. Su tema lo hace unico entre las skins.',
+    behavior: 'Shamrock Freddy ataca con proyectiles de trebol que ralentizan al jugador. Los jugadores deben mantenerse alejados.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Freddy Fazbear', relation: 'Skin tematica irlandesa de Freddy' }
+    ],
+    trivia: [
+      'Shamrock Freddy es una skin exclusiva de San Patricio',
+      'Sus treboles son visualmente distintivos'
+    ]
+  },
+  {
+    id: 'ar-chocolate-bonnie',
+    name: 'Chocolate Bonnie',
+    alias: 'Chocolate Bonnie - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Bonnie con tema de chocolate, atacando con proyectiles de chocolate derretido en realidad aumentada.',
+    history: 'Chocolate Bonnie fue introducida como una skin exclusiva de Pascua. Su tema de chocolate la hace adorable pero peligrosa.',
+    behavior: 'Chocolate Bonnie ataca con proyectiles de chocolate que pegan al jugador. Los jugadores deben limpiarse para recuperar movilidad.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Bonnie', relation: 'Skin tematica de chocolate de Bonnie' }
+    ],
+    trivia: [
+      'Chocolate Bonnie es una skin exclusiva de Pascua',
+      'Sus proyectiles de chocolate son unnicos en la franquicia'
+    ]
+  },
+  {
+    id: 'ar-neon-bonnie',
+    name: 'Neon Bonnie',
+    alias: 'Neon Bonnie - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Bonnie con efectos de neón brillante, atacando con proyectiles luminosos en realidad aumentada.',
+    history: 'Neon Bonnie fue introducida como una skin exclusiva con tema futurista. Sus efectos de neón la hacen visualmente impresionante.',
+    behavior: 'Neon Bonnie ataca con proyectiles luminosos que ciegan temporalmente al jugador. Los jugadores deben mirar hacia otro lado.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Bonnie', relation: 'Skin tematica de neón de Bonnie' }
+    ],
+    trivia: [
+      'Neon Bonnie es una skin exclusiva con tema futurista',
+      'Sus efectos de neón son visualmente impresionantes'
+    ]
+  },
+  {
+    id: 'ar-neon-chica',
+    name: 'Neon Chica',
+    alias: 'Neon Chica - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Chica con efectos de neón brillante, atacando con proyectiles luminosos en realidad aumentada.',
+    history: 'Neon Chica fue introducida como una skin exclusiva con tema futurista. Sus efectos de neón la hacen igual de impresionante que Neon Bonnie.',
+    behavior: 'Neon Chica ataca con proyectiles luminosos similares a Neon Bonnie. Los jugadores deben manejar ambos ataques simultaneamente.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Chica', relation: 'Skin tematica de neón de Chica' }
+    ],
+    trivia: [
+      'Neon Chica es la contraparte de Neon Bonnie',
+      'Sus efectos de neón son idénticos a los de Neon Bonnie'
+    ]
+  },
+  {
+    id: 'ar-dark-freddy',
+    name: 'Dark Freddy',
+    alias: 'Dark Freddy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Freddy con tema oscuro, atacando con proyectiles de oscuridad que ciegan al jugador en realidad aumentada.',
+    history: 'Dark Freddy fue introducido como una skin exclusiva con tema sombrio. Su oscuridad lo hace especialmente intimidante.',
+    behavior: 'Dark Freddy ataca con proyectiles de oscuridad que reducen la visibilidad del jugador. Los jugadores deben usar la linterna.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Freddy Fazbear', relation: 'Skin oscura de Freddy' }
+    ],
+    trivia: [
+      'Dark Freddy es una skin exclusiva con tema sombrio',
+      'Sus proyectiles de oscuridad son unicos en FNaF AR'
+    ]
+  },
+  {
+    id: 'ar-dark-foxy',
+    name: 'Dark Foxy',
+    alias: 'Dark Foxy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Foxy con tema oscuro, atacando con emboscadas en la oscuridad en realidad aumentada.',
+    history: 'Dark Foxy fue introducida como una skin exclusiva con tema sombrio. Su capacidad de emboscar en la oscuridad la hace peligrosa.',
+    behavior: 'Dark Foxy se oculta en la oscuridad y embosca al jugador. Los jugadores deben usar la linterna para detectarla.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Foxy', relation: 'Skin oscura de Foxy' }
+    ],
+    trivia: [
+      'Dark Foxy se oculta mejor en la oscuridad que Foxy normal',
+      'Su emboscada es especialmente peligrosa'
+    ]
+  },
+  {
+    id: 'ar-burnt-foxy',
+    name: 'Burnt Foxy',
+    alias: 'Burnt Foxy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Foxy con tema quemado, atacando con proyectiles de fuego en realidad aumentada.',
+    history: 'Burnt Foxy fue introducida como una skin exclusiva con tema de fuego. Su apariencia quemada la hace visualmente unica.',
+    behavior: 'Burnt Foxy ataca con proyectiles de fuego que causan dano continuo. Los jugadores deben mantenerse alejados de las llamas.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Foxy', relation: 'Skin quemada de Foxy' }
+    ],
+    trivia: [
+      'Burnt Foxy es una skin exclusiva con tema de fuego',
+      'Su apariencia quemada es fiel al tema de la skin'
+    ]
+  },
+  {
+    id: 'ar-party-freddy',
+    name: 'Party Freddy',
+    alias: 'Party Freddy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Freddy con tema de fiesta, atacando con proyectiles de confeti y serpentines en realidad aumentada.',
+    history: 'Party Freddy fue introducido como una skin exclusiva con tema festivo. Su apariencia colorida lo hace popular.',
+    behavior: 'Party Freddy ataca con proyectiles de confeti que desorientan al jugador. Los jugadores deben mantener el enfoque.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Freddy Fazbear', relation: 'Skin festiva de Freddy' }
+    ],
+    trivia: [
+      'Party Freddy es una skin exclusiva con tema festivo',
+      'Sus proyectiles de confeti son visualmente coloridos'
+    ]
+  },
+  {
+    id: 'ar-radioactive-foxy',
+    name: 'Radioactive Foxy',
+    alias: 'Radioactive Foxy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Foxy con tema radiactivo, atacando con proyectiles radiactivos en realidad aumentada.',
+    history: 'Radioactive Foxy fue introducida como una skin exclusiva con tema de peligro radiactivo. Su brillo verde la hace intimidante.',
+    behavior: 'Radioactive Foxy ataca con proyectiles radiactivos que causan dano continuo. Los jugadores deben usar componentes para protegerse.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Foxy', relation: 'Skin radiactiva de Foxy' }
+    ],
+    trivia: [
+      'Radioactive Foxy es una skin exclusiva con tema radiactivo',
+      'Su brillo verde es facilmente identificable'
+    ]
+  },
+  {
+    id: 'ar-toxic-springtrap',
+    name: 'Toxic Springtrap',
+    alias: 'Toxic Springtrap - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Springtrap con tema toxico, atacando con proyectiles venenosos en realidad aumentada.',
+    history: 'Toxic Springtrap fue introducido como una skin exclusiva con tema de peligro toxico. Su apariencia verde venenosa la hace intimidante.',
+    behavior: 'Toxic Springtrap ataca con proyectiles venenosos que causan dano continuo. Los jugadores deben mantenerse alejados de las nubes toxicas.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Springtrap', relation: 'Skin toxica de Springtrap' }
+    ],
+    trivia: [
+      'Toxic Springtrap es una skin exclusiva con tema toxico',
+      'Sus proyectiles venenosos son especialmente peligrosos'
+    ]
+  },
+  {
+    id: 'ar-flaming-springtrap',
+    name: 'Flaming Springtrap',
+    alias: 'Flaming Springtrap - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Springtrap con tema de fuego, atacando con proyectiles incendiarios en realidad aumentada.',
+    history: 'Flaming Springtrap fue introducido como una skin exclusiva con tema de fuego. Su apariencia en llamas la hace visualmente impresionante.',
+    behavior: 'Flaming Springtrap ataca con proyectiles incendiarios que causan dano continuo. Los jugadores deben esquivar las llamas.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Springtrap', relation: 'Skin incendiaria de Springtrap' }
+    ],
+    trivia: [
+      'Flaming Springtrap es una skin exclusiva con tema de fuego',
+      'Sus llamas son visualmente impresionantes'
+    ]
+  },
+  {
+    id: 'ar-clown-springtrap',
+    name: 'Clown Springtrap',
+    alias: 'Clown Springtrap - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Springtrap con tema de payaso, atacando con proyectiles de broma en realidad aumentada.',
+    history: 'Clown Springtrap fue introducido como una skin exclusiva con tema de payaso. Su apariencia payasesca la hace inquietante.',
+    behavior: 'Clown Springtrap ataca con proyectiles de broma que causan efectos aleatorios. Los jugadores deben adaptarse rapidamente.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Springtrap', relation: 'Skin payasesca de Springtrap' }
+    ],
+    trivia: [
+      'Clown Springtrap es una skin exclusiva con tema de payaso',
+      'Sus ataques aleatorios lo hacen impredecible'
+    ]
+  },
+  {
+    id: 'ar-highscore-toy-chica',
+    name: 'Highscore Toy Chica',
+    alias: 'Highscore Toy Chica - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Toy Chica con tema de videojuego, atacando con proyectiles pixelados en realidad aumentada.',
+    history: 'Highscore Toy Chica fue introducida como una skin exclusiva con tema retro. Su apariencia pixelada la hace nostalgica.',
+    behavior: 'Highscore Toy Chica ataca con proyectiles pixelados que causan efectos retro. Los jugadores deben adaptarse a los efectos.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Toy Chica', relation: 'Skin retro de Toy Chica' }
+    ],
+    trivia: [
+      'Highscore Toy Chica es una skin exclusiva con tema retro',
+      'Sus proyectiles pixelados son visualmente unicos'
+    ]
+  },
+  {
+    id: 'ar-catrina-toy-chica',
+    name: 'Catrina Toy Chica',
+    alias: 'Catrina Toy Chica - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Toy Chica con tema de Dia de Muertos, atacando con proyectiles florales en realidad aumentada.',
+    history: 'Catrina Toy Chica fue introducida como una skin exclusiva con tema mexicano. Su apariencia de Catrina la hace culturalmente rica.',
+    behavior: 'Catrina Toy Chica ataca con proyectiles florales que causan dano continuo. Los jugadores deben mantenerse alejados.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Toy Chica', relation: 'Skin de Dia de Muertos de Toy Chica' }
+    ],
+    trivia: [
+      'Catrina Toy Chica es una skin exclusiva con tema mexicano',
+      'Sus flores son visualmente coloridas'
+    ]
+  },
+  {
+    id: 'ar-woodland-toy-freddy',
+    name: 'Woodland Toy Freddy',
+    alias: 'Woodland Toy Freddy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Toy Freddy con tema bosque, atacando con proyectiles de madera en realidad aumentada.',
+    history: 'Woodland Toy Freddy fue introducido como una skin exclusiva con tema natural. Su apariencia de bosque la hace unica.',
+    behavior: 'Woodland Toy Freddy ataca con proyectiles de madera que bloquean la vision. Los jugadores deben destruir los proyectiles.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Toy Freddy', relation: 'Skin de bosque de Toy Freddy' }
+    ],
+    trivia: [
+      'Woodland Toy Freddy es una skin exclusiva con tema natural',
+      'Sus proyectiles de madera son visualmente distintivos'
+    ]
+  },
+  {
+    id: 'ar-vr-toy-freddy',
+    name: 'VR Toy Freddy',
+    alias: 'VR Toy Freddy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Toy Freddy con tema de realidad virtual, atacando con proyectiles digitales en realidad aumentada.',
+    history: 'VR Toy Freddy fue introducido como una skin exclusiva con tema tecnologico. Su apariencia digital la hace moderna.',
+    behavior: 'VR Toy Freddy ataca con proyectiles digitales que causan interferencia. Los jugadores deben calibrar sus sistemas.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Toy Freddy', relation: 'Skin digital de Toy Freddy' }
+    ],
+    trivia: [
+      'VR Toy Freddy es una skin exclusiva con tema tecnologico',
+      'Sus proyectiles digitales son visualmente modernos'
+    ]
+  },
+  {
+    id: 'ar-aeronaut-toy-freddy',
+    name: 'Aeronaut Toy Freddy',
+    alias: 'Aeronaut Toy Freddy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Toy Freddy con tema aeronautico, atacando con proyectiles aerodinamicos en realidad aumentada.',
+    history: 'Aeronaut Toy Freddy fue introducido como una skin exclusiva con tema de aviacion. Su apariencia de aviador la hace unica.',
+    behavior: 'Aeronaut Toy Freddy ataca con proyectiles rapidos y aerodinamicos. Los jugadores deben tener reflejos rapidos.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Toy Freddy', relation: 'Skin aeronautica de Toy Freddy' }
+    ],
+    trivia: [
+      'Aeronaut Toy Freddy es una skin exclusiva con tema de aviacion',
+      'Sus proyectiles son los mas rapidos entre las skins'
+    ]
+  },
+  {
+    id: 'ar-system-error-toy-bonnie',
+    name: 'System Error Toy Bonnie',
+    alias: 'System Error Toy Bonnie - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Toy Bonnie con tema de error del sistema, atacando con proyectiles glitch en realidad aumentada.',
+    history: 'System Error Toy Bonnie fue introducido como una skin exclusiva con tema tecnologico. Su apariencia glitch la hace perturbadora.',
+    behavior: 'System Error Toy Bonnie ataca con proyectiles glitch que causan efectos aleatorios. Los jugadores deben adaptarse.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Toy Bonnie', relation: 'Skin glitch de Toy Bonnie' }
+    ],
+    trivia: [
+      'System Error Toy Bonnie es una skin exclusiva con tema glitch',
+      'Sus proyectiles son visualmente perturbadores'
+    ]
+  },
+  {
+    id: 'ar-boulder-toy-bonnie',
+    name: 'Boulder Toy Bonnie',
+    alias: 'Boulder Toy Bonnie - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Toy Bonnie con tema de roca, atacando con proyectiles de piedra en realidad aumentada.',
+    history: 'Boulder Toy Bonnie fue introducido como una skin exclusiva con tema natural. Su apariencia de roca la hace resistente.',
+    behavior: 'Boulder Toy Bonnie ataca con proyectiles pesados de piedra. Los jugadores deben esquivar los ataques lentos pero potentes.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Toy Bonnie', relation: 'Skin de roca de Toy Bonnie' }
+    ],
+    trivia: [
+      'Boulder Toy Bonnie es una skin exclusiva con tema natural',
+      'Sus proyectiles de piedra son los mas pesados'
+    ]
+  },
+  {
+    id: 'ar-sunked-toy-bonnie',
+    name: 'Sunked Toy Bonnie',
+    alias: 'Sunked Toy Bonnie - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Toy Bonnie con tema acuatico, atacando con proyectiles de agua en realidad aumentada.',
+    history: 'Sunked Toy Bonnie fue introducido como una skin exclusiva con tema marino. Su apariencia mojada la hace unica.',
+    behavior: 'Sunked Toy Bonnie ataca con proyectiles de agua que ralentizan al jugador. Los jugadores deben mantenerse secos.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Toy Bonnie', relation: 'Skin acuatica de Toy Bonnie' }
+    ],
+    trivia: [
+      'Sunked Toy Bonnie es una skin exclusiva con tema marino',
+      'Sus proyectiles de agua son visualmente refrescantes'
+    ]
+  },
+  {
+    id: 'ar-black-ice-frostbear',
+    name: 'Black Ice Frostbear',
+    alias: 'Black Ice Frostbear - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Freddy Frostbear con tema de hielo negro, atacando con proyectiles de hielo oscuro en realidad aumentada.',
+    history: 'Black Ice Frostbear fue introducido como una skin exclusiva con tema de hielo oscuro. Su apariencia negra lo hace intimidante.',
+    behavior: 'Black Ice Frostbear ataca con proyectiles de hielo negro que causan dano continuo. Los jugadores deben mantenerse calientes.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Freddy Frostbear', relation: 'Skin de hielo negro de Freddy Frostbear' }
+    ],
+    trivia: [
+      'Black Ice Frostbear es una skin exclusiva con tema de hielo oscuro',
+      'Sus proyectiles negros son visualmente distintivos'
+    ]
+  },
+  {
+    id: 'ar-serpent-mangle',
+    name: 'Serpent Mangle',
+    alias: 'Serpent Mangle - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Mangle con tema de serpiente, atacando con proyectiles venenosos en realidad aumentada.',
+    history: 'Serpent Mangle fue introducida como una skin exclusiva con tema reptiliano. Su apariencia de serpiente la hace aterradora.',
+    behavior: 'Serpent Mangle ataca con proyectiles venenosos que causan dano continuo. Los jugadores deben mantenerse alejados.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Mangle', relation: 'Skin serpentina de Mangle' }
+    ],
+    trivia: [
+      'Serpent Mangle es una skin exclusiva con tema reptiliano',
+      'Sus proyectiles venenosos son especialmente peligrosos'
+    ]
+  },
+  {
+    id: 'ar-magician-mangle',
+    name: 'Magician Mangle',
+    alias: 'Magician Mangle - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Mangle con tema de mago, atacando con proyectiles magicos en realidad aumentada.',
+    history: 'Magician Mangle fue introducida como una skin exclusiva con tema de magia. Su apariencia de mago la hace misteriosa.',
+    behavior: 'Magician Mangle ataca con proyectiles magicos que causan efectos aleatorios. Los jugadores deben adaptarse rapidamente.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Mangle', relation: 'Skin de mago de Mangle' }
+    ],
+    trivia: [
+      'Magician Mangle es una skin exclusiva con tema de magia',
+      'Sus proyectiles mágicos son visualmente impresionantes'
+    ]
+  },
+  {
+    id: 'ar-arctic-ballora',
+    name: 'Arctic Ballora',
+    alias: 'Arctic Ballora - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Ballora con tema artico, atacando con proyectiles de hielo en realidad aumentada.',
+    history: 'Arctic Ballora fue introducida como una skin exclusiva con tema polar. Su apariencia de hielo la hace elegante.',
+    behavior: 'Arctic Ballora ataca con proyectiles de hielo que ralentizan al jugador. Los jugadores deben mantenerse calientes.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Ballora', relation: 'Skin artica de Ballora' }
+    ],
+    trivia: [
+      'Arctic Ballora es una skin exclusiva con tema polar',
+      'Sus proyectiles de hielo son visualmente elegantes'
+    ]
+  },
+  {
+    id: 'ar-clockwork-ballora',
+    name: 'Clockwork Ballora',
+    alias: 'Clockwork Ballora - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Ballora con tema de relojería, atacando con proyectiles temporales en realidad aumentada.',
+    history: 'Clockwork Ballora fue introducida como una skin exclusiva con tema mecanico. Su apariencia de relojeria la hace unica.',
+    behavior: 'Clockwork Ballora ataca con proyectiles temporales que manipulan el tiempo. Los jugadores deben adaptarse a los cambios.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Ballora', relation: 'Skin de relojeria de Ballora' }
+    ],
+    trivia: [
+      'Clockwork Ballora es una skin exclusiva con tema mecanico',
+      'Sus proyectiles temporales son unicos en FNaF AR'
+    ]
+  },
+  {
+    id: 'ar-heartsick-baby',
+    name: 'Heartsick Baby',
+    alias: 'Heartsick Baby - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Circus Baby con tema de corazones, atacando con proyectiles de amor en realidad aumentada.',
+    history: 'Heartsick Baby fue introducida como una skin exclusiva con tema romantico. Su apariencia de corazones la hace adorable.',
+    behavior: 'Heartsick Baby ataca con proyectiles de corazones que causan efectos aleatorios. Los jugadores deben mantenerse frios.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Circus Baby', relation: 'Skin romantica de Circus Baby' }
+    ],
+    trivia: [
+      'Heartsick Baby es una skin exclusiva con tema romantico',
+      'Sus corazones son visualmente adorables'
+    ]
+  },
+  {
+    id: 'ar-little-red-chica',
+    name: 'Little Red Chica',
+    alias: 'Little Red Chica - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Chica con tema de Caperucita Roja, atacando con proyectiles de bosque en realidad aumentada.',
+    history: 'Little Red Chica fue introducida como una skin exclusiva con tema de cuento. Su apariencia de Caperucita la hace nostalgica.',
+    behavior: 'Little Red Chica ataca con proyectiles de bosque que bloquean la vision. Los jugadores deben destruir los proyectiles.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Chica', relation: 'Skin de Caperucita Roja de Chica' }
+    ],
+    trivia: [
+      'Little Red Chica es una skin exclusiva con tema de cuento',
+      'Sus proyectiles de bosque son visualmente encantadores'
+    ]
+  },
+  {
+    id: 'ar-big-bad-foxy',
+    name: 'Big Bad Foxy',
+    alias: 'Big Bad Foxy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Foxy con tema de Lobo Feroz, atacando con proyectiles de bosque en realidad aumentada.',
+    history: 'Big Bad Foxy fue introducido como una skin exclusiva con tema de cuento. Su apariencia de lobo lo hace intimidante.',
+    behavior: 'Big Bad Foxy ataca con proyectiles de bosque que causan dano continuo. Los jugadores deben mantenerse alejados.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Foxy', relation: 'Skin de Lobo Feroz de Foxy' }
+    ],
+    trivia: [
+      'Big Bad Foxy es una skin exclusiva con tema de cuento',
+      'Sus proyectiles de bosque son visualmente aterradores'
+    ]
+  },
+  {
+    id: 'ar-black-heart-bonnie',
+    name: 'Black Heart Bonnie',
+    alias: 'Black Heart Bonnie - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Bonnie con tema de corazones oscuros, atacando con proyectiles oscuros en realidad aumentada.',
+    history: 'Black Heart Bonnie fue introducida como una skin exclusiva con tema romantico oscuro. Su apariencia la hace misteriosa.',
+    behavior: 'Black Heart Bonnie ataca con proyectiles oscuros que causan dano continuo. Los jugadores deben mantenerse alejados.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Bonnie', relation: 'Skin de corazones oscuros de Bonnie' }
+    ],
+    trivia: [
+      'Black Heart Bonnie es una skin exclusiva con tema romantico oscuro',
+      'Sus corazones oscuros son visualmente misteriosos'
+    ]
+  },
+  {
+    id: 'ar-melted-chocolate-bonnie',
+    name: 'Melted Chocolate Bonnie',
+    alias: 'Melted Chocolate Bonnie - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Bonnie con tema de chocolate derretido, atacando con proyectiles de chocolate en realidad aumentada.',
+    history: 'Melted Chocolate Bonnie fue introducida como una skin exclusiva con tema dulce. Su apariencia de chocolate la hace tentadora.',
+    behavior: 'Melted Chocolate Bonnie ataca con proyectiles de chocolate que pegan al jugador. Los jugadores deben limpiarse.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Bonnie', relation: 'Skin de chocolate derretido de Bonnie' }
+    ],
+    trivia: [
+      'Melted Chocolate Bonnie es una skin exclusiva con tema dulce',
+      'Sus proyectiles de chocolate son visualmente tentadores'
+    ]
+  },
+  {
+    id: 'ar-pirahna-plushtrap',
+    name: 'Pirahna Plushtrap',
+    alias: 'Pirahna Plushtrap - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Plushtrap con tema de piraña, atacando con proyectiles acuaticos en realidad aumentada.',
+    history: 'Pirahna Plushtrap fue introducido como una skin exclusiva con tema marino. Su apariencia de piraña lo hace agresivo.',
+    behavior: 'Pirahna Plushtrap ataca con proyectiles acuaticos que causan dano continuo. Los jugadores deben mantenerse secos.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Plushtrap', relation: 'Skin de piraña de Plushtrap' }
+    ],
+    trivia: [
+      'Pirahna Plushtrap es una skin exclusiva con tema marino',
+      'Sus proyectiles acuaticos son visualmente refrescantes'
+    ]
+  },
+  {
+    id: 'ar-frost-plushtrap',
+    name: 'Frost Plushtrap',
+    alias: 'Frost Plushtrap - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Plushtrap con tema de hielo, atacando con proyectiles congelantes en realidad aumentada.',
+    history: 'Frost Plushtrap fue introducido como una skin exclusiva con tema invernal. Su apariencia congelada lo hace intimidante.',
+    behavior: 'Frost Plushtrap ataca con proyectiles congelantes que ralentizan al jugador. Los jugadores deben mantenerse calientes.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Plushtrap', relation: 'Skin de hielo de Plushtrap' }
+    ],
+    trivia: [
+      'Frost Plushtrap es una skin exclusiva con tema invernal',
+      'Sus proyectiles congelantes son visualmente efectivos'
+    ]
+  },
+  {
+    id: 'ar-scorching-chica',
+    name: 'Scorching Chica',
+    alias: 'Scorching Chica - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Chica con tema de fuego, atacando con proyectiles incendiarios en realidad aumentada.',
+    history: 'Scorching Chica fue introducida como una skin exclusiva con tema de fuego. Su apariencia ardiente la hace visualmente impresionante.',
+    behavior: 'Scorching Chica ataca con proyectiles incendiarios que causan dano continuo. Los jugadores deben esquivar las llamas.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Chica', relation: 'Skin de fuego de Chica' }
+    ],
+    trivia: [
+      'Scorching Chica es una skin exclusiva con tema de fuego',
+      'Sus llamas son visualmente impresionantes'
+    ]
+  },
+  {
+    id: 'ar-liberty-chica',
+    name: 'Liberty Chica',
+    alias: 'Liberty Chica - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Chica con tema de libertad, atacando con proyectiles patrioticos en realidad aumentada.',
+    history: 'Liberty Chica fue introducida como una skin exclusiva con tema patriotico. Su apariencia de libertad la hace unica.',
+    behavior: 'Liberty Chica ataca con proyectiles patrioticos que causan efectos aleatorios. Los jugadores deben adaptarse.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Chica', relation: 'Skin patriotica de Chica' }
+    ],
+    trivia: [
+      'Liberty Chica es una skin exclusiva con tema patriotico',
+      'Sus proyectiles patrioticos son visualmente coloridos'
+    ]
+  },
+  {
+    id: 'ar-frostbite-balloon-boy',
+    name: 'Frostbite Balloon Boy',
+    alias: 'Frostbite Balloon Boy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Balloon Boy con tema de hielo, saboteando defensas con proyectiles congelantes en realidad aumentada.',
+    history: 'Frostbite Balloon Boy fue introducido como una skin exclusiva con tema invernal. Su apariencia congelada lo hace intimidante.',
+    behavior: 'Frostbite Balloon Boy sabotea defensas con proyectiles congelantes. Los jugadores deben priorizar eliminarlo.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Balloon Boy', relation: 'Skin de hielo de Balloon Boy' }
+    ],
+    trivia: [
+      'Frostbite Balloon Boy es una skin exclusiva con tema invernal',
+      'Sus proyectiles congelantes son visualmente efectivos'
+    ]
+  },
+  {
+    id: 'ar-jetpack-balloon-boy',
+    name: 'Jetpack Balloon Boy',
+    alias: 'Jetpack Balloon Boy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Balloon Boy con tema de jetpack, saboteando defensas con proyectiles voladores en realidad aumentada.',
+    history: 'Jetpack Balloon Boy fue introducido como una skin exclusiva con tema de aviacion. Su jetpack lo hace mas movil.',
+    behavior: 'Jetpack Balloon Boy sabotea defensas con proyectiles voladores. Los jugadores deben ser rapidos para eliminarlo.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Balloon Boy', relation: 'Skin de jetpack de Balloon Boy' }
+    ],
+    trivia: [
+      'Jetpack Balloon Boy es una skin exclusiva con tema de aviacion',
+      'Su jetpack le da movilidad adicional'
+    ]
+  },
+  {
+    id: 'ar-swamp-balloon-boy',
+    name: 'Swamp Balloon Boy',
+    alias: 'Swamp Balloon Boy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Balloon Boy con tema de pantano, saboteando defensas con proyectiles toxicos en realidad aumentada.',
+    history: 'Swamp Balloon Boy fue introducido como una skin exclusiva con tema natural. Su apariencia de pantano lo hace sucio.',
+    behavior: 'Swamp Balloon Boy sabotea defensas con proyectiles toxicos. Los jugadores deben mantenerse limpios.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Balloon Boy', relation: 'Skin de pantano de Balloon Boy' }
+    ],
+    trivia: [
+      'Swamp Balloon Boy es una skin exclusiva con tema natural',
+      'Sus proyectiles toxicos son visualmente sucios'
+    ]
+  },
+  {
+    id: 'ar-shadow-balloon-boy',
+    name: 'Shadow Balloon Boy',
+    alias: 'Shadow Balloon Boy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Balloon Boy con tema de sombra, saboteando defensas con proyectiles oscuros en realidad aumentada.',
+    history: 'Shadow Balloon Boy fue introducido como una skin exclusiva con tema sombrio. Su apariencia oscura lo hace intimidante.',
+    behavior: 'Shadow Balloon Boy sabotea defensas con proyectiles oscuros. Los jugadores deben usar la linterna para detectarlo.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Balloon Boy', relation: 'Skin sombria de Balloon Boy' }
+    ],
+    trivia: [
+      'Shadow Balloon Boy es una skin exclusiva con tema sombrio',
+      'Sus proyectiles oscuros son visualmente perturbadores'
+    ]
+  },
+  {
+    id: 'ar-shadow-puppet',
+    name: 'Shadow Puppet',
+    alias: 'Shadow Puppet - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de The Puppet con tema de sombra, atacando con proyectiles oscuros devastadores en realidad aumentada.',
+    history: 'Shadow Puppet fue introducida como una skin exclusiva con tema sombrio. Su apariencia oscura la hace especialmente intimidante.',
+    behavior: 'Shadow Puppet ataca con proyectiles oscuros devastadores. Los jugadores deben usar todas sus defensas para sobrevivir.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'The Puppet', relation: 'Skin sombria de The Puppet' }
+    ],
+    trivia: [
+      'Shadow Puppet es una de las skins mas poderosas en FNaF AR',
+      'Sus proyectiles oscuros son devastadores'
+    ]
+  },
+  {
+    id: 'ar-shadow-mangle',
+    name: 'Shadow Mangle',
+    alias: 'Shadow Mangle - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Mangle con tema de sombra, atacando con proyectiles oscuros en realidad aumentada.',
+    history: 'Shadow Mangle fue introducida como una skin exclusiva con tema sombrio. Su apariencia oscura la hace intimidante.',
+    behavior: 'Shadow Mangle ataca con proyectiles oscuros que causan dano continuo. Los jugadores deben mantenerse alejados.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Mangle', relation: 'Skin sombria de Mangle' }
+    ],
+    trivia: [
+      'Shadow Mangle es una skin exclusiva con tema sombrio',
+      'Sus proyectiles oscuros son visualmente perturbadores'
+    ]
+  },
+  {
+    id: 'ar-great-escape-golden-freddy',
+    name: 'Great Escape Golden Freddy',
+    alias: 'Great Escape Golden Freddy - Special Delivery',
+    firstAppearance: 'Five Nights at Freddy\'s AR: Special Delivery (2019)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Five Nights at Freddy\'s AR: Special Delivery',
+    image: '',
+    category: 'FNaF AR',
+    description: 'Skin exclusiva de Golden Freddy con tema de escape, atacando con proyectiles dorados devastadores en realidad aumentada.',
+    history: 'Great Escape Golden Freddy fue introducido como una skin exclusiva legendaria. Su rareza y poder lo convierten en un objetivo codiciado.',
+    behavior: 'Great Escape Golden Freddy ataca con proyectiles dorados devastadores. Los jugadores necesitan suerte y habilidad para derrotarlo.',
+    appearances: ['FNaF AR: Special Delivery'],
+    relationships: [
+      { name: 'Golden Freddy', relation: 'Skin legendaria de Golden Freddy' }
+    ],
+    trivia: [
+      'Great Escape Golden Freddy es una de las skins mas raras en FNaF AR',
+      'Sus proyectiles dorados son visualmente impresionantes'
+    ]
+  },
+  {
+    id: 'fnac-candy',
+    name: 'Candy the Cat',
+    alias: 'Candy / El Gato Naranja',
+    firstAppearance: 'Five Nights at Candy\'s (2015)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Animatronico principal del fangame Five Nights at Candy\'s. Es un gato naranja que funciona como equivalente a Freddy Fazbear.',
+    history: 'Candy es el animatronico estrella de Candy\'s Burgers & Fries, el restaurante rival de Freddy Fazbear\'s Pizza. Fue creado por Emil Macko para su fangame de 2015.',
+    behavior: 'Candy se mueve por el restaurante durante la noche, intentando llegar a la oficina del jugador. Puede ser detenido cerrando las puertas.',
+    appearances: ['Five Nights at Candy\'s', 'Five Nights at Candy\'s Remastered', 'Five Nights at Candy\'s DX'],
+    relationships: [
+      { name: 'Cindy the Cat', relation: 'Companera animatronica' },
+      { name: 'Chester', relation: 'Companero animatronico' }
+    ],
+    trivia: [
+      'Candy es el equivalente de Freddy en el universo de FNaC',
+      'El juego fue creado por Emil Macko'
+    ]
+  },
+  {
+    id: 'fnac-cindy',
+    name: 'Cindy the Cat',
+    alias: 'Cindy / La Gata Rosa',
+    firstAppearance: 'Five Nights at Candy\'s (2015)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Gata rosa animatronica y companera de Candy. Es el equivalente de Chica en el universo de FNaC.',
+    history: 'Cindy es la companera animatronica de Candy en Candy\'s Burgers & Fries. Aparece en la segunda noche del juego original.',
+    behavior: 'Cindy se desplaza por las camaras intentando llegar a la oficina. Puede ser detenida usando las puertas.',
+    appearances: ['Five Nights at Candy\'s', 'Five Nights at Candy\'s Remastered'],
+    relationships: [
+      { name: 'Candy the Cat', relation: 'Companero animatronico' },
+      { name: 'Chester', relation: 'Companero animatronico' }
+    ],
+    trivia: [
+      'Cindy es el equivalente de Chica en FNaC',
+      'Su color rosa la distingue de los demas animatronics'
+    ]
+  },
+  {
+    id: 'fnac-chester',
+    name: 'Chester the Chimpanzee',
+    alias: 'Chester',
+    firstAppearance: 'Five Nights at Candy\'s (2015)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Chimpanzee animatronico de Candy\'s Burgers & Fries. Es el equivalente de Bonnie en el universo de FNaC.',
+    history: 'Chester es uno de los animatronics principales de Candy\'s Burgers & Fries. Aparece desde la primera noche del juego original.',
+    behavior: 'Chester se mueve sigilosamente por el restaurante. Tiende a aparecer en camaras cercanas a la oficina.',
+    appearances: ['Five Nights at Candy\'s', 'Five Nights at Candy\'s Remastered'],
+    relationships: [
+      { name: 'Candy the Cat', relation: 'Companero animatronico' },
+      { name: 'Cindy the Cat', relation: 'Companera animatronica' }
+    ],
+    trivia: [
+      'Chester es el equivalente de Bonnie en FNaC',
+      'Es un chimpanzee con una expresion perturbadora'
+    ]
+  },
+  {
+    id: 'fnac-old-candy',
+    name: 'Old Candy',
+    alias: 'Candy Viejo',
+    firstAppearance: 'Five Nights at Candy\'s (2015)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Version antigua y deteriorada de Candy. Es un animatronico oculto del primer juego.',
+    history: 'Old Candy es la version original de Candy, encontrada en una area secreta del restaurante. Su apariencia deteriorada sugiere que fue reemplazado.',
+    behavior: 'Old Candy es mas agresivo que Candy y se mueve de forma impredecible. Aparece en camaras secretas del juego.',
+    appearances: ['Five Nights at Candy\'s', 'Five Nights at Candy\'s Remastered'],
+    relationships: [
+      { name: 'Candy the Cat', relation: 'Version anterior' }
+    ],
+    trivia: [
+      'Old Candy es un animatronico secreto del primer juego',
+      'Su apariencia deteriorada sugiere un largo periodo de uso'
+    ]
+  },
+  {
+    id: 'fnac-blank',
+    name: 'Blank the Animatronic',
+    alias: 'Blank',
+    firstAppearance: 'Five Nights at Candy\'s (2015)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Animatronico sin cara de Candy\'s Burgers & Fries. Tiene una apariencia incompleta y misteriosa.',
+    history: 'Blank es un animatronico sin rostro que habita en Candy\'s Burgers & Fries. Su origen exacto es desconocido.',
+    behavior: 'Blank se mueve de forma lenta pero persistente. Aparece raramente en las camaras del restaurante.',
+    appearances: ['Five Nights at Candy\'s', 'Five Nights at Candy\'s Remastered'],
+    relationships: [
+      { name: 'Candy the Cat', relation: ' companero animatronico' }
+    ],
+    trivia: [
+      'Blank es uno de los animatronics mas misteriosos de FNaC',
+      'Su falta de cara lo hace especialmente inquietante'
+    ]
+  },
+  {
+    id: 'fnac-penguin',
+    name: 'Penguin',
+    alias: 'El Pinguino',
+    firstAppearance: 'Five Nights at Candy\'s (2015)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Pinguino animatronico de Candy\'s Burgers & Fries. Es un personaje secundario del restaurante.',
+    history: 'Penguin es uno de los animatronics menores de Candy\'s Burgers & Fries. Su diseno es mas simple que el de los personajes principales.',
+    behavior: 'Penguin se mueve lentamente por el restaurante y raramente representa una amenaza directa.',
+    appearances: ['Five Nights at Candy\'s', 'Five Nights at Candy\'s Remastered'],
+    relationships: [
+      { name: 'Candy the Cat', relation: 'companero animatronico' }
+    ],
+    trivia: [
+      'Penguin es uno de los animatronics menos amenazantes de FNaF',
+      'Su diseno es simplemente un pinguino antropomorfico'
+    ]
+  },
+  {
+    id: 'fnac-rat',
+    name: 'RAT',
+    alias: 'La Rata',
+    firstAppearance: 'Five Nights at Candy\'s (2015)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Rata animatronica misteriosa y oculta de Candy\'s Burgers & Fries. Es el antagonista secreto del primer juego.',
+    history: 'RAT es un animatronico oculto que aparece en areas secretas del restaurante. Su existencia sugiere oscuros secretos sobre Candy\'s Burgers & Fries.',
+    behavior: 'RAT es extremadamente agresivo y aparece solo en condiciones especificas. Su comportamiento es impredecible y peligroso.',
+    appearances: ['Five Nights at Candy\'s', 'Five Nights at Candy\'s Remastered'],
+    relationships: [
+      { name: 'Candy the Cat', relation: 'Oculto en el mismo restaurante' }
+    ],
+    trivia: [
+      'RAT es el antagonista secreto mas peligroso de FNaF',
+      'Su existencia nunca fue explicada oficialmente'
+    ]
+  },
+  {
+    id: 'fnac2-new-candy',
+    name: 'New Candy',
+    alias: 'Candy Nuevo',
+    firstAppearance: 'Five Nights at Candy\'s 2 (2017)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Nueva version de Candy aparecida en la secuela. Tiene un diseno mas moderno y detallado.',
+    history: 'New Candy es la version renovada de Candy para la nueva ubicacion del restaurante. Su diseno fue actualizado para la segunda entrega.',
+    behavior: 'New Candy se mueve de forma mas rapida que su predecesor. Utiliza nuevas estrategias para llegar al jugador.',
+    appearances: ['Five Nights at Candy\'s 2'],
+    relationships: [
+      { name: 'Candy the Cat', relation: 'Version renovada' },
+      { name: 'New Cindy', relation: 'Companera animatronica' }
+    ],
+    trivia: [
+      'New Candy tiene un diseno mas moderno que el original',
+      'Es mas rapido y agresivo que la version original'
+    ]
+  },
+  {
+    id: 'fnac2-new-cindy',
+    name: 'New Cindy',
+    alias: 'Cindy Nueva',
+    firstAppearance: 'Five Nights at Candy\'s 2 (2017)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Nueva version de Cindy aparecida en la secuela. Tiene un diseno actualizado y mas amenazante.',
+    history: 'New Cindy es la version renovada de Cindy para la segunda entrega del juego. Su apariencia fue modernizada junto con los demas animatronics.',
+    behavior: 'New Cindy se desplaza de forma mas sigilosa que la version original. Puede aparecer inesperadamente en las camaras.',
+    appearances: ['Five Nights at Candy\'s 2'],
+    relationships: [
+      { name: 'Cindy the Cat', relation: 'Version renovada' },
+      { name: 'New Candy', relation: 'Companero animatronico' }
+    ],
+    trivia: [
+      'New Cindy tiene un diseno mas amenazante que el original',
+      'Es uno de los animatronics principales de la secuela'
+    ]
+  },
+  {
+    id: 'fnac2-withered-chester',
+    name: 'Withered Chester',
+    alias: 'Chester Deteriorado',
+    firstAppearance: 'Five Nights at Candy\'s 2 (2017)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Version deteriorada de Chester que aparece en la secuela. Su apariencia rotas lo hace mas aterrador.',
+    history: 'Withered Chester es la version antigua y danada de Chester. Fue dejado en una parte abandonada del restaurante.',
+    behavior: 'Withered Chester es mas agresivo que la version normal. Su comportamiento es erratico y peligroso.',
+    appearances: ['Five Nights at Candy\'s 2'],
+    relationships: [
+      { name: 'Chester the Chimpanzee', relation: 'Version deteriorada' }
+    ],
+    trivia: [
+      'Withered Chester tiene partes rotas expuestas',
+      'Su comportamiento erratico lo hace impredecible'
+    ]
+  },
+  {
+    id: 'fnac2-withered-blank',
+    name: 'Withered Blank',
+    alias: 'Blank Deteriorado',
+    firstAppearance: 'Five Nights at Candy\'s 2 (2017)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Version deteriorada de Blank que aparece en la secuela. Mantiene su apariencia sin cara pero mas danada.',
+    history: 'Withered Blank es la version antigua de Blank, encontrada en el area de almacenamiento del restaurante.',
+    behavior: 'Withered Blank se mueve de forma lenta pero persistente. Su apariencia incompleta lo hace inquietante.',
+    appearances: ['Five Nights at Candy\'s 2'],
+    relationships: [
+      { name: 'Blank the Animatronic', relation: 'Version deteriorada' }
+    ],
+    trivia: [
+      'Withered Blank mantiene su apariencia sin cara',
+      'Es uno de los animatronics menos agresivos de la secuela'
+    ]
+  },
+  {
+    id: 'fnac2-withered-penguin',
+    name: 'Withered Penguin',
+    alias: 'Penguin Deteriorado',
+    firstAppearance: 'Five Nights at Candy\'s 2 (2017)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Version deteriorada de Penguin que aparece en la secuela. Su apariencia esta parcialmente destruida.',
+    history: 'Withered Penguin es la version antigua y danada del pinguino animatronico. Fue reemplazado por una version mas nueva.',
+    behavior: 'Withered Penguin se mueve lentamente y raramente representa una amenaza directa al jugador.',
+    appearances: ['Five Nights at Candy\'s 2'],
+    relationships: [
+      { name: 'Penguin', relation: 'Version deteriorada' }
+    ],
+    trivia: [
+      'Withered Penguin es uno de los menos amenazantes de la secuela',
+      'Su diseno danado lo hace visualmente distintivo'
+    ]
+  },
+  {
+    id: 'fnac2-new-old-candy',
+    name: 'New Old Candy',
+    alias: 'Candy Viejo Nuevo',
+    firstAppearance: 'Five Nights at Candy\'s 2 (2017)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Nueva version de Old Candy que aparece en la secuela. Combina elementos del original con un diseno renovado.',
+    history: 'New Old Candy es una reinterpretacion del animatronico secreto original. Su apariencia fue actualizada para la secuela.',
+    behavior: 'New Old Candy es extremadamente agresivo y dificil de contener. Aparece en areas secretas del juego.',
+    appearances: ['Five Nights at Candy\'s 2'],
+    relationships: [
+      { name: 'Old Candy', relation: 'Version renovada' }
+    ],
+    trivia: [
+      'New Old Candy es una version actualizada del antagonista secreto',
+      'Su comportamiento es mas agresivo que el original'
+    ]
+  },
+  {
+    id: 'fnac2-the-cat',
+    name: 'The Cat',
+    alias: 'El Gato Misterioso',
+    firstAppearance: 'Five Nights at Candy\'s 2 (2017)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Gato misterioso que aparece en la secuela. Es un antagonista oculto con comportamiento perturbador.',
+    history: 'The Cat es un animatronico misterioso que aparece solo en condiciones especificas. Su origen y proposito son desconocidos.',
+    behavior: 'The Cat aparece repentinamente y desaparece rapido. Su comportamiento es impredecible y perturbador.',
+    appearances: ['Five Nights at Candy\'s 2'],
+    relationships: [
+      { name: 'Candy the Cat', relation: 'Misteriosamente relacionado' }
+    ],
+    trivia: [
+      'The Cat es uno de los secretos mejor guardados de FNaC',
+      'Su apareciendo es breve pero inolvidable'
+    ]
+  },
+  {
+    id: 'fnac3-candy-impression',
+    name: 'Candy Impression',
+    alias: 'Impresion de Candy',
+    firstAppearance: 'Five Nights at Candy\'s 3 (2018)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Impresion o recreacion de Candy que aparece en la tercera entrega. Tiene una apariencia simplificada.',
+    history: 'Candy Impression es una recreacion de Candy creada para el tercer juego de la serie. Su diseno es mas simple que el original.',
+    behavior: 'Candy Impression imita el comportamiento de Candy pero de forma menos sofisticada. Se mueve por las camaras del juego.',
+    appearances: ['Five Nights at Candy\'s 3'],
+    relationships: [
+      { name: 'Candy the Cat', relation: 'Recreacion simplificada' }
+    ],
+    trivia: [
+      'Candy Impression es una version simplificada de Candy',
+      'Es el animatronico principal del tercer juego'
+    ]
+  },
+  {
+    id: 'fnac3-cupcake',
+    name: 'Cupcake',
+    alias: 'El Pastel',
+    firstAppearance: 'Five Nights at Candy\'s 3 (2018)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Pastel animatronico que aparece en la tercera entrega. Es un companero menor de los animatronics principales.',
+    history: 'Cupcake es un pastel animatronico que acompaña a los personajes principales. Aparece como un personaje secundario.',
+    behavior: 'Cupcake se mueve de forma limitada y raramente representa una amenaza seria al jugador.',
+    appearances: ['Five Nights at Candy\'s 3'],
+    relationships: [
+      { name: 'Candy Impression', relation: 'Companero animatronico' }
+    ],
+    trivia: [
+      'Cupcake es inspirado en el cupcake de Chica de FNaF',
+      'Es uno de los menos amenazantes de la serie'
+    ]
+  },
+  {
+    id: 'fnac3-mini-candy',
+    name: 'Mini Candy',
+    alias: 'Candy Mini',
+    firstAppearance: 'Five Nights at Candy\'s 3 (2018)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Version mini de Candy que aparece en la tercera entrega. Tiene un tamano reducido pero misma personalidad.',
+    history: 'Mini Candy es una version reducida de Candy creada para el tercer juego. Su tamano diminuto lo hace menos intimidante.',
+    behavior: 'Mini Candy se mueve rapidamente debido a su tamano reducido. Puede colarse por espacios pequenos.',
+    appearances: ['Five Nights at Candy\'s 3'],
+    relationships: [
+      { name: 'Candy Impression', relation: 'Version mini' }
+    ],
+    trivia: [
+      'Mini Candy es significativamente mas pequeno que el original',
+      'Su tamano lo hace dificil de detectar en las camaras'
+    ]
+  },
+  {
+    id: 'fnac3-mini-cindy',
+    name: 'Mini Cindy',
+    alias: 'Cindy Mini',
+    firstAppearance: 'Five Nights at Candy\'s 3 (2018)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Version mini de Cindy que aparece en la tercera entrega. Es una replica reducida de la gata rosa.',
+    history: 'Mini Cindy es una version reducida de Cindy para el tercer juego de la serie. Su diseno es simplemente una version pequena.',
+    behavior: 'Mini Cindy se desplaza rapidamente por el restaurante. Su tamano pequeno la hace dificil de rastrear.',
+    appearances: ['Five Nights at Candy\'s 3'],
+    relationships: [
+      { name: 'Mini Candy', relation: 'Companera animatronica en miniatura' }
+    ],
+    trivia: [
+      'Mini Cindy es una version miniaturizada de Cindy',
+      'Acompaña a Mini Candy en el tercer juego'
+    ]
+  },
+  {
+    id: 'fnac3-mini-chester',
+    name: 'Mini Chester',
+    alias: 'Chester Mini',
+    firstAppearance: 'Five Nights at Candy\'s 3 (2018)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Version mini de Chester que aparece en la tercera entrega. Es un chimpanzee animatronico reducido.',
+    history: 'Mini Chester es una version reducida de Chester para el tercer juego. Su tamano diminuto es una caracteristica distintiva.',
+    behavior: 'Mini Chester se mueve con agilidad debido a su tamano. Puede aparecer inesperadamente en las camaras.',
+    appearances: ['Five Nights at Candy\'s 3'],
+    relationships: [
+      { name: 'Mini Candy', relation: 'Companero animatronico en miniatura' }
+    ],
+    trivia: [
+      'Mini Chester es una version miniaturizada de Chester',
+      'Su agilidad lo hace dificil de contener'
+    ]
+  },
+  {
+    id: 'fnac3-monster-lil-nicky',
+    name: 'Monster Lil\' Nicky',
+    alias: 'Monstruo Lil\' Nicky',
+    firstAppearance: 'Five Nights at Candy\'s 3 (2018)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Version monstruosa de Lil\' Nicky que aparece en la tercera entrega. Tiene una apariencia perturbadora.',
+    history: 'Monster Lil\' Nicky es una version transformada y monstruosa de un personaje del restaurante. Su apariencia cambio drasticamente.',
+    behavior: 'Monster Lil\' Nicky es agresivo y su apariencia monstruosa intimida a los jugadores. Se mueve de forma erratica.',
+    appearances: ['Five Nights at Candy\'s 3'],
+    relationships: [
+      { name: 'Mini Candy', relation: 'Mismo universo de FNaC 3' }
+    ],
+    trivia: [
+      'Monster Lil\' Nicky tiene una de las apariencias mas perturbadoras de FNaC',
+      'Su transformacion nunca fue explicada completamente'
+    ]
+  },
+  {
+    id: 'fnac4-rat-2',
+    name: 'RAT (FNAC 2)',
+    alias: 'RAT Version 2',
+    firstAppearance: 'Five Nights at Candy\'s 4 (2019)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Segunda version de RAT que aparece en el cuarto juego. Es mas agresivo y perturbador que el original.',
+    history: 'RAT Version 2 es la segunda iteracion del antagonista secreto de FNaC. Su regreso sorprendio a los jugadores.',
+    behavior: 'RAT Version 2 es extremadamente agresivo y rapido. Es el antagonista principal del cuarto juego.',
+    appearances: ['Five Nights at Candy\'s 4'],
+    relationships: [
+      { name: 'RAT', relation: 'Segunda version' }
+    ],
+    trivia: [
+      'RAT Version 2 es mas rapido y agresivo que el RAT original',
+      'Es el antagonista principal del ultimo juego de FNaC'
+    ]
+  },
+  {
+    id: 'fnac4-monster-rat',
+    name: 'Monster RAT',
+    alias: 'RAT Monstruoso',
+    firstAppearance: 'Five Nights at Candy\'s 4 (2019)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'Candy\'s Burgers & Fries',
+    image: '',
+    category: 'Fangame',
+    description: 'Version monstruosa y final de RAT. Es la forma mas peligrosa y aterradora del antagonista.',
+    history: 'Monster RAT es la transformacion final de RAT en el cuarto juego. Su apariencia representa la culminacion de su poder.',
+    behavior: 'Monster RAT es el antagonista mas peligroso de toda la serie FNaC. Su comportamiento es impredecible y devastador.',
+    appearances: ['Five Nights at Candy\'s 4'],
+    relationships: [
+      { name: 'RAT', relation: 'Transformacion final' },
+      { name: 'RAT (FNAC 2)', relation: 'Version anterior' }
+    ],
+    trivia: [
+      'Monster RAT es la forma final y mas poderosa de RAT',
+      'Su apariencia es la mas perturbadora de toda la saga FNaC'
+    ]
+  },
+  {
+    id: 'popgoes-popgoes',
+    name: 'Popgoes',
+    alias: 'La Comadreja',
+    firstAppearance: 'POPGOES (2016)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Popgoes Pizza',
+    image: '',
+    category: 'Fangame',
+    description: 'Comadreja animatronica principal de Popgoes Pizza. Es el antagonista principal del fangame.',
+    history: 'Popgoes es la estrella de Popgoes Pizza, un restaurante creado por Kizzyclop. Fue diseñado como el equivalente a Freddy.',
+    behavior: 'Popgoes se mueve por el restaurante durante la noche, buscando llegar al jugador. Utiliza habilidades especiales para avanzar.',
+    appearances: ['POPGOES'],
+    relationships: [
+      { name: 'Blackrabbit', relation: 'Companero animatronico' },
+      { name: 'Stone the Crow', relation: 'Companero animatronico' }
+    ],
+    trivia: [
+      'Popgoes es una comadreja, no un oso como Freddy',
+      'El juego fue creado por Kizzyclop'
+    ]
+  },
+  {
+    id: 'popgoes-blackerjack',
+    name: 'Blackrabbit',
+    alias: 'Conejo Negro',
+    firstAppearance: 'POPGOES (2016)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Popgoes Pizza',
+    image: '',
+    category: 'Fangame',
+    description: 'Conejo negro animatronico de Popgoes Pizza. Es el equivalente a Bonnie en este universo.',
+    history: 'Blackrabbit es el conejo animatronico de Popgoes Pizza. Su apariencia oscura lo hace intimidante.',
+    behavior: 'Blackrabbit se desplaza por las camaras intentando llegar al jugador. Puede ser detenido usando los mecanismos del juego.',
+    appearances: ['POPGOES'],
+    relationships: [
+      { name: 'Popgoes', relation: 'Companero animatronico' }
+    ],
+    trivia: [
+      'Blackrabbit es el equivalente de Bonnie en POPGOES',
+      'Su color negro lo hace visualmente distintivo'
+    ]
+  },
+  {
+    id: 'popgoes-stone',
+    name: 'Stone the Crow',
+    alias: 'El Cuervo',
+    firstAppearance: 'POPGOES (2016)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Popgoes Pizza',
+    image: '',
+    category: 'Fangame',
+    description: 'Cuervo animatronico de Popgoes Pizza. Es un personaje secundario del restaurante.',
+    history: 'Stone es el cuervo animatronico de Popgoes Pizza. Su diseno es original y no tiene equivalente directo en FNaF.',
+    behavior: 'Stone se mueve de forma diferente a los demas animatronics. Su comportamiento es impredecible.',
+    appearances: ['POPGOES'],
+    relationships: [
+      { name: 'Popgoes', relation: 'Companero animatronico' }
+    ],
+    trivia: [
+      'Stone es un cuervo, un tipo de animatronico unico en fangames',
+      'Su comportamiento es diferente al de los demas personajes'
+    ]
+  },
+  {
+    id: 'popgoes-blake',
+    name: 'Blake the Badger',
+    alias: 'El Tejon',
+    firstAppearance: 'POPGOES (2016)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Popgoes Pizza',
+    image: '',
+    category: 'Fangame',
+    description: 'Tejon animatronico de Popgoes Pizza. Es uno de los companeros menores del restaurante.',
+    history: 'Blake es el tejon animatronico de Popgoes Pizza. Su apariencia es menos intimidante que la de los principales.',
+    behavior: 'Blake se mueve lentamente y raramente representa una amenaza seria. Es uno de los menos agresivos.',
+    appearances: ['POPGOES'],
+    relationships: [
+      { name: 'Popgoes', relation: 'Companero animatronico' }
+    ],
+    trivia: [
+      'Blake es un tejon, un animal poco comun en animatronics',
+      'Es uno de los personajes menos amenazantes de POPGOES'
+    ]
+  },
+  {
+    id: 'popgoes-string',
+    name: 'String the Weaver',
+    alias: 'La Arana',
+    firstAppearance: 'POPGOES (2016)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'Popgoes Pizza',
+    image: '',
+    category: 'Fangame',
+    description: 'Arana animatronica de Popgoes Pizza. Tiene un diseno unico y perturbador.',
+    history: 'String es la arana animatronica de Popgoes Pizza. Su apariencia la hace especialmente inquietante.',
+    behavior: 'String se mueve de forma sigilosa por las camaras. Su comportamiento es diferente al de los demas animatronics.',
+    appearances: ['POPGOES'],
+    relationships: [
+      { name: 'Popgoes', relation: 'Companera animatronica' }
+    ],
+    trivia: [
+      'String es una arana animatronica, poco comun en el genero',
+      'Su diseno la hace visualmente perturbadora'
+    ]
+  },
+  {
+    id: 'popgoes-manora',
+    name: 'Manora the Moth',
+    alias: 'La Polilla',
+    firstAppearance: 'POPGOES (2016)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'Popgoes Pizza',
+    image: '',
+    category: 'Fangame',
+    description: 'Polilla animatronica de Popgoes Pizza. Es un personaje secundario con diseno unico.',
+    history: 'Manora es la polilla animatronica de Popgoes Pizza. Su apariencia es menos intimidante que la de otros animatronics.',
+    behavior: 'Manora se mueve lentamente y su comportamiento es predecible. Raramente representa una amenaza directa.',
+    appearances: ['POPGOES'],
+    relationships: [
+      { name: 'Popgoes', relation: 'Companera animatronica' }
+    ],
+    trivia: [
+      'Manora es una polilla, un tipo de insecto poco comun en animatronics',
+      'Es uno de los personajes menos amenazantes de POPGOES'
+    ]
+  },
+  {
+    id: 'tjoc-ignited-freddy',
+    name: 'Ignited Freddy',
+    alias: 'Freddy Encendido',
+    firstAppearance: 'The Joy of Creation (2015)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'La casa de los Smith',
+    image: '',
+    category: 'Fangame',
+    description: 'Version encendida y quemada de Freddy Fazbear. Es el antagonista principal de The Joy of Creation.',
+    history: 'Ignited Freddy es una version transformada de Freddy que aparece en la casa de los Smith. Su apariencia quemada lo hace aterrador.',
+    behavior: 'Ignited Freddy se mueve de forma rapida y agresiva por la casa. Es dificil de contener y muy peligroso.',
+    appearances: ['The Joy of Creation'],
+    relationships: [
+      { name: 'Ignited Bonnie', relation: 'Companero encendido' },
+      { name: 'Ignited Chica', relation: 'Companera encendida' }
+    ],
+    trivia: [
+      'Ignited Freddy tiene una apariencia quemada y deteriorada',
+      'Es el antagonista principal de The Joy of Creation'
+    ]
+  },
+  {
+    id: 'tjoc-ignited-bonnie',
+    name: 'Ignited Bonnie',
+    alias: 'Bonnie Encendido',
+    firstAppearance: 'The Joy of Creation (2015)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'La casa de los Smith',
+    image: '',
+    category: 'Fangame',
+    description: 'Version encendida y quemada de Bonnie. Aparece como antagonista en The Joy of Creation.',
+    history: 'Ignited Bonnie es una version transformada de Bonnie que habita en la casa. Su apariencia quemada es perturbadora.',
+    behavior: 'Ignited Bonnie es agresivo y rapido. Puede aparecer de forma repentina en diferentes areas de la casa.',
+    appearances: ['The Joy of Creation'],
+    relationships: [
+      { name: 'Ignited Freddy', relation: 'Companero encendido' },
+      { name: 'Ignited Chica', relation: 'Companera encendida' }
+    ],
+    trivia: [
+      'Ignited Bonnie tiene partes de su cuerpo quemadas',
+      'Es uno de los antagonistas principales del juego'
+    ]
+  },
+  {
+    id: 'tjoc-ignited-chica',
+    name: 'Ignited Chica',
+    alias: 'Chica Encendida',
+    firstAppearance: 'The Joy of Creation (2015)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'La casa de los Smith',
+    image: '',
+    category: 'Fangame',
+    description: 'Version encendida y quemada de Chica. Aparece como antagonista en The Joy of Creation.',
+    history: 'Ignited Chica es una version transformada de Chica que persigue al jugador en la casa. Su apariencia es aterradora.',
+    behavior: 'Ignited Chica es rapida y dificil de evitar. Su comportamiento es agresivo y predecible.',
+    appearances: ['The Joy of Creation'],
+    relationships: [
+      { name: 'Ignited Freddy', relation: 'Companero encendido' },
+      { name: 'Ignited Bonnie', relation: 'Companero encendido' }
+    ],
+    trivia: [
+      'Ignited Chica mantiene elementos de su diseno original pero quemados',
+      'Es uno de los antagonistas principales del juego'
+    ]
+  },
+  {
+    id: 'tjoc-ignited-foxy',
+    name: 'Ignited Foxy',
+    alias: 'Foxy Encendido',
+    firstAppearance: 'The Joy of Creation (2015)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'La casa de los Smith',
+    image: '',
+    category: 'Fangame',
+    description: 'Version encendida y quemada de Foxy. Es uno de los antagonistas de The Joy of Creation.',
+    history: 'Ignited Foxy es una version transformada de Foxy que aparece en la casa. Su apariencia quemada lo hace intimidante.',
+    behavior: 'Ignited Foxy es el mas rapido de los Ignited. Su velocidad lo hace especialmente peligroso.',
+    appearances: ['The Joy of Creation'],
+    relationships: [
+      { name: 'Ignited Freddy', relation: 'Companero encendido' },
+      { name: 'Ignited Golden Freddy', relation: 'Companero encendido' }
+    ],
+    trivia: [
+      'Ignited Foxy es el mas rapido de todos los Ignited',
+      'Su velocidad lo hace dificil de evitar'
+    ]
+  },
+  {
+    id: 'tjoc-ignited-golden-freddy',
+    name: 'Ignited Golden Freddy',
+    alias: 'Golden Freddy Encendido',
+    firstAppearance: 'The Joy of Creation (2015)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'La casa de los Smith',
+    image: '',
+    category: 'Fangame',
+    description: 'Version encendida y quemada de Golden Freddy. Es el antagonista secreto y mas peligroso del juego.',
+    history: 'Ignited Golden Freddy es la version transformada de Golden Freddy. Su apariencia es la mas aterradora de todos los Ignited.',
+    behavior: 'Ignited Golden Freddy es el antagonista mas peligroso. Su comportamiento es impredecible y devastador.',
+    appearances: ['The Joy of Creation'],
+    relationships: [
+      { name: 'Ignited Freddy', relation: 'Version encendida de Golden Freddy' },
+      { name: 'Ignited Foxy', relation: 'Companero encendido' }
+    ],
+    trivia: [
+      'Ignited Golden Freddy es el antagonista secreto mas peligroso',
+      'Su apariencia es la mas perturbadora de todos los Ignited'
+    ]
+  },
+  {
+    id: 'onaf-flumpty',
+    name: 'Flumpty Bumpty',
+    alias: 'Flumpty',
+    firstAppearance: 'One Night at Flumpty\'s (2015)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'La casa de Flumpty',
+    image: '',
+    category: 'Fangame',
+    description: 'Huevo animatronico principal de One Night at Flumpty\'s. Es el antagonista principal del juego.',
+    history: 'Flumpty Bumpty es un huevo animatronico que invita al jugador a su casa para una fiesta de cumpleanos. Su comportamiento es errático.',
+    behavior: 'Flumpty se mueve por la casa de forma impredecible. Puede aparecer en diferentes habitaciones sin aviso.',
+    appearances: ['One Night at Flumpty\'s', 'One Night at Flumpty\'s 2'],
+    relationships: [
+      { name: 'Birthday Boy Blam', relation: 'Companero de fiesta' },
+      { name: 'Golden Flumpty', relation: 'Contraparte oscura' }
+    ],
+    trivia: [
+      'Flumpty es un huevo animatronico, un concepto unico en fangames',
+      'El juego es conocido por su humor negro y absurdismo'
+    ]
+  },
+  {
+    id: 'onaf-birthday-boy-blam',
+    name: 'Birthday Boy Blam',
+    alias: 'Blam',
+    firstAppearance: 'One Night at Flumpty\'s (2015)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'La casa de Flumpty',
+    image: '',
+    category: 'Fangame',
+    description: 'Personaje de cumpleanos de One Night at Flumpty\'s. Acompaña a Flumpty en la fiesta.',
+    history: 'Birthday Boy Blam es un personaje que celebra cumpleanos en la casa de Flumpty. Es uno de los antagonistas del juego.',
+    behavior: 'Blam se mueve por la casa buscando al jugador. Su comportamiento es menos agresivo que el de Flumpty.',
+    appearances: ['One Night at Flumpty\'s', 'One Night at Flumpty\'s 2'],
+    relationships: [
+      { name: 'Flumpty Bumpty', relation: 'Anfitrion de la fiesta' }
+    ],
+    trivia: [
+      'Blam es el personaje que celebra cumpleaños',
+      'Su nombre sugiere una explosion o impacto'
+    ]
+  },
+  {
+    id: 'onaf-redman',
+    name: 'The Redman',
+    alias: 'El Hombre Rojo',
+    firstAppearance: 'One Night at Flumpty\'s (2015)',
+    status: 'Active',
+    threatLevel: 'Medium',
+    origin: 'La casa de Flumpty',
+    image: '',
+    category: 'Fangame',
+    description: 'Hombre rojo misterioso de One Night at Flumpty\'s. Es un antagonista secundario.',
+    history: 'The Redman es una figura roja misteriosa que aparece en la casa de Flumpty. Su origen es desconocido.',
+    behavior: 'The Redman aparece repentinamente en diferentes areas. Su comportamiento es misterioso e impredecible.',
+    appearances: ['One Night at Flumpty\'s'],
+    relationships: [
+      { name: 'Flumpty Bumpty', relation: 'Mismo universo' }
+    ],
+    trivia: [
+      'The Redman es uno de los personajes mas misteriosos del juego',
+      'Su apariencia roja lo hace facilmente identificable'
+    ]
+  },
+  {
+    id: 'onaf-beaver',
+    name: 'The Beaver',
+    alias: 'El Castor',
+    firstAppearance: 'One Night at Flumpty\'s (2015)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: 'La casa de Flumpty',
+    image: '',
+    category: 'Fangame',
+    description: 'Castor animatronico de One Night at Flumpty\'s. Es un personaje secundario.',
+    history: 'The Beaver es un castor que aparece en la casa de Flumpty. Su comportamiento es relativamente inofensivo.',
+    behavior: 'The Beaver se mueve lentamente y raramente representa una amenaza directa al jugador.',
+    appearances: ['One Night at Flumpty\'s'],
+    relationships: [
+      { name: 'Flumpty Bumpty', relation: 'Mismo universo' }
+    ],
+    trivia: [
+      'The Beaver es uno de los menos amenazantes del juego',
+      'Su apariencia es la de un castor comun'
+    ]
+  },
+  {
+    id: 'onaf-grunkfuss',
+    name: 'Grunkfuss the Clown',
+    alias: 'El Payaso Grunkfuss',
+    firstAppearance: 'One Night at Flumpty\'s (2015)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'La casa de Flumpty',
+    image: '',
+    category: 'Fangame',
+    description: 'Payaso animatronico de One Night at Flumpty\'s. Es uno de los antagonistas principales.',
+    history: 'Grunkfuss the Clown es un payaso que habita en la casa de Flumpty. Su apariencia perturbadora lo hace intimidante.',
+    behavior: 'Grunkfuss es agresivo y se mueve rapidamente. Puede aparecer de forma repentina y es dificil de contener.',
+    appearances: ['One Night at Flumpty\'s', 'One Night at Flumpty\'s 2'],
+    relationships: [
+      { name: 'Flumpty Bumpty', relation: 'Companero de la fiesta' }
+    ],
+    trivia: [
+      'Grunkfuss es un payaso, un tipo comun de antagonista en juegos de terror',
+      'Su comportamiento agresivo lo hace peligroso'
+    ]
+  },
+  {
+    id: 'onaf-golden-flumpty',
+    name: 'Golden Flumpty',
+    alias: 'Flumpty Dorado',
+    firstAppearance: 'One Night at Flumpty\'s (2015)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'La casa de Flumpty',
+    image: '',
+    category: 'Fangame',
+    description: 'Version dorada y oscura de Flumpty. Es el antagonista secreto del juego.',
+    history: 'Golden Flumpty es la contraparte oscura de Flumpty. Su existencia sugiere una naturaleza mas oscura del personaje.',
+    behavior: 'Golden Flumpty es el antagonista mas peligroso. Su comportamiento es impredecible y devastador.',
+    appearances: ['One Night at Flumpty\'s'],
+    relationships: [
+      { name: 'Flumpty Bumpty', relation: 'Contraparte oscura' }
+    ],
+    trivia: [
+      'Golden Flumpty es el equivalente a Golden Freddy de FNaF',
+      'Su apariencia dorada lo hace visualmente distintivo'
+    ]
+  },
+  {
+    id: 'dsaf-dave-miller',
+    name: 'Dave Miller',
+    alias: 'Purple Guy / William Afton',
+    firstAppearance: 'Dayshift at Freddy\'s (2015)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: "Freddy Fazbear's Pizza",
+    image: '',
+    category: 'Fangame',
+    description: 'Purple Guy del universo de Dayshift at Freddy\'s. Es el antagonista principal y personaje recurrente.',
+    history: 'Dave Miller es la version de William Afton en el universo DSaF. Trabaja como tecnico de animatronics y tiene oscuros secretos.',
+    behavior: 'Dave manipula eventos desde las sombras. Su comportamiento es calculador y peligroso para todos los personajes.',
+    appearances: ['Dayshift at Freddy\'s', 'Dayshift at Freddy\'s 2', 'Dayshift at Freddy\'s 3'],
+    relationships: [
+      { name: 'Phone Guy (DSaF)', relation: 'Companero de trabajo' },
+      { name: 'Steven', relation: 'Colega' }
+    ],
+    trivia: [
+      'Dave Miller es la version DSaF de William Afton',
+      'Es uno de los villanos mas memorables de los fangames'
+    ]
+  },
+  {
+    id: 'dsaf-phone-guy',
+    name: 'Phone Guy (DSaF)',
+    alias: 'El Tipo del Telefono',
+    firstAppearance: 'Dayshift at Freddy\'s (2015)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: "Freddy Fazbear's Pizza",
+    image: '',
+    category: 'Fangame',
+    description: 'Guy del telefono del universo de Dayshift at Freddy\'s. Guia al jugador con instrucciones.',
+    history: 'Phone Guy DSaF es el equivalente del clasico Phone Guy de FNaF. Da instrucciones al jugador durante el juego.',
+    behavior: 'Phone Guy se comunica con el jugador a traves del telefono. Su comportamiento es pasivo pero informativo.',
+    appearances: ['Dayshift at Freddy\'s', 'Dayshift at Freddy\'s 2'],
+    relationships: [
+      { name: 'Dave Miller', relation: 'Colega de trabajo' },
+      { name: 'Steven', relation: 'Companero' }
+    ],
+    trivia: [
+      'Phone Guy DSaF es una version alternativa del clasico Phone Guy',
+      'Su papel es similar al del juego original'
+    ]
+  },
+  {
+    id: 'dsaf-steven',
+    name: 'Steven',
+    alias: 'Phone Dude',
+    firstAppearance: 'Dayshift at Freddy\'s 2 (2017)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: "Freddy Fazbear's Pizza",
+    image: '',
+    category: 'Fangame',
+    description: 'Phone Dude del universo de Dayshift at Freddy\'s. Es el sucesor de Phone Guy.',
+    history: 'Steven es la version DSaF de Phone Dude. Trabaja en la pizzeria y ayuda al jugador.',
+    behavior: 'Steven se comunica con el jugador de forma similar a Phone Guy. Su comportamiento es amigable.',
+    appearances: ['Dayshift at Freddy\'s 2', 'Dayshift at Freddy\'s 3'],
+    relationships: [
+      { name: 'Phone Guy (DSaF)', relation: 'Sucesor' },
+      { name: 'Dave Miller', relation: 'Colega' }
+    ],
+    trivia: [
+      'Steven es la version DSaF de Phone Dude',
+      'Su nombre real no es revelado completamente'
+    ]
+  },
+  {
+    id: 'dsaf-charlie',
+    name: 'Charlie',
+    alias: 'El Protagonista',
+    firstAppearance: 'Dayshift at Freddy\'s (2015)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: "Freddy Fazbear's Pizza",
+    image: '',
+    category: 'Fangame',
+    description: 'Personaje humano principal de Dayshift at Freddy\'s. Es el trabajador de turno de dia.',
+    history: 'Charlie es el protagonista de DSaF. Trabaja en el turno diurno de Freddy Fazbear\'s Pizza.',
+    behavior: 'Charlie interactua con los animatronics y toma decisiones durante el juego. Su comportamiento depende de las acciones del jugador.',
+    appearances: ['Dayshift at Freddy\'s', 'Dayshift at Freddy\'s 2', 'Dayshift at Freddy\'s 3'],
+    relationships: [
+      { name: 'Dave Miller', relation: 'Companero de trabajo' },
+      { name: 'Phone Guy (DSaF)', relation: 'Mentor' }
+    ],
+    trivia: [
+      'Charlie es el personaje controlado por el jugador',
+      'Sus decisiones afectan la historia del juego'
+    ]
+  },
+  {
+    id: 'jolly-jolly',
+    name: 'Jolly',
+    alias: 'El Animatronico Principal',
+    firstAppearance: 'Jolly (2016)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: "Jolly's Amusement Park",
+    image: '',
+    category: 'Fangame',
+    description: 'Animatronico principal del fangame Jolly. Es el equivalente a Freddy en un parque de diversiones.',
+    history: 'Jolly es la estrella de Jolly\'s Amusement Park. Fue creado para entretener a los visitantes del parque.',
+    behavior: 'Jolly se mueve por el parque durante la noche, buscando al jugador. Su comportamiento es amenazante.',
+    appearances: ['Jolly', 'Jolly 2'],
+    relationships: [
+      { name: 'Tattletail', relation: 'Mascota del parque' }
+    ],
+    trivia: [
+      'Jolly es el equivalente a Freddy en un parque de diversiones',
+      'El juego presenta un ambiente diferente al de las pizzerias'
+    ]
+  },
+  {
+    id: 'jolly-tattletail',
+    name: 'Tattletail',
+    alias: 'La Mascota',
+    firstAppearance: 'Jolly (2016)',
+    status: 'Active',
+    threatLevel: 'Low',
+    origin: "Jolly's Amusement Park",
+    image: '',
+    category: 'Fangame',
+    description: 'Mascota animatronica de Jolly\'s Amusement Park. Es un companero menor de Jolly.',
+    history: 'Tattletail es la mascota animatronica del parque. Su diseno es mas simple que el de Jolly.',
+    behavior: 'Tattletail se mueve de forma limitada y raramente representa una amenaza directa.',
+    appearances: ['Jolly'],
+    relationships: [
+      { name: 'Jolly', relation: 'Animatronico principal del parque' }
+    ],
+    trivia: [
+      'Tattletail es una mascota inspirada en Furby',
+      'Es uno de los menos amenazantes del juego'
+    ]
+  },
+  {
+    id: 'trtf-brock',
+    name: 'Brock',
+    alias: 'El Lobo',
+    firstAppearance: 'The Return to Freddy\'s (2015)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: "Return to Freddy's Pizza",
+    image: '',
+    category: 'Fangame',
+    description: 'Animatronico principal de The Return to Freddy\'s. Es un lobo que funciona como antagonista principal.',
+    history: 'Brock es el animatronico principal de Return to Freddy\'s Pizza. Su apariencia de lobo lo hace intimidante.',
+    behavior: 'Brock se mueve de forma agresiva por el restaurante. Es dificil de contener y muy peligroso.',
+    appearances: ['The Return to Freddy\'s', 'The Return to Freddy\'s 2'],
+    relationships: [
+      { name: 'Golden Villy', relation: 'Contraparte dorada' }
+    ],
+    trivia: [
+      'Brock es un lobo, no un oso como Freddy',
+      'Es el antagonista principal de la serie TRTF'
+    ]
+  },
+  {
+    id: 'trtf-golden-villy',
+    name: 'Golden Villy',
+    alias: 'Villy Dorado',
+    firstAppearance: 'The Return to Freddy\'s 2 (2015)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: "Return to Freddy's Pizza",
+    image: '',
+    category: 'Fangame',
+    description: 'Version dorada de Villy de The Return to Freddy\'s. Es el antagonista secreto y mas peligroso.',
+    history: 'Golden Villy es la contraparte oscura de Villy. Su existencia revela oscuros secretos del restaurante.',
+    behavior: 'Golden Villy es el antagonista mas peligroso de TRTF. Su comportamiento es impredecible y devastador.',
+    appearances: ['The Return to Freddy\'s 2'],
+    relationships: [
+      { name: 'Brock', relation: 'Mismo universo' }
+    ],
+    trivia: [
+      'Golden Villy es el equivalente a Golden Freddy de FNaF',
+      'Es uno de los antagonistas mas peligrosos de los fangames'
+    ]
+  },
+  {
+    id: 'fn-freddy',
+    name: 'Freddy (Final Nights)',
+    alias: 'Freddy de Final Nights',
+    firstAppearance: 'Final Nights (2015)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: "Freddy Fazbear's Pizza",
+    image: '',
+    category: 'Fangame',
+    description: 'Version de Freddy en el fangame Final Nights. Tiene un diseno similar al original pero mas oscuro.',
+    history: 'Freddy de Final Nights es una reinterpretacion del Freddy original para este fangame. Su comportamiento es mas agresivo.',
+    behavior: 'Freddy se mueve por el restaurante durante la noche. Su comportamiento es amenazante y dificil de contener.',
+    appearances: ['Final Nights'],
+    relationships: [
+      { name: 'Freddy Fazbear', relation: 'Version alternativa' }
+    ],
+    trivia: [
+      'Final Nights es uno de los primeros fangames de FNaF',
+      'Su diseno es una reinterpretacion oscura del Freddy original'
+    ]
+  },
+  {
+    id: 'super-fnaf-freddy',
+    name: 'Freddy (Super FNaF)',
+    alias: 'Freddy de Super FNaF',
+    firstAppearance: 'Super FNaF (2015)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: "Freddy Fazbear's Pizza",
+    image: '',
+    category: 'Fangame',
+    description: 'Version de Freddy en el fangame Super FNaF. Tiene un estilo visual unico y comportamiento agresivo.',
+    history: 'Freddy de Super FNaF es una version estilizada del personaje original. El juego presenta una perspectiva diferente.',
+    behavior: 'Freddy se mueve por el restaurante de forma amenazante. Su comportamiento es similar al del juego original.',
+    appearances: ['Super FNaF'],
+    relationships: [
+      { name: 'Freddy Fazbear', relation: 'Version estilizada' }
+    ],
+    trivia: [
+      'Super FNaF presenta un estilo visual unico',
+      'El juego es conocido por su dificultad elevada'
+    ]
+  },
+  {
+    id: 'ff-fredbear',
+    name: 'Fredbear (Fright)',
+    alias: 'Fredbear de Fredbear\'s Fright',
+    firstAppearance: 'Fredbear\'s Fright (2015)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: "Fredbear's Fright",
+    image: '',
+    category: 'Fangame',
+    description: 'Fredbear del fangame Fredbear\'s Fright. Es el antagonista principal de este juego.',
+    history: 'Fredbear de Fright es una version de Fredbear para este fangame. Su comportamiento es agresivo y peligroso.',
+    behavior: 'Fredbear se mueve por el lugar de terror durante la noche. Es dificil de contener y muy amenazante.',
+    appearances: ['Fredbear\'s Fright'],
+    relationships: [
+      { name: 'Fredbear', relation: 'Version alternativa' }
+    ],
+    trivia: [
+      'Fredbear\'s Fright es un fangame basado en la ubicacion de FNaF 3',
+      'Fredbear es el antagonista principal del juego'
+    ]
+  },
+  {
+    id: 'dormitabis-ignited',
+    name: 'Ignited (Dormitabis)',
+    alias: 'Ignited de Dormitabis',
+    firstAppearance: 'Dormitabis: Rise of the Forgotten (2016)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Dormitabis',
+    image: '',
+    category: 'Fangame',
+    description: 'Animatronico Ignited de Dormitabis. Es una version transformada y peligrosa.',
+    history: 'Ignited de Dormitabis es un animatronico que habita en un edificio abandonado. Su comportamiento es errático.',
+    behavior: 'Ignited se mueve de forma agresiva por el edificio. Su comportamiento es impredecible y peligroso.',
+    appearances: ['Dormitabis: Rise of the Forgotten'],
+    relationships: [
+      { name: 'Ignited Freddy', relation: 'Inspirado en los Ignited de TJOC' }
+    ],
+    trivia: [
+      'Dormitabis es conocido por su ambientacion oscura',
+      'Los Ignited son inspirados en The Joy of Creation'
+    ]
+  },
+  {
+    id: 'banshee-banshee',
+    name: 'Banshee',
+    alias: 'La Banshee',
+    firstAppearance: 'Banshee (2016)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Banshee',
+    image: '',
+    category: 'Fangame',
+    description: 'Animatronico principal de Banshee. Es una criatura del folclore irlandes convertida en animatronico.',
+    history: 'Banshee es un animatronico basado en la criatura del folclore irlandes. Su comportamiento es aterrador.',
+    behavior: 'Banshee se mueve de forma sigilosa y su apariencia es perturbadora. Es dificil de detectar.',
+    appearances: ['Banshee'],
+    relationships: [],
+    trivia: [
+      'Banshee esta inspirada en la criatura del folclore irlandes',
+      'El juego es conocido por su atmosfera de terror'
+    ]
+  },
+  {
+    id: 'fnaw-withered',
+    name: 'Withered (FnAW)',
+    alias: 'Withered de FnAW',
+    firstAppearance: 'Five Nights at Wario\'s (2015)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Five Nights at Wario\'s',
+    image: '',
+    category: 'Fangame',
+    description: 'Animatronico deteriorado de Five Nights at Wario\'s. Tiene una apariencia danada y amenazante.',
+    history: 'Withered de FnAW es un animatronico que habita en una casa abandonada. Su apariencia deteriorada lo hace intimidante.',
+    behavior: 'Withered se mueve de forma agresiva y su comportamiento es errático. Es peligroso para el jugador.',
+    appearances: ['Five Nights at Wario\'s', 'Five Nights at Wario\'s 2'],
+    relationships: [],
+    trivia: [
+      'FnAW es conocido por su estilo visual unico',
+      'Los animatronics deteriorados son mas agresivos'
+    ]
+  },
+  {
+    id: 'postshift-freddy',
+    name: 'Freddy (Post-Shift)',
+    alias: 'Freddy de Post-Shift',
+    firstAppearance: 'Post-Shift (2016)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: "Freddy Fazbear's Pizza",
+    image: '',
+    category: 'Fangame',
+    description: 'Version de Freddy en el fangame Post-Shift. Aparece durante el turno nocturno.',
+    history: 'Freddy de Post-Shift es una version del personaje para este fangame. Su comportamiento es amenazante.',
+    behavior: 'Freddy se mueve por el restaurante durante la noche. Su comportamiento es similar al del juego original.',
+    appearances: ['Post-Shift'],
+    relationships: [
+      { name: 'Freddy Fazbear', relation: 'Version alternativa' }
+    ],
+    trivia: [
+      'Post-Shift es un fangame que explora el turno nocturno',
+      'Freddy es el antagonista principal del juego'
+    ]
+  },
+  {
+    id: 'bloodgears-freddy',
+    name: 'Freddy (Blood & Gears)',
+    alias: 'Freddy de Blood & Gears',
+    firstAppearance: 'Blood & Gears (2016)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Blood & Gears',
+    image: '',
+    category: 'Fangame',
+    description: 'Version de Freddy en el fangame Blood & Gears. Tiene un diseno mecanico y oscuro.',
+    history: 'Freddy de Blood & Gears es una version mecanizada del personaje original. Su diseno incorpora engranajes y sangre.',
+    behavior: 'Freddy se mueve de forma mecanizada y amenazante. Su comportamiento es impredecible.',
+    appearances: ['Blood & Gears'],
+    relationships: [
+      { name: 'Freddy Fazbear', relation: 'Version mecanizada' }
+    ],
+    trivia: [
+      'Blood & Gears presenta un estilo steampunk oscuro',
+      'Freddy es el antagonista principal del juego'
+    ]
+  },
+  {
+    id: 'animators-hell-freddy',
+    name: 'Freddy (Animator\'s Hell)',
+    alias: 'Freddy de Animator\'s Hell',
+    firstAppearance: 'Animator\'s Hell (2016)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: "Freddy Fazbear's Pizza",
+    image: '',
+    category: 'Fangame',
+    description: 'Version de Freddy en el fangame Animator\'s Hell. Tiene un estilo visual unico y comportamiento agresivo.',
+    history: 'Freddy de Animator\'s Hell es una reinterpretacion del personaje para este fangame. Su comportamiento es amenazante.',
+    behavior: 'Freddy se mueve por el restaurante de forma agresiva. Su comportamiento es dificil de predecir.',
+    appearances: ['Animator\'s Hell'],
+    relationships: [
+      { name: 'Freddy Fazbear', relation: 'Version alternativa' }
+    ],
+    trivia: [
+      'Animator\'s Hell es conocido por su estilo visual unico',
+      'Freddy es el antagonista principal del juego'
+    ]
+  },
+  {
+    id: 'fnaf-plus-freddy',
+    name: 'Freddy (FNaF+)',
+    alias: 'Freddy de FNaF+',
+    firstAppearance: 'FNaF+ (2021)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: "Freddy Fazbear's Pizza",
+    image: '',
+    category: 'Fangame',
+    description: 'Version remasterizada de Freddy en FNaF+. Tiene un diseno actualizado y mas detallado.',
+    history: 'Freddy de FNaF+ es una version remasterizada del personaje original. El juego presenta graficos mejorados.',
+    behavior: 'Freddy se mueve de forma similar al juego original pero con animaciones mejoradas. Su comportamiento es amenazante.',
+    appearances: ['FNaF+'],
+    relationships: [
+      { name: 'Freddy Fazbear', relation: 'Version remasterizada' }
+    ],
+    trivia: [
+      'FNaF+ es una remasterizacion visual del primer juego',
+      'Freddy tiene un diseno mas detallado que el original'
+    ]
+  },
+  {
+    id: 'treasure-island-mickey',
+    name: 'Suicide Mouse',
+    alias: 'Raton Suicida',
+    firstAppearance: 'FNaF Treasure Island (2014)',
+    status: 'Active',
+    threatLevel: 'Critical',
+    origin: 'FNaF Treasure Island',
+    image: '',
+    category: 'Fangame',
+    description: 'Raton suicida de FNaF Treasure Island. Es el antagonista principal y mas perturbador del juego.',
+    history: 'Suicide Mouse es un personaje inspirado en el creepypasta homonimo. Su apariencia es extremadamente perturbadora.',
+    behavior: 'Suicide Mouse se mueve de forma errática y su comportamiento es impredecible. Es el antagonista mas peligroso.',
+    appearances: ['FNaF Treasure Island'],
+    relationships: [
+      { name: 'Undying', relation: 'Mismo universo' }
+    ],
+    trivia: [
+      'Suicide Mouse esta inspirado en un creepypasta famoso',
+      'Es uno de los personajes mas perturbadores de los fangames'
+    ]
+  },
+  {
+    id: 'treasure-island-phantom',
+    name: 'Undying',
+    alias: 'El Fantasma',
+    firstAppearance: 'FNaF Treasure Island (2014)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'FNaF Treasure Island',
+    image: '',
+    category: 'Fangame',
+    description: 'Fantasma de FNaF Treasure Island. Es un antagonista secundario con comportamiento impredecible.',
+    history: 'Undying es una entidad espectral que habita en Treasure Island. Su origen es misterioso.',
+    behavior: 'Undying aparece de forma repentina y desaparece rapido. Su comportamiento es impredecible.',
+    appearances: ['FNaF Treasure Island'],
+    relationships: [
+      { name: 'Suicide Mouse', relation: 'Mismo universo' }
+    ],
+    trivia: [
+      'Undying es una entidad espectral sin explicacion clara',
+      'Su comportamiento es diferente al de los demas personajes'
+    ]
+  },
+  {
+    id: 'obligus-freddy',
+    name: 'Freddy (Obligus)',
+    alias: 'Freddy de Obligus Casa',
+    firstAppearance: 'Obligus Casa (2016)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Obligus Casa',
+    image: '',
+    category: 'Fangame',
+    description: 'Version de Freddy en Obligus Casa. Es el antagonista principal de este fangame.',
+    history: 'Freddy de Obligus es una version del personaje para este fangame. Su comportamiento es amenazante.',
+    behavior: 'Freddy se mueve por la casa de forma agresiva. Es dificil de contener y muy peligroso.',
+    appearances: ['Obligus Casa'],
+    relationships: [
+      { name: 'Freddy Fazbear', relation: 'Version alternativa' }
+    ],
+    trivia: [
+      'Obligus Casa es un fangame con ambientacion unica',
+      'Freddy es el antagonista principal del juego'
+    ]
+  },
+  {
+    id: 'frickbears-freddy',
+    name: 'Freddy (Frickbears)',
+    alias: 'Freddy de Frickbears',
+    firstAppearance: 'Frickbears (2016)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Frickbears',
+    image: '',
+    category: 'Fangame',
+    description: 'Version de Freddy en el fangame Frickbears. Tiene un diseno unico y comportamiento agresivo.',
+    history: 'Freddy de Frickbears es una reinterpretacion del personaje original. Su comportamiento es amenazante.',
+    behavior: 'Freddy se mueve por el restaurante de forma agresiva. Su comportamiento es impredecible.',
+    appearances: ['Frickbears'],
+    relationships: [
+      { name: 'Freddy Fazbear', relation: 'Version alternativa' }
+    ],
+    trivia: [
+      'Frickbears es un fangame con un estilo visual unico',
+      'Freddy es el antagonista principal del juego'
+    ]
+  },
+  {
+    id: 'graveyard-freddy',
+    name: 'Freddy (Graveyard)',
+    alias: 'Freddy de Graveyard Shift',
+    firstAppearance: 'Graveyard Shift (2016)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Graveyard Shift',
+    image: '',
+    category: 'Fangame',
+    description: 'Version de Freddy en Graveyard Shift. Es el antagonista principal de este fangame.',
+    history: 'Freddy de Graveyard es una version del personaje para este fangame. Su comportamiento es amenazante.',
+    behavior: 'Freddy se mueve por el cementerio de forma agresiva. Su comportamiento es impredecible.',
+    appearances: ['Graveyard Shift'],
+    relationships: [
+      { name: 'Freddy Fazbear', relation: 'Version alternativa' }
+    ],
+    trivia: [
+      'Graveyard Shift presenta un ambiente de cementerio',
+      'Freddy es el antagonista principal del juego'
+    ]
+  },
+  {
+    id: 'cody-cody',
+    name: 'Cody',
+    alias: 'El Animatronico de Cody',
+    firstAppearance: 'After Hours Cody (2016)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'After Hours Cody',
+    image: '',
+    category: 'Fangame',
+    description: 'Animatronico principal de After Hours Cody. Es el antagonista de este fangame.',
+    history: 'Cody es la estrella de After Hours Cody. Su comportamiento es agresivo y amenazante.',
+    behavior: 'Cody se mueve por las instalaciones de forma agresiva. Es dificil de contener.',
+    appearances: ['After Hours Cody'],
+    relationships: [],
+    trivia: [
+      'After Hours Cody es un fangame con ambientacion unica',
+      'Cody es el antagonista principal del juego'
+    ]
+  },
+  {
+    id: 'tyke-tyke',
+    name: 'Tyke',
+    alias: 'El Animatronico de Tyke',
+    firstAppearance: 'Tyke and Sons (2016)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Tyke and Sons',
+    image: '',
+    category: 'Fangame',
+    description: 'Animatronico principal de Tyke and Sons. Es el antagonista de este fangame.',
+    history: 'Tyke es la estrella de Tyke and Sons. Su comportamiento es agresivo y amenazante.',
+    behavior: 'Tyke se mueve por las instalaciones de forma agresiva. Es dificil de contener.',
+    appearances: ['Tyke and Sons'],
+    relationships: [],
+    trivia: [
+      'Tyke and Sons es un fangame con ambientacion unica',
+      'Tyke es el antagonista principal del juego'
+    ]
+  },
+  {
+    id: 'bnc-baby',
+    name: 'Baby (Circus)',
+    alias: 'Baby de BNC',
+    firstAppearance: 'Baby\'s Nightmare Circus (2016)',
+    status: 'Active',
+    threatLevel: 'High',
+    origin: 'Baby\'s Nightmare Circus',
+    image: '',
+    category: 'Fangame',
+    description: 'Version de Baby en Baby\'s Nightmare Circus. Tiene un diseno de circo y comportamiento agresivo.',
+    history: 'Baby de BNC es una version de Baby para este fangame con tema de circo. Su comportamiento es amenazante.',
+    behavior: 'Baby se mueve por el circo de forma agresiva. Su comportamiento es impredecible y peligroso.',
+    appearances: ['Baby\'s Nightmare Circus'],
+    relationships: [
+      { name: 'Circus Baby', relation: 'Version alternativa' }
+    ],
+    trivia: [
+      'Baby\'s Nightmare Circus presenta un tema de circo',
+      'Baby es el antagonista principal del juego'
+    ]
+  }
 ];
 
 // loaded

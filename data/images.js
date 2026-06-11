@@ -991,5 +991,72 @@ window.images = {
       primary: 'https://covers.openlibrary.org/b/id/14638676-L.jpg',
       gallery: ['https://covers.openlibrary.org/b/id/14638676-L.jpg']
     }
+  },
+  fangames: {
+    'fnac-1': {
+      primary: 'https://upload.wikimedia.org/wikipedia/en/0/02/Five_Nights_at_Candy%27s_cover.jpg',
+      gallery: []
+    },
+    'fnac-2': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/0/09/FNaC2-Header.png/revision/latest?cb=20240630135054',
+      gallery: []
+    },
+    'fnac-3': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/27/FNaC3-Header.png/revision/latest?cb=20240630135147',
+      gallery: []
+    },
+    'fnac-4': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/27/FNaC4-Header.png/revision/latest?cb=20240630135226',
+      gallery: []
+    },
+    'fnac-remastered': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/64/FNaCO-Header.png/revision/latest?cb=20240630134330',
+      gallery: []
+    },
+    'onaflumpty-1': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/0/00/ONaF1-Header.png/revision/latest?cb=20240630140920',
+      gallery: []
+    },
+    'onaflumpty-2': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/6b/ONaF2-Header.png/revision/latest?cb=20260304232137',
+      gallery: []
+    },
+    'onaflumpty-3': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/9/9b/ONaF3-Header.png/revision/latest?cb=20240630141045',
+      gallery: []
+    },
+    'popgoes': { primary: '', gallery: [] },
+    'popgoes-evergreen': { primary: '', gallery: [] },
+    'popgoes-arcade': { primary: '', gallery: [] },
+    'tjoc': { primary: '', gallery: [] },
+    'tjoc-reborn': { primary: '', gallery: [] },
+    'tjoc-story-mode': { primary: '', gallery: [] },
+    'fnaf-plus': { primary: '', gallery: [] },
+    'dayshift': { primary: '', gallery: [] },
+    'dayshift-2': { primary: '', gallery: [] },
+    'final-nights': { primary: '', gallery: [] },
+    'super-fnaf': { primary: '', gallery: [] },
+    'fredbears-fright': { primary: '', gallery: [] },
+    'sinister-turmoil': { primary: '', gallery: [] },
+    'fnaf-treasure-island': { primary: '', gallery: [] },
+    'jolly': { primary: '', gallery: [] },
+    'jolly-4': { primary: '', gallery: [] },
+    'jrs': { primary: '', gallery: [] },
+    'babys-nightmare-circus': { primary: '', gallery: [] },
+    'tyke-and-sons': { primary: '', gallery: [] },
+    'trtf': { primary: '', gallery: [] },
+    'frickbears': { primary: '', gallery: [] },
+    'obligus-casa': { primary: '', gallery: [] },
+    'banshee': { primary: '', gallery: [] },
+    'fnaw-rewritten': { primary: '', gallery: [] },
+    'bubbas-diner': { primary: '', gallery: [] },
+    'graveyard-shift': { primary: '', gallery: [] },
+    'after-hours-cody': { primary: '', gallery: [] },
+    'dormitabis': { primary: '', gallery: [] },
+    'fnab-fan-game': { primary: '', gallery: [] },
+    'post-shift-2': { primary: '', gallery: [] },
+    'fnaf-blood-gears': { primary: '', gallery: [] },
+    'fnaw-friedrichs': { primary: '', gallery: [] },
+    'animators-hell': { primary: '', gallery: [] }
   }
 };

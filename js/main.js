@@ -16,6 +16,16 @@ const state = {
   booksSearch: '',
   fangamesSearch: '',
   fangamesFilter: 'all',
+  anomalySearch: '',
+  anomalyGameFilter: 'all',
+  anomalyTypeFilter: 'all',
+  anomalyRarityFilter: 'all',
+  quizMode: 'personality',
+  quizStep: 0,
+  quizScores: { fear: 0, aggression: 0, curiosity: 0, survival: 0 },
+  triviaScore: 0,
+  triviaTotal: 0,
+  triviaAnswered: false,
   soundEnabled: false,
   vhsEnabled: true,
   audioContext: null,
@@ -67,6 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initDatabaseCards();
   initHeroIndicators();
   initCameraMap();
+  initAnomalyFilters();
+  initAnomalySearch();
 
   // Load page data
   loadPage('home');
@@ -185,6 +197,12 @@ function loadPage(page) {
       break;
     case 'fangames':
       renderFangames();
+      break;
+    case 'secrets':
+      renderAnomalies();
+      break;
+    case 'quiz':
+      renderQuiz();
       break;
     case 'history':
       renderHistory();
@@ -595,7 +613,7 @@ function renderFangames(filter = state.fangamesFilter, search = state.fangamesSe
   grid.innerHTML = filtered.map((fg, i) => {
     const order = fangames.indexOf(fg) + 1;
     const fanId = `FAN-${String(order).padStart(2, '0')}`;
-    const status = statusLabels[i % statusLabels.length];
+    const imgUrl = getImageUrl('fangames', fg.id);
 
     const categoryLabels = {
       'clasico': 'CLASICO',
@@ -618,10 +636,10 @@ function renderFangames(filter = state.fangamesFilter, search = state.fangamesSe
 
       <div class="cam-indicator">
         <span class="rec-dot"></span>
-        <span>${status}</span>
+        <span>FAN</span>
       </div>
 
-      <div class="cam-label">${fanId} • ${fg.developer.split('/')[0].trim().split('(')[0].trim()}</div>
+      <div class="cam-label">${fanId}</div>
 
       <div class="fangame-year-badge">${fg.year}</div>
 
@@ -630,12 +648,13 @@ function renderFangames(filter = state.fangamesFilter, search = state.fangamesSe
       <div class="power-indicator">${categoryLabels[fg.category] || fg.category.toUpperCase()}</div>
 
       <div class="fangame-content">
+        ${imgUrl ? `<img src="${imgUrl}" alt="${fg.title}" class="fangame-img" loading="lazy" onerror="this.style.display='none'">` : ''}
         <div class="fangame-title">${fg.title}</div>
         <div class="fangame-meta">
-          <span>${fg.developer}</span>
+          <span>${fg.developer.split('/')[0].trim().split('(')[0].trim()}</span>
           <span>${fg.year}</span>
         </div>
-        <div class="fangame-desc">${fg.description.slice(0, 150)}...</div>
+        <div class="fangame-desc">${fg.description.slice(0, 120)}...</div>
         <div class="fangame-neon-line"></div>
       </div>
     </div>
@@ -683,6 +702,11 @@ window.showFangameModal = (id) => {
   const fg = fangames.find(f => f.id === id);
   if (!fg) return;
 
+  const imgs = getImageGallery('fangames', id);
+  const mainImg = imgs.length > 0 ? imgs[0] : getImageUrl('fangames', id);
+
+  const wikiUrl = `https://freddy-fazbears-pizza.fandom.com/es/wiki/${fg.title.replace(/'/g, '%27').replace(/ /g, '_')}`;
+
   const body = $('#modal-body');
   body.innerHTML = `
     <div class="fangame-modal">
@@ -690,10 +714,26 @@ window.showFangameModal = (id) => {
       <div class="game-modal__hero">
         <div class="game-modal__hero-left">
           <div class="game-modal__img-frame">
-            <div class="game-modal__img-fallback">${fg.title.charAt(0)}</div>
+            ${mainImg ? `<img src="${mainImg}" alt="${fg.title}" class="game-modal__img" onerror="this.parentElement.innerHTML='<div class=\\'game-modal__img-fallback\\'>${fg.title.charAt(0)}</div>'">` : `<div class="game-modal__img-fallback">${fg.title.charAt(0)}</div>`}
             <div class="game-modal__scanlines"></div>
             <div class="game-modal__corners"></div>
           </div>
+          ${imgs.length > 1 ? `
+            <div class="game-modal__gallery">
+              <div class="game-modal__thumbs" id="fangame-thumbs">
+                ${imgs.map((url, i) => `
+                  <div class="game-modal__thumb ${i === 0 ? 'active' : ''}" data-idx="${i}" onclick="window._switchFangameImg(this, ${i})">
+                    <img src="${url}" alt="Thumb ${i+1}">
+                  </div>
+                `).join('')}
+              </div>
+              <div class="game-modal__gallery-nav">
+                <button class="game-modal__nav-btn" onclick="window._navFangameGallery(-1)">◂ ANTERIOR</button>
+                <span class="game-modal__gallery-count"><span id="fangame-thumb-idx">1</span> / ${imgs.length}</span>
+                <button class="game-modal__nav-btn" onclick="window._navFangameGallery(1)">SIGUIENTE ▸</button>
+              </div>
+            </div>
+          ` : ''}
         </div>
 
         <div class="game-modal__hero-right">
@@ -718,12 +758,18 @@ window.showFangameModal = (id) => {
             <div class="game-modal__threat-text">${fg.platforms.map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(', ')}</div>
           </div>
 
-          ${fg.downloadUrl ? `
-            <a href="${fg.downloadUrl}" target="_blank" rel="noopener noreferrer" class="game-modal__steam-btn" style="background:#5500AA;border-color:#7700CC;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              DESCARGAR EN GAMEJOLT
+          <div class="game-modal__btn-group" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;">
+            ${fg.downloadUrl ? `
+              <a href="${fg.downloadUrl}" target="_blank" rel="noopener noreferrer" class="game-modal__steam-btn" style="background:#5500AA;border-color:#7700CC;flex:1;min-width:120px;padding:8px 12px;font-size:8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                DESCARGAR
+              </a>
+            ` : ''}
+            <a href="${wikiUrl}" target="_blank" rel="noopener noreferrer" class="game-modal__steam-btn" style="background:#1A1A2E;border-color:#4A4A6E;flex:1;min-width:120px;padding:8px 12px;font-size:8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+              WIKI
             </a>
-          ` : ''}
+          </div>
         </div>
       </div>
 
@@ -785,16 +831,20 @@ window.showFangameModal = (id) => {
           <span class="game-modal__section-dot"></span> PERSONAJES PRINCIPALES
         </div>
         <div class="game-modal__chars-grid">
-          ${fg.characters.slice(0, 12).map(c => `
-            <div class="game-modal__char-card">
-              <div class="game-modal__char-avatar">
-                <span class="char-fallback">${c.charAt(0)}</span>
+          ${fg.characters.slice(0, 16).map(c => {
+            const slug = c.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
+            const charImg = getImageUrl('characters', slug);
+            return `
+              <div class="game-modal__char-card">
+                <div class="game-modal__char-avatar">
+                  ${charImg ? `<img src="${charImg}" alt="${c}" loading="lazy">` : `<span class="char-fallback">${c.charAt(0)}</span>`}
+                </div>
+                <div class="game-modal__char-name">${c}</div>
               </div>
-              <div class="game-modal__char-name">${c}</div>
-            </div>
-          `).join('')}
+            `;
+          }).join('')}
         </div>
-        ${fg.characters.length > 12 ? `<div class="game-modal__more-chars">+${fg.characters.length - 12} personajes mas</div>` : ''}
+        ${fg.characters.length > 16 ? `<div class="game-modal__more-chars">+${fg.characters.length - 16} personajes mas</div>` : ''}
       </div>
       ` : ''}
 
@@ -825,7 +875,33 @@ window.showFangameModal = (id) => {
     </div>
   `;
 
+  window._fangameGalleryIdx = 0;
+  window._fangameGalleryImgs = imgs;
+
+  const mc = $('#modal-content');
+  if (mc) mc.setAttribute('data-game-modal', id);
+
   $('#modal').classList.add('active');
+};
+
+window._switchFangameImg = function(el, idx) {
+  const mainImg = document.querySelector('.fangame-modal .game-modal__img');
+  if (!mainImg || !window._fangameGalleryImgs || !window._fangameGalleryImgs[idx]) return;
+  mainImg.src = window._fangameGalleryImgs[idx];
+  document.querySelectorAll('.fangame-modal .game-modal__thumb').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  const idxEl = document.getElementById('fangame-thumb-idx');
+  if (idxEl) idxEl.textContent = idx + 1;
+  window._fangameGalleryIdx = idx;
+};
+
+window._navFangameGallery = function(dir) {
+  if (!window._fangameGalleryImgs || window._fangameGalleryImgs.length < 2) return;
+  let newIdx = window._fangameGalleryIdx + dir;
+  if (newIdx < 0) newIdx = window._fangameGalleryImgs.length - 1;
+  if (newIdx >= window._fangameGalleryImgs.length) newIdx = 0;
+  const thumbs = document.querySelectorAll('.fangame-modal .game-modal__thumb');
+  if (thumbs[newIdx]) window._switchFangameImg(thumbs[newIdx], newIdx);
 };
 
 // =============================================
@@ -2044,7 +2120,7 @@ document.addEventListener('keydown', (e) => {
   }
 
   // 1-9 = navigation
-  const navKeys = ['home', 'characters', 'games', 'books', 'videos', 'history', 'music', 'blog', 'admin'];
+  const navKeys = ['home', 'characters', 'games', 'books', 'videos', 'fangames', 'secrets', 'quiz', 'history'];
   const num = parseInt(e.key);
   if (num >= 1 && num <= 9) {
     e.preventDefault();
@@ -2202,6 +2278,411 @@ function initCameraMap() {
 
   // Default selection
   selectCamera('cam-02');
+}
+
+// =============================================
+// ANOMALY ARCHIVE (EASTER EGGS)
+// =============================================
+function initAnomalyFilters() {
+  var eggs = window.eastereggs || [];
+  var games = [...new Set(eggs.map(e => e.game))];
+  var types = [...new Set(eggs.map(e => e.type))];
+  var rarities = [...new Set(eggs.map(e => e.rarity))];
+
+  var gameFilters = $('#anomaly-filters-game');
+  if (gameFilters) {
+    var gameLabels = { fnaf1:'FNaF 1', fnaf2:'FNaF 2', fnaf3:'FNaF 3', fnaf4:'FNaF 4', sisterlocation:'Sister Location', ffps:'FFPS', ucn:'UCN', helpwanted:'Help Wanted', securitybreach:'Security Breach', varios:'Multijuego' };
+    var html = '<span class="filter-label">JUEGO:</span>';
+    html += '<button class="anomaly-filter-btn active" data-filter="all" onclick="filterAnomalyByGame(\'all\')">TODOS</button>';
+    games.forEach(function(g) {
+      html += '<button class="anomaly-filter-btn" data-filter="' + g + '" onclick="filterAnomalyByGame(\'' + g + '\')">' + (gameLabels[g] || g).toUpperCase() + '</button>';
+    });
+    gameFilters.innerHTML = html;
+  }
+
+  var typeFilters = $('#anomaly-filters-type');
+  if (typeFilters) {
+    var typeLabels = { visual:'Visual', auditivo:'Auditivo', narrativo:'Narrativo', glitch:'Glitch', mecanico:'Mecánico' };
+    var html = '<span class="filter-label">TIPO:</span>';
+    html += '<button class="anomaly-filter-btn active" data-filter="all" onclick="filterAnomalyByType(\'all\')">TODOS</button>';
+    types.forEach(function(t) {
+      html += '<button class="anomaly-filter-btn" data-filter="' + t + '" onclick="filterAnomalyByType(\'' + t + '\')">' + (typeLabels[t] || t).toUpperCase() + '</button>';
+    });
+    typeFilters.innerHTML = html;
+  }
+
+  var rarityFilters = $('#anomaly-filters-rarity');
+  if (rarityFilters) {
+    var rarityLabels = { comun:'Común', raro:'Raro', extremadamente_raro:'Extremadamente Raro', secreto_profundo:'Secreto Profundo' };
+    var html = '<span class="filter-label">RAREZA:</span>';
+    html += '<button class="anomaly-filter-btn active" data-filter="all" onclick="filterAnomalyByRarity(\'all\')">TODAS</button>';
+    rarities.forEach(function(r) {
+      html += '<button class="anomaly-filter-btn" data-filter="' + r + '" onclick="filterAnomalyByRarity(\'' + r + '\')">' + (rarityLabels[r] || r).toUpperCase() + '</button>';
+    });
+    rarityFilters.innerHTML = html;
+  }
+
+  // Stats
+  var statsEl = $('#anomaly-stats');
+  if (statsEl) {
+    var total = eggs.length;
+    var byGame = {};
+    eggs.forEach(function(e) { byGame[e.game] = (byGame[e.game] || 0) + 1; });
+    var statsHtml = '<div class="anomaly-stat"><span class="stat-num">' + total + '</span>TOTAL</div>';
+    Object.keys(byGame).slice(0, 5).forEach(function(g) {
+      statsHtml += '<div class="anomaly-stat"><span class="stat-num">' + byGame[g] + '</span>' + (gameLabels[g] || g).toUpperCase() + '</div>';
+    });
+    statsEl.innerHTML = statsHtml;
+  }
+}
+
+function initAnomalySearch() {
+  var el = $('#anomaly-search');
+  if (el) {
+    el.addEventListener('input', function() {
+      state.anomalySearch = el.value.toLowerCase();
+      renderAnomalies();
+    });
+  }
+}
+
+function filterAnomalyByGame(game) {
+  state.anomalyGameFilter = game;
+  $$('#anomaly-filters-game .anomaly-filter-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.filter === game);
+  });
+  renderAnomalies();
+}
+
+function filterAnomalyByType(type) {
+  state.anomalyTypeFilter = type;
+  $$('#anomaly-filters-type .anomaly-filter-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.filter === type);
+  });
+  renderAnomalies();
+}
+
+function filterAnomalyByRarity(rarity) {
+  state.anomalyRarityFilter = rarity;
+  $$('#anomaly-filters-rarity .anomaly-filter-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.filter === rarity);
+  });
+  renderAnomalies();
+}
+
+function renderAnomalies() {
+  var grid = $('#anomaly-grid');
+  if (!grid) return;
+
+  var eggs = window.eastereggs || [];
+  var filtered = eggs.filter(function(e) {
+    if (state.anomalyGameFilter !== 'all' && e.game !== state.anomalyGameFilter) return false;
+    if (state.anomalyTypeFilter !== 'all' && e.type !== state.anomalyTypeFilter) return false;
+    if (state.anomalyRarityFilter !== 'all' && e.rarity !== state.anomalyRarityFilter) return false;
+    if (state.anomalySearch) {
+      var s = state.anomalySearch;
+      return e.name.toLowerCase().includes(s) || e.description.toLowerCase().includes(s) || e.id.toLowerCase().includes(s);
+    }
+    return true;
+  });
+
+  var gameLabels = { fnaf1:'FNaF 1', fnaf2:'FNaF 2', fnaf3:'FNaF 3', fnaf4:'FNaF 4', sisterlocation:'Sister Location', ffps:'FFPS', ucn:'UCN', helpwanted:'Help Wanted', securitybreach:'Security Breach', varios:'Multijuego' };
+  var typeLabels = { visual:'Visual', auditivo:'Auditivo', narrativo:'Narrativo', glitch:'Glitch', mecanico:'Mecánico' };
+  var rarityLabels = { comun:'Común', raro:'Raro', extremadamente_raro:'Ext. Raro', secreto_profundo:'Secreto Profundo' };
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="anomaly-empty">NO SE ENCONTRARON ANOMALÍAS CON ESTOS CRITERIOS</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(function(e) {
+    return '<div class="anomaly-card" onclick="showAnomalyModal(\'' + e.id + '\')">' +
+      '<div class="anomaly-card-header">' +
+        '<div class="anomaly-card-id">' + e.id + '</div>' +
+        '<div class="anomaly-card-title">' + e.name + '</div>' +
+        '<div class="anomaly-card-meta">' +
+          '<span class="anomaly-tag anomaly-tag-game">' + (gameLabels[e.game] || e.game) + '</span>' +
+          '<span class="anomaly-tag anomaly-tag-type">' + (typeLabels[e.type] || e.type) + '</span>' +
+          '<span class="anomaly-tag anomaly-tag-rarity ' + e.rarity + '">' + (rarityLabels[e.rarity] || e.rarity) + '</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="anomaly-card-body">' +
+        '<div class="anomaly-card-desc">' + e.description + '</div>' +
+      '</div>' +
+      '<div class="anomaly-card-location">' + e.location + '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function showAnomalyModal(id) {
+  var eggs = window.eastereggs || [];
+  var egg = eggs.find(function(e) { return e.id === id; });
+  if (!egg) return;
+
+  var gameLabels = { fnaf1:'FNaF 1', fnaf2:'FNaF 2', fnaf3:'FNaF 3', fnaf4:'FNaF 4', sisterlocation:'Sister Location', ffps:'FFPS', ucn:'UCN', helpwanted:'Help Wanted', securitybreach:'Security Breach', varios:'Multijuego' };
+  var typeLabels = { visual:'Visual', auditivo:'Auditivo', narrativo:'Narrativo', glitch:'Glitch', mecanico:'Mecánico' };
+  var rarityLabels = { comun:'Común', raro:'Raro', extremadamente_raro:'Extremadamente Raro', secreto_profundo:'Secreto Profundo' };
+
+  var html = '<div class="anomaly-modal-hero">' +
+    '<div class="anomaly-modal-info">' +
+      '<div class="id-badge">' + egg.id + '</div>' +
+      '<h2>' + egg.name + '</h2>' +
+      '<div class="anomaly-modal-tags">' +
+        '<span class="anomaly-tag anomaly-tag-game">' + (gameLabels[egg.game] || egg.game) + '</span>' +
+        '<span class="anomaly-tag anomaly-tag-type">' + (typeLabels[egg.type] || egg.type) + '</span>' +
+        '<span class="anomaly-tag anomaly-tag-rarity ' + egg.rarity + '">' + (rarityLabels[egg.rarity] || egg.rarity) + '</span>' +
+      '</div>' +
+      '<p style="font-family:\'Share Tech Mono\',monospace;font-size:11px;color:#666;">📍 ' + egg.location + '</p>' +
+    '</div>' +
+  '</div>';
+
+  html += '<div class="anomaly-section"><h3>DESCRIPCIÓN</h3><p>' + egg.description + '</p></div>';
+
+  if (egg.activation && egg.activation.length > 0) {
+    html += '<div class="anomaly-section"><h3>CÓMO ACTIVARLO</h3><ol class="anomaly-steps">';
+    egg.activation.forEach(function(step, i) {
+      html += '<li data-step="' + (i + 1) + '">' + step + '</li>';
+    });
+    html += '</ol></div>';
+  }
+
+  if (egg.loreSignificance) {
+    html += '<div class="anomaly-section"><h3>SIGNIFICADO EN EL LORE</h3><p>' + egg.loreSignificance + '</p></div>';
+  }
+
+  if (egg.theories && egg.theories.length > 0) {
+    html += '<div class="anomaly-section"><h3>TEORÍAS RELACIONADAS</h3><ul class="anomaly-theories">';
+    egg.theories.forEach(function(t) {
+      html += '<li>' + t + '</li>';
+    });
+    html += '</ul></div>';
+  }
+
+  if (egg.connections && egg.connections.length > 0) {
+    html += '<div class="anomaly-section"><h3>CONEXIONES CON OTROS SECRETOS</h3><div class="anomaly-connections">';
+    egg.connections.forEach(function(c) {
+      var linked = eggs.find(function(e) { return e.id === c; });
+      var label = linked ? linked.name : c;
+      html += '<span class="anomaly-conn-badge" onclick="showAnomalyModal(\'' + c + '\')">' + c + ' — ' + label + '</span>';
+    });
+    html += '</div></div>';
+  }
+
+  $('#modal-body').innerHTML = html;
+  $('#modal').classList.add('active');
+}
+
+function showRandomAnomaly() {
+  var eggs = window.eastereggs || [];
+  if (eggs.length === 0) return;
+  var random = eggs[Math.floor(Math.random() * eggs.length)];
+  showAnomalyModal(random.id);
+}
+
+function toggleAnomalyConnections() {
+  showRandomAnomaly();
+}
+
+// =============================================
+// QUIZ & TRIVIA
+// =============================================
+function renderQuiz() {
+  startPersonalityQuiz();
+}
+
+function startPersonalityQuiz() {
+  state.quizMode = 'personality';
+  state.quizStep = 0;
+  state.quizScores = { fear: 0, aggression: 0, curiosity: 0, survival: 0 };
+
+  $$('.quiz-mode-tab').forEach(function(tab, i) {
+    tab.classList.toggle('active', i === 0);
+  });
+  $('#quiz-personality').style.display = 'block';
+  $('#quiz-trivia').style.display = 'none';
+  $('#quiz-result').classList.remove('active');
+  $('#quiz-questions-area').style.display = 'block';
+  renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+  var qs = window.quizData.personality.questions;
+  if (state.quizStep >= qs.length) {
+    showQuizResult();
+    return;
+  }
+  var q = qs[state.quizStep];
+  var progress = ((state.quizStep) / qs.length) * 100;
+  var html = '<div class="quiz-question-card">' +
+    '<div class="quiz-progress">PREGUNTA ' + (state.quizStep + 1) + ' / ' + qs.length +
+      '<div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:' + progress + '%"></div></div>' +
+    '</div>' +
+    '<div class="quiz-question-text">' + q.text + '</div>' +
+    '<div class="quiz-options">';
+  q.options.forEach(function(opt, i) {
+    html += '<button class="quiz-option" onclick="answerQuizQuestion(' + i + ')">' + opt.text + '</button>';
+  });
+  html += '</div></div>';
+  $('#quiz-questions-area').innerHTML = html;
+}
+
+function answerQuizQuestion(idx) {
+  var qs = window.quizData.personality.questions;
+  var q = qs[state.quizStep];
+  var vals = q.options[idx].values;
+  state.quizScores.fear += vals.fear;
+  state.quizScores.aggression += vals.aggression;
+  state.quizScores.curiosity += vals.curiosity;
+  state.quizScores.survival += vals.survival;
+  state.quizStep++;
+  renderQuizQuestion();
+}
+
+function showQuizResult() {
+  $('#quiz-questions-area').style.display = 'none';
+  var scores = state.quizScores;
+  var maxKey = Object.keys(scores).reduce(function(a, b) { return scores[a] > scores[b] ? a : b; });
+
+  var resultMap = {
+    fear: 'goldenFreddy',
+    aggression: 'foxy',
+    curiosity: 'bonnie',
+    survival: 'chica'
+  };
+
+  // Check for special conditions
+  var total = scores.fear + scores.aggression + scores.curiosity + scores.survival;
+  var resultKey;
+  if (scores.fear > 15 && scores.survival > 10) resultKey = 'goldenFreddy';
+  else if (scores.aggression > 12) resultKey = 'foxy';
+  else if (scores.curiosity > 12) resultKey = 'bonnie';
+  else if (scores.survival > 12) resultKey = 'chica';
+  else resultKey = 'freddy';
+
+  var result = window.quizData.personality.results[resultKey];
+  if (!result) return;
+
+  var maxScore = Math.max(scores.fear, scores.aggression, scores.curiosity, scores.survival);
+
+  var html = '<div class="quiz-result-card">' +
+    '<div class="quiz-result-emoji">' + result.emoji + '</div>' +
+    '<div class="quiz-result-name">ERES: ' + result.name + '</div>' +
+    '<div class="quiz-result-desc">' + result.description + '</div>' +
+    '<div class="anomaly-section"><h3 style="color:#00BFFF;">PERFIL PSICOLÓGICO</h3><p>' + result.behavior + '</p></div>' +
+    '<div class="anomaly-section"><h3 style="color:#00BFFF;">CONEXIÓN CON EL LORE</h3><p>' + result.lore + '</p></div>' +
+    '<div class="quiz-result-stats">' +
+      '<div class="quiz-stat"><div class="quiz-stat-label">MIEDO</div><div class="quiz-stat-bar"><div class="quiz-stat-fill" style="width:' + (scores.fear / 30 * 100) + '%"></div></div></div>' +
+      '<div class="quiz-stat"><div class="quiz-stat-label">AGRESIVIDAD</div><div class="quiz-stat-bar"><div class="quiz-stat-fill" style="width:' + (scores.aggression / 30 * 100) + '%"></div></div></div>' +
+      '<div class="quiz-stat"><div class="quiz-stat-label">CURIOSIDAD</div><div class="quiz-stat-bar"><div class="quiz-stat-fill" style="width:' + (scores.curiosity / 30 * 100) + '%"></div></div></div>' +
+      '<div class="quiz-stat"><div class="quiz-stat-label">SUPERVIVENCIA</div><div class="quiz-stat-bar"><div class="quiz-stat-fill" style="width:' + (scores.survival / 30 * 100) + '%"></div></div></div>' +
+    '</div>' +
+    '<button class="quiz-restart-btn" onclick="startPersonalityQuiz()">🔄 INTENTAR DE NUEVO</button>' +
+  '</div>';
+
+  $('#quiz-result').innerHTML = html;
+  $('#quiz-result').classList.add('active');
+}
+
+function startTriviaQuiz() {
+  state.quizMode = 'trivia';
+  state.triviaScore = 0;
+  state.triviaAnswered = false;
+
+  $$('.quiz-mode-tab').forEach(function(tab, i) {
+    tab.classList.toggle('active', i === 1);
+  });
+  $('#quiz-personality').style.display = 'none';
+  $('#quiz-trivia').style.display = 'block';
+  $('#trivia-result').classList.remove('active');
+  $('#trivia-questions-area').style.display = 'block';
+
+  var allQuestions = [].concat(
+    window.quizData.trivia.easy.map(function(q) { q.difficulty = 'FÁCIL'; return q; }),
+    window.quizData.trivia.medium.map(function(q) { q.difficulty = 'MEDIO'; return q; }),
+    window.quizData.trivia.expert.map(function(q) { q.difficulty = 'EXPERTO'; return q; }),
+    window.quizData.trivia.hidden.map(function(q) { q.difficulty = 'OCULTO'; return q; })
+  );
+
+  // Shuffle and pick 10
+  allQuestions = allQuestions.sort(function() { return Math.random() - 0.5; }).slice(0, 10);
+  state.triviaTotal = allQuestions.length;
+
+  var html = allQuestions.map(function(q, qi) {
+    var optHtml = q.options.map(function(opt, oi) {
+      return '<button class="trivia-option" data-q="' + qi + '" data-o="' + oi + '" onclick="answerTrivia(this,' + qi + ',' + oi + ',' + q.answer + ')">' + opt + '</button>';
+    }).join('');
+    return '<div class="trivia-card" id="trivia-q-' + qi + '">' +
+      '<div style="font-family:\'Press Start 2P\',monospace;font-size:8px;color:#666;margin-bottom:8px;">' + q.difficulty + '</div>' +
+      '<div class="trivia-question">' + q.q + '</div>' +
+      '<div class="trivia-options">' + optHtml + '</div>' +
+    '</div>';
+  }).join('');
+
+  $('#trivia-questions-area').innerHTML = html;
+  updateTriviaScore();
+}
+
+function answerTrivia(el, qi, oi, correct) {
+  if (el.classList.contains('correct') || el.classList.contains('wrong')) return;
+
+  var parent = el.closest('.trivia-card');
+  var allBtns = parent.querySelectorAll('.trivia-option');
+  allBtns.forEach(function(btn) {
+    btn.style.pointerEvents = 'none';
+    if (parseInt(btn.dataset.o) === correct) btn.classList.add('correct');
+  });
+
+  if (oi === correct) {
+    state.triviaScore++;
+    el.classList.add('correct');
+  } else {
+    el.classList.add('wrong');
+  }
+
+  updateTriviaScore();
+
+  // Check if all answered
+  var allCards = $$('.trivia-card');
+  var allAnswered = true;
+  allCards.forEach(function(card) {
+    var btns = card.querySelectorAll('.trivia-option.correct, .trivia-option.wrong');
+    if (btns.length === 0) allAnswered = false;
+  });
+
+  if (allAnswered) {
+    showTriviaResult();
+  }
+}
+
+function updateTriviaScore() {
+  var bar = $('#trivia-score-bar');
+  if (bar) {
+    bar.innerHTML = '<div class="trivia-score-item">PUNTUACIÓN: <span>' + state.triviaScore + '/' + state.triviaTotal + '</span></div>' +
+      '<div class="trivia-score-item">PRECISIÓN: <span>' + (state.triviaTotal > 0 ? Math.round(state.triviaScore / state.triviaTotal * 100) : 0) + '%</span></div>';
+  }
+}
+
+function showTriviaResult() {
+  $('#trivia-questions-area').style.display = 'none';
+  var pct = Math.round(state.triviaScore / state.triviaTotal * 100);
+  var title, desc;
+  if (pct >= 90) { title = 'ARCHIVISTA SUPREMO'; desc = 'Tu conocimiento del lore FNaF es excepcional. Has dominado cada secreto y conexión.'; }
+  else if (pct >= 70) { title = 'EXPERTO EN LORE'; desc = 'Conoces bien la historia, pero aún hay secretos por descubrir.'; }
+  else if (pct >= 50) { title = 'INVESTIGADOR'; desc = 'Tienes una base sólida, pero necesitas explorar más archivos.'; }
+  else { title = 'SUPERVIVIENTE'; desc = 'Estás empezando tu investigación. Hay mucho más por descubrir.'; }
+
+  var html = '<div class="quiz-result-card">' +
+    '<div class="quiz-result-emoji">🧠</div>' +
+    '<div class="quiz-result-name">' + title + '</div>' +
+    '<div class="quiz-result-desc">' + desc + '</div>' +
+    '<div class="quiz-result-stats">' +
+      '<div class="quiz-stat"><div class="quiz-stat-label">CORRECTAS</div><div class="quiz-stat-bar"><div class="quiz-stat-fill" style="width:' + pct + '%"></div></div></div>' +
+    '</div>' +
+    '<button class="quiz-restart-btn" onclick="startTriviaQuiz()">🔄 INTENTAR DE NUEVO</button>' +
+  '</div>';
+
+  $('#trivia-result').innerHTML = html;
+  $('#trivia-result').classList.add('active');
 }
 
 console.log('%cTHE FAZBEAR FILES', 'font-size:24px;color:#FF2222;font-weight:bold;');
