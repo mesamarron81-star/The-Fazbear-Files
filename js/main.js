@@ -3388,6 +3388,70 @@ function renderQuizQuestion() {
   if (!el) return;
   el.style.display = 'block';
 
+  function findQuizChars(text) {
+    if (!window.characters) return [];
+    const lower = text.toLowerCase();
+    const found = [];
+    const seen = new Set();
+    const nameMap = {
+      'freddy fazbear': 'freddy', 'freddy': 'freddy', 'golden freddy': 'golden-freddy',
+      'bonnie': 'bonnie', 'chica': 'chica', 'foxy': 'foxy',
+      'springtrap': 'springtrap', 'the puppet': 'the-puppet', 'puppet': 'the-puppet',
+      'circus baby': 'circus-baby', 'baby': 'circus-baby',
+      'ballora': 'ballora', 'funtime freddy': 'funtime-freddy', 'funtime foxy': 'funtime-foxy',
+      'enard': 'ennard', 'mangle': 'mangle', 'toy freddy': 'toy-freddy',
+      'toy bonnie': 'toy-bonnie', 'toy chica': 'toy-chica',
+      'withered freddy': 'withered-freddy', 'withered bonnie': 'withered-bonnie',
+      'withered chica': 'withered-chica', 'withered foxy': 'withered-foxy',
+      'phone guy': 'phone-guy', 'phone guy': 'phone-guy',
+      'william afton': 'william-afton', 'michael afton': 'michael-afton',
+      'henry emily': 'henry-emily', 'crying child': 'crying-child',
+      'nightmare': 'nightmare', 'nightmare freddy': 'nightmare-freddy',
+      'nightmare bonnie': 'nightmare-bonnie', 'nightmare chica': 'nightmare-chica',
+      'nightmare foxy': 'nightmare-foxy',
+      'puppet': 'the-puppet', 'the marionette': 'the-marionette',
+      'shadow freddy': 'shadow-freddy', 'shadow bonnie': 'shadow-bonnie',
+      'jj': 'jj', 'el chip': 'el-chip', 'music man': 'music-man',
+      'lefty': 'lefty', 'scraptrap': 'scraptrap', 'scrap baby': 'scrap-baby',
+      'molten freddy': 'molten-freddy', 'scrap freddy': 'scrap-freddy',
+      'glitchtrap': 'glitchtrap', 'vanny': 'vanny',
+      'montgomery gator': 'montgomery-gator', 'monty': 'montgomery-gator',
+      'glamrock chica': 'glamrock-chica', 'roxy': 'roxy', 'roxi': 'roxy',
+      'sundrop': 'sundrop', 'moondrop': 'moondrop', 'sun': 'sundrop', 'moon': 'moondrop',
+      'blob': 'the-blob', 'the blob': 'the-blob',
+      'dreadbear': 'dreadbear', 'helpy': 'helpy',
+      'toy puppet': 'toy-puppet', 'phantom freddy': 'phantom-freddy',
+      'phantom chica': 'phantom-chica', 'phantom foxy': 'phantom-foxy',
+      'phantom mangle': 'phantom-mangle', 'phantom puppet': 'phantom-puppet',
+      'nightmare fredbear': 'nightmare-fredbear',
+      'funtime freddy': 'funtime-freddy', 'funtime foxy': 'funtime-foxy',
+      'bon-bon': 'bon-bon', 'bonbon': 'bon-bon',
+      'bidybab': 'bidybab', 'minireena': 'minireena',
+      'electrobab': 'electrobab', 'yenndo': 'yenndo',
+      'old man consequences': 'old-man-consequences',
+      'cassidy': 'cassidy', 'cassidy': 'cassidy',
+    };
+    for (const [name, id] of Object.entries(nameMap)) {
+      if (lower.includes(name) && !seen.has(id)) {
+        const ch = window.characters.find(c => c.id === id || c.name.toLowerCase() === name);
+        if (ch) { found.push(ch); seen.add(id); }
+      }
+    }
+    return found.slice(0, 3);
+  }
+
+  function charCardsHTML(text) {
+    const chars = findQuizChars(text);
+    if (chars.length === 0) return '';
+    return `<div class="quiz-char-hint">${chars.map(c => {
+      const img = getImageUrl('characters', c.id);
+      return `<div class="quiz-char-chip" onclick="event.stopPropagation();navigateTo('characters');setTimeout(()=>showCharacterModal('${c.id}'),400);">
+        ${img ? `<img src="${img}" alt="${c.name}" onerror="this.style.display='none'">` : `<span class="quiz-char-chip__fallback">${c.name.charAt(0)}</span>`}
+        <span class="quiz-char-chip__name">${c.name}</span>
+      </div>`;
+    }).join('')}</div>`;
+  }
+
   if (_quizState.type === 'personality') {
     const qs = window.quizData.personality.questions;
     if (_quizState.current >= qs.length) { renderPersonalityResult(); return; }
@@ -3396,6 +3460,7 @@ function renderQuizQuestion() {
       <div class="quiz-question">
         <div class="quiz-question__num">PREGUNTA ${_quizState.current + 1} / ${qs.length}</div>
         <div class="quiz-question__progress"><div class="quiz-question__fill" style="width:${(_quizState.current / qs.length) * 100}%"></div></div>
+        ${charCardsHTML(q.text)}
         <div class="quiz-question__text">${q.text}</div>
         <div class="quiz-question__options">
           ${q.options.map((o, i) => `<button class="quiz-option" onclick="answerPersonality(${i})">${o.text}</button>`).join('')}
@@ -3410,6 +3475,7 @@ function renderQuizQuestion() {
       <div class="quiz-question">
         <div class="quiz-question__num">PREGUNTA ${_quizState.current + 1} / ${qs.length}</div>
         <div class="quiz-question__progress"><div class="quiz-question__fill" style="width:${(_quizState.current / qs.length) * 100}%"></div></div>
+        ${charCardsHTML(q.q)}
         <div class="quiz-question__text">${q.q}</div>
         <div class="quiz-question__options">
           ${q.options.map((o, i) => `<button class="quiz-option" onclick="answerTrivia(${i}, ${q.answer})">${o}</button>`).join('')}

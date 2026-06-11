@@ -9131,6 +9131,28 @@ body {
 }
 
 /* =============================================
+   QUIZ CHARACTER HINTS
+   ============================================= */
+.quiz-char-hint { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.quiz-char-chip {
+  display: flex; align-items: center; gap: 6px;
+  background: #0d0d0d; border: 1px solid #1a3a1a; border-radius: 6px;
+  padding: 4px 10px 4px 4px; cursor: pointer;
+  transition: all 0.2s; font-size: 10px; color: #00FF66;
+}
+.quiz-char-chip:hover { border-color: #00FF66; background: #0a1a0a; transform: scale(1.05); }
+.quiz-char-chip img {
+  width: 32px; height: 32px; border-radius: 4px;
+  object-fit: cover; object-position: center top;
+}
+.quiz-char-chip__fallback {
+  width: 32px; height: 32px; border-radius: 4px;
+  background: #1a1a2e; display: flex; align-items: center; justify-content: center;
+  font-weight: bold; font-size: 14px; color: #00FF66;
+}
+.quiz-char-chip__name { font-family: 'Share Tech Mono', monospace; font-weight: bold; }
+
+/* =============================================
    RESPONSIVE — TABLETS (768px)
    ============================================= */
 @media (max-width: 768px) {
