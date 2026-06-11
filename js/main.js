@@ -471,13 +471,13 @@ function renderCharacters(filter = state.currentFilter, search = state.character
       <div class="char-classified">ANIMATRONIC</div>
       <div class="char-threat ${getThreatClass(threat)}">${threat.toUpperCase()}</div>
       <div class="char-info">
-        <div class="char-name">${char.name}</div>
-        <div class="char-alias">${char.alias || ''}</div>
+        <div class="char-name" style="color:${threatColor}">${char.name}</div>
+        <div class="char-alias" style="color:${threatColor}">${char.alias || ''}</div>
         <div class="char-meta">
           <span class="status-${status}">${status.toUpperCase()}</span>
           <span>${(char.category || '').toUpperCase()}</span>
         </div>
-        <div class="char-desc">${(char.description || '').slice(0, 120)}${(char.description || '').length > 120 ? '...' : ''}</div>
+        <div class="char-desc" style="color:${threatColor}">${(char.description || '').slice(0, 120)}${(char.description || '').length > 120 ? '...' : ''}</div>
         <div class="char-threat-bar">
           <div class="threat-fill" style="width:${threatPct}%;background:${threatColor};"></div>
         </div>
