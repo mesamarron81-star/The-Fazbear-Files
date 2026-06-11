@@ -1010,9 +1010,20 @@ document.addEventListener('pointerdown', (e) => {
   const card = e.target.closest('.character-card, .game-card, .book-card, .video-card, .fangame-card, .db-card, .folder-card, .char-appear-card, .game-modal__char-card, .char-modal__related-card, .ar-anim-card, .hdi-anim-card, .hdi-game-card');
   if (!card || card.classList.contains('card-click-anim')) return;
   if (e.target.closest('a, button, .modal-close')) return;
+  const onclickAttr = card.getAttribute('onclick');
+  if (!onclickAttr) return;
+  e.preventDefault();
+  e.stopPropagation();
+  card.removeAttribute('onclick');
   card.classList.add('card-click-anim');
-  card.addEventListener('animationend', () => card.classList.remove('card-click-anim'), { once: true });
-});
+  const fire = () => {
+    card.classList.remove('card-click-anim');
+    card.setAttribute('onclick', onclickAttr);
+    card.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+  };
+  card.addEventListener('animationend', fire, { once: true });
+  setTimeout(fire, 400);
+}, true);
 const videoData = [
   // --- JUMPSCARES ---
   { id: 'OUxQJxMQORA', title: 'FNaF 1 - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Compilacion completa de jumpscares de FNaF 1' },
