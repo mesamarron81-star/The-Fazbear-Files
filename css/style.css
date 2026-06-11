@@ -7924,6 +7924,577 @@ body {
 }
 
 /* =============================================
+   FNAF AR: SPECIAL DELIVERY
+   ============================================= */
+.ar-hero {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding: 24px;
+  background: linear-gradient(135deg, #0a0a12 0%, #0d1117 100%);
+  border: 1px solid #1a1a2e;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ar-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,150,255,0.015) 2px, rgba(0,150,255,0.015) 4px);
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .ar-hero { grid-template-columns: 1fr; }
+}
+
+.ar-hero__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ar-hero__phone {
+  width: 180px;
+  height: 320px;
+  background: #111;
+  border: 3px solid #222;
+  border-radius: 24px;
+  padding: 12px;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0, 150, 255, 0.15);
+}
+
+.ar-hero__phone::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: #222;
+  border-radius: 2px;
+}
+
+.ar-hero__screen {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #0a1628 0%, #050a12 100%);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ar-hero__scanlines {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,150,255,0.03) 1px, rgba(0,150,255,0.03) 2px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ar-hero__grid {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(0,150,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,150,255,0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: gridScroll 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gridScroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(20px); }
+}
+
+.ar-hero__animatronic {
+  font-size: 60px;
+  color: #0096FF;
+  font-family: 'Press Start 2P', monospace;
+  text-shadow: 0 0 30px rgba(0, 150, 255, 0.8);
+  animation: arPulse 3s ease-in-out infinite;
+  z-index: 3;
+}
+
+@keyframes arPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+.ar-hero__pulse {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 2px solid rgba(0, 150, 255, 0.3);
+  border-radius: 50%;
+  animation: arRadar 2s ease-out infinite;
+  z-index: 1;
+}
+
+@keyframes arRadar {
+  0% { transform: scale(0.5); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.ar-hero__info {
+  position: relative;
+  z-index: 1;
+}
+
+.ar-hero__tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.ar-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+}
+
+.ar-tag--ar {
+  color: #0096FF;
+  background: rgba(0, 150, 255, 0.1);
+  border: 1px solid rgba(0, 150, 255, 0.3);
+}
+
+.ar-tag--mobile {
+  color: #00FF66;
+  background: rgba(0, 255, 102, 0.1);
+  border: 1px solid rgba(0, 255, 102, 0.3);
+}
+
+.ar-tag--year {
+  color: #E6B800;
+  background: rgba(230, 184, 0, 0.1);
+  border: 1px solid rgba(230, 184, 0, 0.3);
+}
+
+.ar-tag--status {
+  color: #FF1744;
+  background: rgba(255, 23, 68, 0.1);
+  border: 1px solid rgba(255, 23, 68, 0.3);
+}
+
+.ar-hero__title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 18px;
+  color: #0096FF;
+  margin-bottom: 14px;
+  line-height: 1.4;
+  text-shadow: 0 0 20px rgba(0, 150, 255, 0.5);
+}
+
+.ar-hero__desc {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: #999;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.ar-hero__desc strong {
+  color: #0096FF;
+}
+
+.ar-hero__meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ar-meta-item {
+  padding: 10px;
+  background: rgba(0, 150, 255, 0.04);
+  border: 1px solid rgba(0, 150, 255, 0.1);
+  border-radius: 6px;
+}
+
+.ar-meta-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #555;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+.ar-meta-value {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: #0096FF;
+}
+
+/* AR SECTIONS */
+.ar-section {
+  margin-bottom: 35px;
+}
+
+.ar-section__header {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  color: #00FF66;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ar-section__dot {
+  width: 8px;
+  height: 8px;
+  background: #00FF66;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00FF66;
+}
+
+.ar-section__sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+/* MECHANICS */
+.ar-mechanics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 900px) {
+  .ar-mechanics { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .ar-mechanics { grid-template-columns: 1fr; }
+}
+
+.ar-mech-card {
+  background: #0d0d0d;
+  border: 1px solid #1a1a2e;
+  border-radius: 8px;
+  padding: 18px 14px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.ar-mech-card:hover {
+  border-color: #0096FF;
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+.ar-mech-card__icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.ar-mech-card__title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #0096FF;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.ar-mech-card__desc {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #888;
+  line-height: 1.5;
+}
+
+/* ANIMATRONICS GRID */
+.ar-anim-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.ar-anim-card {
+  background: #0d0d0d;
+  border: 1px solid #1a1a2e;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.ar-anim-card:hover {
+  border-color: #0096FF;
+  box-shadow: 0 0 15px rgba(0, 150, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.ar-anim-card__cover {
+  position: relative;
+  height: 90px;
+  overflow: hidden;
+  background: #111;
+}
+
+.ar-anim-card__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+  transition: all 0.3s;
+}
+
+.ar-anim-card:hover .ar-anim-card__cover img {
+  filter: brightness(1);
+  transform: scale(1.05);
+}
+
+.ar-anim-card__scanlines {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 4px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.ar-anim-card:hover .ar-anim-card__scanlines {
+  opacity: 1;
+}
+
+.ar-anim-card__name {
+  padding: 8px 10px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: #aaa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ar-anim-card:hover .ar-anim-card__name {
+  color: #0096FF;
+}
+
+.ar-anim-card__skin {
+  font-size: 8px;
+  color: #444;
+  padding: 0 10px 8px;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* SKINS - EVENT GROUPS */
+.ar-skin-event {
+  margin-bottom: 20px;
+}
+
+.ar-skin-event__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #1a1a2e;
+}
+
+.ar-skin-event__name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #E6B800;
+  letter-spacing: 1px;
+}
+
+.ar-skin-event__date {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: #555;
+}
+
+.ar-skin-event__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.ar-skin-card {
+  background: #0d0d0d;
+  border: 1px solid #1a1a2e;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.ar-skin-card:hover {
+  border-color: #E6B800;
+  box-shadow: 0 0 15px rgba(230, 184, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.ar-skin-card__img {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
+  background: #111;
+}
+
+.ar-skin-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8) saturate(0.9);
+  transition: all 0.3s;
+}
+
+.ar-skin-card:hover .ar-skin-card__img img {
+  filter: brightness(1) saturate(1.1);
+  transform: scale(1.05);
+}
+
+.ar-skin-card__scanlines {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 4px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.ar-skin-card:hover .ar-skin-card__scanlines {
+  opacity: 1;
+}
+
+.ar-skin-card__fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 28px;
+  color: #E6B800;
+  opacity: 0.4;
+  background: #0a0a0a;
+}
+
+.ar-skin-card__info {
+  padding: 10px 12px;
+}
+
+.ar-skin-card__name {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #ccc;
+  margin-bottom: 3px;
+  line-height: 1.2;
+}
+
+.ar-skin-card:hover .ar-skin-card__name {
+  color: #E6B800;
+}
+
+.ar-skin-card__base {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: #555;
+}
+
+/* AR TIMELINE */
+.ar-timeline {
+  position: relative;
+  padding-left: 24px;
+}
+
+.ar-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #0096FF, #0096FF33);
+}
+
+.ar-tl-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: #0d0d0d;
+  border: 1px solid #1a1a2e;
+  border-radius: 6px;
+}
+
+.ar-tl-item::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 16px;
+  width: 10px;
+  height: 10px;
+  background: #0096FF;
+  border-radius: 50%;
+  border: 2px solid #0a0a0a;
+}
+
+.ar-tl-item__date {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #0096FF;
+  margin-bottom: 4px;
+}
+
+.ar-tl-item__title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #ddd;
+  margin-bottom: 4px;
+}
+
+.ar-tl-item__desc {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #777;
+  line-height: 1.5;
+}
+
+/* AR TRIVIA */
+.ar-trivia {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 700px) {
+  .ar-trivia { grid-template-columns: 1fr; }
+}
+
+.ar-trivia-item {
+  padding: 12px 14px;
+  background: #0d0d0d;
+  border: 1px solid #1a1a2e;
+  border-left: 3px solid #0096FF;
+  border-radius: 0 6px 6px 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #999;
+  line-height: 1.6;
+}
+
+.ar-trivia-item strong {
+  color: #0096FF;
+}
+
+/* =============================================
    PRINT
    ============================================= */
 @media print {

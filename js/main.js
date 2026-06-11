@@ -180,6 +180,9 @@ function loadPage(page) {
     case 'games':
       renderGames();
       break;
+    case 'fnaf-ar':
+      renderFnafAR();
+      break;
     case 'books':
       renderBooks();
       break;
@@ -491,12 +494,16 @@ function renderGames(search = state.gamesSearch) {
 }
 
 window.handleGameClick = function(element, gameId) {
-  element.classList.add('jumpscare');
-  triggerDistortion();
-  setTimeout(() => {
-    element.classList.remove('jumpscare');
+  if (element) {
+    element.classList.add('jumpscare');
+    triggerDistortion();
+    setTimeout(() => {
+      element.classList.remove('jumpscare');
+      showGameModal(gameId);
+    }, 550);
+  } else {
     showGameModal(gameId);
-  }, 550);
+  }
 };
 
 // =============================================
@@ -828,7 +835,7 @@ window.showFangameModal = (id) => {
     </div>
   `;
 
-  $('#modal').classList.add('active');
+  openModal();
 };
 
 // =============================================
@@ -1317,6 +1324,254 @@ function stopStaticAudio() {
   }
 }
 
+// =============================================
+// FNAF AR: SPECIAL DELIVERY
+// =============================================
+function renderFnafAR() {
+  const animGrid = $('#ar-anim-grid');
+  const skinsGrid = $('#ar-skins-grid');
+  const timeline = $('#ar-timeline');
+  const trivia = $('#ar-trivia');
+
+  // Animatronics data
+  const animatronics = [
+    { id: 'freddy-fazbear', name: 'Freddy Fazbear', type: 'Original' },
+    { id: 'bonnie', name: 'Bonnie', type: 'Original' },
+    { id: 'chica', name: 'Chica', type: 'Original' },
+    { id: 'foxy', name: 'Foxy', type: 'Original' },
+    { id: 'golden-freddy', name: 'Golden Freddy', type: 'Original' },
+    { id: 'toy-freddy', name: 'Toy Freddy', type: 'Toy' },
+    { id: 'toy-bonnie', name: 'Toy Bonnie', type: 'Toy' },
+    { id: 'toy-chica', name: 'Toy Chica', type: 'Toy' },
+    { id: 'mangle', name: 'Mangle', type: 'Toy' },
+    { id: 'balloon-boy', name: 'Balloon Boy', type: 'Toy' },
+    { id: 'shadow-bonnie', name: 'RWQFSFASXC', type: 'Shadow' },
+    { id: 'springtrap', name: 'Springtrap', type: 'Springlock' },
+    { id: 'jack-o-chica', name: 'Jack-O-Chica', type: 'Halloween' },
+    { id: 'jack-o-bonnie', name: 'Jack-O-Bonnie', type: 'Halloween' },
+    { id: 'plushtrap', name: 'Plushtrap', type: 'Halloween' },
+    { id: 'circus-baby', name: 'Circus Baby', type: 'Funtime' },
+    { id: 'ballora', name: 'Ballora', type: 'Funtime' },
+    { id: 'funtime-freddy', name: 'Funtime Freddy', type: 'Funtime' },
+    { id: 'bon-bon', name: 'Bon-Bon', type: 'Funtime' },
+    { id: 'freddy-frostbear', name: 'Freddy Frostbear', type: 'Special' },
+    { id: '8bit-baby', name: '8-Bit Baby', type: 'Special' },
+    { id: 'endo-01', name: 'Endo-01', type: 'Endoskeleton' },
+  ];
+
+  // Skins - organized by event with real images from wiki
+  const skinEvents = [
+    {
+      event: "ST. PATRICK'S DAY", date: "Mar 2020",
+      skins: [
+        { name: 'Shamrock Freddy', base: 'Freddy Fazbear', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/7/77/Shamrock_Freddy.png/revision/latest/scale-to-width-down/310?cb=20200709200121', desc: 'Freddy metálico verde y dorado temático de San Patricio.' }
+      ]
+    },
+    {
+      event: "EASTER", date: "Abr 2020",
+      skins: [
+        { name: 'Chocolate Bonnie', base: 'Bonnie', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/8/88/Chocolatebonniear.png/revision/latest/scale-to-width-down/310?cb=20200410022847', desc: 'Bonnie de chocolate con botones de caramelos y marcas de mordiscos.' },
+        { name: 'Easter Bonnie', base: 'Bonnie', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/0/04/Easter_Bunny.png/revision/latest/scale-to-width-down/310?cb=20200417014001', desc: 'Bonnie blanco con lazo amarillo y patrón de huevo de Pascua.' },
+        { name: 'Melted Chocolate Bonnie', base: 'Bonnie', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/5/56/MeltedChocoBonnieAmqericaRender.png/revision/latest/scale-to-width-down/310?cb=20220309030910', desc: 'Variante derretida de Chocolate Bonnie.' }
+      ]
+    },
+    {
+      event: "ARCADE MAYHEM", date: "May 2020",
+      skins: [
+        { name: 'VR Toy Freddy', base: 'Toy Freddy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/1/17/VR_Toy_Freddyram.png/revision/latest/scale-to-width-down/310?cb=20200510033451', desc: 'Toy Freddy púrpura neón con gafas VR.' },
+        { name: 'Highscore Toy Chica', base: 'Toy Chica', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/f/f5/Ec20ojdvauy41.png/revision/latest/scale-to-width-down/310?cb=20200516065042', desc: 'Toy Chica azul neón con "HIGH SCORE" en su bib.' },
+        { name: 'System Error Toy Bonnie', base: 'Toy Bonnie', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/0/08/SystemErrorTB_PlushsuitIcon.png/revision/latest/scale-to-width-down/310?cb=20201121000356', desc: 'Toy Bonnie rojo con "SYSTEM ERROR" en el pecho.' }
+      ]
+    },
+    {
+      event: "WASTELAND", date: "Jun 2020",
+      skins: [
+        { name: 'Radioactive Foxy', base: 'Foxy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/5/5d/RadioactiveFoxyRender.png/revision/latest/scale-to-width-down/310?cb=20200625034838', desc: 'Foxy radiactivo con tonos verdes.' },
+        { name: 'Toxic Springtrap', base: 'Springtrap', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/4/49/ToxicSpringtrapRender.png/revision/latest/scale-to-width-down/310?cb=20200625034919', desc: 'Springtrap tóxico con sustancias químicas.' }
+      ]
+    },
+    {
+      event: "4TH OF JULY", date: "Jul 2020",
+      skins: [
+        { name: 'Firework Freddy', base: 'Freddy Fazbear', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/0/0d/AC0DAF84-03B5-48A8-A3B9-5A4B3E5F7D44.png/revision/latest/scale-to-width-down/310?cb=20200706174607', desc: 'Freddy patriotero con fuegos artificiales.' },
+        { name: 'Liberty Chica', base: 'Chica', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/b/b5/Liberty_Chica.png/revision/latest/scale-to-width-down/310?cb=20200706174532', desc: 'Chica temática de la Estatua de la Libertad.' }
+      ]
+    },
+    {
+      event: "HEATWAVE", date: "Ago 2020",
+      skins: [
+        { name: 'Flamethrower Bare Endo', base: 'Endo-01', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/e/e1/Flamethrower_Bare_Endo.png/revision/latest/scale-to-width-down/310?cb=20200821015512', desc: 'Endo con lanzallamas.' },
+        { name: 'Broiler Baby', base: 'Circus Baby', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/1/16/BroilerBabyRender.png/revision/latest/scale-to-width-down/310?cb=20200821015634', desc: 'Circus Baby con tema de horno.' },
+        { name: 'Scorching Chica', base: 'Chica', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/2/27/Scorching_Chica.png/revision/latest/scale-to-width-down/310?cb=20200821015703', desc: 'Chica quemada con fuego.' },
+        { name: 'Flaming Springtrap', base: 'Springtrap', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/0/09/Flaming_Springtrap.png/revision/latest/scale-to-width-down/310?cb=20200821015730', desc: 'Springtrap en llamas.' }
+      ]
+    },
+    {
+      event: "DARK CIRCUS", date: "Oct 2021",
+      skins: [
+        { name: 'Ringmaster Foxy', base: 'Foxy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/e/ed/RingmasterFoxyRender.png/revision/latest/scale-to-width-down/310?cb=20211002014702', desc: 'Foxy como maestro de ceremonia de circo.' },
+        { name: 'Magician Mangle', base: 'Mangle', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/0/04/MagicianMangleRender.png/revision/latest/scale-to-width-down/310?cb=20211002014741', desc: 'Mangle como mago de circo.' },
+        { name: 'Clown Springtrap', base: 'Springtrap', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/4/43/ClownSpringtrapRender.png/revision/latest/scale-to-width-down/310?cb=20211002014805', desc: 'Springtrap payaso de circo.' },
+        { name: 'Great Escape Golden Freddy', base: 'Golden Freddy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/d/d2/Great_Escape_Golden_Freddy.png/revision/latest/scale-to-width-down/310?cb=20211213204045', desc: 'Golden Freddy con tema de gran escape.' }
+      ]
+    },
+    {
+      event: "HALLOWEEN", date: "Oct 2020",
+      skins: [
+        { name: 'Catrina Toy Chica', base: 'Toy Chica', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/4/47/Catrina_Toy_Chica.png/revision/latest/scale-to-width-down/310?cb=20201027012032', desc: 'Toy Chica temática Día de Muertos.' }
+      ]
+    },
+    {
+      event: "HAUNTED FOREST", date: "Oct 2020",
+      skins: [
+        { name: 'Woodland Toy Freddy', base: 'Toy Freddy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/a/af/Woody.png/revision/latest/scale-to-width-down/310?cb=20201027012144', desc: 'Toy Freddy del bosque encantado.' },
+        { name: 'Boulder Toy Bonnie', base: 'Toy Bonnie', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/0/0e/BoulderToyBonnieRender.png/revision/latest/scale-to-width-down/310?cb=20201027012214', desc: 'Toy Bonnie de roca.' },
+        { name: 'Swamp Balloon Boy', base: 'Balloon Boy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/4/4f/SwampBalloonBoyRender.png/revision/latest/scale-to-width-down/310?cb=20201027012245', desc: 'Balloon Boy del pantano.' }
+      ]
+    },
+    {
+      event: "WINTER WONDERLAND", date: "Dic 2020",
+      skins: [
+        { name: 'Black Ice Frostbear', base: 'Freddy Frostbear', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/7/73/Black_Ice_Frostbear.png/revision/latest/scale-to-width-down/310?cb=20201211203043', desc: 'Freddy Frostbear de hielo negro.' },
+        { name: 'Arctic Ballora', base: 'Ballora', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/0/02/ArcticBalloraRender.png/revision/latest/scale-to-width-down/310?cb=20201211203118', desc: 'Ballora ártica.' },
+        { name: 'Frostbite Balloon Boy', base: 'Balloon Boy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/7/7c/FrostbiteBalloonBoy.png/revision/latest/scale-to-width-down/310?cb=20201211203148', desc: 'Balloon Boy congelado.' },
+        { name: 'Frost Plushtrap', base: 'Plushtrap', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/d/d4/FrostPlushtrapRender.png/revision/latest/scale-to-width-down/310?cb=20201211203212', desc: 'Plushtrap helado.' }
+      ]
+    },
+    {
+      event: "HEART STOPPERS", date: "Feb 2021",
+      skins: [
+        { name: 'Heartsick Baby', base: 'Circus Baby', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/5/53/HeartsickBabyRender.png/revision/latest/scale-to-width-down/310?cb=20210211212531', desc: 'Circus Baby con tema de corazones.' },
+        { name: 'Black Heart Bonnie', base: 'Bonnie', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/1/14/BlackHeartBonnieRender.png/revision/latest/scale-to-width-down/310?cb=20210211212604', desc: 'Bonnie con corazón negro.' }
+      ]
+    },
+    {
+      event: "ANCIENT EQUINOX", date: "Mar 2021",
+      skins: [
+        { name: 'Serpent Mangle', base: 'Mangle', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/5/53/Serpent_Mangle.png/revision/latest/scale-to-width-down/310?cb=20210320005938', desc: 'Mangle serpiente.' },
+        { name: 'Curse (Endo)', base: 'Endo-01', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/a/af/CurseEndoRender.png/revision/latest/scale-to-width-down/310?cb=20210320010011', desc: 'Endo maldito.' }
+      ]
+    },
+    {
+      event: "SCARY TALES", date: "Jun 2021",
+      skins: [
+        { name: 'Little Red Chica', base: 'Chica', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/b/b5/Little_Red_Chica.png/revision/latest/scale-to-width-down/310?cb=20210618215903', desc: 'Chica Caperucita Roja.' },
+        { name: 'Big Bad Foxy', base: 'Foxy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/e/e2/Big_Bad_Foxy.png/revision/latest/scale-to-width-down/310?cb=20210618215932', desc: 'Foxy el Lobo Feroz.' }
+      ]
+    },
+    {
+      event: "WICKED TIDES", date: "Ago 2021",
+      skins: [
+        { name: 'Dark Water Bare Endo', base: 'Endo-01', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/2/20/DarkWaterEndoRender.png/revision/latest/scale-to-width-down/310?cb=20210814021422', desc: 'Endo de agua oscura.' },
+        { name: 'Sunken Toy Bonnie', base: 'Toy Bonnie', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/3/37/SunkenToyBonnieRender.png/revision/latest/scale-to-width-down/310?cb=20210814021452', desc: 'Toy Bonnie hundido.' },
+        { name: 'Piranha Plushtrap', base: 'Plushtrap', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/1/14/PiranhaPlushtrapRender.png/revision/latest/scale-to-width-down/310?cb=20210814021517', desc: 'Plushtrap piraña.' }
+      ]
+    },
+    {
+      event: "SCREAMPUNK", date: "Oct 2021",
+      skins: [
+        { name: 'Clockwork Ballora', base: 'Ballora', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/7/7b/Clockwork_Ballora.png/revision/latest/scale-to-width-down/310?cb=20211016013247', desc: 'Ballora de relojería.' },
+        { name: 'Aeronaut Toy Freddy', base: 'Toy Freddy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/a/a4/Aeronaut_Toy_Freddy.png/revision/latest/scale-to-width-down/310?cb=20211016013315', desc: 'Toy Freddy aeronauta.' },
+        { name: 'Jetpack Balloon Boy', base: 'Balloon Boy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/1/19/Jetpack_Balloon_Boy.png/revision/latest/scale-to-width-down/310?cb=20211016013342', desc: 'Balloon Boy con jetpack.' }
+      ]
+    }
+  ];
+
+  // Timeline
+  const events = [
+    { date: '25 Nov 2019', title: 'Lanzamiento oficial', desc: 'Juego lanzado para iOS y Android tras early access el 22 de noviembre.' },
+    { date: '12 Mar 2020', title: 'Skins introducidas', desc: 'Primer skin: Shamrock Freddy. Evento de San Patricio.' },
+    { date: '2020', title: 'Eventos de Halloween', desc: 'Jack-O-Chica, Jack-O-Bonnie y Plushtrap agregados junto con skins temáticas.' },
+    { date: '2021', title: 'Nuevos animatrónicos', desc: 'Se agregaron Funtime Freddy, Bon-Bon, Ballora y más animatrónicos Funtime.' },
+    { date: '13 Dic 2021', title: 'Último skin', desc: 'Great Escape Golden Freddy, durante el evento Dark Circus.' },
+    { date: '1 Feb 2024', title: 'Cancelación anunciada', desc: 'Illumix anuncia el cierre de los servidores del juego.' },
+    { date: '14 Mar 2024', title: 'Cierre de servidores', desc: 'Los servidores de FNAF AR: Special Delivery son apagados oficialmente.' },
+  ];
+
+  // Trivia
+  const triviaData = [
+    { text: 'Desarrollado por <strong>Illumix</strong> en colaboración con <strong>Scott Cawthon</strong>. Fue el primer juego de FNAF en realidad aumentada.' },
+    { text: 'El juego utilizaba la <strong>cámara del teléfono</strong> y los sensores de <strong>movimiento</strong> para crear experiencias AR inmersivas.' },
+    { text: 'Se implementaron un total de <strong>22 animatrónicos</strong> y <strong>39 skins</strong> durante el tiempo de vida del juego.' },
+    { text: 'Los jugadores podían <strong>enviar animatrónicos</strong> contra amigos y otros jugadores para competir en leaderboards.' },
+    { text: 'El sistema de <strong>Plush Suits</strong> permitía personalizar la apariencia de los endosqueletos enviados a otros jugadores.' },
+    { text: 'El juego fue <strong>cancelado</strong> en febrero de 2024 y sus servidores cerraron en marzo del mismo año.' },
+  ];
+
+  // Render animatronics
+  if (animGrid) {
+    animGrid.innerHTML = animatronics.map(a => {
+      const charData = window.characters ? window.characters.find(c => c.id === a.id) : null;
+      const img = getImageUrl('characters', a.id);
+      return `
+        <div class="ar-anim-card" ${charData ? `onclick="event.stopPropagation();navigateTo('characters');setTimeout(()=>showCharacterModal('${a.id}'),400);"` : ''}>
+          <div class="ar-anim-card__cover">
+            ${img ? `<img src="${img}" alt="${a.name}" loading="lazy" onerror="this.style.display='none'">` : ''}
+            <div class="ar-anim-card__scanlines"></div>
+          </div>
+          <div class="ar-anim-card__name">${a.name}</div>
+          <div class="ar-anim-card__skin">${a.type}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Render skins grouped by event
+  if (skinsGrid) {
+    skinsGrid.innerHTML = skinEvents.map(ev => `
+      <div class="ar-skin-event">
+        <div class="ar-skin-event__header">
+          <span class="ar-skin-event__name">${ev.event}</span>
+          <span class="ar-skin-event__date">${ev.date}</span>
+        </div>
+        <div class="ar-skin-event__list">
+          ${ev.skins.map(s => `
+            <div class="ar-skin-card" title="${s.desc}">
+              <div class="ar-skin-card__img">
+                <img src="${s.img}" alt="${s.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'ar-skin-card__fallback\\'>${s.base.charAt(0)}</div>'">
+                <div class="ar-skin-card__scanlines"></div>
+              </div>
+              <div class="ar-skin-card__info">
+                <div class="ar-skin-card__name">${s.name}</div>
+                <div class="ar-skin-card__base">${s.base}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Render timeline
+  if (timeline) {
+    timeline.innerHTML = events.map(e => `
+      <div class="ar-tl-item">
+        <div class="ar-tl-item__date">${e.date}</div>
+        <div class="ar-tl-item__title">${e.title}</div>
+        <div class="ar-tl-item__desc">${e.desc}</div>
+      </div>
+    `).join('');
+  }
+
+  // Render trivia
+  if (trivia) {
+    trivia.innerHTML = triviaData.map(t => `
+      <div class="ar-trivia-item">${t.text}</div>
+    `).join('');
+  }
+
+  // Animate preview character
+  const preview = $('#ar-anim-preview');
+  if (preview) {
+    const chars = [' Freddy', ' Bonnie', ' Chica', ' Foxy', '?'];
+    let idx = 0;
+    setInterval(() => {
+      preview.textContent = chars[idx];
+      idx = (idx + 1) % chars.length;
+    }, 2000);
+  }
+}
+
 function renderMusic() {
   const list = $('#music-list');
   const tracks = [
@@ -1614,6 +1869,14 @@ function initModal() {
       modal.classList.remove('active');
     }
   });
+}
+
+function openModal() {
+  const mc = $('#modal');
+  mc.classList.add('active');
+  const inner = mc.querySelector('.modal-content') || mc.querySelector('[class*="modal"]');
+  if (inner) inner.scrollTop = 0;
+  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 window._currentGallery = [];
@@ -2065,7 +2328,7 @@ window.showGameModal = (id) => {
   window._gameGalleryIdx = 0;
   window._gameGalleryImgs = imgs;
 
-  $('#modal').classList.add('active');
+  openModal();
 };
 
 window._switchGameImg = function(el, idx) {
@@ -2221,7 +2484,7 @@ window.showBookModal = (id) => {
   const mc = body.closest('.modal-content') || body.parentElement;
   if (mc) mc.setAttribute('data-game-modal', 'books');
 
-  $('#modal').classList.add('active');
+  openModal();
 };
 
 // =============================================

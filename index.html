@@ -63,23 +63,13 @@
     <nav class="nav-menu" id="main-nav">
       <a href="#characters" class="nav-link" data-page="characters">PERSONAJES</a>
       <a href="#games" class="nav-link" data-page="games">JUEGOS</a>
+      <a href="#fnaf-ar" class="nav-link" data-page="fnaf-ar">FNAF AR</a>
       <a href="#books" class="nav-link" data-page="books">LIBROS</a>
       <a href="#videos" class="nav-link" data-page="videos">VÍDEOS</a>
       <a href="#fangames" class="nav-link" data-page="fangames">FANGAMES</a>
       <a href="#history" class="nav-link" data-page="history">HISTORIA</a>
       <a href="#music" class="nav-link" data-page="music">MUSICA</a>
     </nav>
-    <div class="header-right">
-      <div class="header-case">CASE FILE #1987</div>
-      <div class="header-classified">◆ CLASSIFIED ◆</div>
-      <div class="header-restricted">SECURITY LEVEL: RESTRICTED</div>
-      <div class="header-status">
-        <span class="recording"></span> REC
-        <span style="color:#444;margin-left:10px;">●</span>
-        <span style="color:#444;margin-left:5px;">ARCHIVE</span>
-      </div>
-      <div class="header-names">sebas y marco</div>
-    </div>
   </div>
 </header>
 
@@ -597,6 +587,118 @@
     </div>
 
     <div class="games-grid" id="games-grid"></div>
+  </section>
+
+  <section id="page-fnaf-ar" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">FNAF AR: SPECIAL DELIVERY</div>
+      <div class="section-sub">REALIDAD AUMENTADA — FAZBEAR FUNTIME SERVICE</div>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="ar-hero">
+      <div class="ar-hero__visual">
+        <div class="ar-hero__phone">
+          <div class="ar-hero__screen">
+            <div class="ar-hero__scanlines"></div>
+            <div class="ar-hero__grid"></div>
+            <div class="ar-hero__animatronic" id="ar-anim-preview">?</div>
+            <div class="ar-hero__pulse"></div>
+          </div>
+        </div>
+      </div>
+      <div class="ar-hero__info">
+        <div class="ar-hero__tags">
+          <span class="ar-tag ar-tag--ar">AR</span>
+          <span class="ar-tag ar-tag--mobile">MÓVIL</span>
+          <span class="ar-tag ar-tag--year">2019</span>
+          <span class="ar-tag ar-tag--status">SERVIDORES CERRADOS</span>
+        </div>
+        <h2 class="ar-hero__title">Five Nights at Freddy's AR: Special Delivery</h2>
+        <p class="ar-hero__desc">
+          El juego de realidad aumentada donde los animatrónicos cobran vida en tu mundo real.
+          Desarrollado por <strong>Illumix</strong> en colaboración con <strong>Scott Cawthon</strong>.
+          Los jugadores se suscriben al "Fazbear Funtime Service" y reciben sus animatrónicos favoritos bajo demanda,
+          pero debido a circunstancias infortunadas, los visitantes averiados atacan a los suscriptores en lugar de entretenerlos.
+        </p>
+        <div class="ar-hero__meta">
+          <div class="ar-meta-item">
+            <div class="ar-meta-label">DESARROLLADOR</div>
+            <div class="ar-meta-value">Illumix</div>
+          </div>
+          <div class="ar-meta-item">
+            <div class="ar-meta-label">LANZAMIENTO</div>
+            <div class="ar-meta-value">25 Nov 2019</div>
+          </div>
+          <div class="ar-meta-item">
+            <div class="ar-meta-label">CIERRE</div>
+            <div class="ar-meta-value">14 Mar 2024</div>
+          </div>
+          <div class="ar-meta-item">
+            <div class="ar-meta-label">PLATAFORMA</div>
+            <div class="ar-meta-value">iOS / Android</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ar-section">
+      <div class="ar-section__header">
+        <span class="ar-section__dot"></span> MECÁNICAS DE JUEGO
+      </div>
+      <div class="ar-mechanics">
+        <div class="ar-mech-card">
+          <div class="ar-mech-card__icon">📍</div>
+          <div class="ar-mech-card__title">MAPA</div>
+          <div class="ar-mech-card__desc">Ubica animatrónicos en tu zona. Usa Transponders, Lures y Radio Jammers para controlar entregas.</div>
+        </div>
+        <div class="ar-mech-card">
+          <div class="ar-mech-card__icon">📹</div>
+          <div class="ar-mech-card__title">CÁMARA</div>
+          <div class="ar-mech-card__desc">Enfrenta animatrónicos en secuencias AR de audio y video. Usa la linterna para rastrearlos y el shocker para derrotarlos.</div>
+        </div>
+        <div class="ar-mech-card">
+          <div class="ar-mech-card__icon">🔧</div>
+          <div class="ar-mech-card__title">TALLER</div>
+          <div class="ar-mech-card__desc">Ensambla Plush Suits, CPUs y MODs. Personaliza endosqueletos y envía animatrónicos contra otros jugadores.</div>
+        </div>
+        <div class="ar-mech-card">
+          <div class="ar-mech-card__icon">⚡</div>
+          <div class="ar-mech-card__title">RECURSOS</div>
+          <div class="ar-mech-card__desc">Gestiona batería, linterna y shocker sabiamente. Recoge Parts, CPUs y Remnant para sobrevivir.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ar-section">
+      <div class="ar-section__header">
+        <span class="ar-section__dot"></span> ANIMATRÓNICOS
+      </div>
+      <div class="ar-section__sub">Todos los animatrónicos disponibles en el juego</div>
+      <div class="ar-anim-grid" id="ar-anim-grid"></div>
+    </div>
+
+    <div class="ar-section">
+      <div class="ar-section__header">
+        <span class="ar-section__dot"></span> SKINS / DISFRAZES
+      </div>
+      <div class="ar-section__sub">39 skins de animatrónicos para personalizar plush suits</div>
+      <div class="ar-skins-grid" id="ar-skins-grid"></div>
+    </div>
+
+    <div class="ar-section">
+      <div class="ar-section__header">
+        <span class="ar-section__dot"></span> HISTORIA Y ACTUALIZACIONES
+      </div>
+      <div class="ar-timeline" id="ar-timeline"></div>
+    </div>
+
+    <div class="ar-section">
+      <div class="ar-section__header">
+        <span class="ar-section__dot"></span> DATOS DE ARCHIVO
+      </div>
+      <div class="ar-trivia" id="ar-trivia"></div>
+    </div>
   </section>
 
   <section id="page-books" class="page">
