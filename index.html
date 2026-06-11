@@ -61,31 +61,62 @@
       <span class="logo-icon">&#x258C;</span>THE FAZBEAR FILES<span class="logo-icon">&#x2590;</span>
     </a>
     <nav class="nav-menu" id="main-nav">
-      <a href="#characters" class="nav-link" data-page="characters">PERSONAJES</a>
-      <a href="#games" class="nav-link" data-page="games">JUEGOS</a>
-      <a href="#books" class="nav-link" data-page="books">LIBROS</a>
-      <a href="#videos" class="nav-link" data-page="videos">VÍDEOS</a>
-      <a href="#fangames" class="nav-link" data-page="fangames">FANGAMES</a>
-      <a href="#secrets" class="nav-link" data-page="secrets">SECRETOS</a>
-      <a href="#quiz" class="nav-link" data-page="quiz">QUIZ</a>
-      <a href="#timeline" class="nav-link" data-page="timeline">LÍNEA</a>
-      <a href="#map" class="nav-link" data-page="map">MAPA</a>
-      <a href="#simulator" class="nav-link" data-page="simulator">SIMULADOR</a>
-      <a href="#gallery" class="nav-link" data-page="gallery">GALERÍA</a>
-      <a href="#history" class="nav-link" data-page="history">HISTORIA</a>
-      <a href="#music" class="nav-link" data-page="music">MUSICA</a>
-    </nav>
-    <div class="header-right">
-      <div class="header-case">CASE FILE #1987</div>
-      <div class="header-classified">◆ CLASSIFIED ◆</div>
-      <div class="header-restricted">SECURITY LEVEL: RESTRICTED</div>
-      <div class="header-status">
-        <span class="recording"></span> REC
-        <span style="color:#444;margin-left:10px;">●</span>
-        <span style="color:#444;margin-left:5px;">ARCHIVE</span>
+      <div class="nav-dropdown" data-nav-group="camaras">
+        <button class="nav-link nav-trigger" type="button" aria-expanded="false">
+          CAMARAS <span class="nav-chevron">▾</span>
+        </button>
+        <div class="nav-dropdown-panel" role="menu">
+          <a href="#games" class="nav-link nav-dropdown-link" data-page="games" role="menuitem">
+            <span class="nav-link-code">CAM-01</span>JUEGOS
+          </a>
+          <a href="#fnaf-ar" class="nav-link nav-dropdown-link" data-page="fnaf-ar" role="menuitem">
+            <span class="nav-link-code">CAM-AR</span>FNAF AR
+          </a>
+          <a href="#fangames" class="nav-link nav-dropdown-link" data-page="fangames" role="menuitem">
+            <span class="nav-link-code">CAM-FG</span>FANGAMES
+          </a>
+        </div>
       </div>
-      <div class="header-names">sebas y marco</div>
-    </div>
+
+      <div class="nav-dropdown" data-nav-group="animatronicos">
+        <button class="nav-link nav-trigger" type="button" aria-expanded="false">
+          ANIMATRONICOS <span class="nav-chevron">▾</span>
+        </button>
+        <div class="nav-dropdown-panel" role="menu">
+          <a href="#characters" class="nav-link nav-dropdown-link" data-page="characters" role="menuitem">
+            <span class="nav-link-code">ROSTER</span>PERSONAJES
+          </a>
+          <a href="#books" class="nav-link nav-dropdown-link" data-page="books" role="menuitem">
+            <span class="nav-link-code">FILES</span>LIBROS
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown" data-nav-group="noches">
+        <button class="nav-link nav-trigger" type="button" aria-expanded="false">
+          NOCHES <span class="nav-chevron">▾</span>
+        </button>
+        <div class="nav-dropdown-panel" role="menu">
+          <a href="#videos" class="nav-link nav-dropdown-link" data-page="videos" role="menuitem">
+            <span class="nav-link-code">REC</span>VIDEOS
+          </a>
+          <a href="#music" class="nav-link nav-dropdown-link" data-page="music" role="menuitem">
+            <span class="nav-link-code">AUDIO</span>MUSICA
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown" data-nav-group="lore">
+        <button class="nav-link nav-trigger" type="button" aria-expanded="false">
+          LORE <span class="nav-chevron">▾</span>
+        </button>
+        <div class="nav-dropdown-panel" role="menu">
+          <a href="#history" class="nav-link nav-dropdown-link" data-page="history" role="menuitem">
+            <span class="nav-link-code">1983</span>HISTORIA
+          </a>
+        </div>
+      </div>
+    </nav>
   </div>
 </header>
 
@@ -103,7 +134,7 @@
         <div class="cdb-header-right">
           <div class="cdb-status">
             <span class="cdb-status-dot"></span>
-            <span>11 CATEGORIAS ACTIVAS</span>
+            <span>6 CATEGORIAS ACTIVAS</span>
           </div>
         </div>
       </header>
@@ -149,7 +180,7 @@
             <h3 class="db-card-title">PERSONAJES</h3>
             <p class="db-card-desc">Animatronicos, humanos y entidades. Cada uno con su historia y nivel de amenaza.</p>
             <div class="db-card-bottom">
-              <span class="db-card-count">253</span>
+              <span class="db-card-count">223</span>
             </div>
           </div>
           <div class="db-card-glitch"></div>
@@ -219,7 +250,7 @@
             <h3 class="db-card-title">FANGAMES</h3>
             <p class="db-card-desc">Producciones de la comunidad. Candy's, POPGOES, TJOC, Flumpty's y mas.</p>
             <div class="db-card-bottom">
-              <span class="db-card-count">41</span>
+              <span class="db-card-count">16</span>
               <span class="db-card-btn">[ ACCEDER &rarr; ]</span>
             </div>
           </div>
@@ -268,115 +299,6 @@
             <div class="db-card-bottom">
               <span class="db-card-count">15</span>
             </div>
-          </div>
-          <div class="db-card-glitch"></div>
-        </a>
-
-        <a href="#secrets" class="db-card db-card-8" data-page="secrets">
-          <div class="db-card-bg" style="background-image:url('https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/61/FNaF_-_Golden_Freddy.png/revision/latest?cb=20260124123953&path-prefix=es')"></div>
-          <div class="db-card-grid"></div>
-          <div class="db-card-previews">
-            <img src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/61/FNaF_-_Golden_Freddy.png/revision/latest?cb=20260124123953&path-prefix=es" alt="Golden Freddy" loading="lazy">
-            <img src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/b9/FNaF3_-_Extras_%28Springtrap_2%29.png/revision/latest?cb=20150312173655" alt="Springtrap" loading="lazy">
-            <img src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/0/09/NightmareFredbear.png/revision/latest?cb=20150725020056" alt="Nightmare" loading="lazy">
-            <img src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/f/f7/FNaF2_-_Main_Hall_%28Puppet_-_Alucinaci%C3%B3n%2C_Textura%29.png/revision/latest?cb=20150119193816&path-prefix=es" alt="Puppet" loading="lazy">
-          </div>
-          <div class="db-card-content">
-            <div class="db-card-top">
-              <span class="db-card-id">CAT-007</span>
-              <span class="db-card-pulse"></span>
-            </div>
-            <h3 class="db-card-title">SECRETOS</h3>
-            <p class="db-card-desc">Archivo de anomalías y easter eggs. 40 secretos ocultos en toda la saga.</p>
-            <div class="db-card-bottom">
-              <span class="db-card-count">40</span>
-              <span class="db-card-btn">[ ACCEDER &rarr; ]</span>
-            </div>
-          </div>
-          <div class="db-card-glitch"></div>
-        </a>
-
-        <a href="#quiz" class="db-card db-card-9" data-page="quiz">
-          <div class="db-card-bg" style="background-image:url('https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/a/a1/Freddy_Fazbear_%28Original%29.png/revision/latest?cb=20260310233823&path-prefix=es')"></div>
-          <div class="db-card-grid"></div>
-          <div class="db-card-previews">
-            <img src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/a/a1/Freddy_Fazbear_%28Original%29.png/revision/latest?cb=20260310233823&path-prefix=es" alt="Freddy" loading="lazy">
-            <img src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/1/15/Bonnie_-_%28Render%29.png/revision/latest?cb=20260310234020&path-prefix=es" alt="Bonnie" loading="lazy">
-            <img src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/7/73/Chica_%28Original%29.png/revision/latest?cb=20260305173102&path-prefix=es" alt="Chica" loading="lazy">
-            <img src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/0/07/Foxy_%28Original%29.png/revision/latest?cb=20260310234144&path-prefix=es" alt="Foxy" loading="lazy">
-          </div>
-          <div class="db-card-content">
-            <div class="db-card-top">
-              <span class="db-card-id">CAT-008</span>
-              <span class="db-card-pulse"></span>
-            </div>
-            <h3 class="db-card-title">QUIZ</h3>
-            <p class="db-card-desc">¿Qué animatrón eres? Trivia del lore. Diagnóstico de entidad.</p>
-            <div class="db-card-bottom">
-              <span class="db-card-count">∞</span>
-              <span class="db-card-btn">[ ACCEDER &rarr; ]</span>
-            </div>
-          </div>
-          <div class="db-card-glitch"></div>
-        </a>
-
-        <a href="#timeline" class="db-card db-card-10" data-page="timeline">
-          <div class="db-card-bg" style="background-image:url('https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/61/FNaF_-_Golden_Freddy.png/revision/latest?cb=20260124123953&path-prefix=es')"></div>
-          <div class="db-card-grid"></div>
-          <div class="db-card-previews">
-            <img src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/b9/FNaF3_-_Extras_%28Springtrap_2%29.png/revision/latest?cb=20150312173655" alt="Springtrap" loading="lazy">
-            <img src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/61/FNaF_-_Golden_Freddy.png/revision/latest?cb=20260124123953&path-prefix=es" alt="Golden Freddy" loading="lazy">
-          </div>
-          <div class="db-card-content">
-            <div class="db-card-top"><span class="db-card-id">CAT-009</span><span class="db-card-pulse"></span></div>
-            <h3 class="db-card-title">LÍNEA DE TIEMPO</h3>
-            <p class="db-card-desc">Cronología fracturada del universo FNAF. Eventos canon, teorías y fanon.</p>
-            <div class="db-card-bottom"><span class="db-card-count">28+</span><span class="db-card-btn">[ ACCEDER &rarr; ]</span></div>
-          </div>
-          <div class="db-card-glitch"></div>
-        </a>
-
-        <a href="#map" class="db-card db-card-11" data-page="map">
-          <div class="db-card-bg" style="background-image:url('https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/f/f9/Security_breach_poster.jpg/revision/latest?cb=20211202165652')"></div>
-          <div class="db-card-grid"></div>
-          <div class="db-card-previews">
-            <img src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/f/f9/Security_breach_poster.jpg/revision/latest?cb=20211202165652" alt="Pizzaplex" loading="lazy">
-          </div>
-          <div class="db-card-content">
-            <div class="db-card-top"><span class="db-card-id">CAT-010</span><span class="db-card-pulse"></span></div>
-            <h3 class="db-card-title">MAPA</h3>
-            <p class="db-card-desc">Red de ubicaciones Fazbear. Blueprint interactivo con capas.</p>
-            <div class="db-card-bottom"><span class="db-card-count">7</span><span class="db-card-btn">[ ACCEDER &rarr; ]</span></div>
-          </div>
-          <div class="db-card-glitch"></div>
-        </a>
-
-        <a href="#simulator" class="db-card db-card-12" data-page="simulator">
-          <div class="db-card-bg" style="background-image:url('https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/0/07/Foxy_%28Original%29.png/revision/latest?cb=20260310234144&path-prefix=es')"></div>
-          <div class="db-card-grid"></div>
-          <div class="db-card-previews">
-            <img src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/0/07/Foxy_%28Original%29.png/revision/latest?cb=20260310234144&path-prefix=es" alt="Foxy" loading="lazy">
-          </div>
-          <div class="db-card-content">
-            <div class="db-card-top"><span class="db-card-id">CAT-011</span><span class="db-card-pulse"></span></div>
-            <h3 class="db-card-title">SIMULADOR</h3>
-            <p class="db-card-desc">Sobrevive la noche. Cámaras, puertas y energía limitada.</p>
-            <div class="db-card-bottom"><span class="db-card-count">6</span><span class="db-card-btn">[ ACCEDER &rarr; ]</span></div>
-          </div>
-          <div class="db-card-glitch"></div>
-        </a>
-
-        <a href="#gallery" class="db-card db-card-13" data-page="gallery">
-          <div class="db-card-bg" style="background-image:url('https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/7/7a/Candy_the_Cat_Render.png/revision/latest?cb=20230318043323&path-prefix=es')"></div>
-          <div class="db-card-grid"></div>
-          <div class="db-card-previews">
-            <img src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/7/7a/Candy_the_Cat_Render.png/revision/latest?cb=20230318043323&path-prefix=es" alt="Candy" loading="lazy">
-          </div>
-          <div class="db-card-content">
-            <div class="db-card-top"><span class="db-card-id">CAT-012</span><span class="db-card-pulse"></span></div>
-            <h3 class="db-card-title">GALERÍA</h3>
-            <p class="db-card-desc">Archivo de la comunidad. Fan art de toda la saga.</p>
-            <div class="db-card-bottom"><span class="db-card-count">5+</span><span class="db-card-btn">[ ACCEDER &rarr; ]</span></div>
           </div>
           <div class="db-card-glitch"></div>
         </a>
@@ -484,7 +406,7 @@
               <div class="widget-label">&#x25A0; ESTADO DEL ARCHIVO</div>
               <div class="hm-stats-mini">
                 <div class="stat"><span class="stat-num">12</span> Juegos Documentados</div>
-                <div class="stat"><span class="stat-num">253</span> Personajes Registrados</div>
+                <div class="stat"><span class="stat-num">223</span> Personajes Registrados</div>
                 <div class="stat"><span class="stat-num">19</span> Libros Recuperados</div>
               </div>
             </div>
@@ -495,7 +417,7 @@
               <div class="hero-line"><span class="prompt">&gt;</span> <span class="cmd">establecerConexion --camara 01</span></div>
               <div class="hero-line output">[CONEXION ESTABLECIDA] Señal debil. Estabilizando...</div>
               <div class="hero-line output">[CAMARA-01] "Freddy Fazbear's Pizza" &mdash; Animatronicos activos.</div>
-              <div class="hero-line output">[ARCHIVO] Personajes documentados: 253 &middot; Juegos: 12 &middot; Fangames: 41 &middot; Libros: 19</div>
+              <div class="hero-line output">[ARCHIVO] Personajes documentados: 223 &middot; Juegos: 12 &middot; Libros: 19</div>
               <div class="hero-line output cursor-line">[SISTEMA] Listo. Bienvenido, guardia de seguridad.<span class="typed-cursor"></span></div>
             </div>
           </div>
@@ -691,11 +613,10 @@
       <button class="filter-tag" data-filter="Salvaged">SALVAGED</button>
       <button class="filter-tag" data-filter="Rockstar">ROCKSTAR</button>
       <button class="filter-tag" data-filter="Mediocre Melody">MELODIES</button>
-  <button class="filter-tag" data-filter="Glamrock">GLAMROCK</button>
-  <button class="filter-tag" data-filter="FNaF AR">FNaF AR</button>
-  <button class="filter-tag" data-filter="Human">HUMANOS</button>
-  <button class="filter-tag" data-filter="Fangame">FANGAME</button>
-  <button class="filter-tag" data-filter="Other">OTROS</button>
+      <button class="filter-tag" data-filter="Glamrock">GLAMROCK</button>
+      <button class="filter-tag" data-filter="Human">HUMANOS</button>
+      <button class="filter-tag" data-filter="AR">AR</button>
+      <button class="filter-tag" data-filter="Other">OTROS</button>
     </div>
 
     <div class="characters-grid" id="characters-grid"></div>
@@ -714,6 +635,124 @@
     </div>
 
     <div class="games-grid" id="games-grid"></div>
+  </section>
+
+  <section id="page-fnaf-ar" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">FNAF AR: SPECIAL DELIVERY</div>
+      <div class="section-sub">REALIDAD AUMENTADA — FAZBEAR FUNTIME SERVICE</div>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="ar-hero">
+      <div class="ar-hero__visual">
+        <div class="ar-hero__phone" style="background:none;border:none;box-shadow:none;padding:0;">
+          <img src="https://img.utdstc.com/screen/b46/b7e/b46b7e57c6721e09b42ec1796465253f37bb8d1e53386559c9bf06ae9034ef83:600" alt="FNAF AR Mobile" style="width:200px;height:auto;border-radius:24px;box-shadow:0 0 40px rgba(0,150,255,0.3);">
+        </div>
+      </div>
+      <div class="ar-hero__info">
+        <div class="ar-hero__tags">
+          <span class="ar-tag ar-tag--ar">AR</span>
+          <span class="ar-tag ar-tag--mobile">MÓVIL</span>
+          <span class="ar-tag ar-tag--year">2019</span>
+          <span class="ar-tag ar-tag--status">SERVIDORES CERRADOS</span>
+        </div>
+        <h2 class="ar-hero__title">Five Nights at Freddy's AR: Special Delivery</h2>
+        <p class="ar-hero__desc">
+          El juego de realidad aumentada donde los animatrónicos cobran vida en tu mundo real.
+          Desarrollado por <strong>Illumix</strong> en colaboración con <strong>Scott Cawthon</strong>.
+          Los jugadores se suscriben al "Fazbear Funtime Service" y reciben sus animatrónicos favoritos bajo demanda,
+          pero debido a circunstancias infortunadas, los visitantes averiados atacan a los suscriptores en lugar de entretenerlos.
+        </p>
+        <div class="ar-hero__meta">
+          <div class="ar-meta-item">
+            <div class="ar-meta-label">DESARROLLADOR</div>
+            <div class="ar-meta-value">Illumix</div>
+          </div>
+          <div class="ar-meta-item">
+            <div class="ar-meta-label">LANZAMIENTO</div>
+            <div class="ar-meta-value">25 Nov 2019</div>
+          </div>
+          <div class="ar-meta-item">
+            <div class="ar-meta-label">CIERRE</div>
+            <div class="ar-meta-value">14 Mar 2024</div>
+          </div>
+          <div class="ar-meta-item">
+            <div class="ar-meta-label">PLATAFORMA</div>
+            <div class="ar-meta-value">iOS / Android</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ar-section">
+      <div class="ar-section__header">
+        <span class="ar-section__dot"></span> MECÁNICAS DE JUEGO
+      </div>
+      <div class="ar-mechanics">
+        <div class="ar-mech-card">
+          <div class="ar-mech-card__icon">
+            <img src="https://static.wikia.nocookie.net/triple-a-fazbear/images/9/9a/Fnaf_ar_map.jpg/revision/latest/scale-to-width-down/985?cb=20220211011300" alt="Mapa AR" style="width:100%;height:80px;object-fit:cover;border-radius:6px;">
+          </div>
+          <div class="ar-mech-card__title">MAPA</div>
+          <div class="ar-mech-card__desc">Ubica animatrónicos en tu zona. Usa Transponders, Lures y Radio Jammers para controlar entregas.</div>
+        </div>
+        <div class="ar-mech-card">
+          <div class="ar-mech-card__icon">
+            <img src="https://img.utdstc.com/screen/3ae/075/3ae075f8b93911b5176ac8bb0a9f266a3c00cb81f584ac42990fbfabf2f3ea3c:600" alt="Cámara AR" style="width:100%;height:80px;object-fit:cover;border-radius:6px;">
+          </div>
+          <div class="ar-mech-card__title">CÁMARA</div>
+          <div class="ar-mech-card__desc">Enfrenta animatrónicos en secuencias AR de audio y video. Usa la linterna para rastrearlos y el shocker para derrotarlos.</div>
+        </div>
+        <div class="ar-mech-card">
+          <div class="ar-mech-card__icon">
+            <img src="https://i.pinimg.com/736x/05/c5/dd/05c5dd14615ffef8bf5618c8bbd29836.jpg" alt="Taller AR" style="width:100%;height:80px;object-fit:cover;border-radius:6px;">
+          </div>
+          <div class="ar-mech-card__title">TALLER</div>
+          <div class="ar-mech-card__desc">Ensambla Plush Suits, CPUs y MODs. Personaliza endosqueletos y envía animatrónicos contra otros jugadores.</div>
+        </div>
+        <div class="ar-mech-card">
+          <div class="ar-mech-card__icon">
+            <div style="display:flex;gap:6px;justify-content:center;">
+              <img src="https://static.wikia.nocookie.net/triple-a-fazbear/images/2/27/Parts_Icon.png/revision/latest?cb=20200706041704" alt="Parts" style="width:45%;height:60px;object-fit:contain;border-radius:6px;">
+              <img src="https://static.wikia.nocookie.net/triple-a-fazbear/images/7/74/Ar-coin.png/revision/latest?cb=20200725064550" alt="AR Coin" style="width:45%;height:60px;object-fit:contain;border-radius:6px;">
+            </div>
+          </div>
+          <div class="ar-mech-card__title">RECURSOS</div>
+          <div class="ar-mech-card__desc">Gestiona batería, linterna y shocker sabiamente. Recoge Parts, CPUs y Remnant para sobrevivir.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ar-section">
+      <div class="ar-section__header">
+        <span class="ar-section__dot"></span> ANIMATRÓNICOS
+      </div>
+      <div class="ar-section__sub">Todos los animatrónicos disponibles en el juego</div>
+      <div class="ar-anim-grid" id="ar-anim-grid"></div>
+    </div>
+
+    <div class="ar-section">
+      <div class="ar-section__header">
+        <span class="ar-section__dot"></span> SKINS / DISFRAZES
+      </div>
+      <div class="ar-section__sub">39 skins de animatrónicos para personalizar plush suits</div>
+      <div class="ar-skins-grid" id="ar-skins-grid"></div>
+    </div>
+
+    <div class="ar-section">
+      <div class="ar-section__header">
+        <span class="ar-section__dot"></span> HISTORIA Y ACTUALIZACIONES
+      </div>
+      <div class="ar-timeline" id="ar-timeline"></div>
+    </div>
+
+    <div class="ar-section">
+      <div class="ar-section__header">
+        <span class="ar-section__dot"></span> DATOS DE ARCHIVO
+      </div>
+      <div class="ar-trivia" id="ar-trivia"></div>
+    </div>
   </section>
 
   <section id="page-books" class="page">
@@ -761,154 +800,6 @@
     </div>
 
     <div class="fangames-grid" id="fangames-grid"></div>
-  </section>
-
-  <!-- SECRETS / EASTER EGGS PAGE -->
-  <section id="page-secrets" class="page">
-    <div class="anomaly-header">
-      <h1>ARCHIVO DE ANOMALÍAS</h1>
-      <p>SECRETOS OCULTOS &middot; EASTER EGGS &middot; HIDDEN FILES</p>
-      <div class="anomaly-stats" id="anomaly-stats"></div>
-    </div>
-
-    <div class="search-box">
-      <input type="text" id="anomaly-search" placeholder="🔍 BUSCAR ANOMALÍA..." autocomplete="off">
-    </div>
-
-    <div class="anomaly-filters" id="anomaly-filters-game">
-      <span class="filter-label">JUEGO:</span>
-    </div>
-    <div class="anomaly-filters" id="anomaly-filters-type">
-      <span class="filter-label">TIPO:</span>
-    </div>
-    <div class="anomaly-filters" id="anomaly-filters-rarity">
-      <span class="filter-label">RAREZA:</span>
-    </div>
-
-    <div class="anomaly-actions">
-      <button class="anomaly-action-btn" onclick="showRandomAnomaly()">🎲 ALEATORIO</button>
-      <button class="anomaly-action-btn" onclick="toggleAnomalyConnections()">🔗 MAPA DE CONEXIONES</button>
-    </div>
-
-    <div class="anomaly-random-panel" id="anomaly-random-panel">
-      <h3>ANOMALÍA ALEATORIA</h3>
-      <div class="anomaly-random-card" id="anomaly-random-card"></div>
-    </div>
-
-    <div class="anomaly-grid" id="anomaly-grid"></div>
-  </section>
-
-  <!-- QUIZ PAGE -->
-  <section id="page-quiz" class="page">
-    <div class="quiz-container">
-      <div class="quiz-header">
-        <h1>DIAGNÓSTICO DE ENTIDAD</h1>
-        <p>QUIZ Y TRIVIA DEL UNIVERSO FNAF</p>
-        <div class="quiz-mode-tabs">
-          <button class="quiz-mode-tab active" onclick="startPersonalityQuiz()">🎭 ¿QUÉ ANIMATRÓN ERES?</button>
-          <button class="quiz-mode-tab" onclick="startTriviaQuiz()">🧠 TRIVIA DEL LORE</button>
-        </div>
-      </div>
-
-      <div id="quiz-personality" class="quiz-personality">
-        <div id="quiz-questions-area"></div>
-        <div class="quiz-result" id="quiz-result"></div>
-      </div>
-
-      <div id="quiz-trivia" class="quiz-trivia" style="display:none;">
-        <div id="trivia-questions-area"></div>
-        <div class="trivia-score-bar" id="trivia-score-bar"></div>
-        <div class="quiz-result" id="trivia-result"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TIMELINE PAGE -->
-  <section id="page-timeline" class="page">
-    <div class="anomaly-header">
-      <h1>CRONOLOGÍA FRACTURADA</h1>
-      <p>LÍNEA DE TIEMPO INTERACTIVA DEL UNIVERSO FNAF</p>
-    </div>
-    <div class="timeline-controls">
-      <div class="anomaly-filters" id="timeline-era-filters">
-        <span class="filter-label">ERA:</span>
-      </div>
-      <div class="anomaly-filters" id="timeline-cat-filters">
-        <span class="filter-label">CATEGORÍA:</span>
-      </div>
-    </div>
-    <div class="timeline-full-container" id="timeline-full-container"></div>
-    <div class="timeline-detail-panel" id="timeline-detail-panel" style="display:none;"></div>
-  </section>
-
-  <!-- MAP PAGE -->
-  <section id="page-map" class="page">
-    <div class="anomaly-header">
-      <h1>RED DE UBICACIONES FAZBEAR</h1>
-      <p>MAPA INTERACTIVO DE UBICACIONES</p>
-    </div>
-    <div class="map-container">
-      <div class="map-svg-wrapper" id="map-svg-wrapper"></div>
-      <div class="map-info-panel" id="map-info-panel"></div>
-    </div>
-  </section>
-
-  <!-- SIMULATOR PAGE -->
-  <section id="page-simulator" class="page">
-    <div class="anomaly-header">
-      <h1>PROTOCOLO NOCTURNO</h1>
-      <p>SIMULADOR DE SUPERVIVENCIA</p>
-    </div>
-    <div class="sim-container" id="sim-container">
-      <div class="sim-start-screen" id="sim-start-screen">
-        <h2>SIMULADOR DE OFICINA</h2>
-        <p>Sobrevive de 12 AM a 6 AM contra los animatrónicos</p>
-        <div class="sim-start-btn" onclick="startSimulator()">INICIAR NOCHE</div>
-      </div>
-      <div class="sim-game" id="sim-game" style="display:none;">
-        <div class="sim-office" id="sim-office">
-          <div class="sim-office-view"></div>
-          <div class="sim-left-door" id="sim-left-door"><div class="sim-door-light" id="sim-left-light"></div></div>
-          <div class="sim-right-door" id="sim-right-door"><div class="sim-door-light" id="sim-right-light"></div></div>
-        </div>
-        <div class="sim-cameras" id="sim-cameras" style="display:none;">
-          <div class="sim-cam-grid" id="sim-cam-grid"></div>
-        </div>
-        <div class="sim-hud">
-          <div class="sim-hud-left">
-            <div class="sim-time" id="sim-time">12:00 AM</div>
-            <div class="sim-night" id="sim-night">NOCHE 1</div>
-          </div>
-          <div class="sim-hud-center">
-            <div class="sim-power-bar">
-              <div class="sim-power-label">ENERGÍA: <span id="sim-power">100</span>%</div>
-              <div class="sim-power-fill" id="sim-power-fill"></div>
-            </div>
-          </div>
-          <div class="sim-hud-right">
-            <div class="sim-cam-toggle" onclick="toggleSimCameras()">📷 CÁMARAS</div>
-            <div class="sim-left-btn" onmousedown="openSimDoor('left')" onmouseup="closeSimDoor('left')">◄ PUERTA IZQ</div>
-            <div class="sim-right-btn" onmousedown="openSimDoor('right')" onmouseup="closeSimDoor('right')">PUERTA DER ►</div>
-          </div>
-        </div>
-      </div>
-      <div class="sim-result" id="sim-result" style="display:none;"></div>
-    </div>
-  </section>
-
-  <!-- GALLERY PAGE -->
-  <section id="page-gallery" class="page">
-    <div class="anomaly-header">
-      <h1>ARCHIVO DE LA COMUNIDAD</h1>
-      <p>GALERÍA DE FAN ART</p>
-    </div>
-    <div class="anomaly-filters" id="gallery-filters-style">
-      <span class="filter-label">ESTILO:</span>
-    </div>
-    <div class="anomaly-filters" id="gallery-filters-char">
-      <span class="filter-label">PERSONAJE:</span>
-    </div>
-    <div class="gallery-grid" id="gallery-grid"></div>
   </section>
 
   <section id="page-history" class="page">
@@ -1181,12 +1072,6 @@
 <script src="data/timeline.js"></script>
 <script src="data/stories.js"></script>
 <script src="data/fangames.js"></script>
-<script src="data/eastereggs.js"></script>
-<script src="data/quiz.js"></script>
-<script src="data/timeline-full.js"></script>
-<script src="data/map.js"></script>
-<script src="data/simulator.js"></script>
-<script src="data/gallery.js"></script>
 <script src="data/images.js"></script>
 <script src="js/main.js"></script>
 </body>

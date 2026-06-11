@@ -16,16 +16,6 @@ const state = {
   booksSearch: '',
   fangamesSearch: '',
   fangamesFilter: 'all',
-  anomalySearch: '',
-  anomalyGameFilter: 'all',
-  anomalyTypeFilter: 'all',
-  anomalyRarityFilter: 'all',
-  quizMode: 'personality',
-  quizStep: 0,
-  quizScores: { fear: 0, aggression: 0, curiosity: 0, survival: 0 },
-  triviaScore: 0,
-  triviaTotal: 0,
-  triviaAnswered: false,
   soundEnabled: false,
   vhsEnabled: true,
   audioContext: null,
@@ -77,8 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initDatabaseCards();
   initHeroIndicators();
   initCameraMap();
-  initAnomalyFilters();
-  initAnomalySearch();
+  initNavDropdowns();
+  initScrollReveal();
 
   // Load page data
   loadPage('home');
@@ -134,6 +124,7 @@ function initNavigation() {
       e.preventDefault();
       const page = link.dataset.page;
       navigateTo(page);
+      closeNavDropdowns();
     });
   });
 
@@ -168,6 +159,7 @@ function navigateTo(page) {
   $$('#main-nav a').forEach(a => {
     a.classList.toggle('active', a.dataset.page === page);
   });
+  updateActiveNavGroup(page);
 
   // Update hash
   if (location.hash !== `#${page}`) {
@@ -192,6 +184,9 @@ function loadPage(page) {
     case 'games':
       renderGames();
       break;
+    case 'fnaf-ar':
+      renderFnafAR();
+      break;
     case 'books':
       renderBooks();
       break;
@@ -200,24 +195,6 @@ function loadPage(page) {
       break;
     case 'fangames':
       renderFangames();
-      break;
-    case 'secrets':
-      renderAnomalies();
-      break;
-    case 'quiz':
-      renderQuiz();
-      break;
-    case 'timeline':
-      renderTimelineFull();
-      break;
-    case 'map':
-      renderMap();
-      break;
-    case 'simulator':
-      renderSimulator();
-      break;
-    case 'gallery':
-      renderGallery();
       break;
     case 'history':
       renderHistory();
@@ -229,6 +206,88 @@ function loadPage(page) {
       renderBlog();
       break;
   }
+
+  requestAnimationFrame(revealPageElements);
+}
+
+function initNavDropdowns() {
+  const dropdowns = $$('#main-nav .nav-dropdown');
+  if (!dropdowns.length) return;
+
+  dropdowns.forEach(dropdown => {
+    const trigger = dropdown.querySelector('.nav-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.contains('is-open');
+      closeNavDropdowns();
+      dropdown.classList.toggle('is-open', !isOpen);
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeNavDropdowns();
+        trigger.focus();
+      }
+    });
+  });
+
+  document.addEventListener('click', closeNavDropdowns);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeNavDropdowns();
+  });
+
+  updateActiveNavGroup(state.currentPage);
+}
+
+function closeNavDropdowns() {
+  $$('#main-nav .nav-dropdown').forEach(dropdown => {
+    dropdown.classList.remove('is-open');
+    const trigger = dropdown.querySelector('.nav-trigger');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+  });
+}
+
+function updateActiveNavGroup(page) {
+  $$('#main-nav .nav-dropdown').forEach(dropdown => {
+    const hasActivePage = !!dropdown.querySelector(`[data-page="${page}"]`);
+    dropdown.classList.toggle('is-active', hasActivePage);
+  });
+}
+
+function initScrollReveal() {
+  if (!('IntersectionObserver' in window)) {
+    revealPageElements(true);
+    return;
+  }
+
+  state.revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      state.revealObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.16, rootMargin: '0px 0px -40px 0px' });
+
+  revealPageElements();
+}
+
+function revealPageElements(showImmediately = false) {
+  const targets = $$('.page.active .db-card, .page.active .character-card, .page.active .game-card, .page.active .book-card, .page.active .video-card, .page.active .folder-card, .page.active .fangame-card, .page.active .dashboard-card');
+  targets.forEach((el, index) => {
+    if (el.classList.contains('is-visible')) return;
+    el.classList.add('reveal-target');
+    el.style.transitionDelay = `${Math.min(index * 45, 360)}ms`;
+
+    if (showImmediately || !state.revealObserver) {
+      el.classList.add('is-visible');
+      return;
+    }
+
+    state.revealObserver.observe(el);
+  });
 }
 
 // =============================================
@@ -357,8 +416,14 @@ function renderCharacters(filter = state.currentFilter, search = state.character
   const grid = $('#characters-grid');
   let filtered = [...characters];
 
+  const arCharacterIds = ['freddy-fazbear','bonnie','chica','foxy','golden-freddy','toy-freddy','toy-bonnie','toy-chica','mangle','balloon-boy','shadow-bonnie','springtrap','jack-o-chica','jack-o-bonnie','plushtrap','circus-baby','ballora','funtime-freddy','bon-bon','freddy-frostbear','8bit-baby','endo-01'];
+
   if (filter !== 'all') {
-    filtered = filtered.filter(c => c.category === filter);
+    if (filter === 'AR') {
+      filtered = filtered.filter(c => arCharacterIds.includes(c.id));
+    } else {
+      filtered = filtered.filter(c => c.category === filter);
+    }
   }
 
   if (search) {
@@ -521,12 +586,16 @@ function renderGames(search = state.gamesSearch) {
 }
 
 window.handleGameClick = function(element, gameId) {
-  element.classList.add('jumpscare');
-  triggerDistortion();
-  setTimeout(() => {
-    element.classList.remove('jumpscare');
+  if (element) {
+    element.classList.add('jumpscare');
+    triggerDistortion();
+    setTimeout(() => {
+      element.classList.remove('jumpscare');
+      showGameModal(gameId);
+    }, 550);
+  } else {
     showGameModal(gameId);
-  }, 550);
+  }
 };
 
 // =============================================
@@ -628,7 +697,7 @@ function renderFangames(filter = state.fangamesFilter, search = state.fangamesSe
   grid.innerHTML = filtered.map((fg, i) => {
     const order = fangames.indexOf(fg) + 1;
     const fanId = `FAN-${String(order).padStart(2, '0')}`;
-    const imgUrl = getImageUrl('fangames', fg.id);
+    const status = statusLabels[i % statusLabels.length];
 
     const categoryLabels = {
       'clasico': 'CLASICO',
@@ -651,10 +720,10 @@ function renderFangames(filter = state.fangamesFilter, search = state.fangamesSe
 
       <div class="cam-indicator">
         <span class="rec-dot"></span>
-        <span>FAN</span>
+        <span>${status}</span>
       </div>
 
-      <div class="cam-label">${fanId}</div>
+      <div class="cam-label">${fanId} • ${fg.developer.split('/')[0].trim().split('(')[0].trim()}</div>
 
       <div class="fangame-year-badge">${fg.year}</div>
 
@@ -663,13 +732,12 @@ function renderFangames(filter = state.fangamesFilter, search = state.fangamesSe
       <div class="power-indicator">${categoryLabels[fg.category] || fg.category.toUpperCase()}</div>
 
       <div class="fangame-content">
-        ${imgUrl ? `<img src="${imgUrl}" alt="${fg.title}" class="fangame-img" loading="lazy" onerror="this.style.display='none'">` : ''}
         <div class="fangame-title">${fg.title}</div>
         <div class="fangame-meta">
-          <span>${fg.developer.split('/')[0].trim().split('(')[0].trim()}</span>
+          <span>${fg.developer}</span>
           <span>${fg.year}</span>
         </div>
-        <div class="fangame-desc">${fg.description.slice(0, 120)}...</div>
+        <div class="fangame-desc">${fg.description.slice(0, 150)}...</div>
         <div class="fangame-neon-line"></div>
       </div>
     </div>
@@ -717,11 +785,6 @@ window.showFangameModal = (id) => {
   const fg = fangames.find(f => f.id === id);
   if (!fg) return;
 
-  const imgs = getImageGallery('fangames', id);
-  const mainImg = imgs.length > 0 ? imgs[0] : getImageUrl('fangames', id);
-
-  const wikiUrl = `https://freddy-fazbears-pizza.fandom.com/es/wiki/${fg.title.replace(/'/g, '%27').replace(/ /g, '_')}`;
-
   const body = $('#modal-body');
   body.innerHTML = `
     <div class="fangame-modal">
@@ -729,26 +792,10 @@ window.showFangameModal = (id) => {
       <div class="game-modal__hero">
         <div class="game-modal__hero-left">
           <div class="game-modal__img-frame">
-            ${mainImg ? `<img src="${mainImg}" alt="${fg.title}" class="game-modal__img" onerror="this.parentElement.innerHTML='<div class=\\'game-modal__img-fallback\\'>${fg.title.charAt(0)}</div>'">` : `<div class="game-modal__img-fallback">${fg.title.charAt(0)}</div>`}
+            <div class="game-modal__img-fallback">${fg.title.charAt(0)}</div>
             <div class="game-modal__scanlines"></div>
             <div class="game-modal__corners"></div>
           </div>
-          ${imgs.length > 1 ? `
-            <div class="game-modal__gallery">
-              <div class="game-modal__thumbs" id="fangame-thumbs">
-                ${imgs.map((url, i) => `
-                  <div class="game-modal__thumb ${i === 0 ? 'active' : ''}" data-idx="${i}" onclick="window._switchFangameImg(this, ${i})">
-                    <img src="${url}" alt="Thumb ${i+1}">
-                  </div>
-                `).join('')}
-              </div>
-              <div class="game-modal__gallery-nav">
-                <button class="game-modal__nav-btn" onclick="window._navFangameGallery(-1)">◂ ANTERIOR</button>
-                <span class="game-modal__gallery-count"><span id="fangame-thumb-idx">1</span> / ${imgs.length}</span>
-                <button class="game-modal__nav-btn" onclick="window._navFangameGallery(1)">SIGUIENTE ▸</button>
-              </div>
-            </div>
-          ` : ''}
         </div>
 
         <div class="game-modal__hero-right">
@@ -773,18 +820,12 @@ window.showFangameModal = (id) => {
             <div class="game-modal__threat-text">${fg.platforms.map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(', ')}</div>
           </div>
 
-          <div class="game-modal__btn-group" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;">
-            ${fg.downloadUrl ? `
-              <a href="${fg.downloadUrl}" target="_blank" rel="noopener noreferrer" class="game-modal__steam-btn" style="background:#5500AA;border-color:#7700CC;flex:1;min-width:120px;padding:8px 12px;font-size:8px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                DESCARGAR
-              </a>
-            ` : ''}
-            <a href="${wikiUrl}" target="_blank" rel="noopener noreferrer" class="game-modal__steam-btn" style="background:#1A1A2E;border-color:#4A4A6E;flex:1;min-width:120px;padding:8px 12px;font-size:8px;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
-              WIKI
+          ${fg.downloadUrl ? `
+            <a href="${fg.downloadUrl}" target="_blank" rel="noopener noreferrer" class="game-modal__steam-btn" style="background:#5500AA;border-color:#7700CC;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              DESCARGAR EN GAMEJOLT
             </a>
-          </div>
+          ` : ''}
         </div>
       </div>
 
@@ -903,33 +944,7 @@ window.showFangameModal = (id) => {
     </div>
   `;
 
-  window._fangameGalleryIdx = 0;
-  window._fangameGalleryImgs = imgs;
-
-  const mc = $('#modal-content');
-  if (mc) mc.setAttribute('data-game-modal', id);
-
-  $('#modal').classList.add('active');
-};
-
-window._switchFangameImg = function(el, idx) {
-  const mainImg = document.querySelector('.fangame-modal .game-modal__img');
-  if (!mainImg || !window._fangameGalleryImgs || !window._fangameGalleryImgs[idx]) return;
-  mainImg.src = window._fangameGalleryImgs[idx];
-  document.querySelectorAll('.fangame-modal .game-modal__thumb').forEach(t => t.classList.remove('active'));
-  el.classList.add('active');
-  const idxEl = document.getElementById('fangame-thumb-idx');
-  if (idxEl) idxEl.textContent = idx + 1;
-  window._fangameGalleryIdx = idx;
-};
-
-window._navFangameGallery = function(dir) {
-  if (!window._fangameGalleryImgs || window._fangameGalleryImgs.length < 2) return;
-  let newIdx = window._fangameGalleryIdx + dir;
-  if (newIdx < 0) newIdx = window._fangameGalleryImgs.length - 1;
-  if (newIdx >= window._fangameGalleryImgs.length) newIdx = 0;
-  const thumbs = document.querySelectorAll('.fangame-modal .game-modal__thumb');
-  if (thumbs[newIdx]) window._switchFangameImg(thumbs[newIdx], newIdx);
+  openModal();
 };
 
 window.showCharacterFromFangame = function(charId) {
@@ -1456,6 +1471,254 @@ function stopStaticAudio() {
   }
 }
 
+// =============================================
+// FNAF AR: SPECIAL DELIVERY
+// =============================================
+function renderFnafAR() {
+  const animGrid = $('#ar-anim-grid');
+  const skinsGrid = $('#ar-skins-grid');
+  const timeline = $('#ar-timeline');
+  const trivia = $('#ar-trivia');
+
+  // Animatronics data
+  const animatronics = [
+    { id: 'freddy-fazbear', name: 'Freddy Fazbear', type: 'Original' },
+    { id: 'bonnie', name: 'Bonnie', type: 'Original' },
+    { id: 'chica', name: 'Chica', type: 'Original' },
+    { id: 'foxy', name: 'Foxy', type: 'Original' },
+    { id: 'golden-freddy', name: 'Golden Freddy', type: 'Original' },
+    { id: 'toy-freddy', name: 'Toy Freddy', type: 'Toy' },
+    { id: 'toy-bonnie', name: 'Toy Bonnie', type: 'Toy' },
+    { id: 'toy-chica', name: 'Toy Chica', type: 'Toy' },
+    { id: 'mangle', name: 'Mangle', type: 'Toy' },
+    { id: 'balloon-boy', name: 'Balloon Boy', type: 'Toy' },
+    { id: 'shadow-bonnie', name: 'RWQFSFASXC', type: 'Shadow' },
+    { id: 'springtrap', name: 'Springtrap', type: 'Springlock' },
+    { id: 'jack-o-chica', name: 'Jack-O-Chica', type: 'Halloween' },
+    { id: 'jack-o-bonnie', name: 'Jack-O-Bonnie', type: 'Halloween' },
+    { id: 'plushtrap', name: 'Plushtrap', type: 'Halloween' },
+    { id: 'circus-baby', name: 'Circus Baby', type: 'Funtime' },
+    { id: 'ballora', name: 'Ballora', type: 'Funtime' },
+    { id: 'funtime-freddy', name: 'Funtime Freddy', type: 'Funtime' },
+    { id: 'bon-bon', name: 'Bon-Bon', type: 'Funtime' },
+    { id: 'freddy-frostbear', name: 'Freddy Frostbear', type: 'Special' },
+    { id: '8bit-baby', name: '8-Bit Baby', type: 'Special' },
+    { id: 'endo-01', name: 'Endo-01', type: 'Endoskeleton' },
+  ];
+
+  // Skins - organized by event with real images from wiki
+  const skinEvents = [
+    {
+      event: "ST. PATRICK'S DAY", date: "Mar 2020",
+      skins: [
+        { name: 'Shamrock Freddy', base: 'Freddy Fazbear', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/7/77/Shamrock_Freddy.png/revision/latest/scale-to-width-down/310?cb=20200709200121', desc: 'Freddy metálico verde y dorado temático de San Patricio.' }
+      ]
+    },
+    {
+      event: "EASTER", date: "Abr 2020",
+      skins: [
+        { name: 'Chocolate Bonnie', base: 'Bonnie', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/8/88/Chocolatebonniear.png/revision/latest/scale-to-width-down/310?cb=20200410022847', desc: 'Bonnie de chocolate con botones de caramelos y marcas de mordiscos.' },
+        { name: 'Easter Bonnie', base: 'Bonnie', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/0/04/Easter_Bunny.png/revision/latest/scale-to-width-down/310?cb=20200417014001', desc: 'Bonnie blanco con lazo amarillo y patrón de huevo de Pascua.' },
+        { name: 'Melted Chocolate Bonnie', base: 'Bonnie', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/5/56/MeltedChocoBonnieAmqericaRender.png/revision/latest/scale-to-width-down/310?cb=20220309030910', desc: 'Variante derretida de Chocolate Bonnie.' }
+      ]
+    },
+    {
+      event: "ARCADE MAYHEM", date: "May 2020",
+      skins: [
+        { name: 'VR Toy Freddy', base: 'Toy Freddy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/1/17/VR_Toy_Freddyram.png/revision/latest/scale-to-width-down/310?cb=20200510033451', desc: 'Toy Freddy púrpura neón con gafas VR.' },
+        { name: 'Highscore Toy Chica', base: 'Toy Chica', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/f/f5/Ec20ojdvauy41.png/revision/latest/scale-to-width-down/310?cb=20200516065042', desc: 'Toy Chica azul neón con "HIGH SCORE" en su bib.' },
+        { name: 'System Error Toy Bonnie', base: 'Toy Bonnie', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/0/08/SystemErrorTB_PlushsuitIcon.png/revision/latest/scale-to-width-down/310?cb=20201121000356', desc: 'Toy Bonnie rojo con "SYSTEM ERROR" en el pecho.' }
+      ]
+    },
+    {
+      event: "WASTELAND", date: "Jun 2020",
+      skins: [
+        { name: 'Radioactive Foxy', base: 'Foxy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/5/5d/RadioactiveFoxyRender.png/revision/latest/scale-to-width-down/310?cb=20200625034838', desc: 'Foxy radiactivo con tonos verdes.' },
+        { name: 'Toxic Springtrap', base: 'Springtrap', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/4/49/ToxicSpringtrapRender.png/revision/latest/scale-to-width-down/310?cb=20200625034919', desc: 'Springtrap tóxico con sustancias químicas.' }
+      ]
+    },
+    {
+      event: "4TH OF JULY", date: "Jul 2020",
+      skins: [
+        { name: 'Firework Freddy', base: 'Freddy Fazbear', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/0/0d/AC0DAF84-03B5-48A8-A3B9-5A4B3E5F7D44.png/revision/latest/scale-to-width-down/310?cb=20200706174607', desc: 'Freddy patriotero con fuegos artificiales.' },
+        { name: 'Liberty Chica', base: 'Chica', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/b/b5/Liberty_Chica.png/revision/latest/scale-to-width-down/310?cb=20200706174532', desc: 'Chica temática de la Estatua de la Libertad.' }
+      ]
+    },
+    {
+      event: "HEATWAVE", date: "Ago 2020",
+      skins: [
+        { name: 'Flamethrower Bare Endo', base: 'Endo-01', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/e/e1/Flamethrower_Bare_Endo.png/revision/latest/scale-to-width-down/310?cb=20200821015512', desc: 'Endo con lanzallamas.' },
+        { name: 'Broiler Baby', base: 'Circus Baby', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/1/16/BroilerBabyRender.png/revision/latest/scale-to-width-down/310?cb=20200821015634', desc: 'Circus Baby con tema de horno.' },
+        { name: 'Scorching Chica', base: 'Chica', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/2/27/Scorching_Chica.png/revision/latest/scale-to-width-down/310?cb=20200821015703', desc: 'Chica quemada con fuego.' },
+        { name: 'Flaming Springtrap', base: 'Springtrap', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/0/09/Flaming_Springtrap.png/revision/latest/scale-to-width-down/310?cb=20200821015730', desc: 'Springtrap en llamas.' }
+      ]
+    },
+    {
+      event: "DARK CIRCUS", date: "Oct 2021",
+      skins: [
+        { name: 'Ringmaster Foxy', base: 'Foxy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/e/ed/RingmasterFoxyRender.png/revision/latest/scale-to-width-down/310?cb=20211002014702', desc: 'Foxy como maestro de ceremonia de circo.' },
+        { name: 'Magician Mangle', base: 'Mangle', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/0/04/MagicianMangleRender.png/revision/latest/scale-to-width-down/310?cb=20211002014741', desc: 'Mangle como mago de circo.' },
+        { name: 'Clown Springtrap', base: 'Springtrap', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/4/43/ClownSpringtrapRender.png/revision/latest/scale-to-width-down/310?cb=20211002014805', desc: 'Springtrap payaso de circo.' },
+        { name: 'Great Escape Golden Freddy', base: 'Golden Freddy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/d/d2/Great_Escape_Golden_Freddy.png/revision/latest/scale-to-width-down/310?cb=20211213204045', desc: 'Golden Freddy con tema de gran escape.' }
+      ]
+    },
+    {
+      event: "HALLOWEEN", date: "Oct 2020",
+      skins: [
+        { name: 'Catrina Toy Chica', base: 'Toy Chica', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/4/47/Catrina_Toy_Chica.png/revision/latest/scale-to-width-down/310?cb=20201027012032', desc: 'Toy Chica temática Día de Muertos.' }
+      ]
+    },
+    {
+      event: "HAUNTED FOREST", date: "Oct 2020",
+      skins: [
+        { name: 'Woodland Toy Freddy', base: 'Toy Freddy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/a/af/Woody.png/revision/latest/scale-to-width-down/310?cb=20201027012144', desc: 'Toy Freddy del bosque encantado.' },
+        { name: 'Boulder Toy Bonnie', base: 'Toy Bonnie', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/0/0e/BoulderToyBonnieRender.png/revision/latest/scale-to-width-down/310?cb=20201027012214', desc: 'Toy Bonnie de roca.' },
+        { name: 'Swamp Balloon Boy', base: 'Balloon Boy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/4/4f/SwampBalloonBoyRender.png/revision/latest/scale-to-width-down/310?cb=20201027012245', desc: 'Balloon Boy del pantano.' }
+      ]
+    },
+    {
+      event: "WINTER WONDERLAND", date: "Dic 2020",
+      skins: [
+        { name: 'Black Ice Frostbear', base: 'Freddy Frostbear', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/7/73/Black_Ice_Frostbear.png/revision/latest/scale-to-width-down/310?cb=20201211203043', desc: 'Freddy Frostbear de hielo negro.' },
+        { name: 'Arctic Ballora', base: 'Ballora', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/0/02/ArcticBalloraRender.png/revision/latest/scale-to-width-down/310?cb=20201211203118', desc: 'Ballora ártica.' },
+        { name: 'Frostbite Balloon Boy', base: 'Balloon Boy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/7/7c/FrostbiteBalloonBoy.png/revision/latest/scale-to-width-down/310?cb=20201211203148', desc: 'Balloon Boy congelado.' },
+        { name: 'Frost Plushtrap', base: 'Plushtrap', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/d/d4/FrostPlushtrapRender.png/revision/latest/scale-to-width-down/310?cb=20201211203212', desc: 'Plushtrap helado.' }
+      ]
+    },
+    {
+      event: "HEART STOPPERS", date: "Feb 2021",
+      skins: [
+        { name: 'Heartsick Baby', base: 'Circus Baby', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/5/53/HeartsickBabyRender.png/revision/latest/scale-to-width-down/310?cb=20210211212531', desc: 'Circus Baby con tema de corazones.' },
+        { name: 'Black Heart Bonnie', base: 'Bonnie', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/1/14/BlackHeartBonnieRender.png/revision/latest/scale-to-width-down/310?cb=20210211212604', desc: 'Bonnie con corazón negro.' }
+      ]
+    },
+    {
+      event: "ANCIENT EQUINOX", date: "Mar 2021",
+      skins: [
+        { name: 'Serpent Mangle', base: 'Mangle', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/5/53/Serpent_Mangle.png/revision/latest/scale-to-width-down/310?cb=20210320005938', desc: 'Mangle serpiente.' },
+        { name: 'Curse (Endo)', base: 'Endo-01', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/a/af/CurseEndoRender.png/revision/latest/scale-to-width-down/310?cb=20210320010011', desc: 'Endo maldito.' }
+      ]
+    },
+    {
+      event: "SCARY TALES", date: "Jun 2021",
+      skins: [
+        { name: 'Little Red Chica', base: 'Chica', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/b/b5/Little_Red_Chica.png/revision/latest/scale-to-width-down/310?cb=20210618215903', desc: 'Chica Caperucita Roja.' },
+        { name: 'Big Bad Foxy', base: 'Foxy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/e/e2/Big_Bad_Foxy.png/revision/latest/scale-to-width-down/310?cb=20210618215932', desc: 'Foxy el Lobo Feroz.' }
+      ]
+    },
+    {
+      event: "WICKED TIDES", date: "Ago 2021",
+      skins: [
+        { name: 'Dark Water Bare Endo', base: 'Endo-01', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/2/20/DarkWaterEndoRender.png/revision/latest/scale-to-width-down/310?cb=20210814021422', desc: 'Endo de agua oscura.' },
+        { name: 'Sunken Toy Bonnie', base: 'Toy Bonnie', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/3/37/SunkenToyBonnieRender.png/revision/latest/scale-to-width-down/310?cb=20210814021452', desc: 'Toy Bonnie hundido.' },
+        { name: 'Piranha Plushtrap', base: 'Plushtrap', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/1/14/PiranhaPlushtrapRender.png/revision/latest/scale-to-width-down/310?cb=20210814021517', desc: 'Plushtrap piraña.' }
+      ]
+    },
+    {
+      event: "SCREAMPUNK", date: "Oct 2021",
+      skins: [
+        { name: 'Clockwork Ballora', base: 'Ballora', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/7/7b/Clockwork_Ballora.png/revision/latest/scale-to-width-down/310?cb=20211016013247', desc: 'Ballora de relojería.' },
+        { name: 'Aeronaut Toy Freddy', base: 'Toy Freddy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/a/a4/Aeronaut_Toy_Freddy.png/revision/latest/scale-to-width-down/310?cb=20211016013315', desc: 'Toy Freddy aeronauta.' },
+        { name: 'Jetpack Balloon Boy', base: 'Balloon Boy', img: 'https://static.wikia.nocookie.net/triple-a-fazbear/images/1/19/Jetpack_Balloon_Boy.png/revision/latest/scale-to-width-down/310?cb=20211016013342', desc: 'Balloon Boy con jetpack.' }
+      ]
+    }
+  ];
+
+  // Timeline
+  const events = [
+    { date: '25 Nov 2019', title: 'Lanzamiento oficial', desc: 'Juego lanzado para iOS y Android tras early access el 22 de noviembre.' },
+    { date: '12 Mar 2020', title: 'Skins introducidas', desc: 'Primer skin: Shamrock Freddy. Evento de San Patricio.' },
+    { date: '2020', title: 'Eventos de Halloween', desc: 'Jack-O-Chica, Jack-O-Bonnie y Plushtrap agregados junto con skins temáticas.' },
+    { date: '2021', title: 'Nuevos animatrónicos', desc: 'Se agregaron Funtime Freddy, Bon-Bon, Ballora y más animatrónicos Funtime.' },
+    { date: '13 Dic 2021', title: 'Último skin', desc: 'Great Escape Golden Freddy, durante el evento Dark Circus.' },
+    { date: '1 Feb 2024', title: 'Cancelación anunciada', desc: 'Illumix anuncia el cierre de los servidores del juego.' },
+    { date: '14 Mar 2024', title: 'Cierre de servidores', desc: 'Los servidores de FNAF AR: Special Delivery son apagados oficialmente.' },
+  ];
+
+  // Trivia
+  const triviaData = [
+    { text: 'Desarrollado por <strong>Illumix</strong> en colaboración con <strong>Scott Cawthon</strong>. Fue el primer juego de FNAF en realidad aumentada.' },
+    { text: 'El juego utilizaba la <strong>cámara del teléfono</strong> y los sensores de <strong>movimiento</strong> para crear experiencias AR inmersivas.' },
+    { text: 'Se implementaron un total de <strong>22 animatrónicos</strong> y <strong>39 skins</strong> durante el tiempo de vida del juego.' },
+    { text: 'Los jugadores podían <strong>enviar animatrónicos</strong> contra amigos y otros jugadores para competir en leaderboards.' },
+    { text: 'El sistema de <strong>Plush Suits</strong> permitía personalizar la apariencia de los endosqueletos enviados a otros jugadores.' },
+    { text: 'El juego fue <strong>cancelado</strong> en febrero de 2024 y sus servidores cerraron en marzo del mismo año.' },
+  ];
+
+  // Render animatronics
+  if (animGrid) {
+    animGrid.innerHTML = animatronics.map(a => {
+      const charData = window.characters ? window.characters.find(c => c.id === a.id) : null;
+      const img = getImageUrl('characters', a.id);
+      return `
+        <div class="ar-anim-card" ${charData ? `onclick="event.stopPropagation();navigateTo('characters');setTimeout(()=>showCharacterModal('${a.id}'),400);"` : ''}>
+          <div class="ar-anim-card__cover">
+            ${img ? `<img src="${img}" alt="${a.name}" loading="lazy" onerror="this.style.display='none'">` : ''}
+            <div class="ar-anim-card__scanlines"></div>
+          </div>
+          <div class="ar-anim-card__name">${a.name}</div>
+          <div class="ar-anim-card__skin">${a.type}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Render skins grouped by event
+  if (skinsGrid) {
+    skinsGrid.innerHTML = skinEvents.map(ev => `
+      <div class="ar-skin-event">
+        <div class="ar-skin-event__header">
+          <span class="ar-skin-event__name">${ev.event}</span>
+          <span class="ar-skin-event__date">${ev.date}</span>
+        </div>
+        <div class="ar-skin-event__list">
+          ${ev.skins.map(s => `
+            <div class="ar-skin-card" title="${s.desc}">
+              <div class="ar-skin-card__img">
+                <img src="${s.img}" alt="${s.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'ar-skin-card__fallback\\'>${s.base.charAt(0)}</div>'">
+                <div class="ar-skin-card__scanlines"></div>
+              </div>
+              <div class="ar-skin-card__info">
+                <div class="ar-skin-card__name">${s.name}</div>
+                <div class="ar-skin-card__base">${s.base}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Render timeline
+  if (timeline) {
+    timeline.innerHTML = events.map(e => `
+      <div class="ar-tl-item">
+        <div class="ar-tl-item__date">${e.date}</div>
+        <div class="ar-tl-item__title">${e.title}</div>
+        <div class="ar-tl-item__desc">${e.desc}</div>
+      </div>
+    `).join('');
+  }
+
+  // Render trivia
+  if (trivia) {
+    trivia.innerHTML = triviaData.map(t => `
+      <div class="ar-trivia-item">${t.text}</div>
+    `).join('');
+  }
+
+  // Animate preview character
+  const preview = $('#ar-anim-preview');
+  if (preview) {
+    const chars = [' Freddy', ' Bonnie', ' Chica', ' Foxy', '?'];
+    let idx = 0;
+    setInterval(() => {
+      preview.textContent = chars[idx];
+      idx = (idx + 1) % chars.length;
+    }, 2000);
+  }
+}
+
 function renderMusic() {
   const list = $('#music-list');
   const tracks = [
@@ -1753,6 +2016,14 @@ function initModal() {
       modal.classList.remove('active');
     }
   });
+}
+
+function openModal() {
+  const mc = $('#modal');
+  mc.classList.add('active');
+  const inner = mc.querySelector('.modal-content') || mc.querySelector('[class*="modal"]');
+  if (inner) inner.scrollTop = 0;
+  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 window._currentGallery = [];
@@ -2204,7 +2475,7 @@ window.showGameModal = (id) => {
   window._gameGalleryIdx = 0;
   window._gameGalleryImgs = imgs;
 
-  $('#modal').classList.add('active');
+  openModal();
 };
 
 window._switchGameImg = function(el, idx) {
@@ -2360,7 +2631,7 @@ window.showBookModal = (id) => {
   const mc = body.closest('.modal-content') || body.parentElement;
   if (mc) mc.setAttribute('data-game-modal', 'books');
 
-  $('#modal').classList.add('active');
+  openModal();
 };
 
 // =============================================
@@ -2610,7 +2881,7 @@ document.addEventListener('keydown', (e) => {
   }
 
   // 1-9 = navigation
-  const navKeys = ['home', 'characters', 'games', 'books', 'videos', 'fangames', 'secrets', 'quiz', 'timeline'];
+  const navKeys = ['home', 'characters', 'games', 'books', 'videos', 'history', 'music', 'blog', 'admin'];
   const num = parseInt(e.key);
   if (num >= 1 && num <= 9) {
     e.preventDefault();
@@ -2768,890 +3039,6 @@ function initCameraMap() {
 
   // Default selection
   selectCamera('cam-02');
-}
-
-// =============================================
-// ANOMALY ARCHIVE (EASTER EGGS)
-// =============================================
-function initAnomalyFilters() {
-  var eggs = window.eastereggs || [];
-  var games = [...new Set(eggs.map(e => e.game))];
-  var types = [...new Set(eggs.map(e => e.type))];
-  var rarities = [...new Set(eggs.map(e => e.rarity))];
-
-  var gameFilters = $('#anomaly-filters-game');
-  if (gameFilters) {
-    var gameLabels = { fnaf1:'FNaF 1', fnaf2:'FNaF 2', fnaf3:'FNaF 3', fnaf4:'FNaF 4', sisterlocation:'Sister Location', ffps:'FFPS', ucn:'UCN', helpwanted:'Help Wanted', securitybreach:'Security Breach', varios:'Multijuego' };
-    var html = '<span class="filter-label">JUEGO:</span>';
-    html += '<button class="anomaly-filter-btn active" data-filter="all" onclick="filterAnomalyByGame(\'all\')">TODOS</button>';
-    games.forEach(function(g) {
-      html += '<button class="anomaly-filter-btn" data-filter="' + g + '" onclick="filterAnomalyByGame(\'' + g + '\')">' + (gameLabels[g] || g).toUpperCase() + '</button>';
-    });
-    gameFilters.innerHTML = html;
-  }
-
-  var typeFilters = $('#anomaly-filters-type');
-  if (typeFilters) {
-    var typeLabels = { visual:'Visual', auditivo:'Auditivo', narrativo:'Narrativo', glitch:'Glitch', mecanico:'Mecánico' };
-    var html = '<span class="filter-label">TIPO:</span>';
-    html += '<button class="anomaly-filter-btn active" data-filter="all" onclick="filterAnomalyByType(\'all\')">TODOS</button>';
-    types.forEach(function(t) {
-      html += '<button class="anomaly-filter-btn" data-filter="' + t + '" onclick="filterAnomalyByType(\'' + t + '\')">' + (typeLabels[t] || t).toUpperCase() + '</button>';
-    });
-    typeFilters.innerHTML = html;
-  }
-
-  var rarityFilters = $('#anomaly-filters-rarity');
-  if (rarityFilters) {
-    var rarityLabels = { comun:'Común', raro:'Raro', extremadamente_raro:'Extremadamente Raro', secreto_profundo:'Secreto Profundo' };
-    var html = '<span class="filter-label">RAREZA:</span>';
-    html += '<button class="anomaly-filter-btn active" data-filter="all" onclick="filterAnomalyByRarity(\'all\')">TODAS</button>';
-    rarities.forEach(function(r) {
-      html += '<button class="anomaly-filter-btn" data-filter="' + r + '" onclick="filterAnomalyByRarity(\'' + r + '\')">' + (rarityLabels[r] || r).toUpperCase() + '</button>';
-    });
-    rarityFilters.innerHTML = html;
-  }
-
-  // Stats
-  var statsEl = $('#anomaly-stats');
-  if (statsEl) {
-    var total = eggs.length;
-    var byGame = {};
-    eggs.forEach(function(e) { byGame[e.game] = (byGame[e.game] || 0) + 1; });
-    var statsHtml = '<div class="anomaly-stat"><span class="stat-num">' + total + '</span>TOTAL</div>';
-    Object.keys(byGame).slice(0, 5).forEach(function(g) {
-      statsHtml += '<div class="anomaly-stat"><span class="stat-num">' + byGame[g] + '</span>' + (gameLabels[g] || g).toUpperCase() + '</div>';
-    });
-    statsEl.innerHTML = statsHtml;
-  }
-}
-
-function initAnomalySearch() {
-  var el = $('#anomaly-search');
-  if (el) {
-    el.addEventListener('input', function() {
-      state.anomalySearch = el.value.toLowerCase();
-      renderAnomalies();
-    });
-  }
-}
-
-function filterAnomalyByGame(game) {
-  state.anomalyGameFilter = game;
-  $$('#anomaly-filters-game .anomaly-filter-btn').forEach(function(btn) {
-    btn.classList.toggle('active', btn.dataset.filter === game);
-  });
-  renderAnomalies();
-}
-
-function filterAnomalyByType(type) {
-  state.anomalyTypeFilter = type;
-  $$('#anomaly-filters-type .anomaly-filter-btn').forEach(function(btn) {
-    btn.classList.toggle('active', btn.dataset.filter === type);
-  });
-  renderAnomalies();
-}
-
-function filterAnomalyByRarity(rarity) {
-  state.anomalyRarityFilter = rarity;
-  $$('#anomaly-filters-rarity .anomaly-filter-btn').forEach(function(btn) {
-    btn.classList.toggle('active', btn.dataset.filter === rarity);
-  });
-  renderAnomalies();
-}
-
-function renderAnomalies() {
-  var grid = $('#anomaly-grid');
-  if (!grid) return;
-
-  var eggs = window.eastereggs || [];
-  var filtered = eggs.filter(function(e) {
-    if (state.anomalyGameFilter !== 'all' && e.game !== state.anomalyGameFilter) return false;
-    if (state.anomalyTypeFilter !== 'all' && e.type !== state.anomalyTypeFilter) return false;
-    if (state.anomalyRarityFilter !== 'all' && e.rarity !== state.anomalyRarityFilter) return false;
-    if (state.anomalySearch) {
-      var s = state.anomalySearch;
-      return e.name.toLowerCase().includes(s) || e.description.toLowerCase().includes(s) || e.id.toLowerCase().includes(s);
-    }
-    return true;
-  });
-
-  var gameLabels = { fnaf1:'FNaF 1', fnaf2:'FNaF 2', fnaf3:'FNaF 3', fnaf4:'FNaF 4', sisterlocation:'Sister Location', ffps:'FFPS', ucn:'UCN', helpwanted:'Help Wanted', securitybreach:'Security Breach', varios:'Multijuego' };
-  var typeLabels = { visual:'Visual', auditivo:'Auditivo', narrativo:'Narrativo', glitch:'Glitch', mecanico:'Mecánico' };
-  var rarityLabels = { comun:'Común', raro:'Raro', extremadamente_raro:'Ext. Raro', secreto_profundo:'Secreto Profundo' };
-
-  if (filtered.length === 0) {
-    grid.innerHTML = '<div class="anomaly-empty">NO SE ENCONTRARON ANOMALÍAS CON ESTOS CRITERIOS</div>';
-    return;
-  }
-
-  grid.innerHTML = filtered.map(function(e) {
-    return '<div class="anomaly-card" onclick="showAnomalyModal(\'' + e.id + '\')">' +
-      '<div class="anomaly-card-header">' +
-        '<div class="anomaly-card-id">' + e.id + '</div>' +
-        '<div class="anomaly-card-title">' + e.name + '</div>' +
-        '<div class="anomaly-card-meta">' +
-          '<span class="anomaly-tag anomaly-tag-game">' + (gameLabels[e.game] || e.game) + '</span>' +
-          '<span class="anomaly-tag anomaly-tag-type">' + (typeLabels[e.type] || e.type) + '</span>' +
-          '<span class="anomaly-tag anomaly-tag-rarity ' + e.rarity + '">' + (rarityLabels[e.rarity] || e.rarity) + '</span>' +
-        '</div>' +
-      '</div>' +
-      '<div class="anomaly-card-body">' +
-        '<div class="anomaly-card-desc">' + e.description + '</div>' +
-      '</div>' +
-      '<div class="anomaly-card-location">' + e.location + '</div>' +
-    '</div>';
-  }).join('');
-}
-
-function showAnomalyModal(id) {
-  var eggs = window.eastereggs || [];
-  var egg = eggs.find(function(e) { return e.id === id; });
-  if (!egg) return;
-
-  var gameLabels = { fnaf1:'FNaF 1', fnaf2:'FNaF 2', fnaf3:'FNaF 3', fnaf4:'FNaF 4', sisterlocation:'Sister Location', ffps:'FFPS', ucn:'UCN', helpwanted:'Help Wanted', securitybreach:'Security Breach', varios:'Multijuego' };
-  var typeLabels = { visual:'Visual', auditivo:'Auditivo', narrativo:'Narrativo', glitch:'Glitch', mecanico:'Mecánico' };
-  var rarityLabels = { comun:'Común', raro:'Raro', extremadamente_raro:'Extremadamente Raro', secreto_profundo:'Secreto Profundo' };
-
-  var html = '<div class="anomaly-modal-hero">' +
-    '<div class="anomaly-modal-info">' +
-      '<div class="id-badge">' + egg.id + '</div>' +
-      '<h2>' + egg.name + '</h2>' +
-      '<div class="anomaly-modal-tags">' +
-        '<span class="anomaly-tag anomaly-tag-game">' + (gameLabels[egg.game] || egg.game) + '</span>' +
-        '<span class="anomaly-tag anomaly-tag-type">' + (typeLabels[egg.type] || egg.type) + '</span>' +
-        '<span class="anomaly-tag anomaly-tag-rarity ' + egg.rarity + '">' + (rarityLabels[egg.rarity] || egg.rarity) + '</span>' +
-      '</div>' +
-      '<p style="font-family:\'Share Tech Mono\',monospace;font-size:11px;color:#666;">📍 ' + egg.location + '</p>' +
-    '</div>' +
-  '</div>';
-
-  html += '<div class="anomaly-section"><h3>DESCRIPCIÓN</h3><p>' + egg.description + '</p></div>';
-
-  if (egg.activation && egg.activation.length > 0) {
-    html += '<div class="anomaly-section"><h3>CÓMO ACTIVARLO</h3><ol class="anomaly-steps">';
-    egg.activation.forEach(function(step, i) {
-      html += '<li data-step="' + (i + 1) + '">' + step + '</li>';
-    });
-    html += '</ol></div>';
-  }
-
-  if (egg.loreSignificance) {
-    html += '<div class="anomaly-section"><h3>SIGNIFICADO EN EL LORE</h3><p>' + egg.loreSignificance + '</p></div>';
-  }
-
-  if (egg.theories && egg.theories.length > 0) {
-    html += '<div class="anomaly-section"><h3>TEORÍAS RELACIONADAS</h3><ul class="anomaly-theories">';
-    egg.theories.forEach(function(t) {
-      html += '<li>' + t + '</li>';
-    });
-    html += '</ul></div>';
-  }
-
-  if (egg.connections && egg.connections.length > 0) {
-    html += '<div class="anomaly-section"><h3>CONEXIONES CON OTROS SECRETOS</h3><div class="anomaly-connections">';
-    egg.connections.forEach(function(c) {
-      var linked = eggs.find(function(e) { return e.id === c; });
-      var label = linked ? linked.name : c;
-      html += '<span class="anomaly-conn-badge" onclick="showAnomalyModal(\'' + c + '\')">' + c + ' — ' + label + '</span>';
-    });
-    html += '</div></div>';
-  }
-
-  $('#modal-body').innerHTML = html;
-  $('#modal').classList.add('active');
-}
-
-function showRandomAnomaly() {
-  var eggs = window.eastereggs || [];
-  if (eggs.length === 0) return;
-  var random = eggs[Math.floor(Math.random() * eggs.length)];
-  showAnomalyModal(random.id);
-}
-
-function toggleAnomalyConnections() {
-  showRandomAnomaly();
-}
-
-// =============================================
-// QUIZ & TRIVIA
-// =============================================
-function renderQuiz() {
-  startPersonalityQuiz();
-}
-
-function startPersonalityQuiz() {
-  state.quizMode = 'personality';
-  state.quizStep = 0;
-  state.quizScores = { fear: 0, aggression: 0, curiosity: 0, survival: 0 };
-
-  $$('.quiz-mode-tab').forEach(function(tab, i) {
-    tab.classList.toggle('active', i === 0);
-  });
-  $('#quiz-personality').style.display = 'block';
-  $('#quiz-trivia').style.display = 'none';
-  $('#quiz-result').classList.remove('active');
-  $('#quiz-questions-area').style.display = 'block';
-  renderQuizQuestion();
-}
-
-function renderQuizQuestion() {
-  var qs = window.quizData.personality.questions;
-  if (state.quizStep >= qs.length) {
-    showQuizResult();
-    return;
-  }
-  var q = qs[state.quizStep];
-  var progress = ((state.quizStep) / qs.length) * 100;
-  var html = '<div class="quiz-question-card">' +
-    '<div class="quiz-progress">PREGUNTA ' + (state.quizStep + 1) + ' / ' + qs.length +
-      '<div class="quiz-progress-bar"><div class="quiz-progress-fill" style="width:' + progress + '%"></div></div>' +
-    '</div>' +
-    '<div class="quiz-question-text">' + q.text + '</div>' +
-    '<div class="quiz-options">';
-  q.options.forEach(function(opt, i) {
-    html += '<button class="quiz-option" onclick="answerQuizQuestion(' + i + ')">' + opt.text + '</button>';
-  });
-  html += '</div></div>';
-  $('#quiz-questions-area').innerHTML = html;
-}
-
-function answerQuizQuestion(idx) {
-  var qs = window.quizData.personality.questions;
-  var q = qs[state.quizStep];
-  var vals = q.options[idx].values;
-  state.quizScores.fear += vals.fear;
-  state.quizScores.aggression += vals.aggression;
-  state.quizScores.curiosity += vals.curiosity;
-  state.quizScores.survival += vals.survival;
-  state.quizStep++;
-  renderQuizQuestion();
-}
-
-function showQuizResult() {
-  $('#quiz-questions-area').style.display = 'none';
-  var scores = state.quizScores;
-  var maxKey = Object.keys(scores).reduce(function(a, b) { return scores[a] > scores[b] ? a : b; });
-
-  var resultMap = {
-    fear: 'goldenFreddy',
-    aggression: 'foxy',
-    curiosity: 'bonnie',
-    survival: 'chica'
-  };
-
-  // Check for special conditions
-  var total = scores.fear + scores.aggression + scores.curiosity + scores.survival;
-  var resultKey;
-  if (scores.fear > 15 && scores.survival > 10) resultKey = 'goldenFreddy';
-  else if (scores.aggression > 12) resultKey = 'foxy';
-  else if (scores.curiosity > 12) resultKey = 'bonnie';
-  else if (scores.survival > 12) resultKey = 'chica';
-  else resultKey = 'freddy';
-
-  var result = window.quizData.personality.results[resultKey];
-  if (!result) return;
-
-  var maxScore = Math.max(scores.fear, scores.aggression, scores.curiosity, scores.survival);
-
-  var html = '<div class="quiz-result-card">' +
-    '<div class="quiz-result-emoji">' + result.emoji + '</div>' +
-    '<div class="quiz-result-name">ERES: ' + result.name + '</div>' +
-    '<div class="quiz-result-desc">' + result.description + '</div>' +
-    '<div class="anomaly-section"><h3 style="color:#00BFFF;">PERFIL PSICOLÓGICO</h3><p>' + result.behavior + '</p></div>' +
-    '<div class="anomaly-section"><h3 style="color:#00BFFF;">CONEXIÓN CON EL LORE</h3><p>' + result.lore + '</p></div>' +
-    '<div class="quiz-result-stats">' +
-      '<div class="quiz-stat"><div class="quiz-stat-label">MIEDO</div><div class="quiz-stat-bar"><div class="quiz-stat-fill" style="width:' + (scores.fear / 30 * 100) + '%"></div></div></div>' +
-      '<div class="quiz-stat"><div class="quiz-stat-label">AGRESIVIDAD</div><div class="quiz-stat-bar"><div class="quiz-stat-fill" style="width:' + (scores.aggression / 30 * 100) + '%"></div></div></div>' +
-      '<div class="quiz-stat"><div class="quiz-stat-label">CURIOSIDAD</div><div class="quiz-stat-bar"><div class="quiz-stat-fill" style="width:' + (scores.curiosity / 30 * 100) + '%"></div></div></div>' +
-      '<div class="quiz-stat"><div class="quiz-stat-label">SUPERVIVENCIA</div><div class="quiz-stat-bar"><div class="quiz-stat-fill" style="width:' + (scores.survival / 30 * 100) + '%"></div></div></div>' +
-    '</div>' +
-    '<button class="quiz-restart-btn" onclick="startPersonalityQuiz()">🔄 INTENTAR DE NUEVO</button>' +
-  '</div>';
-
-  $('#quiz-result').innerHTML = html;
-  $('#quiz-result').classList.add('active');
-}
-
-function startTriviaQuiz() {
-  state.quizMode = 'trivia';
-  state.triviaScore = 0;
-  state.triviaAnswered = false;
-
-  $$('.quiz-mode-tab').forEach(function(tab, i) {
-    tab.classList.toggle('active', i === 1);
-  });
-  $('#quiz-personality').style.display = 'none';
-  $('#quiz-trivia').style.display = 'block';
-  $('#trivia-result').classList.remove('active');
-  $('#trivia-questions-area').style.display = 'block';
-
-  var allQuestions = [].concat(
-    window.quizData.trivia.easy.map(function(q) { q.difficulty = 'FÁCIL'; return q; }),
-    window.quizData.trivia.medium.map(function(q) { q.difficulty = 'MEDIO'; return q; }),
-    window.quizData.trivia.expert.map(function(q) { q.difficulty = 'EXPERTO'; return q; }),
-    window.quizData.trivia.hidden.map(function(q) { q.difficulty = 'OCULTO'; return q; })
-  );
-
-  // Shuffle and pick 10
-  allQuestions = allQuestions.sort(function() { return Math.random() - 0.5; }).slice(0, 10);
-  state.triviaTotal = allQuestions.length;
-
-  var html = allQuestions.map(function(q, qi) {
-    var optHtml = q.options.map(function(opt, oi) {
-      return '<button class="trivia-option" data-q="' + qi + '" data-o="' + oi + '" onclick="answerTrivia(this,' + qi + ',' + oi + ',' + q.answer + ')">' + opt + '</button>';
-    }).join('');
-    return '<div class="trivia-card" id="trivia-q-' + qi + '">' +
-      '<div style="font-family:\'Press Start 2P\',monospace;font-size:8px;color:#666;margin-bottom:8px;">' + q.difficulty + '</div>' +
-      '<div class="trivia-question">' + q.q + '</div>' +
-      '<div class="trivia-options">' + optHtml + '</div>' +
-    '</div>';
-  }).join('');
-
-  $('#trivia-questions-area').innerHTML = html;
-  updateTriviaScore();
-}
-
-function answerTrivia(el, qi, oi, correct) {
-  if (el.classList.contains('correct') || el.classList.contains('wrong')) return;
-
-  var parent = el.closest('.trivia-card');
-  var allBtns = parent.querySelectorAll('.trivia-option');
-  allBtns.forEach(function(btn) {
-    btn.style.pointerEvents = 'none';
-    if (parseInt(btn.dataset.o) === correct) btn.classList.add('correct');
-  });
-
-  if (oi === correct) {
-    state.triviaScore++;
-    el.classList.add('correct');
-  } else {
-    el.classList.add('wrong');
-  }
-
-  updateTriviaScore();
-
-  // Check if all answered
-  var allCards = $$('.trivia-card');
-  var allAnswered = true;
-  allCards.forEach(function(card) {
-    var btns = card.querySelectorAll('.trivia-option.correct, .trivia-option.wrong');
-    if (btns.length === 0) allAnswered = false;
-  });
-
-  if (allAnswered) {
-    showTriviaResult();
-  }
-}
-
-function updateTriviaScore() {
-  var bar = $('#trivia-score-bar');
-  if (bar) {
-    bar.innerHTML = '<div class="trivia-score-item">PUNTUACIÓN: <span>' + state.triviaScore + '/' + state.triviaTotal + '</span></div>' +
-      '<div class="trivia-score-item">PRECISIÓN: <span>' + (state.triviaTotal > 0 ? Math.round(state.triviaScore / state.triviaTotal * 100) : 0) + '%</span></div>';
-  }
-}
-
-function showTriviaResult() {
-  $('#trivia-questions-area').style.display = 'none';
-  var pct = Math.round(state.triviaScore / state.triviaTotal * 100);
-  var title, desc;
-  if (pct >= 90) { title = 'ARCHIVISTA SUPREMO'; desc = 'Tu conocimiento del lore FNaF es excepcional. Has dominado cada secreto y conexión.'; }
-  else if (pct >= 70) { title = 'EXPERTO EN LORE'; desc = 'Conoces bien la historia, pero aún hay secretos por descubrir.'; }
-  else if (pct >= 50) { title = 'INVESTIGADOR'; desc = 'Tienes una base sólida, pero necesitas explorar más archivos.'; }
-  else { title = 'SUPERVIVIENTE'; desc = 'Estás empezando tu investigación. Hay mucho más por descubrir.'; }
-
-  var html = '<div class="quiz-result-card">' +
-    '<div class="quiz-result-emoji">🧠</div>' +
-    '<div class="quiz-result-name">' + title + '</div>' +
-    '<div class="quiz-result-desc">' + desc + '</div>' +
-    '<div class="quiz-result-stats">' +
-      '<div class="quiz-stat"><div class="quiz-stat-label">CORRECTAS</div><div class="quiz-stat-bar"><div class="quiz-stat-fill" style="width:' + pct + '%"></div></div></div>' +
-    '</div>' +
-    '<button class="quiz-restart-btn" onclick="startTriviaQuiz()">🔄 INTENTAR DE NUEVO</button>' +
-  '</div>';
-
-  $('#trivia-result').innerHTML = html;
-  $('#trivia-result').classList.add('active');
-}
-
-// =============================================
-// TIMELINE FULL
-// =============================================
-function renderTimelineFull() {
-  var container = $('#timeline-full-container');
-  if (!container) return;
-
-  var items = window.timelineFull || [];
-  var eras = window.eras || [];
-
-  // Render era filters
-  var eraFilters = $('#timeline-era-filters');
-  if (eraFilters) {
-    var html = '<span class="filter-label">ERA:</span>';
-    html += '<button class="anomaly-filter-btn active" onclick="filterTimelineEra(\'all\')">TODAS</button>';
-    eras.forEach(function(e) {
-      html += '<button class="anomaly-filter-btn" onclick="filterTimelineEra(\'' + e.id + '\')" style="border-color:' + e.color + ';color:' + e.color + '">' + e.name + '</button>';
-    });
-    eraFilters.innerHTML = html;
-  }
-
-  // Render category filters
-  var catFilters = $('#timeline-cat-filters');
-  if (catFilters) {
-    var cats = [{id:'canon',label:'Canon'},{id:'teoria',label:'Teorías'},{id:'fanon',label:'Fanon'}];
-    var html = '<span class="filter-label">CATEGORÍA:</span>';
-    html += '<button class="anomaly-filter-btn active" onclick="filterTimelineCat(\'all\')">TODAS</button>';
-    cats.forEach(function(c) {
-      html += '<button class="anomaly-filter-btn" onclick="filterTimelineCat(\'' + c.id + '\')">' + c.label.toUpperCase() + '</button>';
-    });
-    catFilters.innerHTML = html;
-  }
-
-  window._timelineEraFilter = 'all';
-  window._timelineCatFilter = 'all';
-  filterTimeline();
-}
-
-function filterTimelineEra(era) {
-  window._timelineEraFilter = era;
-  $$('#timeline-era-filters .anomaly-filter-btn').forEach(function(btn) {
-    var filter = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
-    btn.classList.toggle('active', filter === era);
-  });
-  filterTimeline();
-}
-
-function filterTimelineCat(cat) {
-  window._timelineCatFilter = cat;
-  $$('#timeline-cat-filters .anomaly-filter-btn').forEach(function(btn) {
-    var filter = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
-    btn.classList.toggle('active', filter === cat);
-  });
-  filterTimeline();
-}
-
-function filterTimeline() {
-  var items = window.timelineFull || [];
-  var era = window._timelineEraFilter || 'all';
-  var cat = window._timelineCatFilter || 'all';
-
-  var filtered = items.filter(function(item) {
-    if (era !== 'all' && item.era !== era) return false;
-    if (cat !== 'all' && item.category !== cat) return false;
-    return true;
-  });
-
-  filtered.sort(function(a, b) { return a.year.localeCompare(b.year); });
-
-  var container = $('#timeline-full-container');
-  if (!container) return;
-
-  var catColors = { canon: '#00FF66', teoria: '#FFD700', fanon: '#8B2DE6' };
-  var catLabels = { canon: 'CANON', teoria: 'TEORÍA', fanon: 'FANON' };
-
-  if (filtered.length === 0) {
-    container.innerHTML = '<div class="anomaly-empty">NO SE ENCONTRARON EVENTOS</div>';
-    return;
-  }
-
-  var html = '<div class="timeline-full-list">';
-  filtered.forEach(function(item) {
-    var color = catColors[item.category] || '#888';
-    html += '<div class="timeline-full-item" onclick="showTimelineDetail(\'' + item.id + '\')" style="border-left-color:' + color + '">' +
-      '<div class="tfi-year">' + item.year + '</div>' +
-      '<div class="tfi-content">' +
-        '<div class="tfi-cat" style="color:' + color + '">' + (catLabels[item.category] || item.category) + '</div>' +
-        '<div class="tfi-title">' + item.title + '</div>' +
-        '<div class="tfi-certainty">Certeza: ' + item.certainty + '%</div>' +
-      '</div>' +
-    '</div>';
-  });
-  html += '</div>';
-  container.innerHTML = html;
-}
-
-function showTimelineDetail(id) {
-  var items = window.timelineFull || [];
-  var item = items.find(function(i) { return i.id === id; });
-  if (!item) return;
-
-  var catColors = { canon: '#00FF66', teoria: '#FFD700', fanon: '#8B2DE6' };
-  var catLabels = { canon: 'CANON', teoria: 'TEORÍA', fanon: 'FANON' };
-  var color = catColors[item.category] || '#888';
-
-  var panel = $('#timeline-detail-panel');
-  if (!panel) return;
-
-  var connHtml = '';
-  if (item.connections && item.connections.length > 0) {
-    connHtml = '<div class="anomaly-section"><h3 style="color:' + color + '">CONEXIONES</h3><div class="anomaly-connections">';
-    item.connections.forEach(function(c) {
-      var linked = items.find(function(i) { return i.id === c; });
-      var label = linked ? linked.title : c;
-      connHtml += '<span class="anomaly-conn-badge" onclick="showTimelineDetail(\'' + c + '\')">' + label + '</span>';
-    });
-    connHtml += '</div></div>';
-  }
-
-  var filesHtml = '';
-  if (item.files && item.files.length > 0) {
-    filesHtml = '<div class="anomaly-section"><h3 style="color:' + color + '">ARCHIVOS ASOCIADOS</h3><ul class="anomaly-theories">';
-    item.files.forEach(function(f) { filesHtml += '<li>📄 ' + f + '</li>'; });
-    filesHtml += '</ul></div>';
-  }
-
-  var html = '<div style="padding:20px;">' +
-    '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">' +
-      '<h2 style="font-family:\'Orbitron\',sans-serif;color:#DDD;font-size:18px;">' + item.title + '</h2>' +
-      '<button onclick="$(\'#timeline-detail-panel\').style.display=\'none\'" style="background:none;border:1px solid #555;color:#888;padding:5px 10px;cursor:pointer;font-family:\'Share Tech Mono\',monospace;font-size:11px;">CERRAR</button>' +
-    '</div>' +
-    '<div style="font-family:\'Press Start 2P\',monospace;font-size:10px;color:' + color + ';margin-bottom:10px;">' + item.year + ' · ' + (catLabels[item.category] || item.category) + ' · CERTeza: ' + item.certainty + '%</div>' +
-    '<div class="anomaly-section"><p style="font-family:\'IBM Plex Mono\',monospace;font-size:12px;color:#999;line-height:1.8;">' + item.description + '</p></div>' +
-    connHtml + filesHtml +
-  '</div>';
-
-  panel.innerHTML = html;
-  panel.style.display = 'block';
-}
-
-// =============================================
-// MAP
-// =============================================
-function renderMap() {
-  var wrapper = $('#map-svg-wrapper');
-  var infoPanel = $('#map-info-panel');
-  if (!wrapper) return;
-
-  var locations = window.mapLocations || [];
-
-  var statusColors = { closed: '#FF4444', destroyed: '#666', abandoned: '#FF8C00', active: '#00FF66' };
-  var dangerColors = { extremo: '#FF2222', alto: '#FF8C00', medio: '#FFD700', bajo: '#00FF66' };
-
-  // Build SVG map
-  var svg = '<svg viewBox="0 0 100 80" style="width:100%;height:auto;background:rgba(0,0,0,0.5);border:1px solid rgba(0,191,255,0.2);border-radius:4px;">';
-
-  // Grid lines
-  for (var x = 0; x <= 100; x += 10) {
-    svg += '<line x1="' + x + '" y1="0" x2="' + x + '" y2="80" stroke="rgba(0,191,255,0.05)" stroke-width="0.2"/>';
-  }
-  for (var y = 0; y <= 80; y += 10) {
-    svg += '<line x1="0" y1="' + y + '" x2="100" y2="' + y + '" stroke="rgba(0,191,255,0.05)" stroke-width="0.2"/>';
-  }
-
-  // Location dots
-  locations.forEach(function(loc) {
-    var color = statusColors[loc.status] || '#888';
-    svg += '<circle cx="' + loc.position.x + '" cy="' + loc.position.y + '" r="2" fill="' + color + '" stroke="' + color + '" stroke-width="0.5" opacity="0.8" style="cursor:pointer;" onclick="showMapLocation(\'' + loc.id + '\')">';
-      '<animate attributeName="r" values="2;2.5;2" dur="2s" repeatCount="indefinite"/>';
-    svg += '</circle>';
-    svg += '<text x="' + loc.position.x + '" y="' + (loc.position.y - 4) + '" fill="' + color + '" font-size="2.5" font-family="Share Tech Mono" text-anchor="middle">' + loc.name.split('(')[0].trim().substring(0, 20) + '</text>';
-  });
-
-  svg += '</svg>';
-  wrapper.innerHTML = svg;
-
-  // Default info
-  if (infoPanel) {
-    infoPanel.innerHTML = '<div style="padding:20px;font-family:\'Share Tech Mono\',monospace;color:#666;font-size:12px;text-align:center;">Haz clic en un punto del mapa para ver los detalles de la ubicación</div>';
-  }
-}
-
-function showMapLocation(id) {
-  var locations = window.mapLocations || [];
-  var loc = locations.find(function(l) { return l.id === id; });
-  if (!loc) return;
-
-  var infoPanel = $('#map-info-panel');
-  if (!infoPanel) return;
-
-  var statusLabels = { closed: 'CERRADO', destroyed: 'DESTRUIDO', abandoned: 'ABANDONADO', active: 'ACTIVO' };
-  var dangerLabels = { extremo: 'EXTREMO', alto: 'ALTO', medio: 'MEDIO', bajo: 'BAJO' };
-  var dangerColors = { extremo: '#FF2222', alto: '#FF8C00', medio: '#FFD700', bajo: '#00FF66' };
-
-  var html = '<div style="padding:20px;">' +
-    '<h3 style="font-family:\'Orbitron\',sans-serif;color:#DDD;font-size:16px;margin-bottom:10px;">' + loc.name + '</h3>' +
-    '<div style="display:flex;gap:8px;margin-bottom:15px;flex-wrap:wrap;">' +
-      '<span class="anomaly-tag anomaly-tag-game">' + (statusLabels[loc.status] || loc.status) + '</span>' +
-      '<span class="anomaly-tag" style="color:' + (dangerColors[loc.danger] || '#888') + ';border-color:' + (dangerColors[loc.danger] || '#888') + '33;background:' + (dangerColors[loc.danger] || '#888') + '11">PELIGRO: ' + (dangerLabels[loc.danger] || loc.danger) + '</span>' +
-      '<span class="anomaly-tag anomaly-tag-type">' + loc.year + '</span>' +
-    '</div>' +
-    '<div class="anomaly-section"><p style="font-family:\'IBM Plex Mono\',monospace;font-size:12px;color:#999;line-height:1.8;">' + loc.description + '</p></div>' +
-    '<div class="anomaly-section"><h3 style="color:#00BFFF">EVENTOS</h3><ul class="anomaly-theories">';
-  loc.events.forEach(function(e) { html += '<li>' + e + '</li>'; });
-  html += '</ul></div>' +
-    '<div class="anomaly-section"><h3 style="color:#00BFFF">ANIMATRÓNICOS</h3><div style="display:flex;gap:6px;flex-wrap:wrap;">';
-  loc.animatronics.forEach(function(a) {
-    html += '<span class="anomaly-conn-badge">' + a + '</span>';
-  });
-  html += '</div></div>' +
-    '<div class="anomaly-section"><h3 style="color:#00BFFF">SECRETOS</h3><ul class="anomaly-theories">';
-  loc.secrets.forEach(function(s) { html += '<li>' + s + '</li>'; });
-  html += '</ul></div></div>';
-
-  infoPanel.innerHTML = html;
-}
-
-// =============================================
-// SIMULATOR
-// =============================================
-var simState = { running: false, power: 100, time: 0, night: 1, leftDoor: false, rightDoor: false, leftLight: false, rightLight: false, camActive: false, animatronicPositions: {} };
-
-function renderSimulator() {
-  // Reset state
-  simState = { running: false, power: 100, time: 0, night: 1, leftDoor: false, rightDoor: false, leftLight: false, rightLight: false, camActive: false, animatronicPositions: {} };
-  $('#sim-start-screen').style.display = 'block';
-  $('#sim-game').style.display = 'none';
-  $('#sim-result').style.display = 'none';
-}
-
-function startSimulator() {
-  simState.running = true;
-  simState.power = 100;
-  simState.time = 0;
-  simState.leftDoor = false;
-  simState.rightDoor = false;
-  simState.leftLight = false;
-  simState.rightLight = false;
-  simState.camActive = false;
-
-  $('#sim-start-screen').style.display = 'none';
-  $('#sim-game').style.display = 'block';
-  $('#sim-result').style.display = 'none';
-
-  updateSimDisplay();
-  simTick();
-}
-
-function simTick() {
-  if (!simState.running) return;
-
-  // Time progression (1 tick = 1 game minute, ~1 real second)
-  simState.time++;
-  var hour = Math.floor(simState.time / 5) + 12;
-  if (hour >= 24) hour -= 24;
-  var ampm = hour >= 12 ? 'AM' : 'AM';
-  var displayHour = hour > 12 ? hour - 12 : hour;
-  if (displayHour === 0) displayHour = 12;
-
-  // Power drain
-  var drain = 1;
-  if (simState.leftDoor) drain += 1;
-  if (simState.rightDoor) drain += 1;
-  if (simState.leftLight) drain += 1;
-  if (simState.rightLight) drain += 1;
-  if (simState.camActive) drain += 1;
-  simState.power = Math.max(0, simState.power - drain);
-
-  // Random animatronic movement
-  if (Math.random() < 0.15) {
-    var configs = window.simulatorConfig.animatronics;
-    var rand = configs[Math.floor(Math.random() * configs.length)];
-    simState.animatronicPositions[rand.id] = Math.floor(Math.random() * 11);
-  }
-
-  // Check for jumpscares
-  var leftNear = [2, 4, 5];
-  var rightNear = [6, 8, 9];
-  var configs = window.simulatorConfig.animatronics;
-
-  configs.forEach(function(anim) {
-    var pos = simState.animatronicPositions[anim.id] || 0;
-    if (leftNear.includes(pos) && !simState.leftDoor && Math.random() < 0.3) {
-      simJumpscare(anim.name);
-    }
-    if (rightNear.includes(pos) && !simState.rightDoor && Math.random() < 0.3) {
-      simJumpscare(anim.name);
-    }
-  });
-
-  // Win condition
-  if (simState.time >= 30) {
-    simWin();
-    return;
-  }
-
-  // Lose condition
-  if (simState.power <= 0) {
-    simJumpscare('Freddy Fazbear');
-    return;
-  }
-
-  updateSimDisplay();
-
-  setTimeout(simTick, 1000);
-}
-
-function updateSimDisplay() {
-  var hour = Math.floor(simState.time / 5) + 12;
-  if (hour >= 24) hour -= 24;
-  var displayHour = hour > 12 ? hour - 12 : hour;
-  if (displayHour === 0) displayHour = 12;
-  var ampm = hour >= 12 ? 'PM' : 'AM';
-
-  var timeEl = $('#sim-time');
-  if (timeEl) timeEl.textContent = displayHour + ':00 ' + ampm;
-
-  var nightEl = $('#sim-night');
-  if (nightEl) nightEl.textContent = 'NOCHE ' + simState.night;
-
-  var powerEl = $('#sim-power');
-  if (powerEl) powerEl.textContent = Math.max(0, simState.power);
-
-  var powerFill = $('#sim-power-fill');
-  if (powerFill) {
-    powerFill.style.width = Math.max(0, simState.power) + '%';
-    powerFill.style.background = simState.power > 50 ? '#00FF66' : simState.power > 25 ? '#FFD700' : '#FF4444';
-  }
-}
-
-function toggleSimCameras() {
-  simState.camActive = !simState.camActive;
-  var cams = $('#sim-cameras');
-  if (cams) cams.style.display = simState.camActive ? 'block' : 'none';
-}
-
-function openSimDoor(side) {
-  if (side === 'left') { simState.leftDoor = true; }
-  else { simState.rightDoor = true; }
-}
-
-function closeSimDoor(side) {
-  if (side === 'left') { simState.leftDoor = false; }
-  else { simState.rightDoor = false; }
-}
-
-function simJumpscare(animName) {
-  simState.running = false;
-  var result = $('#sim-result');
-  if (result) {
-    result.innerHTML = '<div class="quiz-result-card" style="border-color:#FF4444;">' +
-      '<div class="quiz-result-emoji" style="font-size:80px;">💀</div>' +
-      '<div class="quiz-result-name" style="color:#FF4444;">JUMPSCARE</div>' +
-      '<div class="quiz-result-desc">' + animName + ' te atrapó. La energía se agotó o no cerraste la puerta a tiempo.</div>' +
-      '<button class="quiz-restart-btn" onclick="renderSimulator()">🔄 INTENTAR DE NUEVO</button>' +
-    '</div>';
-    result.style.display = 'block';
-  }
-  $('#sim-game').style.display = 'none';
-}
-
-function simWin() {
-  simState.running = false;
-  var result = $('#sim-result');
-  if (result) {
-    result.innerHTML = '<div class="quiz-result-card" style="border-color:#00FF66;">' +
-      '<div class="quiz-result-emoji" style="font-size:80px;">⏰</div>' +
-      '<div class="quiz-result-name" style="color:#00FF66;">6:00 AM</div>' +
-      '<div class="quiz-result-desc">¡Sobreviviste la noche ' + simState.night + '! Energía restante: ' + Math.max(0, simState.power) + '%</div>' +
-      '<button class="quiz-restart-btn" onclick="simState.night++;startSimulator()">🔄 SIGUIENTE NOCHE</button>' +
-    '</div>';
-    result.style.display = 'block';
-  }
-  $('#sim-game').style.display = 'none';
-}
-
-// =============================================
-// GALLERY
-// =============================================
-function renderGallery() {
-  var gallery = window.galleryData;
-  if (!gallery) return;
-
-  // Render style filters
-  var styleFilters = $('#gallery-filters-style');
-  if (styleFilters) {
-    var html = '<span class="filter-label">ESTILO:</span>';
-    html += '<button class="anomaly-filter-btn active" onclick="filterGallery(\'style\',\'all\')">TODOS</button>';
-    gallery.styles.forEach(function(s) {
-      html += '<button class="anomaly-filter-btn" onclick="filterGallery(\'style\',\'' + s + '\')">' + s.toUpperCase() + '</button>';
-    });
-    styleFilters.innerHTML = html;
-  }
-
-  // Render character filters
-  var charFilters = $('#gallery-filters-char');
-  if (charFilters) {
-    var html = '<span class="filter-label">PERSONAJE:</span>';
-    html += '<button class="anomaly-filter-btn active" onclick="filterGallery(\'char\',\'all\')">TODOS</button>';
-    gallery.characters.forEach(function(c) {
-      html += '<button class="anomaly-filter-btn" onclick="filterGallery(\'char\',\'' + c + '\')">' + c.toUpperCase() + '</button>';
-    });
-    charFilters.innerHTML = html;
-  }
-
-  window._galleryStyleFilter = 'all';
-  window._galleryCharFilter = 'all';
-  filterGalleryRender();
-}
-
-function filterGallery(type, value) {
-  if (type === 'style') window._galleryStyleFilter = value;
-  else window._galleryCharFilter = value;
-
-  var filterId = type === 'style' ? 'gallery-filters-style' : 'gallery-filters-char';
-  $$('#' + filterId + ' .anomaly-filter-btn').forEach(function(btn) {
-    var filter = btn.getAttribute('onclick').match(/'([^']+)'/g);
-    var filterVal = filter ? filter[filter.length - 1].replace(/'/g, '') : 'all';
-    btn.classList.toggle('active', filterVal === value);
-  });
-
-  filterGalleryRender();
-}
-
-function filterGalleryRender() {
-  var gallery = window.galleryData;
-  if (!gallery) return;
-
-  var filtered = gallery.featured.filter(function(item) {
-    if (window._galleryStyleFilter !== 'all' && item.style !== window._galleryStyleFilter) return false;
-    if (window._galleryCharFilter !== 'all' && item.character !== window._galleryCharFilter) return false;
-    return true;
-  });
-
-  var grid = $('#gallery-grid');
-  if (!grid) return;
-
-  if (filtered.length === 0) {
-    grid.innerHTML = '<div class="anomaly-empty">NO SE ENCONTRARON OBRAS CON ESTOS CRITERIOS</div>';
-    return;
-  }
-
-  grid.innerHTML = filtered.map(function(item) {
-    return '<div class="anomaly-card" onclick="showGalleryModal(\'' + item.id + '\')">' +
-      '<div class="anomaly-card-header">' +
-        '<div class="anomaly-card-id">' + item.artist + '</div>' +
-        '<div class="anomaly-card-title">' + item.title + '</div>' +
-        '<div class="anomaly-card-meta">' +
-          '<span class="anomaly-tag anomaly-tag-game">' + item.game + '</span>' +
-          '<span class="anomaly-tag anomaly-tag-type">' + item.style + '</span>' +
-        '</div>' +
-      '</div>' +
-      '<div class="anomaly-card-body">' +
-        '<div class="anomaly-card-desc">👤 ' + item.character + ' · ❤️ ' + item.likes + ' likes · 📅 ' + item.date + '</div>' +
-      '</div>' +
-    '</div>';
-  }).join('');
-}
-
-function showGalleryModal(id) {
-  var gallery = window.galleryData;
-  if (!gallery) return;
-  var item = gallery.featured.find(function(i) { return i.id === id; });
-  if (!item) return;
-
-  var html = '<div class="anomaly-modal-hero"><div class="anomaly-modal-info">' +
-    '<h2>' + item.title + '</h2>' +
-    '<div class="anomaly-modal-tags">' +
-      '<span class="anomaly-tag anomaly-tag-game">' + item.game + '</span>' +
-      '<span class="anomaly-tag anomaly-tag-type">' + item.style + '</span>' +
-    '</div>' +
-    '<p style="font-family:\'Share Tech Mono\',monospace;font-size:11px;color:#666;">Artista: ' + item.artist + ' · ❤️ ' + item.likes + ' likes</p>' +
-  '</div></div>' +
-  '<div class="anomaly-section"><h3>DESCRIPCIÓN</h3><p>Fan art de ' + item.character + ' del juego ' + item.game + ', creado en estilo ' + item.style + ' por ' + item.artist + '.</p></div>';
-
-  $('#modal-body').innerHTML = html;
-  $('#modal').classList.add('active');
 }
 
 console.log('%cTHE FAZBEAR FILES', 'font-size:24px;color:#FF2222;font-weight:bold;');
