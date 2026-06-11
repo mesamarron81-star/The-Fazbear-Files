@@ -862,7 +862,259 @@ window.images = {
     'animdude': { primary: '', gallery: [] },
     'freddy-bully': { primary: '', gallery: [] },
     'cake-bot': { primary: '', gallery: [] },
-    'wet-floor-bot': { primary: '', gallery: [] }
+    'wet-floor-bot': { primary: '', gallery: [] },
+    'fnac-candy': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/CandyTheCat-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220311213253',
+      gallery: []
+    },
+    'fnac-cindy': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/8/81/CindyTheCat.png/revision/latest/scale-to-width-down/200?cb=20220313233855',
+      gallery: []
+    },
+    'fnac-chester': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/CandyTheCat-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220311213253',
+      gallery: []
+    },
+    'fnac-old-candy': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/a/a5/OldCandy-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220312153327',
+      gallery: []
+    },
+    'fnac-blank': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/CandyTheCat-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220311213253',
+      gallery: []
+    },
+    'fnac-penguin': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/1/18/ThePenguin-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220314194312',
+      gallery: []
+    },
+    'fnac-rat': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/CandyTheCat-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220311213253',
+      gallery: []
+    },
+    'fnac2-new-candy': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/CandyTheCat-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220311213253',
+      gallery: []
+    },
+    'fnac2-new-cindy': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/8/81/CindyTheCat.png/revision/latest/scale-to-width-down/200?cb=20220313233855',
+      gallery: []
+    },
+    'fnac2-withered-chester': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/CandyTheCat-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220311213253',
+      gallery: []
+    },
+    'fnac2-withered-blank': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/CandyTheCat-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220311213253',
+      gallery: []
+    },
+    'fnac2-withered-penguin': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/1/18/ThePenguin-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220314194312',
+      gallery: []
+    },
+    'fnac2-new-old-candy': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/a/a5/OldCandy-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220312153327',
+      gallery: []
+    },
+    'fnac2-the-cat': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/CandyTheCat-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220311213253',
+      gallery: []
+    },
+    'fnac3-candy-impression': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/CandyTheCat-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220311213253',
+      gallery: []
+    },
+    'fnac3-cupcake': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/CandyTheCat-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220311213253',
+      gallery: []
+    },
+    'fnac3-mini-candy': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/CandyTheCat-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220311213253',
+      gallery: []
+    },
+    'fnac3-mini-cindy': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/8/81/CindyTheCat.png/revision/latest/scale-to-width-down/200?cb=20220313233855',
+      gallery: []
+    },
+    'fnac3-mini-chester': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/CandyTheCat-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220311213253',
+      gallery: []
+    },
+    'fnac4-rat-2': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/CandyTheCat-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220311213253',
+      gallery: []
+    },
+    'fnac4-monster-rat': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/4a/CandyTheCat-Remastered.png/revision/latest/scale-to-width-down/200?cb=20220311213253',
+      gallery: []
+    },
+    'popgoes-popgoes': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/9/9e/PopgoesRender.png/revision/latest/scale-to-width-down/200?cb=20220115055939',
+      gallery: []
+    },
+    'popgoes-blackerjack': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/9/9d/BonnieGladeBlackrabbit.png/revision/latest/scale-to-width-down/200?cb=20220328171122',
+      gallery: []
+    },
+    'popgoes-stone': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/b/bf/StoneRender.png/revision/latest/scale-to-width-down/200?cb=20241112035619',
+      gallery: []
+    },
+    'popgoes-blake': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/9/9e/PopgoesRender.png/revision/latest/scale-to-width-down/200?cb=20220115055939',
+      gallery: []
+    },
+    'popgoes-string': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/9/9e/PopgoesRender.png/revision/latest/scale-to-width-down/200?cb=20220115055939',
+      gallery: []
+    },
+    'popgoes-manora': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/9/99/POPGOES_Arcade_Manora_the_Mouse.png/revision/latest/scale-to-width-down/200?cb=20250529174158',
+      gallery: []
+    },
+    'tjoc-ignited-freddy': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/0/00/Ignited_Freddy-InfoboxRender.png/revision/latest/scale-to-width-down/200?cb=20260218183507',
+      gallery: []
+    },
+    'tjoc-ignited-bonnie': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/4/42/Ignited_Bonnie-InfoboxRender.png/revision/latest/scale-to-width-down/200?cb=20260218183517',
+      gallery: []
+    },
+    'tjoc-ignited-chica': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/d/db/Ignited_Chica-InfoboxRender.png/revision/latest/scale-to-width-down/200?cb=20260218183526',
+      gallery: []
+    },
+    'tjoc-ignited-foxy': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/8/89/Ignited_Foxy-InfoboxRender.png/revision/latest/scale-to-width-down/200?cb=20260218183545',
+      gallery: []
+    },
+    'tjoc-ignited-golden-freddy': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/5/5d/Smigf.png/revision/latest/scale-to-width-down/200?cb=20230909202426',
+      gallery: []
+    },
+    'onaf-flumpty': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/6e/FlumptyBumpty.png/revision/latest/scale-to-width-down/200?cb=20220314002956',
+      gallery: []
+    },
+    'onaf-birthday-boy-blam': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/d/dd/BirthdayBoyBlam.png/revision/latest/scale-to-width-down/200?cb=20240908092322',
+      gallery: []
+    },
+    'onaf-redman': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/6e/FlumptyBumpty.png/revision/latest/scale-to-width-down/200?cb=20220314002956',
+      gallery: []
+    },
+    'onaf-beaver': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/6e/FlumptyBumpty.png/revision/latest/scale-to-width-down/200?cb=20220314002956',
+      gallery: []
+    },
+    'onaf-grunkfuss': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/6/6e/FlumptyBumpty.png/revision/latest/scale-to-width-down/200?cb=20220314002956',
+      gallery: []
+    },
+    'onaf-golden-flumpty': {
+      primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/1/19/Golden_Flumpty.png/revision/latest/scale-to-width-down/200?cb=20220316003956',
+      gallery: []
+    },
+    'dsaf-dave-miller': {
+      primary: '',
+      gallery: []
+    },
+    'dsaf-phone-guy': {
+      primary: '',
+      gallery: []
+    },
+    'dsaf-steven': {
+      primary: '',
+      gallery: []
+    },
+    'dsaf-charlie': {
+      primary: '',
+      gallery: []
+    },
+    'jolly-jolly': {
+      primary: '',
+      gallery: []
+    },
+    'jolly-tattletail': {
+      primary: '',
+      gallery: []
+    },
+    'trtf-brock': {
+      primary: '',
+      gallery: []
+    },
+    'trtf-golden-villy': {
+      primary: '',
+      gallery: []
+    },
+    'fn-freddy': {
+      primary: '',
+      gallery: []
+    },
+    'super-fnaf-freddy': {
+      primary: '',
+      gallery: []
+    },
+    'ff-fredbear': {
+      primary: '',
+      gallery: []
+    },
+    'dormitabis-ignited': {
+      primary: '',
+      gallery: []
+    },
+    'banshee-banshee': {
+      primary: '',
+      gallery: []
+    },
+    'fnaw-withered': {
+      primary: '',
+      gallery: []
+    },
+    'postshift-freddy': {
+      primary: '',
+      gallery: []
+    },
+    'bloodgears-freddy': {
+      primary: '',
+      gallery: []
+    },
+    'fnaf-plus-freddy': {
+      primary: '',
+      gallery: []
+    },
+    'treasure-island-mickey': {
+      primary: '',
+      gallery: []
+    },
+    'treasure-island-phantom': {
+      primary: '',
+      gallery: []
+    },
+    'obligus-freddy': {
+      primary: '',
+      gallery: []
+    },
+    'frickbears-freddy': {
+      primary: '',
+      gallery: []
+    },
+    'graveyard-freddy': {
+      primary: '',
+      gallery: []
+    },
+    'cody-cody': {
+      primary: '',
+      gallery: []
+    },
+    'tyke-tyke': {
+      primary: '',
+      gallery: []
+    },
+    'bnc-baby': {
+      primary: '',
+      gallery: []
+    }
   },
   games: {
     'fnaf-1': {
@@ -1025,38 +1277,119 @@ window.images = {
       primary: 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/9/9b/ONaF3-Header.png/revision/latest?cb=20240630141045',
       gallery: []
     },
-    'popgoes': { primary: '', gallery: [] },
-    'popgoes-evergreen': { primary: '', gallery: [] },
-    'popgoes-arcade': { primary: '', gallery: [] },
-    'tjoc': { primary: '', gallery: [] },
-    'tjoc-reborn': { primary: '', gallery: [] },
-    'tjoc-story-mode': { primary: '', gallery: [] },
-    'fnaf-plus': { primary: '', gallery: [] },
-    'dayshift': { primary: '', gallery: [] },
-    'dayshift-2': { primary: '', gallery: [] },
-    'final-nights': { primary: '', gallery: [] },
-    'super-fnaf': { primary: '', gallery: [] },
-    'fredbears-fright': { primary: '', gallery: [] },
-    'sinister-turmoil': { primary: '', gallery: [] },
-    'fnaf-treasure-island': { primary: '', gallery: [] },
-    'jolly': { primary: '', gallery: [] },
-    'jolly-4': { primary: '', gallery: [] },
-    'jrs': { primary: '', gallery: [] },
-    'babys-nightmare-circus': { primary: '', gallery: [] },
+    'popgoes': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/0/07/POPGOES_Thumbnail.png/revision/latest/scale-to-width-down/300?cb=20240731121309',
+      gallery: []
+    },
+    'popgoes-evergreen': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/5/53/POPGOESEvergreenWallpaperGIF.gif/revision/latest/scale-to-width-down/300?cb=20231124231236',
+      gallery: []
+    },
+    'popgoes-arcade': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/b/b9/POPGOESArcade2020_DeadForestBanner.png/revision/latest/scale-to-width-down/200?cb=20231111180426',
+      gallery: []
+    },
+    'tjoc': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/8/86/THEJOYOFCREATION_LibraryBanner.png/revision/latest/scale-to-width-down/200?cb=20240801183644',
+      gallery: []
+    },
+    'tjoc-reborn': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/0/0c/TheJoyofCreationReborn_Thumbnail2.png/revision/latest/scale-to-width-down/300?cb=20250917044409',
+      gallery: []
+    },
+    'tjoc-story-mode': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/5/53/TheJoyofCreationStoryMode_Thumbnail.png/revision/latest?cb=20250128165129',
+      gallery: []
+    },
+    'fnaf-plus': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/2/2a/Fnaf_plus_steam_banner.jpg/revision/latest/scale-to-width-down/300?cb=20230718091438',
+      gallery: []
+    },
+    'dayshift': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/3/3b/Dayshift1.jpg/revision/latest/scale-to-width-down/300?cb=20240518152401',
+      gallery: []
+    },
+    'dayshift-2': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/2/25/Download_%282%29.jpeg/revision/latest/scale-to-width-down/300?cb=20181130215708',
+      gallery: []
+    },
+    'final-nights': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/b/bc/Image_2025-03-25_234339402.png/revision/latest/scale-to-width-down/300?cb=20250326034342',
+      gallery: []
+    },
+    'super-fnaf': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/8/8c/SuperFNaF_Thumbnail.png/revision/latest/scale-to-width-down/300?cb=20231025185454',
+      gallery: []
+    },
+    'fredbears-fright': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/d/df/FredbearsFright_Thumbnail.png/revision/latest/scale-to-width-down/300?cb=20231030140047',
+      gallery: []
+    },
+    'sinister-turmoil': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/6/62/SinisterTurmoil_Thumbnail4.png/revision/latest/scale-to-width-down/300?cb=20250621193129',
+      gallery: []
+    },
+    'fnaf-treasure-island': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/5/51/FNaTI_2014.png/revision/latest/scale-to-width-down/300?cb=20241130064115',
+      gallery: []
+    },
+    'jolly': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/0/0d/JOLLY_Thumbnail.png/revision/latest/scale-to-width-down/300?cb=20240826045602',
+      gallery: []
+    },
+    'jolly-4': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/4/44/JOLLY4_Banner.png/revision/latest/scale-to-width-down/224?cb=20240825133446',
+      gallery: []
+    },
+    'jrs': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/7/71/JRs_Poster.jpg/revision/latest/scale-to-width-down/225?cb=20250716234219',
+      gallery: []
+    },
+    'babys-nightmare-circus': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/6/61/BabysCircusNightmare_Thumbnail.png/revision/latest/scale-to-width-down/300?cb=20231030140145',
+      gallery: []
+    },
     'tyke-and-sons': { primary: '', gallery: [] },
     'trtf': { primary: '', gallery: [] },
     'frickbears': { primary: '', gallery: [] },
-    'obligus-casa': { primary: '', gallery: [] },
-    'banshee': { primary: '', gallery: [] },
-    'fnaw-rewritten': { primary: '', gallery: [] },
-    'bubbas-diner': { primary: '', gallery: [] },
-    'graveyard-shift': { primary: '', gallery: [] },
+    'obligus-casa': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/1/13/Oblitus_Casa.png/revision/latest/scale-to-width-down/300?cb=20240219155620',
+      gallery: []
+    },
+    'banshee': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/8/83/Banshee_PosterFinal.png/revision/latest/scale-to-width-down/202?cb=20250731115956',
+      gallery: []
+    },
+    'fnaw-rewritten': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/e/ef/FNaW_1_Thumb.png/revision/latest/scale-to-width-down/300?cb=20220816224346',
+      gallery: []
+    },
+    'bubbas-diner': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/2/2b/BubbasDiner_Thumbnail.png/revision/latest/scale-to-width-down/300?cb=20240816125853',
+      gallery: []
+    },
+    'graveyard-shift': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/b/be/GraveyardShiftatFreddys_BannerRelease.png/revision/latest/scale-to-width-down/245?cb=20240911182137',
+      gallery: []
+    },
     'after-hours-cody': { primary: '', gallery: [] },
-    'dormitabis': { primary: '', gallery: [] },
-    'fnab-fan-game': { primary: '', gallery: [] },
-    'post-shift-2': { primary: '', gallery: [] },
+    'dormitabis': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/9/95/108410-kwyebzct-v4.png/revision/latest/scale-to-width-down/300?cb=20250531061255',
+      gallery: []
+    },
+    'fnab-fan-game': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/7/7d/348498-enprwwj8-v3.jpg/revision/latest/scale-to-width-down/300?cb=20181101163747',
+      gallery: []
+    },
+    'post-shift-2': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/b/b5/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_2022-12-02_172629438.png/revision/latest/scale-to-width-down/300?cb=20221202142640',
+      gallery: []
+    },
     'fnaf-blood-gears': { primary: '', gallery: [] },
     'fnaw-friedrichs': { primary: '', gallery: [] },
-    'animators-hell': { primary: '', gallery: [] }
+    'animators-hell': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/5/52/AH_reboot.jpg/revision/latest/scale-to-width-down/300?cb=20200217222007',
+      gallery: []
+    }
   }
 };
