@@ -6490,8 +6490,7 @@
         'Es lento pero devastador si alcanza al jugador.',
         'Representa la transformacion corrupta de los animatronicos originales.'
       ]
-    }
-  },
+    },
   {
     id: 'ar-freddy-fazbear',
     name: 'Freddy Fazbear (AR)',
