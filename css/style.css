@@ -9115,3 +9115,166 @@ body {
 .tfl-item__cat { font-family: 'Press Start 2P', monospace; font-size: 7px; }
 .tfl-item__files { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
 .tfl-item__file { font-size: 8px; color: #555; padding: 2px 6px; background: #111; border-radius: 3px; }
+
+/* =============================================
+   RESPONSIVE — TABLETS (768px)
+   ============================================= */
+@media (max-width: 768px) {
+  .site-header { padding: 10px 14px; }
+  .logo { font-size: 1rem !important; }
+
+  .container { padding: 16px 10px; }
+
+  .section-title { font-size: 0.9rem !important; letter-spacing: 2px !important; }
+  .section-sub { font-size: 0.6rem !important; }
+
+  .character-card .char-image { height: 200px; }
+  .character-card .char-name { font-size: 8px; }
+  .character-card .char-desc { font-size: 10px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+  .game-card { padding: 10px; }
+  .game-card .game-title { font-size: 10px; }
+  .game-card .game-desc { font-size: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+  .book-card { padding: 10px; }
+  .book-card .book-title { font-size: 10px; }
+
+  .video-card .video-info { padding: 8px; }
+  .video-card .video-title { font-size: 9px; }
+
+  .ar-hero { grid-template-columns: 1fr !important; text-align: center; }
+  .ar-hero__phone img { width: 150px !important; }
+  .ar-hero__meta { grid-template-columns: 1fr 1fr; }
+  .ar-mechanics { grid-template-columns: 1fr 1fr !important; }
+  .ar-anim-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)) !important; }
+
+  .ee-grid { grid-template-columns: 1fr !important; }
+  .gallery-grid { grid-template-columns: 1fr 1fr !important; }
+  .map-grid { grid-template-columns: 1fr !important; }
+  .quiz-menu { grid-template-columns: 1fr !important; }
+  .tfl-filters { gap: 4px !important; }
+
+  .folders-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  .search-box { margin: 0 10px 16px; }
+  .filter-tags { gap: 4px !important; padding: 0 10px !important; flex-wrap: wrap !important; }
+  .filter-tag { font-size: 7px !important; padding: 5px 8px !important; }
+
+  .char-modal__hero { flex-direction: column !important; }
+  .char-modal__hero-left { width: 100% !important; }
+  .char-modal__hero-right { width: 100% !important; }
+  .game-modal__hero { flex-direction: column !important; }
+  .game-modal__hero-left { width: 100% !important; }
+  .game-modal__hero-right { width: 100% !important; }
+}
+
+/* =============================================
+   RESPONSIVE — MÓVILES (500px)
+   ============================================= */
+@media (max-width: 500px) {
+  body { padding-top: 240px !important; }
+
+  .site-header { padding: 8px 10px; }
+  .logo { font-size: 0.8rem !important; letter-spacing: 0 !important; }
+
+  .nav-menu { gap: 4px !important; flex-wrap: wrap !important; justify-content: center !important; }
+  .nav-trigger { font-size: 0.6rem !important; padding: 5px 6px !important; }
+  .nav-chevron { font-size: 0.5rem !important; }
+
+  .container { padding: 10px 6px; }
+
+  .section-title { font-size: 0.7rem !important; letter-spacing: 1px !important; line-height: 1.4 !important; }
+  .section-sub { font-size: 0.5rem !important; }
+
+  .search-box { margin: 0 6px 12px; }
+  .search-box input { font-size: 10px !important; padding: 8px 12px !important; }
+
+  .filter-tags { gap: 3px !important; padding: 0 6px !important; }
+  .filter-tag { font-size: 6px !important; padding: 4px 6px !important; }
+
+  .characters-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .games-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .books-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .fangames-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .videos-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+
+  .character-card .char-image { height: 180px; }
+  .character-card .char-name { font-size: 7px; }
+  .character-card .char-alias { font-size: 9px; }
+  .character-card .char-desc { font-size: 9px; }
+  .character-card .char-info { padding: 12px; }
+
+  .game-card .game-title { font-size: 9px; }
+  .game-card .game-meta span { font-size: 8px; }
+  .game-card .game-desc { font-size: 9px; }
+
+  .book-card .book-title { font-size: 9px; }
+  .book-card .book-desc { font-size: 9px; }
+
+  .video-card { flex-direction: column !important; }
+  .video-card .video-thumb img { height: 160px !important; }
+
+  .ar-hero { padding: 14px !important; gap: 16px !important; }
+  .ar-hero__phone img { width: 120px !important; }
+  .ar-hero__title { font-size: 0.8rem !important; }
+  .ar-hero__desc { font-size: 10px !important; }
+  .ar-hero__meta { grid-template-columns: 1fr !important; gap: 8px !important; }
+  .ar-meta-item { padding: 6px !important; }
+  .ar-meta-value { font-size: 10px !important; }
+
+  .ar-mechanics { grid-template-columns: 1fr !important; }
+  .ar-mech-card { padding: 12px !important; }
+  .ar-mech-card__icon img { height: 60px !important; }
+  .ar-mech-card__title { font-size: 7px !important; }
+  .ar-mech-card__desc { font-size: 9px !important; }
+
+  .ar-anim-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)) !important; }
+  .ar-skins-grid { grid-template-columns: 1fr !important; }
+
+  .ee-grid { grid-template-columns: 1fr !important; }
+  .ee-card { padding: 12px !important; }
+  .ee-card__name { font-size: 8px !important; }
+  .ee-card__desc { font-size: 10px !important; }
+
+  .gallery-grid { grid-template-columns: 1fr !important; }
+  .gallery-card__img { height: 160px !important; }
+
+  .map-grid { grid-template-columns: 1fr !important; }
+  .map-card { padding: 12px !important; }
+  .map-card__name { font-size: 8px !important; }
+
+  .quiz-menu { grid-template-columns: 1fr !important; }
+  .quiz-question__text { font-size: 13px !important; }
+  .quiz-option { font-size: 11px !important; padding: 10px !important; }
+  .quiz-result__title { font-size: 10px !important; }
+
+  .sim-intro__title { font-size: 10px !important; }
+  .sim-intro__sub { font-size: 8px !important; }
+  .sim-night-select { gap: 4px !important; }
+  .sim-night-btn { font-size: 7px !important; padding: 6px 10px !important; }
+  .sim-hud { flex-direction: column !important; gap: 6px !important; padding: 8px 10px !important; }
+  .sim-time { font-size: 10px !important; }
+  .sim-cam-grid { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)) !important; }
+  .sim-cam-cell { font-size: 6px !important; padding: 4px !important; }
+
+  .tfl-filters { gap: 3px !important; }
+  .tfl-item__card { padding: 10px !important; }
+  .tfl-item__title { font-size: 8px !important; }
+  .tfl-item__desc { font-size: 10px !important; }
+
+  .folders-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+
+  .char-modal__title { font-size: 1rem !important; }
+  .char-modal__info-grid { grid-template-columns: 1fr !important; }
+  .game-modal__title { font-size: 1rem !important; }
+  .game-modal__info-grid { grid-template-columns: 1fr !important; }
+
+  .hero-command { padding: 20px 10px !important; margin: 0 6px 16px !important; }
+  .hero-command__title { font-size: 1.2rem !important; letter-spacing: 2px !important; }
+  .hero-command__indicators { grid-template-columns: 1fr !important; }
+  .hero-btn { max-width: 100% !important; font-size: 8px !important; }
+
+  .timeline-item { width: 100% !important; margin-left: 0 !important; }
+
+  .modal-content { margin: 10px !important; width: calc(100% - 20px) !important; max-height: calc(100vh - 20px) !important; }
+}
