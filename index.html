@@ -75,6 +75,9 @@
           <a href="#fangames" class="nav-link nav-dropdown-link" data-page="fangames" role="menuitem">
             <span class="nav-link-code">CAM-FG</span>FANGAMES
           </a>
+          <a href="#simulator" class="nav-link nav-dropdown-link" data-page="simulator" role="menuitem">
+            <span class="nav-link-code">SIM</span>SIMULADOR
+          </a>
         </div>
       </div>
 
@@ -88,6 +91,9 @@
           </a>
           <a href="#books" class="nav-link nav-dropdown-link" data-page="books" role="menuitem">
             <span class="nav-link-code">FILES</span>LIBROS
+          </a>
+          <a href="#gallery" class="nav-link nav-dropdown-link" data-page="gallery" role="menuitem">
+            <span class="nav-link-code">ART</span>GALERIA
           </a>
         </div>
       </div>
@@ -103,6 +109,9 @@
           <a href="#music" class="nav-link nav-dropdown-link" data-page="music" role="menuitem">
             <span class="nav-link-code">AUDIO</span>MUSICA
           </a>
+          <a href="#quiz" class="nav-link nav-dropdown-link" data-page="quiz" role="menuitem">
+            <span class="nav-link-code">TEST</span>QUIZ
+          </a>
         </div>
       </div>
 
@@ -113,6 +122,15 @@
         <div class="nav-dropdown-panel" role="menu">
           <a href="#history" class="nav-link nav-dropdown-link" data-page="history" role="menuitem">
             <span class="nav-link-code">1983</span>HISTORIA
+          </a>
+          <a href="#eastereggs" class="nav-link nav-dropdown-link" data-page="eastereggs" role="menuitem">
+            <span class="nav-link-code">SECRET</span>EASTER EGGS
+          </a>
+          <a href="#map" class="nav-link nav-dropdown-link" data-page="map" role="menuitem">
+            <span class="nav-link-code">GPS</span>MAPA
+          </a>
+          <a href="#timeline-full" class="nav-link nav-dropdown-link" data-page="timeline-full" role="menuitem">
+            <span class="nav-link-code">TIME</span>CRONOLOGIA
           </a>
         </div>
       </div>
@@ -1047,6 +1065,83 @@
     </div>
   </section>
 
+  <!-- EASTER EGGS -->
+  <section id="page-eastereggs" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">EASTER EGGS — SECRETOS OCULTOS</div>
+      <div class="section-sub">DESCUBRIMIENTOS EN TODA LA FRANQUICIA</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">></span>
+      <input type="text" id="easteregg-search" placeholder="BUSCAR EASTER EGGS...">
+    </div>
+    <div class="filter-tags" id="easteregg-filters">
+      <button class="filter-tag active" data-eefilter="all">TODOS</button>
+      <button class="filter-tag" data-eefilter="fnaf1">FNAF 1</button>
+      <button class="filter-tag" data-eefilter="fnaf2">FNAF 2</button>
+      <button class="filter-tag" data-eefilter="fnaf3">FNAF 3</button>
+      <button class="filter-tag" data-eefilter="fnaf4">FNAF 4</button>
+      <button class="filter-tag" data-eefilter="sisterlocation">SISTER LOCATION</button>
+      <button class="filter-tag" data-eefilter="ffps">FFPS</button>
+      <button class="filter-tag" data-eefilter="ucn">UCN</button>
+      <button class="filter-tag" data-eefilter="helpwanted">HELP WANTED</button>
+      <button class="filter-tag" data-eefilter="securitybreach">SECURITY BREACH</button>
+      <button class="filter-tag" data-eefilter="varios">CROSS-GAME</button>
+    </div>
+    <div class="ee-grid" id="ee-grid"></div>
+  </section>
+
+  <!-- FAN ART GALLERY -->
+  <section id="page-gallery" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">GALERIA — ARTE DE LA COMUNIDAD</div>
+      <div class="section-sub">FAN ART DE LA COMUNIDAD FNAF</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="gallery-container" id="gallery-container"></div>
+  </section>
+
+  <!-- MAPA INTERACTIVO -->
+  <section id="page-map" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">MAPA INTERACTIVO — UBICACIONES</div>
+      <div class="section-sub">TODAS LAS UBICACIONES DE LA FRANQUICIA</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="map-container" id="map-container"></div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="page-quiz" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">CENTRO DE pruebas — QUIZ</div>
+      <div class="section-sub">TESTS DE PERSONALIDAD Y CONOCIMIENTO</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="quiz-container" id="quiz-container"></div>
+  </section>
+
+  <!-- SIMULADOR -->
+  <section id="page-simulator" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">SIMULADOR DE OFICINA — NIGHT 1</div>
+      <div class="section-sub">RECREA LA EXPERIENCIA DE FNAF 1</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="sim-container" id="sim-container"></div>
+  </section>
+
+  <!-- CRONOLOGIA EXTENDIDA -->
+  <section id="page-timeline-full" class="page">
+    <div class="section-title-wrapper">
+      <div class="section-title">CRONOLOGIA COMPLETA — TIMELINE</div>
+      <div class="section-sub">LINEA TEMPORAL EXTENDIDA DE TODA LA SAGA</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="tfl-container" id="tfl-container"></div>
+  </section>
+
 </main>
 
 <!-- FOOTER -->
@@ -1073,6 +1168,12 @@
 <script src="data/stories.js"></script>
 <script src="data/fangames.js"></script>
 <script src="data/images.js"></script>
+<script src="data/eastereggs.js"></script>
+<script src="data/gallery.js"></script>
+<script src="data/map.js"></script>
+<script src="data/quiz.js"></script>
+<script src="data/simulator.js"></script>
+<script src="data/timeline-full.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

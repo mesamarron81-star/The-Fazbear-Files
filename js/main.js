@@ -205,6 +205,24 @@ function loadPage(page) {
     case 'blog':
       renderBlog();
       break;
+    case 'eastereggs':
+      renderEasterEggs();
+      break;
+    case 'gallery':
+      renderGallery();
+      break;
+    case 'map':
+      renderMap();
+      break;
+    case 'quiz':
+      renderQuiz();
+      break;
+    case 'simulator':
+      renderSimulator();
+      break;
+    case 'timeline-full':
+      renderTimelineFull();
+      break;
   }
 
   requestAnimationFrame(revealPageElements);
@@ -2984,6 +3002,584 @@ function initCameraMap() {
 
   // Default selection
   selectCamera('cam-02');
+}
+
+// =============================================
+// EASTER EGGS
+// =============================================
+function renderEasterEggs(filter = 'all', search = '') {
+  const grid = $('#ee-grid');
+  if (!grid || !window.eastereggs) return;
+
+  let filtered = [...window.eastereggs];
+  if (filter !== 'all') {
+    filtered = filtered.filter(e => e.game === filter);
+  }
+  if (search) {
+    const s = search.toLowerCase();
+    filtered = filtered.filter(e =>
+      e.name.toLowerCase().includes(s) ||
+      e.description.toLowerCase().includes(s) ||
+      e.location.toLowerCase().includes(s)
+    );
+  }
+
+  const gameLabels = {
+    fnaf1: 'FNaF 1', fnaf2: 'FNaF 2', fnaf3: 'FNaF 3', fnaf4: 'FNaF 4',
+    sisterlocation: 'Sister Location', ffps: 'FFPS', ucn: 'UCN',
+    helpwanted: 'Help Wanted', securitybreach: 'Security Breach', varios: 'Cross-Game'
+  };
+
+  const typeIcons = { visual: '👁', mecanico: '⚙', narrativo: '📖', auditivo: '🔊' };
+  const rarityColors = {
+    común: '#00FF66', raro: '#00BFFF', extremadamente_raro: '#CC66FF', secreto_profundo: '#FF2222'
+  };
+
+  grid.innerHTML = filtered.map(ee => `
+    <div class="ee-card" onclick="showEasterEggModal('${ee.id}')">
+      <div class="ee-card__header">
+        <span class="ee-card__id">${ee.id}</span>
+        <span class="ee-card__type">${typeIcons[ee.type] || '❓'} ${ee.type.toUpperCase()}</span>
+      </div>
+      <div class="ee-card__name">${ee.name}</div>
+      <div class="ee-card__game">${gameLabels[ee.game] || ee.game}</div>
+      <div class="ee-card__location">${ee.location}</div>
+      <div class="ee-card__desc">${ee.description.slice(0, 120)}...</div>
+      <div class="ee-card__footer">
+        <span class="ee-card__rarity" style="color:${rarityColors[ee.rarity] || '#888'}">${ee.rarity.replace(/_/g, ' ').toUpperCase()}</span>
+      </div>
+    </div>
+  `).join('');
+
+  // Bind filters
+  const filterBtns = $$('#easteregg-filters .filter-tag');
+  filterBtns.forEach(btn => {
+    btn.onclick = () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderEasterEggs(btn.dataset.eefilter, $('#easteregg-search')?.value || '');
+    };
+  });
+
+  const searchInput = $('#easteregg-search');
+  if (searchInput && !searchInput._eeBound) {
+    searchInput._eeBound = true;
+    searchInput.addEventListener('input', (e) => {
+      const activeFilter = document.querySelector('#easteregg-filters .filter-tag.active');
+      renderEasterEggs(activeFilter?.dataset.eefilter || 'all', e.target.value);
+    });
+  }
+}
+
+window.showEasterEggModal = (id) => {
+  const ee = window.eastereggs.find(e => e.id === id);
+  if (!ee) return;
+  const gameLabels = {
+    fnaf1: 'FNaF 1', fnaf2: 'FNaF 2', fnaf3: 'FNaF 3', fnaf4: 'FNaF 4',
+    sisterlocation: 'Sister Location', ffps: 'FFPS', ucn: 'UCN',
+    helpwanted: 'Help Wanted', securitybreach: 'Security Breach', varios: 'Cross-Game'
+  };
+  const body = $('#modal-body');
+  body.innerHTML = `
+    <div class="ee-modal">
+      <div class="ee-modal__header">
+        <span class="ee-modal__id">${ee.id}</span>
+        <h2 class="ee-modal__name">${ee.name}</h2>
+        <div class="ee-modal__meta">
+          <span class="ee-modal__game">${gameLabels[ee.game] || ee.game}</span>
+          <span class="ee-modal__type">${ee.type.toUpperCase()}</span>
+          <span class="ee-modal__rarity">${ee.rarity.replace(/_/g, ' ').toUpperCase()}</span>
+        </div>
+      </div>
+      <div class="ee-modal__section">
+        <div class="ee-modal__label">📍 UBICACIÓN</div>
+        <div class="ee-modal__value">${ee.location}</div>
+      </div>
+      <div class="ee-modal__section">
+        <div class="ee-modal__label">📝 DESCRIPCIÓN</div>
+        <div class="ee-modal__value">${ee.description}</div>
+      </div>
+      <div class="ee-modal__section">
+        <div class="ee-modal__label">🔧 ACTIVACIÓN</div>
+        <ol class="ee-modal__steps">${ee.activation.map(a => `<li>${a}</li>`).join('')}</ol>
+      </div>
+      <div class="ee-modal__section">
+        <div class="ee-modal__label">📖 SIGNIFICADO EN EL LORE</div>
+        <div class="ee-modal__value">${ee.loreSignificance}</div>
+      </div>
+      ${ee.theories.length > 0 ? `
+        <div class="ee-modal__section">
+          <div class="ee-modal__label">🔮 TEORÍAS</div>
+          <ul class="ee-modal__list">${ee.theories.map(t => `<li>${t}</li>`).join('')}</ul>
+        </div>
+      ` : ''}
+      ${ee.connections.length > 0 ? `
+        <div class="ee-modal__section">
+          <div class="ee-modal__label">🔗 CONEXIONES</div>
+          <div class="ee-modal__connections">${ee.connections.map(c => `<span class="ee-modal__conn-tag" onclick="showEasterEggModal('${c}')">${c}</span>`).join('')}</div>
+        </div>
+      ` : ''}
+    </div>
+  `;
+  openModal();
+};
+
+// =============================================
+// FAN ART GALLERY
+// =============================================
+function renderGallery() {
+  const container = $('#gallery-container');
+  if (!container || !window.galleryData) return;
+
+  const g = window.galleryData;
+  container.innerHTML = `
+    <div class="gallery-filters">
+      <div class="gallery-filter-group">
+        <span class="gallery-filter-label">ESTILO:</span>
+        ${g.styles.map((s, i) => `<button class="filter-tag ${i === 0 ? 'active' : ''}" data-gfilter-style="${s}">${s}</button>`).join('')}
+      </div>
+      <div class="gallery-filter-group">
+        <span class="gallery-filter-label">PERSONAJE:</span>
+        ${g.characters.map((c, i) => `<button class="filter-tag ${i === 0 ? 'active' : ''}" data-gfilter-char="${c}">${c}</button>`).join('')}
+      </div>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      ${g.featured.map(art => `
+        <div class="gallery-card">
+          <div class="gallery-card__img">
+            <div class="gallery-card__fallback">${art.title.charAt(0)}</div>
+            <div class="gallery-card__overlay">
+              <div class="gallery-card__title">${art.title}</div>
+            </div>
+          </div>
+          <div class="gallery-card__info">
+            <div class="gallery-card__artist">por ${art.artist}</div>
+            <div class="gallery-card__meta">${art.style} · ${art.game}</div>
+            <div class="gallery-card__likes">❤ ${art.likes}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="gallery-empty" style="display:none;text-align:center;color:#555;padding:40px;font-family:'Press Start 2P',monospace;font-size:10px;">
+      NO SE ENCONTRARON OBRAS CON ESTOS FILTROS
+    </div>
+  `;
+}
+
+// =============================================
+// MAPA INTERACTIVO
+// =============================================
+function renderMap() {
+  const container = $('#map-container');
+  if (!container || !window.mapLocations) return;
+
+  const dangerColors = { extremo: '#FF2222', alto: '#FF8C00', medio: '#E6B800', bajo: '#00FF66' };
+  const statusLabels = { closed: 'CERRADO', destroyed: 'DESTRUIDO', abandoned: 'ABANDONADO', active: 'ACTIVO' };
+
+  container.innerHTML = `
+    <div class="map-grid">
+      ${window.mapLocations.map(loc => `
+        <div class="map-card" onclick="showMapModal('${loc.id}')" style="border-left: 3px solid ${dangerColors[loc.danger] || '#666'}">
+          <div class="map-card__header">
+            <div class="map-card__name">${loc.name}</div>
+            <div class="map-card__year">${loc.year}</div>
+          </div>
+          <div class="map-card__type">${loc.type.toUpperCase()}</div>
+          <div class="map-card__status" style="color:${dangerColors[loc.danger]}">${statusLabels[loc.status] || loc.status}</div>
+          <div class="map-card__desc">${loc.description.slice(0, 100)}...</div>
+          <div class="map-card__anims">${loc.animatronics.slice(0, 4).map(a => `<span class="map-card__anim-tag">${a}</span>`).join('')}${loc.animatronics.length > 4 ? `<span class="map-card__anim-tag">+${loc.animatronics.length - 4}</span>` : ''}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+window.showMapModal = (id) => {
+  const loc = window.mapLocations.find(l => l.id === id);
+  if (!loc) return;
+  const dangerColors = { extremo: '#FF2222', alto: '#FF8C00', medio: '#E6B800', bajo: '#00FF66' };
+  const statusLabels = { closed: 'CERRADO', destroyed: 'DESTRUIDO', abandoned: 'ABANDONADO', active: 'ACTIVO' };
+  const body = $('#modal-body');
+  body.innerHTML = `
+    <div class="map-modal">
+      <div class="map-modal__header" style="border-left: 4px solid ${dangerColors[loc.danger]}">
+        <h2 class="map-modal__name">${loc.name}</h2>
+        <div class="map-modal__meta">
+          <span>${loc.type.toUpperCase()}</span>
+          <span>${loc.year}</span>
+          <span style="color:${dangerColors[loc.danger]}">${statusLabels[loc.status]}</span>
+          <span>PELIGRO: ${loc.danger.toUpperCase()}</span>
+        </div>
+      </div>
+      <div class="map-modal__section">
+        <div class="map-modal__label">📝 DESCRIPCIÓN</div>
+        <div class="map-modal__value">${loc.description}</div>
+      </div>
+      <div class="map-modal__section">
+        <div class="map-modal__label">⚡ EVENTOS</div>
+        <ul class="map-modal__list">${loc.events.map(e => `<li>${e}</li>`).join('')}</ul>
+      </div>
+      <div class="map-modal__section">
+        <div class="map-modal__label">🎭 ANIMATRÓNICOS</div>
+        <div class="map-modal__tags">${loc.animatronics.map(a => `<span class="map-modal__tag">${a}</span>`).join('')}</div>
+      </div>
+      <div class="map-modal__section">
+        <div class="map-modal__label">🔑 SECRETOS</div>
+        <ul class="map-modal__list">${loc.secrets.map(s => `<li>${s}</li>`).join('')}</ul>
+      </div>
+    </div>
+  `;
+  openModal();
+};
+
+// =============================================
+// QUIZ
+// =============================================
+function renderQuiz() {
+  const container = $('#quiz-container');
+  if (!container || !window.quizData) return;
+  container.innerHTML = `
+    <div class="quiz-menu">
+      <div class="quiz-menu-card" onclick="startPersonalityQuiz()">
+        <div class="quiz-menu-card__icon">🐻</div>
+        <div class="quiz-menu-card__title">¿QUÉ ANIMATRÓNICO ERES?</div>
+        <div class="quiz-menu-card__desc">10 preguntas para descubrir tu personalidad FNAF</div>
+      </div>
+      <div class="quiz-menu-card" onclick="startTriviaQuiz('easy')">
+        <div class="quiz-menu-card__icon">❓</div>
+        <div class="quiz-menu-card__title">TRIVIA FÁCIL</div>
+        <div class="quiz-menu-card__desc">Preguntas básicas sobre la saga</div>
+      </div>
+      <div class="quiz-menu-card" onclick="startTriviaQuiz('medium')">
+        <div class="quiz-menu-card__icon">⚠️</div>
+        <div class="quiz-menu-card__title">TRIVIA MEDIA</div>
+        <div class="quiz-menu-card__desc">Conocimiento intermedio del lore</div>
+      </div>
+      <div class="quiz-menu-card" onclick="startTriviaQuiz('expert')">
+        <div class="quiz-menu-card__icon">💀</div>
+        <div class="quiz-menu-card__title">TRIVIA EXPERTA</div>
+        <div class="quiz-menu-card__desc">Solo para verdaderos expertos</div>
+      </div>
+      <div class="quiz-menu-card" onclick="startTriviaQuiz('hidden')">
+        <div class="quiz-menu-card__icon">🔮</div>
+        <div class="quiz-menu-card__title">TRIVIA SECRETA</div>
+        <div class="quiz-menu-card__desc">Los secretos más oscuros del lore</div>
+      </div>
+    </div>
+    <div id="quiz-active" style="display:none;"></div>
+  `;
+}
+
+let _quizState = { current: 0, answers: [], type: '', difficulty: '' };
+
+window.startPersonalityQuiz = () => {
+  _quizState = { current: 0, answers: [], type: 'personality', difficulty: '' };
+  document.querySelector('.quiz-menu').style.display = 'none';
+  renderQuizQuestion();
+};
+
+window.startTriviaQuiz = (diff) => {
+  _quizState = { current: 0, answers: [], type: 'trivia', difficulty: diff };
+  document.querySelector('.quiz-menu').style.display = 'none';
+  renderQuizQuestion();
+};
+
+function renderQuizQuestion() {
+  const el = $('#quiz-active');
+  if (!el) return;
+  el.style.display = 'block';
+
+  if (_quizState.type === 'personality') {
+    const qs = window.quizData.personality.questions;
+    if (_quizState.current >= qs.length) { renderPersonalityResult(); return; }
+    const q = qs[_quizState.current];
+    el.innerHTML = `
+      <div class="quiz-question">
+        <div class="quiz-question__num">PREGUNTA ${_quizState.current + 1} / ${qs.length}</div>
+        <div class="quiz-question__progress"><div class="quiz-question__fill" style="width:${(_quizState.current / qs.length) * 100}%"></div></div>
+        <div class="quiz-question__text">${q.text}</div>
+        <div class="quiz-question__options">
+          ${q.options.map((o, i) => `<button class="quiz-option" onclick="answerPersonality(${i})">${o.text}</button>`).join('')}
+        </div>
+      </div>
+    `;
+  } else {
+    const qs = window.quizData.trivia[_quizState.difficulty] || [];
+    if (_quizState.current >= qs.length) { renderTriviaResult(); return; }
+    const q = qs[_quizState.current];
+    el.innerHTML = `
+      <div class="quiz-question">
+        <div class="quiz-question__num">PREGUNTA ${_quizState.current + 1} / ${qs.length}</div>
+        <div class="quiz-question__progress"><div class="quiz-question__fill" style="width:${(_quizState.current / qs.length) * 100}%"></div></div>
+        <div class="quiz-question__text">${q.q}</div>
+        <div class="quiz-question__options">
+          ${q.options.map((o, i) => `<button class="quiz-option" onclick="answerTrivia(${i}, ${q.answer})">${o}</button>`).join('')}
+        </div>
+      </div>
+    `;
+  }
+}
+
+window.answerPersonality = (idx) => {
+  const q = window.quizData.personality.questions[_quizState.current];
+  _quizState.answers.push(q.options[idx].values);
+  _quizState.current++;
+  renderQuizQuestion();
+};
+
+window.answerTrivia = (idx, correct) => {
+  _quizState.answers.push(idx === correct);
+  _quizState.current++;
+  renderQuizQuestion();
+};
+
+function renderPersonalityResult() {
+  const el = $('#quiz-active');
+  const totals = { fear: 0, aggression: 0, curiosity: 0, survival: 0 };
+  _quizState.answers.forEach(a => {
+    Object.keys(a).forEach(k => { totals[k] = (totals[k] || 0) + a[k]; });
+  });
+  const max = Object.entries(totals).sort((a, b) => b[1] - a[1])[0][0];
+  const charMap = { fear: 'goldenFreddy', aggression: 'foxy', curiosity: 'bonnie', survival: 'chica' };
+  const result = window.quizData.personality.results[charMap[max] || 'freddy'];
+  el.innerHTML = `
+    <div class="quiz-result">
+      <div class="quiz-result__emoji">${result.emoji}</div>
+      <div class="quiz-result__title">ERES: ${result.name}</div>
+      <div class="quiz-result__desc">${result.description}</div>
+      <div class="quiz-result__lore"><strong>LORE:</strong> ${result.lore}</div>
+      <div class="quiz-result__behavior"><strong>COMPORTAMIENTO:</strong> ${result.behavior}</div>
+      <div class="quiz-result__stats">
+        ${Object.entries(result.stats).map(([k, v]) => `
+          <div class="quiz-stat">
+            <div class="quiz-stat__label">${k.toUpperCase()}</div>
+            <div class="quiz-stat__bar"><div class="quiz-stat__fill" style="width:${v}%"></div></div>
+            <div class="quiz-stat__val">${v}%</div>
+          </div>
+        `).join('')}
+      </div>
+      <button class="quiz-restart" onclick="renderQuiz()">VOLVER A INTENTAR</button>
+    </div>
+  `;
+}
+
+function renderTriviaResult() {
+  const el = $('#quiz-active');
+  const correct = _quizState.answers.filter(Boolean).length;
+  const total = _quizState.answers.length;
+  const pct = Math.round((correct / total) * 100);
+  el.innerHTML = `
+    <div class="quiz-result">
+      <div class="quiz-result__emoji">${pct >= 80 ? '🏆' : pct >= 50 ? '👍' : '💀'}</div>
+      <div class="quiz-result__title">${correct} / ${total} CORRECTAS</div>
+      <div class="quiz-result__desc">Has acertado el ${pct}% de las preguntas. ${pct >= 80 ? 'Eres un verdadero experto en FNAF!' : pct >= 50 ? 'Buen conocimiento, pero hay espacio para mejorar.' : 'Estudia más el lore de FNAF e intenta de nuevo.'}</div>
+      <button class="quiz-restart" onclick="renderQuiz()">VOLVER A INTENTAR</button>
+    </div>
+  `;
+}
+
+// =============================================
+// SIMULADOR DE OFICINA
+// =============================================
+function renderSimulator() {
+  const container = $('#sim-container');
+  if (!container || !window.simulatorConfig) return;
+  const cfg = window.simulatorConfig;
+  container.innerHTML = `
+    <div class="sim-intro">
+      <div class="sim-intro__title">FIVE NIGHTS AT FREDDY'S</div>
+      <div class="sim-intro__sub">SIMULADOR DE OFICINA</div>
+      <div class="sim-intro__desc">Sobrevive 6 noches enfrentando a los animatrónicos. Usa las cámaras, puertas y luces.</div>
+      <div class="sim-intro__controls">
+        <div class="sim-night-select">
+          ${[1,2,3,4,5,6].map(n => `<button class="sim-night-btn" onclick="startSimNight(${n})">NOCHE ${n}</button>`).join('')}
+        </div>
+      </div>
+    </div>
+    <div id="sim-game" style="display:none;"></div>
+  `;
+}
+
+let _simState = { night: 1, power: 100, camera: null, leftDoor: false, rightDoor: false, leftLight: false, rightLight: false, animatronics: [], tick: null };
+
+window.startSimNight = (night) => {
+  const cfg = window.simulatorConfig;
+  _simState = {
+    night,
+    power: 100,
+    camera: null,
+    leftDoor: false,
+    rightDoor: false,
+    leftLight: false,
+    rightLight: false,
+    animatronics: cfg.animatronics.map(a => ({ ...a, level: a.ai[night - 1] || 0, pos: 'stage' })),
+    tick: null
+  };
+  document.querySelector('.sim-intro').style.display = 'none';
+  const el = $('#sim-active') || document.createElement('div');
+  el.id = 'sim-active';
+  el.style.display = 'block';
+  if (!el.parentElement) $('#sim-container').appendChild(el);
+  renderSimUI();
+  _simState.tick = setInterval(simTick, 2000);
+};
+
+function renderSimUI() {
+  const el = $('#sim-active');
+  const cfg = window.simulatorConfig;
+  if (!el) return;
+  el.innerHTML = `
+    <div class="sim-office">
+      <div class="sim-hud">
+        <div class="sim-hud-left">
+          <span class="sim-time">12:00 AM</span>
+          <span class="sim-night-label">NOCHE ${_simState.night}</span>
+        </div>
+        <div class="sim-hud-right">
+          <div class="sim-power-bar">
+            <div class="sim-power-label">ENERGÍA: ${Math.round(_simState.power)}%</div>
+            <div class="sim-power-fill" style="width:${_simState.power}%;background:${_simState.power < 25 ? '#FF2222' : '#00FF66'}"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sim-view">
+        ${_simState.camera ? `
+          <div class="sim-cam-view">
+            <div class="sim-cam-header">${cfg.cameras.find(c => c.id === _simState.camera)?.name || _simState.camera}</div>
+            <div class="sim-cam-feed">
+              <div class="sim-cam-static"></div>
+              ${_simState.animatronics.filter(a => {
+                const cam = cfg.cameras.find(c => c.id === _simState.camera);
+                return cam && cam.animatronics.includes(a.id);
+              }).map(a => `<div class="sim-cam-anim" style="left:${30 + Math.random() * 40}%;top:${20 + Math.random() * 40}%">${a.icon}</div>`).join('')}
+            </div>
+            <div class="sim-cam-grid">
+              ${cfg.cameras.map(c => `<div class="sim-cam-cell ${c.id === _simState.camera ? 'active' : ''}" onclick="switchSimCam('${c.id}')">${c.name.split(' - ')[0]}</div>`).join('')}
+            </div>
+          </div>
+        ` : `
+          <div class="sim-office-view">
+            <div class="sim-office-main">
+              <div class="sim-office-label">OFICINA DEL GUARDIA</div>
+            </div>
+            <div class="sim-office-doors">
+              <div class="sim-door-panel">
+                <button class="sim-door-btn ${_simState.leftDoor ? 'active' : ''}" onclick="toggleSimDoor('left')">🚪 PUERTA IZQ</button>
+                <button class="sim-light-btn ${_simState.leftLight ? 'active' : ''}" onclick="toggleSimLight('left')">💡 LUZ IZQ</button>
+              </div>
+              <div class="sim-door-panel">
+                <button class="sim-door-btn ${_simState.rightDoor ? 'active' : ''}" onclick="toggleSimDoor('right')">🚪 PUERTA DER</button>
+                <button class="sim-light-btn ${_simState.rightLight ? 'active' : ''}" onclick="toggleSimLight('right')">💡 LUZ DER</button>
+              </div>
+            </div>
+          </div>
+        `}
+      </div>
+      <div class="sim-controls">
+        <button class="sim-cam-toggle" onclick="toggleSimCam()">📷 ${_simState.camera ? 'CERRAR CÁMARAS' : 'ABRIR CÁMARAS'}</button>
+      </div>
+    </div>
+  `;
+}
+
+window.toggleSimCam = () => {
+  _simState.camera = _simState.camera ? null : 'cam-1a';
+  renderSimUI();
+};
+
+window.switchSimCam = (camId) => {
+  _simState.camera = camId;
+  _simState.power = Math.max(0, _simState.power - 1);
+  renderSimUI();
+};
+
+window.toggleSimDoor = (side) => {
+  if (side === 'left') _simState.leftDoor = !_simState.leftDoor;
+  else _simState.rightDoor = !_simState.rightDoor;
+  _simState.power = Math.max(0, _simState.power - 1);
+  renderSimUI();
+};
+
+window.toggleSimLight = (side) => {
+  if (side === 'left') _simState.leftLight = !_simState.leftLight;
+  else _simState.rightLight = !_simState.rightLight;
+  _simState.power = Math.max(0, _simState.power - 0.5);
+  renderSimUI();
+};
+
+function simTick() {
+  if (_simState.power <= 0) {
+    clearInterval(_simState.tick);
+    const el = $('#sim-active');
+    if (el) el.innerHTML = '<div class="sim-gameover"><div class="sim-gameover__title">SE TE ACABÓ LA ENERGÍA</div><div class="sim-gameover__sub">Los animatrónicos te encontraron...</div><button class="quiz-restart" onclick="renderSimulator()">INTENTAR DE NUEVO</button></div>';
+    return;
+  }
+  _simState.power -= (_simState.leftDoor ? 1 : 0) + (_simState.rightDoor ? 1 : 0) + (_simState.leftLight ? 0.5 : 0) + (_simState.rightLight ? 0.5 : 0) + (_simState.camera ? 1 : 0.5);
+  _simState.power = Math.max(0, _simState.power);
+  renderSimUI();
+}
+
+// =============================================
+// TIMELINE EXTENDIDA
+// =============================================
+function renderTimelineFull() {
+  const container = $('#tfl-container');
+  if (!container || !window.timelineFull || !window.eras) return;
+
+  let html = `
+    <div class="tfl-filters">
+      <button class="filter-tag active" data-tflfilter="all">TODAS LAS ERAS</button>
+      ${window.eras.map(e => `<button class="filter-tag" data-tflfilter="${e.id}">${e.name}</button>`).join('')}
+      <button class="filter-tag" data-tflfilter="teoria">TEORÍAS</button>
+      <button class="filter-tag" data-tflfilter="fanon">FANON</button>
+    </div>
+    <div class="tfl-timeline" id="tfl-timeline">
+  `;
+
+  const sorted = [...window.timelineFull].sort((a, b) => {
+    const ay = parseInt(a.year.replace(/[^0-9-]/g, '')) || 0;
+    const by = parseInt(b.year.replace(/[^0-9-]/g, '')) || 0;
+    return ay - by;
+  });
+
+  sorted.forEach(item => {
+    const era = window.eras.find(e => e.id === item.era);
+    const catColors = { canon: '#00FF66', teoria: '#CC66FF', fanon: '#E6B800' };
+    const color = catColors[item.category] || '#888';
+    html += `
+      <div class="tfl-item" data-era="${item.era}" data-cat="${item.category}">
+        <div class="tfl-item__dot" style="background:${color};box-shadow:0 0 8px ${color}80"></div>
+        <div class="tfl-item__connector"></div>
+        <div class="tfl-item__card">
+          <div class="tfl-item__year" style="color:${color}">${item.year}</div>
+          <div class="tfl-item__era" style="border-color:${color}">${era ? era.name : item.era}</div>
+          <div class="tfl-item__title">${item.title}</div>
+          <div class="tfl-item__desc">${item.description}</div>
+          <div class="tfl-item__meta">
+            <span class="tfl-item__cert">CERTIDUMBRE: ${item.certainty}%</span>
+            <span class="tfl-item__cat" style="color:${color}">${item.category.toUpperCase()}</span>
+          </div>
+          ${item.files.length > 0 ? `<div class="tfl-item__files">${item.files.map(f => `<span class="tfl-item__file">📄 ${f}</span>`).join('')}</div>` : ''}
+        </div>
+      </div>
+    `;
+  });
+
+  html += '</div>';
+  container.innerHTML = html;
+
+  // Bind filters
+  $$('#page-timeline-full .filter-tag').forEach(btn => {
+    btn.onclick = () => {
+      $$('#page-timeline-full .filter-tag').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.tflfilter;
+      $$('.tfl-item').forEach(item => {
+        if (f === 'all') { item.style.display = ''; return; }
+        item.style.display = (item.dataset.era === f || item.dataset.cat === f) ? '' : 'none';
+      });
+    };
+  });
 }
 
 console.log('%cTHE FAZBEAR FILES', 'font-size:24px;color:#FF2222;font-weight:bold;');

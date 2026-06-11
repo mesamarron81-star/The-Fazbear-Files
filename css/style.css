@@ -8853,4 +8853,189 @@ body {
     color: black;
   }
 }
-  
+
+/* =============================================
+   EASTER EGGS
+   ============================================= */
+.ee-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px;
+}
+.ee-card {
+  background: #0d0d0d; border: 1px solid #1a1a2e; border-radius: 8px;
+  padding: 16px; cursor: pointer; transition: all 0.3s;
+}
+.ee-card:hover { border-color: #CC66FF; box-shadow: 0 0 15px rgba(204,102,255,0.15); transform: translateY(-2px); }
+.ee-card__header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.ee-card__id { font-family: 'Press Start 2P', monospace; font-size: 7px; color: #555; }
+.ee-card__type { font-family: 'Share Tech Mono', monospace; font-size: 9px; color: #888; }
+.ee-card__name { font-family: 'Press Start 2P', monospace; font-size: 9px; color: #CC66FF; margin-bottom: 6px; letter-spacing: 1px; }
+.ee-card__game { font-size: 10px; color: #00BFFF; margin-bottom: 4px; font-family: 'Share Tech Mono', monospace; }
+.ee-card__location { font-size: 9px; color: #666; margin-bottom: 8px; font-family: 'IBM Plex Mono', monospace; }
+.ee-card__desc { font-size: 11px; color: #888; line-height: 1.5; }
+.ee-card__footer { margin-top: 10px; }
+.ee-card__rarity { font-family: 'Press Start 2P', monospace; font-size: 7px; letter-spacing: 1px; }
+
+/* EE Modal */
+.ee-modal { font-family: 'IBM Plex Mono', monospace; }
+.ee-modal__header { text-align: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #1a1a2e; }
+.ee-modal__id { font-family: 'Press Start 2P', monospace; font-size: 8px; color: #555; }
+.ee-modal__name { font-family: 'Press Start 2P', monospace; font-size: 12px; color: #CC66FF; margin: 8px 0; letter-spacing: 1px; }
+.ee-modal__meta { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.ee-modal__meta span { font-size: 9px; padding: 3px 8px; border: 1px solid #1a1a2e; color: #888; }
+.ee-modal__section { margin-bottom: 16px; }
+.ee-modal__label { font-family: 'Press Start 2P', monospace; font-size: 8px; color: #00FF66; margin-bottom: 6px; letter-spacing: 1px; }
+.ee-modal__value { font-size: 12px; color: #ccc; line-height: 1.6; }
+.ee-modal__steps { padding-left: 20px; }
+.ee-modal__steps li { font-size: 11px; color: #aaa; margin-bottom: 4px; line-height: 1.5; }
+.ee-modal__list { list-style: none; padding: 0; }
+.ee-modal__list li { font-size: 11px; color: #aaa; padding: 4px 0; border-bottom: 1px solid #111; }
+.ee-modal__connections { display: flex; gap: 6px; flex-wrap: wrap; }
+.ee-modal__conn-tag { font-family: 'Press Start 2P', monospace; font-size: 7px; padding: 4px 8px; background: #111; border: 1px solid #CC66FF; color: #CC66FF; cursor: pointer; border-radius: 3px; }
+.ee-modal__conn-tag:hover { background: #CC66FF20; }
+
+/* =============================================
+   GALLERY
+   ============================================= */
+.gallery-filters { margin-bottom: 20px; }
+.gallery-filter-group { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; align-items: center; }
+.gallery-filter-label { font-family: 'Press Start 2P', monospace; font-size: 7px; color: #555; margin-right: 6px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+.gallery-card { background: #0d0d0d; border: 1px solid #1a1a2e; border-radius: 8px; overflow: hidden; cursor: pointer; transition: all 0.3s; }
+.gallery-card:hover { border-color: #FF69B4; box-shadow: 0 0 15px rgba(255,105,180,0.15); transform: translateY(-2px); }
+.gallery-card__img { height: 200px; background: linear-gradient(135deg, #0a0a12, #111); display: flex; align-items: center; justify-content: center; position: relative; }
+.gallery-card__fallback { font-family: 'Press Start 2P', monospace; font-size: 40px; color: #333; }
+.gallery-card__overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); }
+.gallery-card__title { font-family: 'Press Start 2P', monospace; font-size: 8px; color: #FF69B4; }
+.gallery-card__info { padding: 12px; }
+.gallery-card__artist { font-size: 11px; color: #888; margin-bottom: 4px; }
+.gallery-card__meta { font-size: 9px; color: #666; margin-bottom: 4px; }
+.gallery-card__likes { font-size: 10px; color: #FF69B4; }
+
+/* =============================================
+   MAP
+   ============================================= */
+.map-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.map-card { background: #0d0d0d; border: 1px solid #1a1a2e; border-radius: 8px; padding: 16px; cursor: pointer; transition: all 0.3s; }
+.map-card:hover { border-color: #E6B800; box-shadow: 0 0 15px rgba(230,184,0,0.15); transform: translateY(-2px); }
+.map-card__header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+.map-card__name { font-family: 'Press Start 2P', monospace; font-size: 9px; color: #E6B800; letter-spacing: 1px; flex: 1; }
+.map-card__year { font-size: 9px; color: #666; font-family: 'Share Tech Mono', monospace; }
+.map-card__type { font-size: 9px; color: #00FF66; font-family: 'Share Tech Mono', monospace; margin-bottom: 4px; }
+.map-card__status { font-family: 'Press Start 2P', monospace; font-size: 7px; margin-bottom: 8px; letter-spacing: 1px; }
+.map-card__desc { font-size: 11px; color: #888; line-height: 1.5; margin-bottom: 8px; }
+.map-card__anims { display: flex; gap: 4px; flex-wrap: wrap; }
+.map-card__anim-tag { font-size: 8px; padding: 2px 6px; background: #111; border: 1px solid #1a1a2e; color: #aaa; border-radius: 3px; font-family: 'Share Tech Mono', monospace; }
+
+/* Map Modal */
+.map-modal { font-family: 'IBM Plex Mono', monospace; }
+.map-modal__header { padding: 16px; background: #0a0a0a; border-radius: 8px; margin-bottom: 20px; }
+.map-modal__name { font-family: 'Press Start 2P', monospace; font-size: 11px; color: #E6B800; margin-bottom: 8px; letter-spacing: 1px; }
+.map-modal__meta { display: flex; gap: 8px; flex-wrap: wrap; }
+.map-modal__meta span { font-size: 9px; padding: 3px 8px; border: 1px solid #1a1a2e; color: #888; }
+.map-modal__section { margin-bottom: 16px; }
+.map-modal__label { font-family: 'Press Start 2P', monospace; font-size: 8px; color: #00FF66; margin-bottom: 6px; letter-spacing: 1px; }
+.map-modal__value { font-size: 12px; color: #ccc; line-height: 1.6; }
+.map-modal__list { list-style: none; padding: 0; }
+.map-modal__list li { font-size: 11px; color: #aaa; padding: 4px 0; border-bottom: 1px solid #111; }
+.map-modal__tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.map-modal__tag { font-size: 9px; padding: 3px 8px; background: #111; border: 1px solid #E6B800; color: #E6B800; border-radius: 3px; }
+
+/* =============================================
+   QUIZ
+   ============================================= */
+.quiz-menu { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.quiz-menu-card { background: #0d0d0d; border: 1px solid #1a1a2e; border-radius: 8px; padding: 24px 16px; text-align: center; cursor: pointer; transition: all 0.3s; }
+.quiz-menu-card:hover { border-color: #00FF66; box-shadow: 0 0 20px rgba(0,255,102,0.15); transform: translateY(-3px); }
+.quiz-menu-card__icon { font-size: 36px; margin-bottom: 12px; }
+.quiz-menu-card__title { font-family: 'Press Start 2P', monospace; font-size: 9px; color: #00FF66; margin-bottom: 8px; letter-spacing: 1px; }
+.quiz-menu-card__desc { font-size: 11px; color: #888; }
+
+.quiz-question { max-width: 600px; margin: 0 auto; }
+.quiz-question__num { font-family: 'Press Start 2P', monospace; font-size: 8px; color: #555; margin-bottom: 8px; }
+.quiz-question__progress { width: 100%; height: 3px; background: #1a1a2e; border-radius: 2px; margin-bottom: 20px; }
+.quiz-question__fill { height: 100%; background: #00FF66; border-radius: 2px; transition: width 0.3s; }
+.quiz-question__text { font-size: 16px; color: #ccc; margin-bottom: 20px; line-height: 1.6; font-family: 'IBM Plex Mono', monospace; }
+.quiz-question__options { display: flex; flex-direction: column; gap: 10px; }
+.quiz-option { background: #0d0d0d; border: 1px solid #1a1a2e; border-radius: 8px; padding: 14px 16px; color: #ccc; font-size: 13px; text-align: left; cursor: pointer; transition: all 0.3s; font-family: 'IBM Plex Mono', monospace; }
+.quiz-option:hover { border-color: #00FF66; color: #00FF66; background: rgba(0,255,102,0.05); }
+
+.quiz-result { text-align: center; max-width: 600px; margin: 0 auto; }
+.quiz-result__emoji { font-size: 64px; margin-bottom: 16px; }
+.quiz-result__title { font-family: 'Press Start 2P', monospace; font-size: 14px; color: #00FF66; margin-bottom: 16px; letter-spacing: 2px; }
+.quiz-result__desc { font-size: 13px; color: #ccc; line-height: 1.6; margin-bottom: 16px; font-family: 'IBM Plex Mono', monospace; }
+.quiz-result__lore, .quiz-result__behavior { font-size: 12px; color: #888; text-align: left; margin-bottom: 12px; line-height: 1.5; font-family: 'IBM Plex Mono', monospace; }
+.quiz-result__stats { margin: 20px 0; }
+.quiz-stat { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.quiz-stat__label { font-family: 'Press Start 2P', monospace; font-size: 7px; color: #888; width: 80px; text-align: right; }
+.quiz-stat__bar { flex: 1; height: 6px; background: #1a1a2e; border-radius: 3px; }
+.quiz-stat__fill { height: 100%; background: #00FF66; border-radius: 3px; }
+.quiz-stat__val { font-family: 'Press Start 2P', monospace; font-size: 7px; color: #00FF66; width: 40px; }
+.quiz-restart { margin-top: 20px; padding: 12px 24px; background: transparent; border: 1px solid #00FF66; color: #00FF66; font-family: 'Press Start 2P', monospace; font-size: 9px; cursor: pointer; border-radius: 4px; transition: all 0.3s; }
+.quiz-restart:hover { background: rgba(0,255,102,0.1); }
+
+/* =============================================
+   SIMULATOR
+   ============================================= */
+.sim-intro { text-align: center; padding: 40px 20px; }
+.sim-intro__title { font-family: 'Press Start 2P', monospace; font-size: 18px; color: #FF2222; margin-bottom: 8px; letter-spacing: 3px; }
+.sim-intro__sub { font-family: 'Press Start 2P', monospace; font-size: 10px; color: #00FF66; margin-bottom: 16px; }
+.sim-intro__desc { font-size: 12px; color: #888; max-width: 400px; margin: 0 auto 24px; line-height: 1.6; }
+.sim-night-select { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.sim-night-btn { padding: 10px 18px; background: #0d0d0d; border: 1px solid #1a1a2e; color: #00FF66; font-family: 'Press Start 2P', monospace; font-size: 8px; cursor: pointer; border-radius: 4px; transition: all 0.3s; }
+.sim-night-btn:hover { border-color: #00FF66; box-shadow: 0 0 10px rgba(0,255,102,0.2); }
+
+.sim-office { background: #0a0a0a; border: 1px solid #1a1a2e; border-radius: 8px; overflow: hidden; }
+.sim-hud { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: rgba(0,0,0,0.9); border-bottom: 1px solid rgba(0,255,102,0.2); }
+.sim-hud-left { display: flex; gap: 10px; align-items: center; }
+.sim-time { font-family: 'Press Start 2P', monospace; font-size: 14px; color: #00FF66; }
+.sim-night-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: #666; }
+.sim-hud-right { display: flex; gap: 10px; align-items: center; }
+.sim-power-bar { width: 150px; }
+.sim-power-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: #888; margin-bottom: 4px; }
+.sim-power-fill { height: 4px; background: #00FF66; border-radius: 2px; transition: width 0.5s, background 0.5s; }
+
+.sim-office-view { padding: 20px; min-height: 300px; display: flex; flex-direction: column; justify-content: space-between; }
+.sim-office-main { text-align: center; padding: 40px; }
+.sim-office-label { font-family: 'Press Start 2P', monospace; font-size: 12px; color: #333; letter-spacing: 2px; }
+.sim-office-doors { display: flex; justify-content: space-between; }
+.sim-door-panel { display: flex; flex-direction: column; gap: 8px; }
+.sim-door-btn, .sim-light-btn { background: rgba(0,255,102,0.08); border: 1px solid rgba(0,255,102,0.2); color: #00FF66; font-family: 'Share Tech Mono', monospace; font-size: 10px; padding: 8px 12px; cursor: pointer; border-radius: 2px; transition: all 0.2s; }
+.sim-door-btn.active, .sim-light-btn.active { background: rgba(0,255,102,0.2); border-color: #00FF66; }
+
+.sim-cam-view { padding: 0; }
+.sim-cam-header { padding: 10px 20px; background: #111; font-family: 'Press Start 2P', monospace; font-size: 9px; color: #00FF66; border-bottom: 1px solid #1a1a2e; }
+.sim-cam-feed { height: 280px; background: #050505; position: relative; overflow: hidden; }
+.sim-cam-static { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,102,0.02) 2px, rgba(0,255,102,0.02) 4px); animation: staticFlicker 0.1s infinite; }
+@keyframes staticFlicker { 0% { opacity: 0.8; } 50% { opacity: 1; } 100% { opacity: 0.9; } }
+.sim-cam-anim { position: absolute; font-size: 40px; opacity: 0.7; }
+.sim-cam-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 2px; padding: 8px; background: #0a0a0a; }
+.sim-cam-cell { background: rgba(0,255,102,0.03); border: 1px solid rgba(0,255,102,0.15); padding: 6px; font-family: 'Share Tech Mono', monospace; font-size: 8px; color: #00FF66; text-align: center; cursor: pointer; border-radius: 2px; }
+.sim-cam-cell:hover, .sim-cam-cell.active { background: rgba(0,255,102,0.15); }
+
+.sim-controls { padding: 12px 20px; background: rgba(0,0,0,0.9); border-top: 1px solid rgba(0,255,102,0.2); display: flex; justify-content: center; }
+.sim-cam-toggle { background: rgba(0,255,102,0.08); border: 1px solid rgba(0,255,102,0.2); color: #00FF66; font-family: 'Share Tech Mono', monospace; font-size: 10px; padding: 8px 16px; cursor: pointer; border-radius: 2px; }
+
+.sim-gameover { text-align: center; padding: 60px 20px; }
+.sim-gameover__title { font-family: 'Press Start 2P', monospace; font-size: 16px; color: #FF2222; margin-bottom: 12px; }
+.sim-gameover__sub { font-size: 12px; color: #888; margin-bottom: 20px; }
+
+/* =============================================
+   TIMELINE FULL
+   ============================================= */
+.tfl-filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+.tfl-timeline { position: relative; padding-left: 30px; }
+.tfl-item { position: relative; margin-bottom: 20px; }
+.tfl-item__dot { position: absolute; left: -34px; top: 12px; width: 10px; height: 10px; border-radius: 50%; z-index: 2; }
+.tfl-item__connector { position: absolute; left: -30px; top: 22px; width: 2px; height: calc(100% + 20px); background: #1a1a2e; }
+.tfl-item:last-child .tfl-item__connector { display: none; }
+.tfl-item__card { background: #0d0d0d; border: 1px solid #1a1a2e; border-radius: 8px; padding: 16px; transition: all 0.3s; }
+.tfl-item__card:hover { border-color: #00FF66; }
+.tfl-item__year { font-family: 'Press Start 2P', monospace; font-size: 10px; margin-bottom: 4px; }
+.tfl-item__era { font-size: 8px; border: 1px solid; display: inline-block; padding: 2px 6px; border-radius: 3px; margin-bottom: 8px; color: #888; font-family: 'Share Tech Mono', monospace; }
+.tfl-item__title { font-family: 'Press Start 2P', monospace; font-size: 9px; color: #ccc; margin-bottom: 6px; letter-spacing: 1px; }
+.tfl-item__desc { font-size: 11px; color: #888; line-height: 1.5; margin-bottom: 8px; }
+.tfl-item__meta { display: flex; gap: 12px; }
+.tfl-item__cert { font-family: 'Press Start 2P', monospace; font-size: 7px; color: #555; }
+.tfl-item__cat { font-family: 'Press Start 2P', monospace; font-size: 7px; }
+.tfl-item__files { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.tfl-item__file { font-size: 8px; color: #555; padding: 2px 6px; background: #111; border-radius: 3px; }
