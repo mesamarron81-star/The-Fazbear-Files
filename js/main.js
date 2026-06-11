@@ -1004,8 +1004,15 @@ window.navigateToCharacters = function(fangameId) {
 };
 
 // =============================================
-// VIDEOS
+// CARD CLICK ANIMATION
 // =============================================
+document.addEventListener('pointerdown', (e) => {
+  const card = e.target.closest('.character-card, .game-card, .book-card, .video-card, .fangame-card, .db-card, .folder-card, .char-appear-card, .game-modal__char-card, .char-modal__related-card, .ar-anim-card, .hdi-anim-card, .hdi-game-card');
+  if (!card || card.classList.contains('card-click-anim')) return;
+  if (e.target.closest('a, button, .modal-close')) return;
+  card.classList.add('card-click-anim');
+  card.addEventListener('animationend', () => card.classList.remove('card-click-anim'), { once: true });
+});
 const videoData = [
   // --- JUMPSCARES ---
   { id: 'OUxQJxMQORA', title: 'FNaF 1 - Todos los Jumpscares', category: 'JUMPSCARES', desc: 'Compilacion completa de jumpscares de FNaF 1' },
@@ -2027,21 +2034,32 @@ function initModal() {
 
   closeBtn.addEventListener('click', () => {
     modal.classList.remove('active');
+    document.body.style.overflow = '';
+    if (window._savedScrollY != null) {
+      window.scrollTo({ top: window._savedScrollY, behavior: 'instant' });
+      window._savedScrollY = null;
+    }
   });
 
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
       modal.classList.remove('active');
+      document.body.style.overflow = '';
+      if (window._savedScrollY != null) {
+        window.scrollTo({ top: window._savedScrollY, behavior: 'instant' });
+        window._savedScrollY = null;
+      }
     }
   });
 }
 
 function openModal() {
   const mc = $('#modal');
+  window._savedScrollY = window.scrollY;
   mc.classList.add('active');
+  document.body.style.overflow = 'hidden';
   const inner = mc.querySelector('.modal-content') || mc.querySelector('[class*="modal"]');
   if (inner) inner.scrollTop = 0;
-  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 window._currentGallery = [];
@@ -2166,9 +2184,9 @@ window.showCharacterModal = (id) => {
         </div>
         <div class="char-modal__appearances-row">
           ${appearances.map(a => {
+            const search = a.toLowerCase();
             const matchGame = window.games ? window.games.find(g => {
               const title = g.title.toLowerCase();
-              const search = a.toLowerCase();
               return title.includes(search) || search.includes(title) ||
                      (g.id === 'fnaf-1' && (search.includes('fnaf 1') || search.includes('five nights at freddy\'s') && !search.includes('2') && !search.includes('3') && !search.includes('4') && !search.includes('world') && !search.includes('sister') && !search.includes('pizzeria') && !search.includes('ultimate') && !search.includes('vr') && !search.includes('security') && !search.includes('help wanted') && !search.includes('secret'))) ||
                      (g.id === 'fnaf-2' && (search.includes('fnaf 2') || search.includes('fna 2'))) ||
@@ -2183,20 +2201,36 @@ window.showCharacterModal = (id) => {
                      (g.id === 'help-wanted-2' && search.includes('help wanted 2')) ||
                      (g.id === 'secret-of-the-mimic' && search.includes('secret'));
             }) : null;
+
+            let matchFg = null;
+            if (!matchGame && window.fangames) {
+              matchFg = window.fangames.find(fg => {
+                const title = fg.title.toLowerCase();
+                return title.includes(search) || search.includes(title);
+              });
+            }
+
             const gId = matchGame ? matchGame.id : null;
-            const gImg = gId ? getImageUrl('games', gId) : null;
+            const fgId = matchFg ? matchFg.id : null;
+            const gImg = gId ? getImageUrl('games', gId) : (fgId ? getImageUrl('fangames', fgId) : null);
+            const isLinked = gId || fgId;
+            const clickAction = gId
+              ? `event.stopPropagation();navigateTo('games');setTimeout(()=>handleGameClick(null,'${gId}'),400);`
+              : fgId
+              ? `event.stopPropagation();navigateTo('fangames');setTimeout(()=>handleFangameClick(null,'${fgId}'),400);`
+              : '';
             return `
-              <div class="char-appear-card${gId ? ' char-appear-card--linked' : ''}" ${gId ? `onclick="event.stopPropagation();navigateTo('games');setTimeout(()=>handleGameClick(null,'${gId}'),400);"` : ''}>
+              <div class="char-appear-card${isLinked ? ' char-appear-card--linked' : ''}" ${isLinked ? `onclick="${clickAction}"` : ''}>
                 ${gImg ? `
                   <div class="char-appear-card__cover">
                     <img src="${gImg}" alt="${a}" loading="lazy" onerror="this.style.display='none'">
                     <div class="char-appear-card__scanlines"></div>
-                    ${gId ? '<div class="char-appear-card__play">▶</div>' : ''}
+                    ${isLinked ? '<div class="char-appear-card__play">▶</div>' : ''}
                   </div>
                 ` : `<div class="char-appear-card__icon">🎮</div>`}
                 <div class="char-appear-card__info">
                   <div class="char-appear-card__title">${a}</div>
-                  ${matchGame ? `<div class="char-appear-card__year">${matchGame.year}</div>` : ''}
+                  ${matchGame ? `<div class="char-appear-card__year">${matchGame.year}</div>` : matchFg ? `<div class="char-appear-card__year">${matchFg.year}</div>` : ''}
                 </div>
               </div>
             `;
