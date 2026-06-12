@@ -7381,7 +7381,6 @@ body {
 
 .nav-link:hover,
 .nav-link:focus-visible,
-.nav-dropdown:hover > .nav-trigger,
 .nav-dropdown:focus-within > .nav-trigger,
 .nav-dropdown.is-open > .nav-trigger,
 .nav-dropdown.is-active > .nav-trigger {
@@ -7392,7 +7391,6 @@ body {
   text-shadow: 0 0 10px rgba(0, 255, 102, 0.7);
 }
 
-.nav-dropdown:hover .nav-chevron,
 .nav-dropdown:focus-within .nav-chevron,
 .nav-dropdown.is-open .nav-chevron {
   color: var(--fazbear-green);
@@ -7428,7 +7426,6 @@ body {
   letter-spacing: 0.18em;
 }
 
-.nav-dropdown:hover .nav-dropdown-panel,
 .nav-dropdown:focus-within .nav-dropdown-panel,
 .nav-dropdown.is-open .nav-dropdown-panel {
   opacity: 1;
@@ -7689,10 +7686,6 @@ body {
   .nav-dropdown.is-open .nav-dropdown-panel,
   .nav-dropdown:focus-within .nav-dropdown-panel {
     display: block;
-    transform: translateY(0);
-  }
-
-  .nav-dropdown:hover .nav-dropdown-panel {
     transform: translateY(0);
   }
 
