@@ -8764,7 +8764,7 @@ body {
 
 .ar-mech-card__icon {
   width: 100%;
-  aspect-ratio: 9 / 16;
+  height: 200px;
   overflow: hidden;
   background: #111;
   display: flex;
@@ -8786,11 +8786,25 @@ body {
   transform: scale(1.05);
 }
 
+.ar-mech-card__icon--resources {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 20px;
+}
+
+.ar-mech-card__icon--resources img {
+  width: auto;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
 .ar-mech-card__title {
   font-family: 'Press Start 2P', monospace;
   font-size: 8px;
   color: #0096FF;
-  padding: 12px 10px 6px;
+  padding: 14px 10px 6px;
   letter-spacing: 1px;
 }
 
