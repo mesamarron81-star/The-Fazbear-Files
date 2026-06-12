@@ -248,7 +248,7 @@ function initNavigation() {
       e.preventDefault();
       const page = link.dataset.page;
       navigateTo(page);
-      closeNavDropdowns();
+      closeAllDropdowns();
     });
   });
 
@@ -266,7 +266,8 @@ function initNavigation() {
 }
 
 function navigateTo(page) {
-  // Hide all pages
+  closeAllDropdowns();
+
   $$('.page').forEach(p => p.classList.remove('active'));
 
   // Show target
@@ -352,19 +353,20 @@ function loadPage(page) {
   requestAnimationFrame(revealPageElements);
 }
 
+function closeAllDropdowns() {
+  $$('#main-nav .nav-dropdown').forEach(d => {
+    d.classList.remove('is-open');
+    const t = d.querySelector('.nav-trigger');
+    if (t) t.setAttribute('aria-expanded', 'false');
+  });
+  document.activeElement.blur();
+}
+
 function initNavDropdowns() {
   const dropdowns = $$('#main-nav .nav-dropdown');
   if (!dropdowns.length) return;
 
   const mql = window.matchMedia('(max-width: 850px)');
-
-  function closeAll() {
-    dropdowns.forEach(d => {
-      d.classList.remove('is-open');
-      const t = d.querySelector('.nav-trigger');
-      if (t) t.setAttribute('aria-expanded', 'false');
-    });
-  }
 
   dropdowns.forEach(dropdown => {
     const trigger = dropdown.querySelector('.nav-trigger');
@@ -374,21 +376,21 @@ function initNavDropdowns() {
       e.stopPropagation();
       if (!mql.matches) return;
       const isOpen = dropdown.classList.contains('is-open');
-      closeAll();
+      closeAllDropdowns();
       dropdown.classList.toggle('is-open', !isOpen);
       trigger.setAttribute('aria-expanded', String(!isOpen));
     });
 
     trigger.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        closeAll();
+        closeAllDropdowns();
         trigger.focus();
       }
     });
 
     dropdown.addEventListener('mouseenter', () => {
       if (mql.matches) return;
-      closeAll();
+      closeAllDropdowns();
       dropdown.classList.add('is-open');
       trigger.setAttribute('aria-expanded', 'true');
     });
@@ -402,13 +404,13 @@ function initNavDropdowns() {
 
   $$('#main-nav .nav-dropdown-link').forEach(link => {
     link.addEventListener('click', () => {
-      closeAll();
+      closeAllDropdowns();
     });
   });
 
-  document.addEventListener('click', closeAll);
+  document.addEventListener('click', closeAllDropdowns);
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeAll();
+    if (e.key === 'Escape') closeAllDropdowns();
   });
 
   updateActiveNavGroup(state.currentPage);
