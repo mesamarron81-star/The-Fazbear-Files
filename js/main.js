@@ -356,16 +356,24 @@ function initNavDropdowns() {
   const dropdowns = $$('#main-nav .nav-dropdown');
   if (!dropdowns.length) return;
 
+  const isMobile = window.matchMedia('(max-width: 850px)').matches;
+
   dropdowns.forEach(dropdown => {
     const trigger = dropdown.querySelector('.nav-trigger');
     if (!trigger) return;
 
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isOpen = dropdown.classList.contains('is-open');
-      closeNavDropdowns();
-      dropdown.classList.toggle('is-open', !isOpen);
-      trigger.setAttribute('aria-expanded', String(!isOpen));
+      if (isMobile) {
+        const isOpen = dropdown.classList.contains('is-open');
+        closeNavDropdowns();
+        dropdown.classList.toggle('is-open', !isOpen);
+        trigger.setAttribute('aria-expanded', String(!isOpen));
+      } else {
+        const link = dropdown.querySelector('.nav-dropdown-link');
+        if (link) link.click();
+        closeNavDropdowns();
+      }
     });
 
     trigger.addEventListener('keydown', (e) => {
@@ -373,16 +381,6 @@ function initNavDropdowns() {
         closeNavDropdowns();
         trigger.focus();
       }
-    });
-
-    dropdown.addEventListener('mouseenter', () => {
-      dropdowns.forEach(other => {
-        if (other !== dropdown) {
-          other.classList.remove('is-open');
-          const otherTrigger = other.querySelector('.nav-trigger');
-          if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
-        }
-      });
     });
   });
 
