@@ -356,34 +356,53 @@ function initNavDropdowns() {
   const dropdowns = $$('#main-nav .nav-dropdown');
   if (!dropdowns.length) return;
 
+  const mql = window.matchMedia('(max-width: 850px)');
+
+  function closeAll() {
+    dropdowns.forEach(d => {
+      d.classList.remove('is-open');
+      const t = d.querySelector('.nav-trigger');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+  }
+
   dropdowns.forEach(dropdown => {
     const trigger = dropdown.querySelector('.nav-trigger');
     if (!trigger) return;
 
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
+      if (!mql.matches) return;
       const isOpen = dropdown.classList.contains('is-open');
-      closeNavDropdowns();
+      closeAll();
       dropdown.classList.toggle('is-open', !isOpen);
       trigger.setAttribute('aria-expanded', String(!isOpen));
     });
 
     trigger.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        closeNavDropdowns();
+        closeAll();
         trigger.focus();
       }
     });
 
+    dropdown.addEventListener('mouseenter', () => {
+      if (mql.matches) return;
+      closeAll();
+      dropdown.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+    });
+
     dropdown.addEventListener('mouseleave', () => {
+      if (mql.matches) return;
       dropdown.classList.remove('is-open');
       trigger.setAttribute('aria-expanded', 'false');
     });
   });
 
-  document.addEventListener('click', closeNavDropdowns);
+  document.addEventListener('click', closeAll);
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeNavDropdowns();
+    if (e.key === 'Escape') closeAll();
   });
 
   updateActiveNavGroup(state.currentPage);
