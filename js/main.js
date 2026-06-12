@@ -2216,8 +2216,9 @@ window.showCharacterModal = (id) => {
   const trivia = char.trivia || [];
 
   const body = $('#modal-body');
+  const threatClass = `threat-${threat.toLowerCase().replace(/\s+/g, '-')}`;
   body.innerHTML = `
-    <div class="char-modal">
+    <div class="char-modal ${threatClass}">
 
       <div class="char-modal__hero">
         <div class="char-modal__hero-left">

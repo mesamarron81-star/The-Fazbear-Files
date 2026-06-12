@@ -5030,6 +5030,81 @@ a:hover {
   line-height: 2;
 }
 
+/* --- Threat-level accent colors for character modal --- */
+.char-modal.threat-low {
+  --modal-accent: #00FF66;
+  --modal-glow: rgba(0, 255, 102, 0.15);
+}
+.char-modal.threat-medium {
+  --modal-accent: #FFD700;
+  --modal-glow: rgba(255, 215, 0, 0.15);
+}
+.char-modal.threat-high {
+  --modal-accent: #FF8C00;
+  --modal-glow: rgba(255, 140, 0, 0.15);
+}
+.char-modal.threat-critical {
+  --modal-accent: #FF2222;
+  --modal-glow: rgba(255, 34, 34, 0.15);
+}
+.char-modal.threat-unknown,
+.char-modal.threat-n\/a {
+  --modal-accent: #7B68EE;
+  --modal-glow: rgba(123, 104, 238, 0.15);
+}
+
+/* Default fallback */
+.char-modal {
+  --modal-accent: #00FF66;
+  --modal-glow: rgba(0, 255, 102, 0.15);
+}
+
+.char-modal__title {
+  color: var(--modal-accent) !important;
+  text-shadow: 0 0 20px var(--modal-glow) !important;
+}
+
+.char-modal__info-label {
+  color: var(--modal-accent) !important;
+}
+
+.char-modal__tag--category {
+  color: var(--modal-accent) !important;
+  border-color: var(--modal-accent) !important;
+  opacity: 0.8;
+}
+
+.char-modal__thumb.active {
+  border-color: var(--modal-accent) !important;
+  box-shadow: 0 0 8px var(--modal-glow) !important;
+}
+
+.char-modal__section-title {
+  color: var(--modal-accent) !important;
+}
+
+.char-modal__section-icon {
+  color: var(--modal-accent) !important;
+}
+
+.char-modal__appear-tag {
+  border-color: var(--modal-accent) !important;
+}
+
+.char-modal__appear-tag:hover {
+  background: var(--modal-glow) !important;
+  box-shadow: 0 0 8px var(--modal-glow) !important;
+}
+
+.char-modal__trivia-list li::before {
+  color: var(--modal-accent) !important;
+}
+
+.char-modal__corners::before,
+.char-modal__corners::after {
+  border-color: var(--modal-accent) !important;
+}
+
 /* =============================================
    GALLERY
    ============================================= */
@@ -5739,12 +5814,14 @@ body::after {
   text-decoration: none;
   color: inherit;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --db-accent: #00FF66;
+  --db-glow: rgba(0, 255, 102, 0.15);
 }
 
 .db-card:hover {
-  border-color: #00FF66;
+  border-color: var(--db-accent);
   transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(0, 255, 102, 0.15);
+  box-shadow: 0 8px 32px var(--db-glow);
 }
 
 .db-card-bg {
@@ -5790,33 +5867,34 @@ body::after {
 .db-card-id {
   font-family: 'Share Tech Mono', monospace;
   font-size: 10px;
-  color: #00FF66;
+  color: var(--db-accent);
   letter-spacing: 1px;
   padding: 3px 8px;
-  border: 1px solid rgba(0, 255, 102, 0.4);
+  border: 1px solid var(--db-accent);
   background: rgba(0, 0, 0, 0.6);
+  opacity: 0.8;
 }
 
 .db-card-pulse {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--theme-primary);
-  box-shadow: 0 0 8px #00FF66;
+  background: var(--db-accent);
+  box-shadow: 0 0 8px var(--db-accent);
   animation: led-pulse 1.6s ease-in-out infinite;
 }
 
 .db-card-title {
   font-family: 'VT323', monospace;
   font-size: 1.8rem;
-  color: #00FF66;
+  color: var(--db-accent);
   letter-spacing: 3px;
   margin: 16px 0 8px;
   transition: all 0.3s;
 }
 
 .db-card:hover .db-card-title {
-  text-shadow: 0 0 12px rgba(0, 255, 102, 0.6);
+  text-shadow: 0 0 12px var(--db-glow);
   animation: glitch-text 0.3s ease-in-out;
 }
 
@@ -5840,7 +5918,7 @@ body::after {
 .db-card-count {
   font-family: 'VT323', monospace;
   font-size: 2rem;
-  color: #00FF66;
+  color: var(--db-accent);
   letter-spacing: 2px;
 }
 
@@ -5850,7 +5928,7 @@ body::after {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s;
-  background: linear-gradient(90deg, transparent 40%, rgba(0, 255, 102, 0.05) 40%, rgba(0, 255, 102, 0.05) 42%, transparent 42%);
+  background: linear-gradient(90deg, transparent 40%, var(--db-glow) 40%, var(--db-glow) 42%, transparent 42%);
 }
 
 .db-card:hover .db-card-glitch {
@@ -5873,8 +5951,8 @@ body::after {
   pointer-events: none;
   transition: opacity 0.4s;
   overflow: hidden;
-  border-top: 1px solid rgba(0,255,102,0.1);
-  border-left: 1px solid rgba(0,255,102,0.1);
+  border-top: 1px solid var(--db-glow);
+  border-left: 1px solid var(--db-glow);
 }
 
 .db-card:hover .db-card-previews {
