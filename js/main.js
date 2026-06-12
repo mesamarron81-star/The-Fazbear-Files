@@ -400,6 +400,12 @@ function initNavDropdowns() {
     });
   });
 
+  $$('#main-nav .nav-dropdown-link').forEach(link => {
+    link.addEventListener('click', () => {
+      closeAll();
+    });
+  });
+
   document.addEventListener('click', closeAll);
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeAll();
