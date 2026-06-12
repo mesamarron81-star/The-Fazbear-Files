@@ -109,6 +109,48 @@ function openCharacterFromName(value) {
 window.openCharacterFromName = openCharacterFromName;
 
 // =============================================
+// LOW-SPEC DETECTION
+// =============================================
+function detectLowSpec() {
+  // Check if user previously opted in
+  if (localStorage.getItem('lowSpec') === 'true') {
+    document.body.classList.add('low-spec');
+    return;
+  }
+
+  // Auto-detect based on hardware
+  let isLowSpec = false;
+
+  // Check navigator.hardwareConcurrency (CPU cores)
+  if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2) {
+    isLowSpec = true;
+  }
+
+  // Check deviceMemory (RAM in GB, Chrome only)
+  if (navigator.deviceMemory && navigator.deviceMemory < 4) {
+    isLowSpec = true;
+  }
+
+  // Check if user prefers reduced motion
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    isLowSpec = true;
+  }
+
+  // Check if running on mobile/tablet (lower-end devices)
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) {
+      isLowSpec = true;
+    }
+  }
+
+  if (isLowSpec) {
+    document.body.classList.add('low-spec');
+    localStorage.setItem('lowSpec', 'true');
+    console.log('[FAZBEAR FILES] Low-spec mode enabled for better performance');
+  }
+}
+
+// =============================================
 // DOM REFS
 // =============================================
 const $ = (s) => document.querySelector(s);
@@ -118,6 +160,9 @@ const $$ = (s) => document.querySelectorAll(s);
 // INIT
 // =============================================
 document.addEventListener('DOMContentLoaded', () => {
+  // Auto-detect low-end devices and enable low-spec mode
+  detectLowSpec();
+
   initLoadingScreen();
   initDate();
   initNavigation();
