@@ -2722,14 +2722,27 @@ window.showBookModal = (id) => {
         <div class="game-modal__section-header" data-text="PERSONAJES">
           <span class="game-modal__section-dot"></span> PERSONAJES
         </div>
-        <div class="game-modal__char-grid">
-          ${book.characters.slice(0, 20).map(c => `
-            <div class="game-modal__char-card">
-              <div class="game-modal__char-avatar">${c.charAt(0)}</div>
-              <div class="game-modal__char-name">${c}</div>
-            </div>
-          `).join('')}
+        <div class="game-modal__chars-grid">
+          ${book.characters.slice(0, 20).map(c => {
+            const charData = findCharacterByName(c);
+            const charId = charData ? charData.id : normalizeCharacterKey(c);
+            const charImg = charData ? getImageUrl('characters', charData.id) : getImageUrl('characters', charId);
+            const charDesc = charData ? charData.description : '';
+            return `
+              <div class="game-modal__char-card${charData ? ' game-modal__char-card--link' : ''}" ${charData ? `onclick="event.stopPropagation(); window.openCharacterFromName('${c.replace(/'/g, "\\'")}')"` : ''} title="${charDesc || c}">
+                <div class="game-modal__char-avatar">
+                  ${charImg ? `<img src="${charImg}" alt="${c}" loading="lazy" onerror="this.parentElement.innerHTML='<span class=\\'char-fallback\\'>${c.charAt(0)}</span>'">` : `<span class="char-fallback">${c.charAt(0)}</span>`}
+                </div>
+                <div class="game-modal__char-info">
+                  <div class="game-modal__char-name">${c}</div>
+                  ${charDesc ? `<div class="game-modal__char-desc">${charDesc.slice(0, 80)}${charDesc.length > 80 ? '...' : ''}</div>` : ''}
+                </div>
+                ${charData ? '<div class="game-modal__char-arrow">▸</div>' : ''}
+              </div>
+            `;
+          }).join('')}
         </div>
+        ${book.characters.length > 20 ? `<div class="game-modal__more-chars">+${book.characters.length - 20} personajes mas</div>` : ''}
       </div>
       ` : ''}
 
