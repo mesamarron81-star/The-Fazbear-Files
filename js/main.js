@@ -514,7 +514,7 @@ function renderHome() {
 
 function injectFazcoinToSections() {
   const fazcoinUrl = 'https://images.weserv.nl/?url=static.wikia.nocookie.net/freddy-fazbears-pizza/images/a/af/Alpine_ui_shop_item_coin.png';
-  $$('.page:not(#page-home)').forEach(page => {
+  $$('.page').forEach(page => {
     if (page.querySelector('.fazcoin-link')) return;
     const link = document.createElement('a');
     link.href = '#fnaf-ar';
