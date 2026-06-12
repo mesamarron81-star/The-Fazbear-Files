@@ -7343,6 +7343,12 @@ body {
 
 .nav-dropdown {
   position: relative;
+  z-index: 1;
+}
+
+.nav-dropdown:hover,
+.nav-dropdown.is-open {
+  z-index: 100;
 }
 
 .nav-trigger {

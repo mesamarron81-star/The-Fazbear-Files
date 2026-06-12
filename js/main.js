@@ -374,6 +374,16 @@ function initNavDropdowns() {
         trigger.focus();
       }
     });
+
+    dropdown.addEventListener('mouseenter', () => {
+      dropdowns.forEach(other => {
+        if (other !== dropdown) {
+          other.classList.remove('is-open');
+          const otherTrigger = other.querySelector('.nav-trigger');
+          if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
   });
 
   document.addEventListener('click', closeNavDropdowns);
@@ -2356,14 +2366,17 @@ window.showCharacterModal = (id) => {
               });
             }
 
+            const isFnaFAR = search.includes('fnaf ar') || search.includes('special delivery') || search.includes('ar: special');
             const gId = matchGame ? matchGame.id : null;
             const fgId = matchFg ? matchFg.id : null;
-            const gImg = gId ? getImageUrl('games', gId) : (fgId ? getImageUrl('fangames', fgId) : null);
-            const isLinked = gId || fgId;
+            const gImg = gId ? getImageUrl('games', gId) : (fgId ? getImageUrl('fangames', fgId) : (isFnaFAR ? 'https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/8/87/FNaF-AR-icon.png/revision/latest?cb=20200417030513' : null));
+            const isLinked = gId || fgId || isFnaFAR;
             const clickAction = gId
               ? `event.stopPropagation();navigateTo('games');setTimeout(()=>handleGameClick(null,'${gId}'),400);`
               : fgId
               ? `event.stopPropagation();navigateTo('fangames');setTimeout(()=>handleFangameClick(null,'${fgId}'),400);`
+              : isFnaFAR
+              ? `event.stopPropagation();$('#modal').classList.remove('active');navigateTo('fnaf-ar');`
               : '';
             return `
               <div class="char-appear-card${isLinked ? ' char-appear-card--linked' : ''}" ${isLinked ? `onclick="${clickAction}"` : ''}>
@@ -2376,7 +2389,7 @@ window.showCharacterModal = (id) => {
                 ` : `<div class="char-appear-card__icon">🎮</div>`}
                 <div class="char-appear-card__info">
                   <div class="char-appear-card__title">${a}</div>
-                  ${matchGame ? `<div class="char-appear-card__year">${matchGame.year}</div>` : matchFg ? `<div class="char-appear-card__year">${matchFg.year}</div>` : ''}
+                  ${matchGame ? `<div class="char-appear-card__year">${matchGame.year}</div>` : matchFg ? `<div class="char-appear-card__year">${matchFg.year}</div>` : isFnaFAR ? '<div class="char-appear-card__year">2019</div>' : ''}
                 </div>
               </div>
             `;
