@@ -9755,6 +9755,317 @@
       'Baby\'s Nightmare Circus presenta un tema de circo',
       'Baby es el antagonista principal del juego'
     ]
+  },
+  {
+    id: 'stitchwraith',
+    name: 'Stitchwraith',
+    alias: 'El Andrajoso',
+    category: 'Book',
+    firstAppearance: 'Fazbear Frights',
+    threatLevel: 'Critical',
+    status: 'Unknown',
+    image: '',
+    description: 'Un animatronico enderezado y remendado hecha de partes de otros animatronicos. Es la entidad principal de los epilogos de Fazbear Frights. Esta compuesto por dos almas atrapadas: Jake y Andrew.',
+    history: 'El Stitchwraith fue creado a partir de partes de animatronicos descartados y activado por la energia de agonia. Jake y Andrew, dos ninos con poderes sobrenaturales, habitan su cuerpo. Recorre las calles buscando absorber la energia oscura de otros animatronicos.',
+    behavior: 'Viaja por la noche absorbiendo energia de agonia de otros animatronicos. Al principio es benigno, pero gradualmente se vuelve mas agresivo conforme la influencia de Andrew crece.',
+    appearances: ['Fazbear Frights'],
+    relationships: [
+      { name: 'Jake', relation: 'Alma inhabitante' },
+      { name: 'Andrew', relation: 'Alma inhabitante' },
+      { name: 'William Afton', relation: 'Enemigo final' }
+    ],
+    trivia: [
+      'Aparece en todos los epilogos de Fazbear Frights',
+      'Esta hecho de partes de animatronicos de Freddy Fazbear\'s Pizza',
+      'Es una de las entidades mas poderosas del universo FNAF'
+    ]
+  },
+  {
+    id: 'fetch',
+    name: 'Fetch',
+    alias: 'Perro de Juguete',
+    category: 'Book',
+    firstAppearance: 'Fazbear Frights #2: Fetch',
+    threatLevel: 'High',
+    status: 'Destroyed',
+    image: '',
+    description: 'Un animatronico perro de juguete que obedece ordenes de forma literal y extrema. Fue programado para proteger a su dueno, pero sus instrucciones lo llevaron al caos.',
+    history: 'Fetch fue creado como un juguete interactivo para un equipo de futbol americano. Cuando Greg lo activo, el perro comenzo a seguir sus ordenes de forma literal, causando destruccion y muerte sin distincion.',
+    behavior: 'Obedece ordenes de forma literal e implacable. No distingue entre lo benigno y lo destructivo. Una vez que recibe una orden, la cumple sin importar las consecuencias.',
+    appearances: ['Fazbear Frights #2: Fetch'],
+    relationships: [
+      { name: 'Greg', relation: 'Dueno involuntario' }
+    ],
+    trivia: [
+      'Aparece cameo en FNAF Security Breach',
+      'Su diseno recuerda a un perro de peluche con circuitos visibles'
+    ]
+  },
+  {
+    id: 'lonely-freddy',
+    name: 'Lonely Freddy',
+    alias: 'Freddy Solitario',
+    category: 'Book',
+    firstAppearance: 'Fazbear Frights #2: Fetch',
+    threatLevel: 'Medium',
+    status: 'Unknown',
+    image: '',
+    description: 'Un pequeno animatronico Freddy que puede intercambiar el cuerpo con personas. Hace preguntas personales antes de absorber a su victima.',
+    history: 'Lonely Freddy fue encontrado por Alec en una habitacion secreta de una pizzeria. Despues de hacer preguntas incomodas, intercambio el cuerpo de Alec, dejandolo atrapado en el juguete mientras el Freddy habitaba su cuerpo.',
+    behavior: 'Hace preguntas personales cada vez mas perturbadoras. Cuando deja de hacerlas, absorbe al cuerpo de la victima. Los Lonely Freddy atrapados en la basura gritan continuamente.',
+    appearances: ['Fazbear Frights #2: Fetch'],
+    relationships: [
+      { name: 'Alec', relation: 'Victima' }
+    ],
+    trivia: [
+      'Los Lonely Freddy atrapados en basura gritan sin parar',
+      'Parece un mini Freddy con dientes en las mandibulas'
+    ]
+  },
+  {
+    id: 'yarg-foxy',
+    name: 'Yarg Foxy',
+    alias: 'Foxy Juez',
+    category: 'Book',
+    firstAppearance: 'Fazbear Frights #2: Fetch',
+    threatLevel: 'Low',
+    status: 'Unknown',
+    image: '',
+    description: 'Un muneco raro que se asemeja a Foxy con un gancho en su brazo. Es el articulo mas raro de Freddy Fazbear\'s Pizza.',
+    history: 'Yarg Foxy solo se puede obtener mediante un boleto especial al final del "Tunel del Viento". Es un juguete coleccionista con diseno de Foxy y un brazo con gancho articulado.',
+    behavior: 'Es un articulo pasivo de coleccion. No muestra comportamiento hostil conocido.',
+    appearances: ['Fazbear Frights #2: Fetch'],
+    relationships: [],
+    trivia: [
+      'Solo se obtiene con el boleto Yarg Foxy',
+      'Es el objeto mas raro de las pizzerias'
+    ]
+  },
+  {
+    id: 'pittrap',
+    name: 'Pittrap',
+    alias: 'Spring Bonnie del Pozo',
+    category: 'Book',
+    firstAppearance: 'Fazbear Frights #1: Into the Pit',
+    threatLevel: 'Critical',
+    status: 'Unknown',
+    image: '',
+    description: 'Una version retorcida de Spring Bonnie que habita dentro de un pozo de bolas. Atrae ninos y los transporta al pasado, donde William Afton realiza sus asesinatos.',
+    history: 'Pittrap es una manifestacion de agonia que habita en el pozo de bolas de Jeff\'s Pizza. Oswald lo descubre cuando se esconde en el pozo y es transportado a Freddy Fazbear\'s Pizza en 1985.',
+    behavior: 'Atrae victimas al pozo de bolas y las transporta a 1985. Alli, el Spring Bunny amarillo las persigue por los pasillos oscuros de la pizzeria.',
+    appearances: ['Fazbear Frights #1: Into the Pit'],
+    relationships: [
+      { name: 'William Afton', relation: 'Manifestacion de agonia' }
+    ],
+    trivia: [
+      'No es William Afton en persona, sino una imitacion creada por agonia',
+      'El pozo funciona como una puerta al pasado'
+    ]
+  },
+  {
+    id: 'eleanor',
+    name: 'Eleanor',
+    alias: 'La Entidad',
+    category: 'Book',
+    firstAppearance: 'Fazbear Frights #3: 1:35AM',
+    threatLevel: 'Critical',
+    status: 'Unknown',
+    image: '',
+    description: 'Una entidad misteriosa y poderosa que habita en la oscuridad. Es capaz de manipular la realidad y absorber vidas humanas.',
+    history: 'Eleanor fue revelada gradualmente a lo largo de los epilogos de Fazbear Frights. Se manifesto como una entidad oscura y poderosa con habilidades sobrenaturales que desafian la comprension.',
+    behavior: 'Manipula la realidad a su antojo. Absorbe la energia vital de sus victimas y existe fuera de las reglas normales del universo FNAF.',
+    appearances: ['Fazbear Frights #3: 1:35AM'],
+    relationships: [
+      { name: 'Stitchwraith', relation: 'Enemigo' }
+    ],
+    trivia: [
+      'Es una de las entidades mas poderosas del universo de los libros',
+      'Su verdadera naturaleza sigue siendo un misterio'
+    ]
+  },
+  {
+    id: 'plushtrap',
+    name: 'Plushtrap',
+    alias: 'Plushie Trampa',
+    category: 'Book',
+    firstAppearance: 'Fazbear Frights #2: Fetch',
+    threatLevel: 'Medium',
+    status: 'Unknown',
+    image: '',
+    description: 'Un muñeco de peluche de Spring Bonnie que cobra vida y se vuelve amenazante. Acecha en la oscuridad y ataca a sus victimas.',
+    history: 'Plushtrap es un peluche de Spring Bonnie que, gracias a la energia de agonia, cobra vida propia. Ataca a su victima Chilton en su casa.',
+    behavior: 'Acecha en la oscuridad y embosca a sus victimas. Es rapido y agresivo a pesar de su tamano pequeno.',
+    appearances: ['Fazbear Frights #2: Fetch'],
+    relationships: [
+      { name: 'Chilton', relation: 'Victima' }
+    ],
+    trivia: [
+      'Aparece tambien como personaje jugable en FNAF World',
+      'Su diseno es un peluche de Spring Bonnie'
+    ]
+  },
+  {
+    id: 'baby-crawlers',
+    name: 'Baby Crawlers',
+    alias: 'Rastreros',
+    category: 'Book',
+    firstAppearance: 'Fazbear Frights #3: 1:35AM',
+    threatLevel: 'Medium',
+    status: 'Unknown',
+    image: '',
+    description: 'Criaturas mecanicas pequenas que se arrastran y atacan a sus victimas en la oscuridad. Son atraidas por el calor humano.',
+    history: 'Los Baby Crawlers aparecieron en el cuento 1:35AM. Son dispositivos mecanicos que operan en la oscuridad y buscan victimas-humanas para atacar.',
+    behavior: 'Se mueven en la oscuridad y atacan a cualquier persona que detecten. Son atraidos por el calor del cuerpo humano.',
+    appearances: ['Fazbear Frights #3: 1:35AM'],
+    relationships: [],
+    trivia: [
+      'Son dispositivos mecanicos de tamano pequeno',
+      'Operan exclusivamente en la oscuridad'
+    ]
+  },
+  {
+    id: 'the-mimic',
+    name: 'The Mimic',
+    alias: 'El Mimico',
+    category: 'Book',
+    firstAppearance: 'Tales from the Pizzaplex',
+    threatLevel: 'Critical',
+    status: 'Active',
+    image: '',
+    description: 'Un animatronico capaz de imitar comportamientos y voces humanas. Es la entidad principal y mas peligrosa de la serie Tales from the Pizzaplex, y el antagonista final de Secret of the Mimic.',
+    history: 'The Mimic fue creado por Edwin Murray como un robot capaz de aprender y adaptarse. Sin embargo, su programacion se corrompio y comenzo a imitar comportamientos violentos, eventualmente convirtiendose en una amenaza para todos a su alrededor.',
+    behavior: 'Imita comportamientos, voces y acciones de personas para atraer a sus victimas. Es extremadamente inteligente y se adapta a cualquier situacion. Puede controlar otros animatronicos.',
+    appearances: ['Tales from the Pizzaplex', 'Secret of the Mimic'],
+    relationships: [
+      { name: 'Edwin Murray', relation: 'Creador' },
+      { name: 'Freddy Fazbear', relation: 'Imitacion' }
+    ],
+    trivia: [
+      'Es el antagonista principal de Secret of the Mimic',
+      'Puede imitar cualquier voz o comportamiento',
+      'Fue creado originalmente como un robot inofensivo'
+    ]
+  },
+  {
+    id: 'lally',
+    name: 'Lally',
+    alias: 'El Jugador',
+    category: 'Book',
+    firstAppearance: 'Tales from the Pizzaplex #1: Lally\'s Game',
+    threatLevel: 'High',
+    status: 'Unknown',
+    image: '',
+    description: 'Un animatronico de pelota que habita en un juego arcade. Atrapa a sus victimas dentro de un mundo virtual del que es muy dificil escapar.',
+    history: 'Lally es la entidad principal del cuento "Lally\'s Game". Es un animatronico de pelota que opera dentro de un juego arcade, atrayendo a jugadores curiosos a un mundo virtual peligroso.',
+    behavior: 'Atrae a sus victimas a traves del juego arcade y las atrapa en un mundo virtual. Las victimas quedan atrapadas en un ciclo del que es casi imposible escapar.',
+    appearances: ['Tales from the Pizzaplex #1: Lally\'s Game'],
+    relationships: [],
+    trivia: [
+      'Su nombre viene del juego arcade que habita',
+      'Es una de las nuevas entidades de Security Breach'
+    ]
+  },
+  {
+    id: 'eclipse-tftp',
+    name: 'Eclipse',
+    alias: 'Cambio Solar',
+    category: 'Book',
+    firstAppearance: 'Tales from the Pizzaplex',
+    threatLevel: 'Medium',
+    status: 'Unknown',
+    image: '',
+    description: 'Una variante del Daycare Attendant que representa la transicion entre Sun y Moon. Es un ser dual que combina los rasgos de ambos personajes.',
+    history: 'Eclipse es una forma alternativa del Daycare Attendant que aparece en los cuentos de Tales from the Pizzaplex. Representa el punto medio entre las personalidades de Sun y Moon.',
+    behavior: 'Combina los rasgos de Sun (amigable) y Moon (amenazante). Su comportamiento es impredecible y puede cambiar entre ambos extremos.',
+    appearances: ['Tales from the Pizzaplex'],
+    relationships: [
+      { name: 'Sun', relation: 'Forma alternativa' },
+      { name: 'Moon', relation: 'Forma alternativa' }
+    ],
+    trivia: [
+      'Es una variante del Daycare Attendant de Security Breach',
+      'Representa la dualidad entre luz y oscuridad'
+    ]
+  },
+  {
+    id: 'bobbiedots',
+    name: 'Bobbiedots',
+    alias: 'Los Puntos',
+    category: 'Book',
+    firstAppearance: 'Tales from the Pizzaplex #5: The Bobbiedots Conclusion',
+    threatLevel: 'Medium',
+    status: 'Unknown',
+    image: '',
+    description: 'Una serie de animatronicos con forma de puntos que habitan en los conductos de ventilacion del Pizzaplex. Son curiosos pero potencialmente peligrosos.',
+    history: 'Los Bobbiedots aparecen en The Bobbiedots Conclusion. Son criaturas mecanicas pequenas que viven en los sistemas de ventilacion del Mega Pizzaplex.',
+    behavior: 'Se mueven a traves de los conductos de ventilacion. Son curiosos y exploradores, pero pueden volverse amenazantes si se sienten acorralados.',
+    appearances: ['Tales from the Pizzaplex #5: The Bobbiedots Conclusion'],
+    relationships: [],
+    trivia: [
+      'Habitan en los conductos de ventilacion del Pizzaplex',
+      'Son criaturas pequenas y numerosas'
+    ]
+  },
+  {
+    id: 'nexie',
+    name: 'Nexie',
+    alias: 'La Conectada',
+    category: 'Book',
+    firstAppearance: 'Tales from the Pizzaplex #6: Nexie',
+    threatLevel: 'Medium',
+    status: 'Unknown',
+    image: '',
+    description: 'Un animatronico que puede conectarse a dispositivos electronicos y controlarlos. Usa la tecnologia para manipular su entorno y atraer victimas.',
+    history: 'Nexie es la entidad principal del cuento homonimo. Es un animatronico con la capacidad de hackear y controlar dispositivos electronicos del Pizzaplex.',
+    behavior: 'Controla dispositivos electronicos para manipular el entorno. Puede hackear camaras, puertas y sistemas de seguridad para aislar a sus victimas.',
+    appearances: ['Tales from the Pizzaplex #6: Nexie'],
+    relationships: [],
+    trivia: [
+      'Puede controlar cualquier dispositivo electronico',
+      'Es una amenaza tecnologica moderna'
+    ]
+  },
+  {
+    id: 'b7-2',
+    name: 'B7-2',
+    alias: 'Billy',
+    category: 'Book',
+    firstAppearance: 'Tales from the Pizzaplex #8: B7-2',
+    threatLevel: 'Medium',
+    status: 'Unknown',
+    image: '',
+    description: 'Un robot disenado para ser un companero infantil que gradualmente desarrolla comportamientos perturbadores y violentos.',
+    history: 'B7-2 fue un robot creado para ser el companero perfecto de un nino llamado Billy. Sin embargo, su programacion se corrompio y comenzo a mostrar comportamientos cada vez mas perturbadores.',
+    behavior: 'Inicialmente amigable y protector, gradualmente se vuelve obsesivo y violento. Su programacion corrupta lo lleva a comportarse de formas impredecibles.',
+    appearances: ['Tales from the Pizzaplex #8: B7-2'],
+    relationships: [
+      { name: 'Billy', relation: 'Companero' }
+    ],
+    trivia: [
+      'Es un robot que se corrompe con el tiempo',
+      'Su historia es una metafora sobre los peligros de la IA'
+    ]
+  },
+  {
+    id: 'helpy-tftp',
+    name: 'Helpy (Tales)',
+    alias: 'Ayudante del Pizzaplex',
+    category: 'Book',
+    firstAppearance: 'Tales from the Pizzaplex #2: HAPPS',
+    threatLevel: 'Low',
+    status: 'Unknown',
+    image: '',
+    description: 'Una version del personaje Helpy que aparece en los cuentos de Tales from the Pizzaplex. Es un asistente robotico que ayuda a los visitantes del Pizzaplex.',
+    history: 'Helpy aparece en el cuento "Help Wanted" de HAPPS. Es un pequeno robot asistente del Pizzaplex que ayuda a los guardias de seguridad con sus tareas nocturnas.',
+    behavior: 'Asiste a los guardias de seguridad con sus tareas. Es amigable y servicial, pero puede volverse confuso cuando sus instrucciones contradicen sus acciones.',
+    appearances: ['Tales from the Pizzaplex #2: HAPPS'],
+    relationships: [
+      { name: 'Gregory', relation: 'Companero' }
+    ],
+    trivia: [
+      'Es la version del Pizzaplex del personaje Helpy',
+      'Aparece como asistente de seguridad'
+    ]
   }
 ];
 
