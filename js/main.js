@@ -96,6 +96,18 @@ function findCharacterByName(value) {
   }) || null;
 }
 
+function findFangameCharacterByName(value) {
+  if (!window.characters || !value) return null;
+  const key = normalizeCharacterKey(value);
+  const fangameChars = window.characters.filter(ch => ch.category === 'Fangame');
+  return fangameChars.find(ch => {
+    const id = normalizeCharacterKey(ch.id);
+    const name = normalizeCharacterKey(ch.name);
+    const alias = normalizeCharacterKey(ch.alias || '');
+    return id === key || name === key || alias.split('-').join(' ').includes(key.split('-').join(' '));
+  }) || findCharacterByName(value);
+}
+
 function openCharacterFromName(value) {
   const char = findCharacterByName(value);
   if (!char) return false;
@@ -842,8 +854,11 @@ function renderFangames(filter = state.fangamesFilter, search = state.fangamesSe
       'Cancelled': '#FF2222'
     };
 
+    const fangameImg = getImageUrl('fangames', fg.id);
+
     return `
     <div class="fangame-card" onclick="handleFangameClick(this, '${fg.id}')">
+      ${fangameImg ? `<div class="fangame-card__img-wrap"><img class="fangame-card__img" src="${fangameImg}" alt="${fg.title}" loading="lazy" onerror="this.style.display='none'"><div class="fangame-card__img-scanlines"></div></div>` : ''}
       <div class="cam-corners"></div>
       <div class="static-overlay"></div>
       <div class="cam-scan-line"></div>
@@ -922,7 +937,8 @@ window.showFangameModal = (id) => {
       <div class="game-modal__hero">
         <div class="game-modal__hero-left">
           <div class="game-modal__img-frame">
-            <div class="game-modal__img-fallback">${fg.title.charAt(0)}</div>
+            ${(() => { const img = getImageUrl('fangames', fg.id); return img ? `<img src="${img}" alt="${fg.title}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''; })()}
+            <div class="game-modal__img-fallback" ${getImageUrl('fangames', fg.id) ? 'style="display:none"' : ''}>${fg.title.charAt(0)}</div>
             <div class="game-modal__scanlines"></div>
             <div class="game-modal__corners"></div>
           </div>
@@ -1018,7 +1034,7 @@ window.showFangameModal = (id) => {
         </div>
         <div class="game-modal__chars-grid">
           ${fg.characters.slice(0, 20).map(c => {
-            const charData = findCharacterByName(c);
+            const charData = findFangameCharacterByName(c);
             const charId = charData ? charData.id : normalizeCharacterKey(c);
             const charImg = charData ? getImageUrl('characters', charData.id) : getImageUrl('characters', charId);
             const charDesc = charData ? charData.description : '';
@@ -1794,48 +1810,53 @@ function renderFnafAR() {
     { text: 'El juego fue <strong>cancelado</strong> en febrero de 2024 y sus servidores cerraron en marzo del mismo año.' },
   ];
 
-  // Render animatronics
-  if (animGrid) {
-    animGrid.innerHTML = animatronics.map(a => {
+  // Render accordion with animatronics and their skins
+  const accordion = $('#ar-accordion');
+  if (accordion) {
+    // Group skins by base animatronic
+    const skinsByBase = {};
+    skinEvents.forEach(ev => {
+      ev.skins.forEach(s => {
+        if (!skinsByBase[s.base]) skinsByBase[s.base] = [];
+        skinsByBase[s.base].push(s);
+      });
+    });
+
+    accordion.innerHTML = animatronics.map(a => {
+      const skins = skinsByBase[a.name] || [];
       const charData = window.characters ? window.characters.find(c => c.id === a.id) : null;
       const img = getImageUrl('characters', a.id);
       return `
-        <div class="ar-anim-card" ${charData ? `onclick="event.stopPropagation();navigateTo('characters');setTimeout(()=>showCharacterModal('${a.id}'),400);"` : ''}>
-          <div class="ar-anim-card__cover">
-            ${img ? `<img src="${img}" alt="${a.name}" loading="lazy" onerror="this.style.display='none'">` : ''}
-            <div class="ar-anim-card__scanlines"></div>
+        <div class="ar-accordion__item">
+          <div class="ar-accordion__header" onclick="this.parentElement.classList.toggle('active')">
+            <div style="display:flex;align-items:center;gap:10px;">
+              ${img ? `<img src="${img}" alt="${a.name}" style="width:28px;height:28px;object-fit:contain;border-radius:4px;background:#111;">` : `<div style="width:28px;height:28px;background:#111;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Press Start 2P';font-size:10px;color:#0096FF;">${a.name.charAt(0)}</div>`}
+              <span class="ar-accordion__name">${a.name}</span>
+              <span style="font-family:'IBM Plex Mono';font-size:9px;color:#666;margin-left:4px;">${a.type}</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span style="font-family:'IBM Plex Mono';font-size:9px;color:#555;">${skins.length} skins</span>
+              <span class="ar-accordion__arrow">▼</span>
+            </div>
           </div>
-          <div class="ar-anim-card__name">${a.name}</div>
-          <div class="ar-anim-card__skin">${a.type}</div>
+          <div class="ar-accordion__content">
+            ${skins.length > 0 ? `
+              <div class="ar-accordion__skins">
+                ${skins.map(s => `
+                  <div class="ar-skin-card" title="${s.desc}">
+                    <div class="ar-skin-card__img">
+                      <img src="${s.img}" alt="${s.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'ar-skin-card__fallback\\'>${s.base.charAt(0)}</div>'">
+                      <div class="ar-skin-card__scanlines"></div>
+                    </div>
+                    <div class="ar-skin-card__name">${s.name}</div>
+                  </div>
+                `).join('')}
+              </div>
+            ` : '<div style="padding:16px;text-align:center;font-family:IBM Plex Mono;font-size:10px;color:#555;">Sin skins disponibles</div>'}
+          </div>
         </div>
       `;
     }).join('');
-  }
-
-  // Render skins grouped by event
-  if (skinsGrid) {
-    skinsGrid.innerHTML = skinEvents.map(ev => `
-      <div class="ar-skin-event">
-        <div class="ar-skin-event__header">
-          <span class="ar-skin-event__name">${ev.event}</span>
-          <span class="ar-skin-event__date">${ev.date}</span>
-        </div>
-        <div class="ar-skin-event__list">
-          ${ev.skins.map(s => `
-            <div class="ar-skin-card" title="${s.desc}">
-              <div class="ar-skin-card__img">
-                <img src="${s.img}" alt="${s.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'ar-skin-card__fallback\\'>${s.base.charAt(0)}</div>'">
-                <div class="ar-skin-card__scanlines"></div>
-              </div>
-              <div class="ar-skin-card__info">
-                <div class="ar-skin-card__name">${s.name}</div>
-                <div class="ar-skin-card__base">${s.base}</div>
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    `).join('');
   }
 
   // Render timeline

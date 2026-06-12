@@ -1246,7 +1246,7 @@ window.images = {
   },
   fangames: {
     'fnac-1': {
-      primary: 'https://upload.wikimedia.org/wikipedia/en/0/02/Five_Nights_at_Candy%27s_cover.jpg',
+      primary: 'https://m.gjcdn.net/game-screenshot/600/2224091-ufafpfhx-v4.webp',
       gallery: []
     },
     'fnac-2': {
@@ -1349,9 +1349,18 @@ window.images = {
       primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/6/61/BabysCircusNightmare_Thumbnail.png/revision/latest/scale-to-width-down/300?cb=20231030140145',
       gallery: []
     },
-    'tyke-and-sons': { primary: '', gallery: [] },
-    'trtf': { primary: '', gallery: [] },
-    'frickbears': { primary: '', gallery: [] },
+    'tyke-and-sons': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/2/29/TykeandSonsLumberCo_Thumbnail.png/revision/latest/scale-to-width-down/300?cb=20231025185721',
+      gallery: []
+    },
+    'trtf': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/5/5a/TheReturnToFreddys1Image.png/revision/latest/scale-to-width-down/300?cb=20231025185454',
+      gallery: []
+    },
+    'frickbears': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/7/79/FiveNightsatFrickbears_FreddyReference.png/revision/latest/scale-to-width-down/300?cb=20260518162507',
+      gallery: []
+    },
     'obligus-casa': {
       primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/1/13/Oblitus_Casa.png/revision/latest/scale-to-width-down/300?cb=20240219155620',
       gallery: []
@@ -1372,7 +1381,10 @@ window.images = {
       primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/b/be/GraveyardShiftatFreddys_BannerRelease.png/revision/latest/scale-to-width-down/245?cb=20240911182137',
       gallery: []
     },
-    'after-hours-cody': { primary: '', gallery: [] },
+    'after-hours-cody': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/0/01/AfterHoursatCodys_Thumbnail.png/revision/latest/scale-to-width-down/300?cb=20250516121510',
+      gallery: []
+    },
     'dormitabis': {
       primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/9/95/108410-kwyebzct-v4.png/revision/latest/scale-to-width-down/300?cb=20250531061255',
       gallery: []
@@ -1385,8 +1397,14 @@ window.images = {
       primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/b/b5/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_2022-12-02_172629438.png/revision/latest/scale-to-width-down/300?cb=20221202142640',
       gallery: []
     },
-    'fnaf-blood-gears': { primary: '', gallery: [] },
-    'fnaw-friedrichs': { primary: '', gallery: [] },
+    'fnaf-blood-gears': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/3/33/Thumbnail.png/revision/latest/scale-to-width-down/300?cb=20240616145336',
+      gallery: []
+    },
+    'fnaw-friedrichs': {
+      primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/5/5a/FNaFriedrichs_Thumbnail.png/revision/latest/scale-to-width-down/300?cb=20240616145336',
+      gallery: []
+    },
     'animators-hell': {
       primary: 'https://static.wikia.nocookie.net/the-fnaf-fan-game/images/5/52/AH_reboot.jpg/revision/latest/scale-to-width-down/300?cb=20200217222007',
       gallery: []
