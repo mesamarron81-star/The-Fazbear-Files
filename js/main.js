@@ -193,6 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCameraMap();
   initNavDropdowns();
   initScrollReveal();
+  injectFazcoinToSections();
 
   // Load page data
   loadPage('home');
@@ -509,16 +510,15 @@ function initColorCycling() {
 // =============================================
 function renderHome() {
   renderTimelineHorizontal();
-  injectFazcoin();
 }
 
-function injectFazcoin() {
+function injectFazcoinToSections() {
   const fazcoinUrl = 'https://images.weserv.nl/?url=static.wikia.nocookie.net/freddy-fazbears-pizza/images/a/af/Alpine_ui_shop_item_coin.png';
-  $$('.db-card').forEach(card => {
-    if (card.querySelector('.db-card-fazcoin')) return;
+  $$('.page:not(#page-home)').forEach(page => {
+    if (page.querySelector('.fazcoin-link')) return;
     const link = document.createElement('a');
     link.href = '#fnaf-ar';
-    link.className = 'db-card-fazcoin';
+    link.className = 'fazcoin-link';
     link.title = 'Faz-Coins — FNAF AR';
     link.innerHTML = `<img src="${fazcoinUrl}" alt="Fazcoin" width="64" height="64" loading="lazy">`;
     link.addEventListener('click', (e) => {
@@ -526,7 +526,8 @@ function injectFazcoin() {
       e.stopPropagation();
       navigateTo('fnaf-ar');
     });
-    card.appendChild(link);
+    page.style.position = 'relative';
+    page.appendChild(link);
   });
 }
 
