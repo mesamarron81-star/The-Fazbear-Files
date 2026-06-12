@@ -509,6 +509,25 @@ function initColorCycling() {
 // =============================================
 function renderHome() {
   renderTimelineHorizontal();
+  injectFazcoin();
+}
+
+function injectFazcoin() {
+  const fazcoinUrl = 'https://images.weserv.nl/?url=static.wikia.nocookie.net/freddy-fazbears-pizza/images/a/af/Alpine_ui_shop_item_coin.png';
+  $$('.db-card').forEach(card => {
+    if (card.querySelector('.db-card-fazcoin')) return;
+    const link = document.createElement('a');
+    link.href = '#fnaf-ar';
+    link.className = 'db-card-fazcoin';
+    link.title = 'Faz-Coins — FNAF AR';
+    link.innerHTML = `<img src="${fazcoinUrl}" alt="Fazcoin" width="64" height="64" loading="lazy">`;
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      navigateTo('fnaf-ar');
+    });
+    card.appendChild(link);
+  });
 }
 
 function renderTimelineHorizontal() {

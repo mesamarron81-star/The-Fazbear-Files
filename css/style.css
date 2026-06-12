@@ -6015,6 +6015,34 @@ body::after {
   100% { transform: translate(0); }
 }
 
+/* --- Database Fazcoin --- */
+.db-card-fazcoin {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 0.7;
+  transition: opacity 0.3s, transform 0.3s, filter 0.3s;
+  filter: drop-shadow(0 0 4px rgba(0,255,102,0.3));
+  pointer-events: auto;
+}
+
+.db-card-fazcoin img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.db-card-fazcoin:hover {
+  opacity: 1;
+  transform: scale(1.15) rotate(10deg);
+  filter: drop-shadow(0 0 10px rgba(255,215,0,0.7));
+}
+
 /* --- Database Footer --- */
 .cdb-footer {
   display: flex;
